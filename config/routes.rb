@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
   resources :pages, only: [ :index, :show, :profile]
-  resources :prescriptions, only: [ :index, :new, :create, :edit, :update, :destroy, :confirm]
+  resources :prescriptions, only: [ :index, :show, :new, :create, :edit, :update, :destroy, :confirm]
   resources :appointments, only: [ :index, :show, :new, :create, :edit, :update, :destroy, :confirm]
   resources :diaries, only: [ :index, :show, :new, :create]
 end

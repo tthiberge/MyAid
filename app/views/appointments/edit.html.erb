@@ -1,0 +1,9 @@
+<h1>Appointment Edit</h1>
+
+<%= simple_form_for @appointment do |f| %>
+  <%= f.date_field :date %>
+  <%= f.time_field :time %>
+  <%= f.input :doctor, collection: Doctor.all %>
+  <%= f.input :comment %>
+  <%= f.button :submit %>
+<% end %>
