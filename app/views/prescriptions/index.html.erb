@@ -1,7 +1,18 @@
 <h1>Prescriptions#index</h1>
 <p>Find me in app/views/prescriptions/index.html.erb</p>
 
+
+<% @prescriptions.each do |prescription| %>
+  <%= prescription.start_date %>
+  <%= prescription.end_date %>
+  <%= prescription.comment %>
+<% end %>
+
+
 <%#= link_to "New prescription", new_prescription_path(@prescription)%>
+
+
+
 <%# <%= @treatment.category %>
 <%# <%= @treatment.name %>
 <%# <%= @prescription.time %>
