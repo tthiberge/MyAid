@@ -9,5 +9,5 @@ class User < ApplicationRecord
   has_many :prescriptions, dependent: :destroy
   has_many :treatments, through: :prescriptions
 
-  validate :first_name, :last_name, :birthdate, :address
+  validates :first_name, :last_name, :birthdate, :address, presence: true
 end

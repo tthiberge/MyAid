@@ -1,5 +1,5 @@
 class Doctor < ApplicationRecord
   has_many :appointments
 
-  validate :name, :specialty, :address
+  validates :name, :specialty, :address, presence: true
 end
