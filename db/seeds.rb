@@ -20,7 +20,7 @@ navidoxine = Treatment.create!(name: "navidoxine", category: "pills")
 
 bandage = Treatment.create!(name: "bandage", category: "cares")
 cream = Treatment.create!(name: "skin cream on burn", category: "cares")
-bath = Treatment.create!(name: "feet_bath", category: "cares")
+bath = Treatment.create!(name: "feet bath", category: "cares")
 shampoo = Treatment.create!(name: "scalp shampoo for eczema", category: "cares")
 
 meditation = Treatment.create!(name: "meditation", category: "exercises")
@@ -65,7 +65,9 @@ maung = User.create!(
 )
 
 # Creating the prescriptions
-prescription_1 = Prescription.new(start_date: "", end_date: "", time: "", )
+prescription_1 = Prescription.new(start_date: "07/03/2023", end_date: "17/03/2023", ingestion_hour: , ingestion_minutes: )
+prescription_1.treatment = paracetamol
+prescription_1.user = theo
 
 
 puts "Seeded"
