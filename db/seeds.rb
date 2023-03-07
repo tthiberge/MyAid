@@ -31,15 +31,41 @@ physical_exercice = Treatment.create!(name: "physical exercise", category: "exer
 
 
 # Creating the users
-
-Theo = User.create!(
+theo = User.create!(
   email: "tt@gmail.com" ,
   password: "123456",
   first_name: "theo",
   last_name: "thiberge",
-  birthdate: "01/01/1979",
-  address: "68 avenue Parmentier"
+  birthdate: "01/01/1992",
+  address: "68 avenue Parmentier Paris"
 )
+joy = User.create!(
+  email: "joy@icloud.com" ,
+  password: "123456",
+  first_name: "joy",
+  last_name: "danenberg",
+  birthdate: "04/04/1993",
+  address: "12 rue saint Maur Paris"
+)
+diane = User.create!(
+  email: "diane@icloud.com" ,
+  password: "123456",
+  first_name: "diane",
+  last_name: "lesvenan",
+  birthdate: "03/03/1994",
+  address: "place de l'église Neuilly sur seine"
+)
+maung = User.create!(
+  email: "maung@icloud.com" ,
+  password: "123456",
+  first_name: "maung maung",
+  last_name: "kha",
+  birthdate: "05/06/1990",
+  address: "gare montparnasse Paris"
+)
+
+# Creating the prescriptions
+prescription_1 = Prescription.new(start_date: "", end_date: "", time: "", )
 
 
 puts "Seeded"
