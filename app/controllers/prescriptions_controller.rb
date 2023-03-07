@@ -1,18 +1,18 @@
 class PrescriptionsController < ApplicationController
   def index
-    @prescriptions = Presciption.all
+    @prescriptions = Prescription.all
   end
 
   def new
-    @prescription = Presciption.new
+    @prescription = Prescription.new
   end
 
   def create
-    @prescription = Presciption.new(prescription_params)
+    @prescription = Prescription.new(prescription_params)
   end
 
   def edit
-    @prescription = Presciption.find(params[:id])
+    @prescription = Prescription.find(params[:id])
   end
 
   def update
