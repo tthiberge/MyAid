@@ -2,7 +2,8 @@
 <p>Find me in app/views/prescriptions/new.html.erb</p>
 
 <%= simple_form_for @prescription do |f| %>
-  <%= f.input :time %>
+  <%= f.input :todo_hours %>
+  <%= f.input :todo_minutes %>
   <%= f.input :comment %>
   <%= f.button :submit %>
 <% end %>
