@@ -4,4 +4,5 @@ class Prescription < ApplicationRecord
 
   validates :start_date, :end_date, :todo_hours, :todo_minutes, presence: true
 
+  CATEGORIES = %w(pills cares exercises)
 end
