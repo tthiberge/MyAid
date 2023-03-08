@@ -67,7 +67,6 @@ maung = User.create!(
 # Creating the prescriptions
 prescription_1 = Prescription.create!(start_date: "10/03/2023", end_date: "20/03/2023", todo_hours: 12 , todo_minutes: 30, comment: "2 x 500mg - Take the pills before the main meal of the day", user: theo, treatment: paracetamol)
 
-
 prescription_2 = Prescription.create!(start_date: "07/03/2023", end_date: "17/03/2023", todo_hours: 21, todo_minutes: 00, comment: "3 x 125mg - Take the pills before going to sleep", user: theo, treatment: tylenol)
 
 prescription_3 = Prescription.create!(start_date: "02/03/2023", end_date: "22/03/2023", todo_hours: 10, todo_minutes: 0, comment: "1 x 250mg - In the morning ", user: theo, treatment: apronax)
@@ -88,6 +87,6 @@ puts "Seeded"
 
 # creating doctors
 
-doctor1 = Doctor.create(name: "John Doe", specialty: "Cardiology", address: "123 Main St", latitude: 37.7749, longitude: -122.4194)
-doctor2 = Doctor.create(name: "Jane Smith", specialty: "Pediatrics", address: "456 Elm St", latitude: 37.7749, longitude: -122.4194)
-doctor3 = Doctor.create(name: "Bob Johnson", specialty: "Dermatology", address: "789 Oak St", latitude: 37.7749, longitude: -122.4194)
+doctor1 = Doctor.create(title: "Doctor", name: "John Doe", specialty: "Cardiology", address: "123 Main St", latitude: 37.7749, longitude: -122.4194)
+doctor2 = Doctor.create(title: "Nurse", name: "Jane Smith", specialty: "Pediatrics", address: "456 Elm St", latitude: 37.7749, longitude: -122.4194)
+doctor3 = Doctor.create(title: "Professor", name: "Bob Johnson", specialty: "Dermatology", address: "789 Oak St", latitude: 37.7749, longitude: -122.4194)

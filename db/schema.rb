@@ -47,6 +47,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_08_111831) do
     t.float "longitude"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "title"
+    t.bigint "user_id", null: false
+    t.index ["user_id"], name: "index_doctors_on_user_id"
   end
 
   create_table "prescriptions", force: :cascade do |t|
@@ -93,6 +96,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_08_111831) do
   add_foreign_key "appointments", "doctors"
   add_foreign_key "appointments", "users"
   add_foreign_key "diaries", "users"
+  add_foreign_key "doctors", "users"
   add_foreign_key "prescriptions", "treatments"
   add_foreign_key "prescriptions", "users"
 end

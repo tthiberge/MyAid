@@ -1,6 +1,8 @@
 <h1>Appointment new page welcome</h1>
 <!-- simple form for new -->
 <%= simple_form_for @appointment do |f| %>
+  <%= f.input :title, html5: true %>
+
   <%= f.input :date, html5: true %>
   <!-- html 5 true means that value nil , without html 5 data will be today -->
   <%= f.input :appointment_hour, html5: true %>
