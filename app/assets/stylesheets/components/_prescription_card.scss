@@ -12,7 +12,7 @@
   border-radius: 40px;
   background-color: #ffffff;
   filter: drop-shadow(0px 4px 4px #EBEBF2);
-  height: auto;
+  height: 210px;
   padding: 44px 20px;
   margin-top: 60px;
 }
@@ -28,7 +28,6 @@
 }
 
 .card-title {
-
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -42,7 +41,7 @@
   padding: 30px;
   align-content: space-around;
   flex-wrap: nowrap;
-  width: calc(100% - 103px);
+  width: calc(100% - 78px);
 }
 
 .card h1 {
@@ -73,11 +72,11 @@
 }
 
 .circle {
-  margin-right: -10px;
+  margin-right: -25px;
   z-index: 1;
   width: 63px;
-  margin-left: 20px;
   height: 63px;
+  margin-left: 25px;
   border: solid;
   border-width: medium;
   border-color: #D7CDE3;
@@ -87,6 +86,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
+  p {
+    margin: 0;
+  }
 }
 
 .time {
@@ -117,8 +120,8 @@
   position: absolute;
   right: 126px;
   bottom: -20px;
-  width: 40px;
-  height: 40px;
+  width: 45px;
+  height: 45px;
   border-radius: 50%;
   background-color: #D7CDE3 ;
   filter: drop-shadow(0px 4px 4px #EBEBF2);
@@ -126,14 +129,17 @@
   align-items: center;
   justify-content: center;
   margin-right: 10px;
+  i {
+    font-size: 20px;
+  }
 }
 
 .action-circle-2 {
   position: absolute;
   right: 76px;
   bottom: -20px;
-  width: 40px;
-  height: 40px;
+  width: 45px;
+  height: 45px;
   border-radius: 50%;
   background-color: #D7CDE3 ;
   filter: drop-shadow(0px 4px 4px #EBEBF2);
@@ -141,14 +147,17 @@
   align-items: center;
   justify-content: center;
   margin-right: 10px;
+  i {
+    font-size: 20px;
+  }
 }
 
 .action-circle-3 {
   position: absolute;
   right: 26px;
   bottom: -20px;
-  width: 40px;
-  height: 40px;
+  width: 45px;
+  height: 45px;
   border-radius: 50%;
   background-color: #D7CDE3 ;
   filter: drop-shadow(0px 4px 4px #EBEBF2);
@@ -156,6 +165,9 @@
   align-items: center;
   justify-content: center;
   margin-right: 10px;
+  i {
+    font-size: 20px;
+  }
 }
 
 .icon-action-circle {
