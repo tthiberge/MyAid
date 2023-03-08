@@ -65,22 +65,22 @@ maung = User.create!(
 )
 
 # Creating the prescriptions
-prescription_1 = Prescription.create!(start_date: "10/03/2023", end_date: "20/03/2023", todo_hours: 12 , todo_minutes: 30, comment: "2 x 500mg - Take the pills before the main meal of the day", user: theo, treatment: paracetamol)
+prescription_1 = Prescription.create!(start_date: "10/03/2023", end_date: "20/03/2023", todo_hours: 12, todo_minutes: 30, comment: "2 x 500mg - Take the pills before the main meal of the day", user: theo, treatment: paracetamol)
 
 prescription_2 = Prescription.create!(start_date: "07/03/2023", end_date: "17/03/2023", todo_hours: 21, todo_minutes: 00, comment: "3 x 125mg - Take the pills before going to sleep", user: theo, treatment: tylenol)
 
-prescription_3 = Prescription.create!(start_date: "02/03/2023", end_date: "22/03/2023", todo_hours: 10, todo_minutes: 0, comment: "1 x 250mg - In the morning ", user: theo, treatment: apronax)
+prescription_3 = Prescription.create!(start_date: "02/03/2023", end_date: "22/03/2023", todo_hours: 10, todo_minutes: 00, comment: "1 x 250mg - In the morning ", user: theo, treatment: apronax)
 
 prescription_4 = Prescription.create!(start_date: "03/03/2023", end_date: "18/03/2023", todo_hours: 11, todo_minutes: 30, comment: "2 tablets - Take with a fair amount of water", user: theo, treatment: relaxon)
 
 prescription_5 = Prescription.create!(start_date: "15/03/2023", end_date: "17/03/2023", todo_hours: 12, todo_minutes: 30, comment: "4 x 250mg - Take during the meal", user: theo, treatment: muscadol)
 
-prescription_6 = Prescription.create!(start_date: "04/03/2023", end_date: "19/03/2023", todo_hours: 16 , todo_minutes: 0, comment: "1 x 500mg - Take in the afternoon", user: theo, treatment: targin)
+prescription_6 = Prescription.create!(start_date: "04/03/2023", end_date: "19/03/2023", todo_hours: 16, todo_minutes: 00, comment: "1 x 500mg - Take in the afternoon", user: theo, treatment: targin)
 
-prescription_7 = Prescription.create!(start_date: "03/03/2023", end_date: "18/03/2023", todo_hours: 21, todo_minutes: 0, comment: "Apply a fair amount on the burnt area before going to bed", user: theo, treatment: cream)
+prescription_7 = Prescription.create!(start_date: "03/03/2023", end_date: "18/03/2023", todo_hours: 21, todo_minutes: 00, comment: "Apply a fair amount on the burnt area before going to bed", user: theo, treatment: cream)
 
-prescription_8 = Prescription.create!(start_date: "18/03/2023", end_date: "17/03/2023", todo_hours: 19, todo_minutes: 0, comment: "During your shower, use this shampoo to ease the scalp itching for the next 48 hours", user: theo, treatment: shampoo)
+prescription_8 = Prescription.create!(start_date: "18/03/2023", end_date: "17/03/2023", todo_hours: 19, todo_minutes: 00, comment: "During your shower, use this shampoo to ease the scalp itching for the next 48 hours", user: theo, treatment: shampoo)
 
-prescription_9 = Prescription.create!(start_date: "04/03/2023", end_date: "19/03/2023", todo_hours: 14, todo_minutes: 0, comment: "Save a 1h-time slot to practice meditation to relax and accept the present time", user: theo, treatment: meditation)
+prescription_9 = Prescription.create!(start_date: "04/03/2023", end_date: "19/03/2023", todo_hours: 14, todo_minutes: 00, comment: "Save a 1h-time slot to practice meditation to relax and accept the present time", user: theo, treatment: meditation)
 
 puts "Seeded"
