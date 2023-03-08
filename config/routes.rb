@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
 #WE DELETED SOME ROUTES
   devise_for :users
+
   root to: "pages#home"
+  get '/landing', to: "pages#landing"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")

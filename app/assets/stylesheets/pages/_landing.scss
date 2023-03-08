@@ -1,0 +1,78 @@
+.landing-page {
+  background-color: light-grey;
+}
+
+.landing-banner {
+  height: 42vh;
+  width: 100%;
+  background-image: asset-url("pills-banner-my-aid-plus");
+  background-size: cover;
+  background-position: center;
+  margin: 0;
+  padding: 0
+}
+
+.container-landing {
+  padding: 20px;
+  margin: 0 5vw;
+
+    .logo-and-infos {
+      height: 41vh;
+      width: 100%;
+
+      .landing-logo {
+        width: 100%;
+        height: 39%; // Adapter en proportion ensuite
+        background-image: asset-url("my-aid-plus-logo");
+        background-size: cover;
+        background-position: center;
+      }
+
+      .landing-title{
+        text-align: center;
+        font-weight: bold;
+        color: black;
+      }
+
+      .landing-text {
+        text-align: center;
+        font-size: 13px;
+        color: grey;
+
+      }
+    }
+
+    // .landing-button{
+    //   width: 159px;
+    //   height: 65px;
+    // }
+
+    .sign-log {
+      height: 10vh;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .landing-log{
+        width: 35px;
+        height: 15px;
+        border-radius: 15px;
+        background-color: red;
+        padding-inline: 10px;
+        padding-block: 5px;
+        font-weight: 900;
+      }
+
+      .landing-register{
+        width: 35px;
+        height: 15px;
+        border-radius: 15px;
+        background-color: white;
+        padding-inline: 10px;
+        padding-block: 5px;
+        border-radius: 15px;
+        font-weight: 900;
+      }
+  }
+}
