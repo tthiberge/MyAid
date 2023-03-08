@@ -9,11 +9,11 @@ class Treatment < ApplicationRecord
     where(category: "pills")
   end
 
-  def self.cares
-    where(category: "cares")
-  end
+  # def self.cares
+  #   where(category: "cares")
+  # end
 
-  def self.exercises
-    where(category: "exercises")
-  end
+  # def self.exercises
+  #   where(category: "exercises")
+  # end
 end
