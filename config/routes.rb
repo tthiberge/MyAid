@@ -12,4 +12,5 @@ Rails.application.routes.draw do
   resources :prescriptions, only: [ :index, :new, :create, :edit, :update, :destroy, :confirm]
   resources :appointments, only: [ :index, :show, :new, :create, :edit, :update, :destroy, :confirm]
   resources :diaries, only: [ :index, :show, :new, :create]
+  get "/uikit", to: "pages#uikit"
 end

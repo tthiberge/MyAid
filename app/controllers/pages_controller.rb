@@ -4,7 +4,11 @@ class PagesController < ApplicationController
   def home
   end
 
-  def landing
 
+  def uikit
   end
+
+  def landing
+  end
+  
 end
