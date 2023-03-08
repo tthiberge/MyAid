@@ -29,15 +29,17 @@ class PrescriptionsController < ApplicationController
     end
   end
 
-  # def confirm
+  def confirm
+#  update l'instance de take_time
+# taken_date cf edit
 
-  # end
+  @prescription = Prescription.find(params[:id])
+  end
 
   def destroy
-    @ride = Ride.find(params[:id])
-    authorize @ride
-    @ride.destroy
-    redirect_to root_path, notice: "Ride successfully deleted.", status: :see_other
+    @prescription = Prescription.find(params[:id])
+    @prescription.destroy
+    redirect_to pills_path, notice: "Prescription successfully deleted.", status: :see_other
   end
 
   private
