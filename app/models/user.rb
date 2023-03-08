@@ -16,6 +16,7 @@ class User < ApplicationRecord
 
   # Pour faciliter les .pills / .cares / .exercises
   # fait appel aux méthodes self.pills/cares/exercises définies dans treatment.rb
+
   def pills
     treatments.pills
   end
@@ -33,3 +34,7 @@ end
 # Scope qui ne marchait pas car s'applique sur une méthode de classe, alors qu'on veut sur instance
 # scope :cares, -> { joins(:prescriptions).where('prescriptions.treatment.category == "cares"') }
 # scope :pills, -> { joins(:prescriptions).where('prescriptions.treatment.category == "pills"') }
+
+# def pills
+#   treatments.select { |treatment| treatment.category == "pills"}
+# end
