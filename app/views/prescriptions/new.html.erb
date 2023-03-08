@@ -2,7 +2,31 @@
 <p>Find me in app/views/prescriptions/new.html.erb</p>
 
 <%= simple_form_for @prescription do |f| %>
-  <%= f.input :time %>
-  <%= f.input :comment %>
-  <%= f.button :submit %>
+  <div class="time d-flex">
+    <%= f.input :todo_hours,
+                label: "Hour",
+                collection: %w[1 2 3 4 5 6 7 8 9 10 11 12],
+                as: :radio_buttons,
+                #as: :select, #Selectionner une heure, parmi 1 à 12 (voir si on peut mettre AM ou PM pour faciliter et faire +12 dans la db)
+                wrapper_html: {class: "m-2 d-flex w-30 flex-wrap"}
+     %>
+    <%= f.input :todo_minutes,
+                label: "On the hour or 30minutes later?",
+                # placeholder: ":00 or :30",
+                wrapper_html: {class: "m-2"},
+                collection: ["00", "30"],
+                as: :radio_buttons
+                # Choisir entre 00 et 30
+     %>
+  </div>
+  <%= f.input :comment,
+              placeholder: "Give me some details about your prescription"
+  %>
+  <%#= f.input :category,
+              as: :radio_buttons,
+              collection: PRESCRIPTION::CATEGORIES
+  %>
+
+
+  <%= f.button :submit, class: "btn-success" %>
 <% end %>

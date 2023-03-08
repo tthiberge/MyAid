@@ -8,6 +8,8 @@ class PrescriptionsController < ApplicationController
   end
 
   def create
+    @user = User.find(params[:user_id])
+    @treatment = Treatment.find()
     @prescription = Prescription.new(prescription_params)
   end
 
@@ -16,6 +18,7 @@ class PrescriptionsController < ApplicationController
   end
 
   def update
+    @user = User.find(params[:user_id])
     @prescription = Prescription.find(params[:id])
 
     if @prescription.update(prescription_params)
