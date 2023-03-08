@@ -1,0 +1,36 @@
+.container-white {
+  background-color: white;
+  border-top-right-radius: 15%;
+  border-top-left-radius: 15%;
+  padding: 15px;
+}
+
+.header-title-purple {
+  color: purple;
+  padding: 4px;
+  font-size: 26px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  i {
+    color: purple;
+    padding: 2px;
+    font-size: 28px;
+  }
+}
+
+.navbar-icons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 10vh;
+  width: 100vw;
+  padding: 10px;
+
+  i {
+    color: purple;
+    padding: 2px;
+    font-size: 28px;
+  }
+
+}
