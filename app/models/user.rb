@@ -4,7 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   has_many :appointments, dependent: :destroy
-  has_many :doctors, through: :appointments
+  has_many :doctors, dependent: :destroy
   has_many :diaries, dependent: :destroy
   has_many :prescriptions, dependent: :destroy
   has_many :treatments, through: :prescriptions
