@@ -5,6 +5,5 @@ class PagesController < ApplicationController
   end
 
   def uikit
-    
   end
 end
