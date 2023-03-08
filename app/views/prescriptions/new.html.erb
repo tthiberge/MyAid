@@ -1,41 +1,40 @@
-<h1>Prescriptions#new</h1>
-<p>Find me in app/views/prescriptions/new.html.erb</p>
+<h1>Add a new prescription</h1>
 
-<%= simple_form_for @prescription do |f| %>
-  <div class="prescription-hours">
-    <%= f.input :todo_hours,
-                label: "Type of prescriptions",
-                as: :select,
-                collection: %w[Pills Cares Exercises],
-                input_html: {
-                  class: "card-form",
-                  style: "filter: drop-shadow(0px 4px 4px #EBEBF2);"
-                },
-                label_html: {
-                  class: "",
-                  style: "filter: drop-shadow(0px 4px 4px #EBEBF2);"
-                },
-
-                #as: :select, #Selectionner une heure, parmi 1 à 12 (voir si on peut mettre AM ou PM pour faciliter et faire +12 dans la db)
-                # wrapper_html: {class: "m-2 d-flex w-30 flex-wrap"}
-     %>
-    <%#= f.input :todo_minutes,
-                label: "On the hour or 30minutes later?",
-                # placeholder: ":00 or :30",
-                wrapper_html: {class: "m-2"},
-                collection: ["00", "30"],
-                as: :radio_buttons
-                # Choisir entre 00 et 30
-     %>
-  </div>
-  <%#= f.input :comment,
-              placeholder: "Give me some details about your prescription"
-  %>
-  <%#= f.input :category,
-              as: :radio_buttons,
-              collection: PRESCRIPTION::CATEGORIES
-  %>
+<div class="container-form">
+  <%= simple_form_for @prescription do |f| %>
+    <div>
+        <%= f.input :todo_hours,
+                  label: "Type of prescriptions",
+                  as: :select,
+                  collection: %w[Pills Cares Exercises],
+                  input_html: {
+                    class: "card-form d-flex",
+                    style: "filter: drop-shadow(0px 4px 4px #EBEBF2);"
+                  },
+                  label_html: {
+                    class: "",
+                    style: "filter: drop-shadow(0px 4px 4px #EBEBF2);"
+                  }
+        %>
+    </div>
+      <%#= f.input :todo_minutes,
+                  label: "On the hour or 30minutes later?",
+                  # placeholder: ":00 or :30",
+                  wrapper_html: {class: "m-2"},
+                  collection: ["00", "30"],
+                  as: :radio_buttons
+                  # Choisir entre 00 et 30
+      %>
+    </div>
+    <%#= f.input :comment,
+                placeholder: "Give me some details about your prescription"
+    %>
+    <%#= f.input :category,
+                as: :radio_buttons,
+                collection: PRESCRIPTION::CATEGORIES
+    %>
 
 
-  <%= f.button :submit, class: "btn-success mt-3" %>
-<% end %>
+    <%= f.button :submit, class: "btn-success mt-3" %>
+  <% end %>
+</div>
