@@ -85,3 +85,9 @@ prescription_8 = Prescription.create!(start_date: "18/03/2023", end_date: "17/03
 prescription_9 = Prescription.create!(start_date: "04/03/2023", end_date: "19/03/2023", todo_hours: 14, todo_minutes: 0, comment: "Save a 1h-time slot to practice meditation to relax and accept the present time", user: theo, treatment: meditation)
 
 puts "Seeded"
+
+# creating doctors
+
+doctor1 = Doctor.create(name: "John Doe", specialty: "Cardiology", address: "123 Main St", latitude: 37.7749, longitude: -122.4194)
+doctor2 = Doctor.create(name: "Jane Smith", specialty: "Pediatrics", address: "456 Elm St", latitude: 37.7749, longitude: -122.4194)
+doctor3 = Doctor.create(name: "Bob Johnson", specialty: "Dermatology", address: "789 Oak St", latitude: 37.7749, longitude: -122.4194)

@@ -3,8 +3,9 @@
 <%= simple_form_for @appointment do |f| %>
   <%= f.input :date, html5: true %>
   <!-- html 5 true means that value nil , without html 5 data will be today -->
-  <%= f.input :time, html5: true %>
-  <%= f.input :doctor, collection: Doctor.all %>
+  <%= f.input :appointment_hour, html5: true %>
+  <%= f.input :appointment_min, html5: true %>
+  <%= f.input :doctor_id, collection: Doctor.all %>
 
   <%= f.input :comment %>
   <%= f.button :submit %>

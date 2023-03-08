@@ -1,6 +1,6 @@
 class AppointmentsController < ApplicationController
   def index
-    @appointment = Appointment.all
+    @appointments = Appointment.all
   end
 
   def show
@@ -17,7 +17,7 @@ class AppointmentsController < ApplicationController
     @appointment.user = current_user
 
     if @appointment.save
-      redirect_to appointment_path(@appointment)
+      redirect_to appointments_path
     else
       render :new, status: :unprocessable_entity
     end
@@ -31,7 +31,7 @@ class AppointmentsController < ApplicationController
     @appointment = Appointment.find(params[:id])
 
     if @appointment.update(appointment_params)
-      redirect_to appointment_path(@appointment)
+      redirect_to appointment_path(@appointments)
     else
       render :edit, status: :unprocessable_entity
     end
@@ -45,12 +45,12 @@ class AppointmentsController < ApplicationController
   def destroy
     @appointment = Appointment.find(params[:id])
     @appointment.destroy
-    redirect_to root_path, notice: "Appointment successfully deleted.", status: :see_other
+    redirect_to root_path, alert: "Appointment successfully deleted.", status: :see_other
   end
 
   private
 
   def appointment_params
-    params.require(:appointment).permit(:date, :time, :comment, :is_done)
+    params.require(:appointment).permit(:date, :appointment_hour,:appointment_min, :comment, :is_done, :doctor_id)
   end
 end

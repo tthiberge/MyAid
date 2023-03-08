@@ -1,2 +1,11 @@
 <h1>Appointments#show</h1>
 <p>Find me in app/views/appointments/show.html.erb</p>
+
+<ul>
+    <li>Appointment Date:  <%= @appointment.date %></li>
+    <li>Appoint time:  <%= @appointment.appointment_hour %>  <%= @appointment.appointment_min %> </li>
+    <li>Comment:  <%= @appointment.comment %></li>
+    <li>Finished?  <%= @appointment.is_done %></li>
+
+
+  </ul>
