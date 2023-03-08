@@ -1,0 +1,58 @@
+.card-bg-white-rounded {
+  border-radius: 40px;
+  background-color: #ffffff;
+  height: 300px;
+}
+
+.card-reminder {
+  margin: 15px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 357px;
+  border: solid;
+  border-width: medium;
+  border-color: #D7CDE3;
+  border-radius: 40px;
+  background-color: #ffffff;
+  filter: drop-shadow(0px 4px 4px #EBEBF2);
+  height: auto;
+  padding: 44px 20px;
+  margin-top: 60px;
+}
+
+.flex-prescription-title-icon {
+  // margin: 15px;
+  display: flex;
+  justify-content: flex-start;
+  gap: 10px;
+  gap: 10px 20px;
+  row-gap: 10px;
+  column-gap: 20px;
+  h1 {
+    font-size: 31px !important;
+    font-family: 'Inter', sans-serif;
+    color: #76157B;
+  }
+  h2 {
+  font-size: 18px !important;
+  margin-top: 0 !important;
+  color: #76157B !important;
+  font-family: 'Inter', sans-serif !important;
+  font-weight: 600 !important;
+  }
+}
+
+.flex-prescription-title-icon h1 {
+  size: 26px !important;
+}
+
+.content-wrap-hour-prescription {
+  // margin: 15px;
+  display: flex;
+  gap: 10px;
+  gap: 10px 20px;
+  row-gap: 10px;
+  column-gap: 20px;
+}
