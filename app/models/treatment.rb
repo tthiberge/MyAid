@@ -9,8 +9,6 @@ class Treatment < ApplicationRecord
     where(category: "pills")
   end
 
-    diane.treatment.pills
-    diane.pills
   # def self.cares
   #   where(category: "cares")
   # end
