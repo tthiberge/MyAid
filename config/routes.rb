@@ -2,6 +2,8 @@ Rails.application.routes.draw do
 #WE DELETED SOME ROUTES
   root to: "pages#home"
   devise_for :users
+
+  get '/landing', to: "pages#landing"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
@@ -16,4 +18,5 @@ Rails.application.routes.draw do
   # get "", to: "appointments#confirm"
   resources :appointments, only: [ :index, :show, :new, :create, :edit, :update, :destroy]
   resources :diaries, only: [ :index, :show, :new, :create]
+  get "/uikit", to: "pages#uikit"
 end

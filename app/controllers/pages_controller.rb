@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:home]
+  skip_before_action :authenticate_user!, only: [:landing]
 
   def home
   end
@@ -28,4 +28,11 @@ class PagesController < ApplicationController
       @exercice_prescriptions << prescription if prescription.treatment.category == "exercices"
     end
   end
+
+  def uikit
+  end
+
+  def landing
+  end
+
 end
