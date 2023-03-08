@@ -1,5 +1,6 @@
-
-
+<%= link_to "My Pills", pills_path %>
+<%= link_to "My Cares", cares_path %>
+<%= link_to "My Exercices", exercices_path %>
 
 <div class="homepage">
   <div class="home-content"></div>
@@ -7,7 +8,11 @@
     <i class="fa-solid fa-book-medical"></i>
     <i class="fa-solid fa-rocket"></i>
     <i class="fa-solid fa-handshake-angle"></i>
-    <i class="fa-solid fa-calendar-days"></i>
-    <i class="fa-solid fa-user"></i>
+    <%= link_to prescriptions_path do %>
+      <i class="fa-solid fa-calendar-days"></i>
+    <% end %>
+    <%= link_to profile_path do %>
+      <i class="fa-solid fa-user"></i>
+    <% end %>
   </div>
 </div>
