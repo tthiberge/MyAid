@@ -88,11 +88,17 @@
       .link-log{
         background: #D7CDE3;
 
+        &:hover{
+          opacity: 0.7;
+        }
       }
 
       .link-sign{
         background: white;
 
+        &:hover{
+          opacity: 0.7;
+        }
       }
   }
 }
