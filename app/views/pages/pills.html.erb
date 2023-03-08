@@ -1,0 +1,33 @@
+<div class="navbar-icons">
+  <%= link_to :back do %>
+    <i class="fa-solid fa-chevron-left"></i>
+  <% end %>
+
+  <%= link_to "#" do %>
+    <i class="fa-solid fa-calendar-days"></i>
+  <% end %>
+</div>
+
+<div class="container-white">
+  <div class="header-title-purple">
+    <div class="left-title">
+      <i class="fa-solid fa-capsules"></i>
+      <h2> My Pills</h2>
+    </div>
+  </div>
+
+  <ul>
+    <% @pill_prescriptions.each do |pill_prescription| %>
+    <li><%= pill_prescription.todo_hours %>:<%= pill_prescription.todo_minutes %></li>
+      <li><%= pill_prescription.treatment.name %> : <%= pill_prescription.comment %></li>
+    <% end %>
+  </ul>
+</div>
+
+<%#= link_to "New prescription", new_prescription_path(@prescription)%>
+
+
+<%# <%= @treatment.category %>
+<%# <%= @treatment.name %>
+<%# <%= @prescription.time %>
+<%# <%= @prescription.comment %>

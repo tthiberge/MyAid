@@ -17,17 +17,8 @@
   </div>
 
   <ul>
-    <% @user.prescriptions.each do |prescription| %>
-      <li><%= prescription.treatment.name %> : <%= prescription.comment %></li>
+    <% @exercice_prescriptions.each do |exercice_prescription| %>
+      <li><%= exercice_prescription.treatment.name %> : <%= exercice_prescription.comment %></li>
     <% end %>
   </ul>
 </div>
-
-
-<%#= link_to "New prescription", new_prescription_path(@prescription)%>
-
-
-<%# <%= @treatment.category %>
-<%# <%= @treatment.name %>
-<%# <%= @prescription.time %>
-<%# <%= @prescription.comment %>

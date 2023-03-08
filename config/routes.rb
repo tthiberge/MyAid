@@ -9,9 +9,9 @@ Rails.application.routes.draw do
   get "/profile", to: "pages#profile"
   resources :pages, only: [ :index, :show]
   # get "", to: "prescriptions#confirm"
-  get "/prescriptions/pills", to: "prescriptions#pills"
-  get "/prescriptions/cares", to: "prescriptions#cares"
-  get "/prescriptions/pills", to: "prescriptions#pills"
+  get "/pills", to: "pages#pills"
+  get "/cares", to: "pages#cares"
+  get "/exercices", to: "pages#exercices"
   resources :prescriptions, only: [ :index, :new, :create, :edit, :update, :destroy]
   # get "", to: "appointments#confirm"
   resources :appointments, only: [ :index, :show, :new, :create, :edit, :update, :destroy]
