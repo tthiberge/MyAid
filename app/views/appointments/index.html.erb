@@ -1,51 +1,55 @@
-<h1>Appointments</h1>
-
-
-  <% @appointments.each do |appointment| %>
-
-      <div class="mb-3 row">
-        <div class="col-sm-6 mb-3 mb-sm-0">
-          <div class="card">
-            <div class="card-body">
-              <h1 class="card-title"> <%=appointment.doctor.name%></h1>
-              <h1 class="card-title"> <%=appointment.date%></h1>
-              <p><%=appointment.date.strftime('%A')%></p>
-
-
-              <h2 class="card-title"><%=appointment.appointment_hour%>H <%=appointment.appointment_min%>min</h2>
-              <p class="card-text"><%=appointment.doctor.address  %> </p>
-              <p class="card-text"><%=appointment.comment  %> </p>
-                      <p class="card-text">  finsihed RDV
-
-                 <% if appointment.is_done %>
-
-            <input type="radio" name="radio-btn" />
-
-                <% else %>
-
-            <input type="radio" name="radio-btn" />
-           </p>
-                <% end %>
-              <%= link_to "See details", appointment_path(appointment) %>
-              <%= link_to "Edit Appointment",  edit_appointment_path(appointment)%>
-
-              <%= link_to "Delete RDV", appointment_path(appointment), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-dark-drivemate"  %>
-            </div>
-          </div>
-        </div>
-
-      </div>
-
-
+<div class="navbar-icons">
+  <%= link_to :back do %>
+    <i class="fa-solid fa-chevron-left"></i>
   <% end %>
 
+  <%= link_to prescriptions_path do %>
+    <i class="fa-solid fa-calendar-days"></i>
+  <% end %>
+</div>
+
+<div class="container-white">
+  <div class="header-title-purple">
+    <div class="left-title">
+      <h2><i class="fa-solid fa-capsules"></i>My Appointments</h2>
+    </div>
+  </div>
+  <% @appointments.each do |appointment| %>
+    <div class="mb-3 row">
+      <div class="col-sm-6 mb-3 mb-sm-0">
+        <div class="card">
+          <div class="card-body">
+            <h1 class="card-title"> <%=appointment.doctor.name%></h1>
+            <h1 class="card-title"> <%=appointment.date%></h1>
+            <p><%=appointment.date.strftime('%A')%></p>
 
 
+            <h2 class="card-title"><%=appointment.appointment_hour%>H <%=appointment.appointment_min%>min</h2>
+            <p class="card-text"><%=appointment.doctor.address  %> </p>
+            <p class="card-text"><%=appointment.comment  %> </p>
+                    <p class="card-text">  finsihed RDV
 
+                <% if appointment.is_done %>
 
-    <%= link_to "Add Appointment",  new_appointment_path %>
+          <input type="radio" name="radio-btn" />
 
-    <%= link_to "Edit Appointment",  edit_appointment_path(@appointments)%>
+              <% else %>
 
-<%= link_to 'Delete', appointments_path(@appointments),
+          <input type="radio" name="radio-btn" />
+          </p>
+              <% end %>
+            <%= link_to "See details", appointment_path(appointment) %>
+            <%= link_to "Edit Appointment",  edit_appointment_path(appointment)%>
+
+            <%= link_to "Delete RDV", appointment_path(appointment), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-dark-drivemate"  %>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+  <%= link_to "Add Appointment",  new_appointment_path %>
+  <%= link_to "Edit Appointment",  edit_appointment_path(@appointments)%>
+  <%= link_to 'Delete', appointments_path(@appointments),
   data: {turbo_method: :delete, turbo_confirm: 'Are you sure?'} %>
+
+</div>

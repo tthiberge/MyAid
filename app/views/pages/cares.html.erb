@@ -20,12 +20,12 @@
   </div>
   <! -- 1 -- PRESCRIPTION CARD -->
 
-  <div class="prescriptions-cards">
+  <div class="prescriptions-cards px-3">
         <! -- Card Pills/Treatment/Exercices -->
     <% @care_prescriptions.each do |care_prescription| %>
       <div class="card">
         <! -- Pour le cercle de l'heure et la card du titre -->
-        <div class="title-wrap">
+        <div class="px-3 title-wrap w-100">
 
         <! -- le cercle de l'heure -->
           <div class="circle">
@@ -56,19 +56,25 @@
           <! -- Cercle d'action 1 : cancel -->
 
           <div class="action-circle-1">
-            <i class="fa-solid fa-xmark"></i>
+            <%= link_to destroy_prescription_path(care_prescription), data: {turbo_method: :delete} do %>
+              <i class="fa-solid fa-xmark"></i>
+            <% end %>
           </div>
 
           <! -- Cercle d'action 2 : edit -->
 
           <div class="action-circle-2">
+          <%= link_to edit_prescription_path(care_prescription) do %>
             <i class="fa-solid fa-pencil"></i>
+          <% end %>
           </div>
 
           <! -- Cercle d'action 3 : check -->
 
           <div class="action-circle-3">
+          <%= link_to cares_confirm_prescription_path(care_prescription), data: { turbo_method: :patch }  do %>
             <i class="fa-solid fa-check"></i>
+          <% end %>
           </div>
 
           <! -- On ferme es cercles d'action : cancel, edit, check -->
