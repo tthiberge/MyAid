@@ -14,5 +14,14 @@
       <h2><i class="fa-solid fa-capsules"></i>My appointment of the day</h2>
     </div>
   </div>
+  <h1>  RDV with <%= @appointment.doctor.title  %>: <%= @appointment.doctor.name %> ,  <%= @appointment.doctor.specialty %> Specialty </h1>
+
+    <ul>
+      <li>Appointment Date:  <%= @appointment.date %> <%=@appointment.date.strftime('%A')%></li>
+      <li>Appoint time:  <%= @appointment.appointment_hour %>h  <%= @appointment.appointment_min %>mins </li>
+      <li>Address:  <strong><%= @appointment.doctor.address %></strong></li>
+      <li>Comment:  <%= @appointment.comment %></li>
+    </ul>
+  <%= link_to "Back to appointments", appointments_path(@appointment) %>
 
 </div>

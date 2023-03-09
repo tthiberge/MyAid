@@ -1,5 +1,4 @@
-.card {
-  /* margin: 15px; */
+.card-pill {
   position: relative;
   /* display: flex; */
   /* flex-direction: column; */
@@ -44,7 +43,7 @@
   flex-grow: 1;
 }
 
-.card h1 {
+.card-pill h1 {
   font-size: 16px;
   color: #76157B;
   font-family: 'Inter', sans-serif;

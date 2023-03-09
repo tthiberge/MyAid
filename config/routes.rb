@@ -10,6 +10,7 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
+
   get "/profile", to: "pages#profile"
   resources :pages, only: [ :index, :show]
 
@@ -26,6 +27,11 @@ Rails.application.routes.draw do
   resources :prescriptions, only: [ :destroy], as: :destroy_prescription
   # get "", to: "appointments#confirm"
   resources :appointments, only: [ :index, :show, :new, :create, :edit, :update, :destroy]
+
   resources :diaries, only: [ :index, :show, :new, :create]
+
+
   get "/uikit", to: "pages#uikit"
+  get "/uikitbis", to: "pages#uikitbis"
+  get "/uikitter", to: "pages#uikitter"
 end

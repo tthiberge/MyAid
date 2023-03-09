@@ -1,0 +1,15 @@
+<h1>Appointment Edit</h1>
+
+h1>Appointment new page welcome</h1>
+<!-- simple form for new -->
+<%= simple_form_for @appointment, html: { data: { controller: 'flatpickr' } } do |f| %>
+
+  <%= f.association :doctor, collection: Doctor.all , label: "Doctor" %>
+  <!-- html 5 true means that value nil , without html 5 data will be today -->
+  <%= f.input :date, as: :string, input_html: {class: 'd-none', data: { flatpickr_target: 'startDateInput'} } %>
+  <%= f.input :appointment_hour, collection: 8..19 %>
+  <%= f.input :appointment_min, collection: (0..45).step(15) %>
+  <%= f.input :comment %>
+  <%= f.button :submit %>
+<% end %>
+
