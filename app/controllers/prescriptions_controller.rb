@@ -9,9 +9,14 @@ class PrescriptionsController < ApplicationController
   end
 
   def create
-    @user = User.find(params[:user_id])
-    @treatment = Treatment.find()
+    @user = current_user
+    @treatment = Treatment.find_by_name("paracetamol")
     @prescription = Prescription.new(prescription_params)
+    @prescription.treatment = @treatment
+    # Il ne semble pas l'enregistrer donc mettre if save et voir pourquoi ça ne marche pas
+    @prescription.save
+    redirect_to pills_path
+    # /!\ Attention, rediriger vers le path en fonction de la category du treatment
   end
 
   def edit
@@ -19,7 +24,7 @@ class PrescriptionsController < ApplicationController
   end
 
   def update
-    @user = User.find(params[:user_id])
+    @user = current_user
     @prescription = Prescription.find(params[:id])
 
     if @prescription.update(prescription_params)
@@ -31,7 +36,7 @@ class PrescriptionsController < ApplicationController
 
   def confirm
     @prescription = Prescription.find(params[:id])
-    
+
 #  update l'instance de take_time
 # taken_date cf edit
 
@@ -46,7 +51,7 @@ class PrescriptionsController < ApplicationController
   private
 
   def prescription_params
-    params.require(:prescription).permit(:start_date, :end_date, :time, :comment)
+    params.require(:prescription).permit(:start_date, :end_date, :comment, :todo_hours, :todo_minutes, :taken_date)
   end
 
 end

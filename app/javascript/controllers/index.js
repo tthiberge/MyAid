@@ -9,3 +9,6 @@ application.register("flatpickr", FlatpickrController)
 
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
+
+import InitTomSelectController from "./init_tom_select_controller"
+application.register("init-tom-select", InitTomSelectController)

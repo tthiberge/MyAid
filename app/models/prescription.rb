@@ -1,4 +1,7 @@
 class Prescription < ApplicationRecord
+
+  attr_accessor :treatment_name
+
   belongs_to :user
   belongs_to :treatment
 

@@ -2,20 +2,7 @@
 
 <div class="container-form">
   <%= simple_form_for(@prescription) do |f| %>
-        <%#= f.input :treatment,
-                  label: "Type of prescriptions",
-                  placeholder: "Select between pills, cares or exercises",
-                  # hint: "Select between pills, cares or exercises",
-                  as: :select,
-                  collection: %w[Pills Cares Exercises], selected: "Pills",
-                  input_html: {
-                    class: "card-form",
-                    style: "filter: drop-shadow(0px 4px 4px #EBEBF2);"
-                  },
-                  wrapper_html: {
-                    class: "text-primary"
-                  }
-        %>
+
         <%= f.input :todo_hours,
                   label: "Type of prescriptions",
                   placeholder: "Select between pills, cares or exercises",
@@ -30,10 +17,29 @@
                     class: "text-primary"
                   }
         %>
+        <%# /!\ UTILE %>
+          <%# Below, pour créer treatment_id alors que ce n'est pas une colonne de prescription et donc que j'aurais normalement pas pu appeler %>
+          <%# dans le Model Prescription, on a créé un treatment_id comme attr_accessor. ça permet de créer/FORCER une colonne du simple_form %>
+
+          <%# collection: on peut appeler Treatment car associé à Prescription %>
+          <%# value_method: :id // Pas sûr de pourquoi, mais sûrement pour pouvoir appeler traitement qui est connecté à Prescription par l'id %>
+
+          <%# On initialise TOM SELECT, un plug-in JavaScript stylé et très utile qui permet de fairre un autocomplete dans un search + dropdown + plusieurs options customizables %>
+
+        <%= f.input :treatment_id,
+                    label: false,
+                    as: :select,
+                    prompt: "Select your treatment ⬇️",
+                    selected: @prescription.treatment.present? ? @prescription.treatment.id : nil,
+                    input_html: {id: 'treatment-select', data: {controller: 'init-tom-select'}},
+                    collection: Treatment.all.order(:name),
+                    value_method: :id
+        %>
         <%= f.input :start_date,
                   label: "Starting date",
                   # hint: "If your treatment spans over multiple days, enter a starting date",
                   as: :date,
+                  html5:true,
                   collection: %w[Pills Cares Exercises],
                   wrapper_html: {
                       class: "text-primary"
@@ -47,6 +53,7 @@
                   label: "End date",
                   # hint: "If your treatment spans over multiple days, enter an end date",
                   as: :date,
+                  html5:true,
                   collection: %w[Pills Cares Exercises],
                   wrapper_html: {
                       class: "text-primary"
