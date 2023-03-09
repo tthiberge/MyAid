@@ -1,32 +1,123 @@
-<h1>Prescriptions#new</h1>
-<p>Find me in app/views/prescriptions/new.html.erb</p>
+<h1 classs="title">Add a new prescription</h1>
 
-<%= simple_form_for @prescription do |f| %>
-  <div class="time d-flex">
-    <%= f.input :todo_hours,
-                label: "Hour",
-                collection: %w[1 2 3 4 5 6 7 8 9 10 11 12],
+<div class="container-form">
+  <%= simple_form_for(@prescription) do |f| %>
+        <%#= f.input :treatment,
+                  label: "Type of prescriptions",
+                  placeholder: "Select between pills, cares or exercises",
+                  # hint: "Select between pills, cares or exercises",
+                  as: :select,
+                  collection: %w[Pills Cares Exercises], selected: "Pills",
+                  input_html: {
+                    class: "card-form",
+                    style: "filter: drop-shadow(0px 4px 4px #EBEBF2);"
+                  },
+                  wrapper_html: {
+                    class: "text-primary"
+                  }
+        %>
+        <%= f.input :todo_hours,
+                  label: "Type of prescriptions",
+                  placeholder: "Select between pills, cares or exercises",
+                  # hint: "Select between pills, cares or exercises",
+                  as: :radio_buttons,
+                  collection: %w[Pills Cares Exercises], selected: "Pills",
+                  input_html: {
+                    class: "card-form",
+                    style: "filter: drop-shadow(0px 4px 4px #EBEBF2);"
+                  },
+                  wrapper_html: {
+                    class: "text-primary"
+                  }
+        %>
+        <%= f.input :start_date,
+                  label: "Starting date",
+                  # hint: "If your treatment spans over multiple days, enter a starting date",
+                  as: :date,
+                  collection: %w[Pills Cares Exercises],
+                  wrapper_html: {
+                      class: "text-primary"
+                  }, # Change la couleur du label
+                  input_html: {
+                    class: "card-form",
+                    # Change la couleur des inputs + bk-white + filter shadow
+                  }
+        %>
+        <%= f.input :end_date,
+                  label: "End date",
+                  # hint: "If your treatment spans over multiple days, enter an end date",
+                  as: :date,
+                  collection: %w[Pills Cares Exercises],
+                  wrapper_html: {
+                      class: "text-primary"
+                  }, # Change la couleur du label
+                  input_html: {
+                    class: "card-form",
+                    # Change la couleur des inputs + bk-white + filter shadow
+                  }
+        %>
+        <div class=" hours-and-minutes">
+          <%= f.input :todo_hours,
+                    label: "Time",
+                    hint: "Select the time",
+                    as: :select, # as: :time pour selectionner autant d'heures et minutes qu'on veut!!
+                    collection: Prescription::TIMES, selected: "7:30",
+                    wrapper_html: {
+                        class: "text-primary"
+                    }, # Change la couleur du label
+                    input_html: {
+                      class: "card-form",
+                      # Change la couleur des inputs + bk-white + filter shadow
+                    }
+          %>
+          <%= f.input :todo_minutes,
+                    label: "Morning or afternoon?",
+                    placeholder: "Select between pills, cares or exercises",
+                    # hint: "Select between pills, cares or exercises",
+                    as: :radio_buttons,
+                    collection: %w[AM PM],
+                    input_html: {
+                      class: "card-form",
+                      style: "filter: drop-shadow(0px 4px 4px #EBEBF2);"
+                    },
+                    wrapper_html: {
+                      class: "text-primary"
+                    }
+          %>
+        </div>
+
+        <%= f.input :comment,
+                  label: "Comment",
+                  hint: "Describe any information that would be useful for you when engaging in the treatment (dosage, technics, motivation prompt, ...)",
+                  placeholder: "2 x 150mg before each meal or You can do it, John!",
+                  as: :text,
+                  collection: %w[Pills Cares Exercises],
+                  wrapper_html: {
+                      class: "text-primary"
+                  }, # Change la couleur du label
+                  input_html: {
+                    class: "card-form",
+                    # Change la couleur des inputs + bk-white + filter shadow
+                  }
+        %>
+<%#= f.input :todo_minutes,
+                  label: "On the hour or 30minutes later?",
+                  # placeholder: ":00 or :30",
+                  wrapper_html: {class: "m-2"},
+                  collection: ["00", "30"],
+                  as: :radio_buttons
+                  # Choisir entre 00 et 30
+      %>
+    <%= f.button :submit, class: "btn-primary mt-3" %>
+    </div>
+    <%#= f.input :comment,
+                placeholder: "Give me some details about your prescription"
+    %>
+    <%#= f.input :category,
                 as: :radio_buttons,
-                #as: :select, #Selectionner une heure, parmi 1 à 12 (voir si on peut mettre AM ou PM pour faciliter et faire +12 dans la db)
-                wrapper_html: {class: "m-2 d-flex w-30 flex-wrap"}
-     %>
-    <%= f.input :todo_minutes,
-                label: "On the hour or 30minutes later?",
-                # placeholder: ":00 or :30",
-                wrapper_html: {class: "m-2"},
-                collection: ["00", "30"],
-                as: :radio_buttons
-                # Choisir entre 00 et 30
-     %>
-  </div>
-  <%= f.input :comment,
-              placeholder: "Give me some details about your prescription"
-  %>
-  <%#= f.input :category,
-              as: :radio_buttons,
-              collection: PRESCRIPTION::CATEGORIES
-  %>
+                collection: PRESCRIPTION::CATEGORIES
+    %>
 
 
-  <%= f.button :submit, class: "btn-success" %>
-<% end %>
+  <% end %>
+</div>
