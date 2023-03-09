@@ -1,5 +1,5 @@
 <div class="navbar-icons">
-  <%= link_to :back do %>
+  <%= link_to :home do %>
     <i class="fa-solid fa-chevron-left"></i>
   <% end %>
 
@@ -23,12 +23,11 @@
   </div>
 
   <div class="day-of-prescription">
-    <p><strong>22 February</strong> 2023</p>
-  </div>
+    <p><strong><%= Date.today.strftime("%A - %B, %d %Y") %></strong></p>  </div>
   <! -- 1 -- PRESCRIPTION CARD -->
 
   <div class="prescriptions-cards px-3">
-        <! -- Card Pills/Treatment/Exercices -->
+        <! -- Card Pills/Treatment/Exercises -->
     <% @exercise_prescriptions.each do |exercise_prescription| %>
       <div class="card-pill">
         <! -- Pour le cercle de l'heure et la card du titre -->
@@ -64,7 +63,7 @@
           , turbo_confirm: "Are you sure?"-->
 
           <div class="action-circle-1">
-            <%= link_to destroy_prescription_path(exercice_prescription), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
+            <%= link_to destroy_prescription_path(exercise_prescription), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
               <i class="fa-solid fa-xmark"></i>
             <% end %>
           </div>

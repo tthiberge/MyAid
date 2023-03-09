@@ -1,5 +1,7 @@
 <h1 classs="title">Add a new prescription</h1>
 
+  <%= link_to "Back to the previous page", :back, html: {class: "log-out-right"}  %>
+
 <div class="container-form">
   <%= simple_form_for(@prescription) do |f| %>
 
@@ -36,7 +38,7 @@
                     value_method: :id
         %>
         <%= f.input :start_date,
-                  label: "Starting date",
+                  label: "Start date",
                   # hint: "If your treatment spans over multiple days, enter a starting date",
                   as: :date,
                   html5:true,
@@ -64,11 +66,12 @@
                   }
         %>
         <div class=" hours-and-minutes">
-          <%= f.input :todo_hours,
+          <%= f.input :time,
                     label: "Time",
+                    required: true,
                     hint: "Select the time",
                     as: :select, # as: :time pour selectionner autant d'heures et minutes qu'on veut!!
-                    collection: Prescription::TIMES, selected: "7:30",
+                    collection: Prescription::TIMES, selected: "00:00",
                     wrapper_html: {
                         class: "text-primary"
                     }, # Change la couleur du label
@@ -77,7 +80,8 @@
                       # Change la couleur des inputs + bk-white + filter shadow
                     }
           %>
-          <%= f.input :todo_minutes,
+          <%= f.input :day_half,
+                    required: true,
                     label: "Morning or afternoon?",
                     placeholder: "Select between pills, cares or exercises",
                     # hint: "Select between pills, cares or exercises",
