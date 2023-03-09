@@ -1,5 +1,5 @@
 <div class="navbar-icons">
-  <%= link_to :back do %>
+  <%= link_to :home do %>
     <i class="fa-solid fa-chevron-left"></i>
   <% end %>
 
@@ -23,8 +23,7 @@
   </div>
 
   <div class="day-of-prescription">
-    <p><strong>22 February</strong> 2023</p>
-  </div>
+    <p><strong><%= Date.today.strftime("%A - %B, %d %Y") %></strong></p>  </div>
   <! -- 1 -- PRESCRIPTION CARD -->
 
   <div class="prescriptions-cards px-3">
@@ -68,7 +67,8 @@
             <% end %>
           </div>
 
-          <! -- Cercle d'action 2 : edit -->
+          <! -- Cercle d'action 2 : edit
+          , turbo_confirm: "Are you sure?"-->
 
           <div class="action-circle-2">
           <%= link_to edit_prescription_path(care_prescription) do %>

@@ -1,5 +1,5 @@
 <div class="navbar-icons">
-  <%= link_to :back do %>
+  <%= link_to :home do %>
     <i class="fa-solid fa-chevron-left"></i>
   <% end %>
 
@@ -23,12 +23,21 @@
   </div>
 
   <div class="day-of-prescription">
-    <p><strong>22 February</strong> 2023</p>
+    <p><strong><%= Date.today.strftime("%A - %B, %d %Y") %></strong></p>
   </div>
   <! -- 1 -- PRESCRIPTION CARD -->
 
   <div class="prescriptions-cards px-3">
         <! -- Card Pills/Treatment/Exercices -->
+
+    <%# @pill_prescriptions
+    .where((start_date..end_date).include?(Date.today))
+    .order(:todo_hours, :todo_minutes)
+    .each do |pill_prescription| %>
+
+    <%# Partie du HAUT de la page aura en plus .where(taken_date == Date.today)  %>
+    <%# Partie du BAS de la page aura en plus .where(taken_date != Date.today)  %>
+
     <% @pill_prescriptions.each do |pill_prescription| %>
       <div class="card-pill">
         <! -- Pour le cercle de l'heure et la card du titre -->
@@ -78,11 +87,20 @@
 
           <! -- Cercle d'action 3 : check -->
 
+          <button type=submit style="background: transparent; border: none">
           <div class="action-circle-3">
-          <%= link_to pills_confirm_prescription_path(pill_prescription), data: { turbo_method: :patch }  do %>
-            <i class="fa-solid fa-check"></i>
-          <% end %>
+          <%#= link_to pills_confirm_prescription_path(pill_prescription), data: { turbo_method: :patch }  do %>
+            <%# <i class="fa-solid fa-check"></i> %>
+          <%# end %>
+              <i class="fa-solid fa-check"></i>
+              <%= simple_form_for(pill_prescription) do |f| %>
+                <% f.input :taken_date,
+                           as: :hidden,
+                           value: Date.today
+                %>
+              <% end %>
           </div>
+          </button>
 
           <! -- On ferme es cercles d'action : cancel, edit, check -->
           </div>
