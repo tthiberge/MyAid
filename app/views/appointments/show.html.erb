@@ -1,11 +1,18 @@
 <h1>Appointments#show</h1>
-<p>Find me in app/views/appointments/show.html.erb</p>
 
-<ul>
-    <li>Appointment Date:  <%= @appointment.date %></li>
-    <li>Appoint time:  <%= @appointment.appointment_hour %>  <%= @appointment.appointment_min %> </li>
-    <li>Comment:  <%= @appointment.comment %></li>
-    <li>Finished?  <%= @appointment.is_done %></li>
+  <p>Find me in app/views/appointments/show.html.erb</p>
+      <h1>  RDV with <%= @appointment.doctor.title  %>: <%= @appointment.doctor.name %> ,  <%= @appointment.doctor.specialty %> Specialty </h1>
+
+        <ul>
+          <li>Appointment Date:  <%= @appointment.date %> <%=@appointment.date.strftime('%A')%></li>
+          <li>Appoint time:  <%= @appointment.appointment_hour %>h  <%= @appointment.appointment_min %>mins </li>
+          <li>Address:  <strong><%= @appointment.doctor.address %></strong></li>
+
+          <li>Comment:  <%= @appointment.comment %></li>
 
 
-  </ul>
+
+        </ul>
+
+
+  <%= link_to "Back to appointments", appointments_path(@appointment) %>

@@ -8,11 +8,28 @@
           <div class="card">
             <div class="card-body">
               <h1 class="card-title"> <%=appointment.doctor.name%></h1>
+              <h1 class="card-title"> <%=appointment.date%></h1>
+              <p><%=appointment.date.strftime('%A')%></p>
+
+
               <h2 class="card-title"><%=appointment.appointment_hour%>H <%=appointment.appointment_min%>min</h2>
-              <p class="card-text"><%=appointment.comment  %></p>
-                <p class="card-text">Finshed appointment <%=appointment.is_done%>
+              <p class="card-text"><%=appointment.doctor.address  %> </p>
+              <p class="card-text"><%=appointment.comment  %> </p>
+                      <p class="card-text">  finsihed RDV
+
+                 <% if appointment.is_done %>
+
+            <input type="radio" name="radio-btn" />
+
+                <% else %>
+
+            <input type="radio" name="radio-btn" />
+           </p>
+                <% end %>
               <%= link_to "See details", appointment_path(appointment) %>
-                <%= link_to "Delete RDV", appointments_path(@appointment), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-dark-drivemate"%>
+              <%= link_to "Edit Appointment",  edit_appointment_path(appointment)%>
+
+              <%= link_to "Delete RDV", appointment_path(appointment), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-dark-drivemate"  %>
             </div>
           </div>
         </div>
@@ -29,3 +46,6 @@
     <%= link_to "Add Appointment",  new_appointment_path %>
 
     <%= link_to "Edit Appointment",  edit_appointment_path(@appointments)%>
+
+<%= link_to 'Delete', appointments_path(@appointments),
+  data: {turbo_method: :delete, turbo_confirm: 'Are you sure?'} %>
