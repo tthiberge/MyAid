@@ -86,11 +86,11 @@ prescription_9 = Prescription.create!(start_date: "04/03/2023", end_date: "19/03
 
 # creating doctors
 
-doctor1 = Doctor.create!(title: "Doctor", name: "John Doe", specialty: "Cardiology", address: "26 rue pradier paris", latitude: 37.7749, longitude: -122.4194, user: maung)
-doctor2 = Doctor.create!(title: "Nurse", name: "Jane Smith", specialty: "Pediatrics", address: "3 rue jean robert Paris", latitude: 37.7749, longitude: -122.4194, user: maung)
-doctor3 = Doctor.create!(title: "Professor", name: "Bob Johnson", specialty: "Dermatology", address: "51 rue sedaine Paris", latitude: 37.7749, longitude: -122.4194, user: maung)
+doctor1 = Doctor.create!(title: "Doctor", name: "John Doe", specialty: "Cardiology", address: "26 rue pradier paris", latitude: 37.7749, longitude: -122.4194, user: theo)
+doctor2 = Doctor.create!(title: "Nurse", name: "Jane Smith", specialty: "Pediatrics", address: "3 rue jean robert Paris", latitude: 37.7749, longitude: -122.4194, user: theo)
+doctor3 = Doctor.create!(title: "Professor", name: "Bob Johnson", specialty: "Dermatology", address: "51 rue sedaine Paris", latitude: 37.7749, longitude: -122.4194, user: theo)
 
-appointment1 = Appointment.create(title: "Doctor", date: Date.parse('11/12/2023'), comment: "Checkup", user: user1, doctor: doctor1, appointment_hour: 10, appointment_min: 30)
-appointment2 = Appointment.create(title: "Nurse", date: Date.parse('03/05/2023'), comment: "Checkup", user: user2, doctor: doctor3, appointment_hour: 10, appointment_min: 30)
+appointment1 = Appointment.create(date: Date.parse('11/12/2023'), comment: "Checkup", user: theo , doctor: doctor1, appointment_hour: 10, appointment_min: 30)
+appointment2 = Appointment.create(date: Date.parse('03/05/2023'), comment: "Checkup", user: theo, doctor: doctor3, appointment_hour: 10, appointment_min: 30)
 
 puts "Seeded"
