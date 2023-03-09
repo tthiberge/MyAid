@@ -3,7 +3,7 @@
 }
 
 .landing-banner {
-  height: 42vh;
+  height: 40vh;
   width: 100%;
   background-image: asset-url("pills-banner-my-aid-plus");
   background-size: cover;
@@ -13,92 +13,86 @@
 }
 
 .container-landing {
-  padding: 20px;
-  margin: 0 5vw;
+  padding: 30px;
 
-    .logo-and-infos {
-      height: 41vh;
-      width: 100%;
+  .logo-and-infos {
+    width: 100%;
 
-      .landing-logo {
-        width: 100%;
-        height: 39%; // Adapter en proportion ensuite
-        background-image: asset-url("my-aid-plus-logo");
-        background-size: cover;
-        background-position: center;
-      }
-
-      .landing-title{
-        text-align: center;
-        font-weight: bold;
-        color: black;
-      }
-
-      .landing-text {
-        text-align: center;
-        font-size: 13px;
-        color: grey;
-
-      }
+    .landing-logo {
+     height: 100px;
+     background-image: url("my-aid-plus-logo.png");
+     background-size: contain;
+     background-position: center;
+     background-repeat: no-repeat;
+     margin-bottom: 15px;
     }
+
+    .landing-title{
+      text-align: center;
+      font-weight: bold;
+      color: black;
+      font-family: 'Inter', sans-serif;
+      font-weight: 900;
+      font-size: 30px;
+    }
+
+    .landing-text {
+      text-align: center;
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      color: grey;
+
+    }
+  }
 
     // .landing-button{
     //   width: 159px;
     //   height: 65px;
     // }
 
-    .sign-log {
-      height: 10vh;
-      width: 100%;
+  .sign-log {
+    height: 15vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .landing-link{
+      display: block;
+      width: 50%;
+      max-width: 200px;
+      height: 60px;
+      text-align: center;
+      border-radius: 15px;
+      margin-inline: 5px;
+      font-family: 'Inter', sans-serif;
+      font-size: 22px;
+
       display: flex;
       justify-content: center;
       align-items: center;
+    }
 
-      // .landing-log{
-      //   width: 35px;
-      //   height: 15px;
-      //   border-radius: 15px;
-      //   background-color: red;
-      //   padding-inline: 10px;
-      //   padding-block: 5px;
-      //   font-weight: 900;
-      // }
+    .link-log{
+      background: #D7CDE3;
 
-      // .landing-register{
-      //   width: 35px;
-      //   height: 15px;
-      //   border-radius: 15px;
-      //   background-color: white;
-      //   padding-inline: 10px;
-      //   padding-block: 5px;
-      //   border-radius: 15px;
-      //   font-weight: 900;
-      // }
-
-      .landing-link{
-        display: block;
-        padding-inline: 40px;
-        padding-block: 16px;
-        width: 43vw;
-        text-align: center;
-        border-radius: 15px;
-        margin-inline: 1px;
+      &:hover{
+        opacity: 0.7;
       }
+    }
 
-      .link-log{
-        background: #D7CDE3;
+    .link-sign{
+      background: white;
 
-        &:hover{
-          opacity: 0.7;
-        }
+      &:hover{
+        opacity: 0.7;
       }
-
-      .link-sign{
-        background: white;
-
-        &:hover{
-          opacity: 0.7;
-        }
-      }
+    }
+  }
+  .log-out-right {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    padding: 10px;
   }
 }

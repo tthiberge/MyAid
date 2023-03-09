@@ -17,10 +17,10 @@ Rails.application.routes.draw do
   patch "/pills/confirm/:id", to: "prescriptions#confirm", as: :pills_confirm_prescription
 
   get "/cares", to: "pages#cares"
-  patch "/cares/confirm/:id", to: "prescriptions#confirm"
+  patch "/cares/confirm/:id", to: "prescriptions#confirm", as: :cares_confirm_prescription
 
   get "/exercices", to: "pages#exercices"
-  patch "/exercices/confirm/:id", to: "prescriptions#confirm"
+  patch "/exercices/confirm/:id", to: "prescriptions#confirm", as: :exercices_confirm_prescription
 
   resources :prescriptions, only: [ :index, :new, :create, :edit, :update]
   resources :prescriptions, only: [ :destroy], as: :destroy_prescription

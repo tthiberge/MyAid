@@ -1,30 +1,35 @@
 <div class="landing-page">
-    <div class="landing-banner">
-    </div>
+  <div class="landing-banner">
+  </div>
 
-    <div class="container-landing">
+  <div class="container-landing">
     <div class="logo-and-infos">
       <div class="landing-logo">
-
       </div>
+
       <div class="landing-title">
         <h3 style="color: #464444;">Your recovery <br>all under control</h3>
       </div>
+
       <div class="landing-text">
         <p>We take care of your recovery organization. Add your prescriptions (pills, treatments, exercices) and your appointments (nurse, surgeon, doctor). We take care of the rest. Not feeling good, have a look to your daily boost !</p>
       </div>
     </div>
-    <div class="sign-log">
-      <div class="landing-log">
+
+    <% if current_user == nil %>
+      <div class="sign-log">
         <%= link_to new_user_session_path, class: "text-decoration-none landing-link link-log" do %>
           <h3 style="color: purple; font-weight: bold;">Log in</h3>
         <% end %>
-      </div>
-      <div class="landing-register" >
+
         <%= link_to new_user_registration_path, class: "text-decoration-none landing-link link-sign"  do %>
           <h3 style="color: #464444; font-weight: bold;" >Register</h3>
         <% end %>
       </div>
-    </div>
+    <% else %>
+      <div class="log-out-right">
+        <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete} %>
+      </div>
+    <% end %>
   </div>
 </div>

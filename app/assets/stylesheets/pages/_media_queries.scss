@@ -6,6 +6,10 @@
     border-top-left-radius: 40px;
     border-top-right-radius: 40px;
   }
+
+  p {
+    font-size: 12px;
+  }
 }
 
 /*Small devices (landscape phones, 576px and up)*/
@@ -14,6 +18,9 @@
     border-top-left-radius: 40px;
     border-top-right-radius: 40px;
   }
+  p {
+    font-size: 16px;
+  }
 }
 
 /*Medium devices (tablets, 768px and up)*/
@@ -21,5 +28,8 @@
   .container-white {
     border-top-left-radius: 40px;
     border-top-right-radius: 40px;
+  }
+  p {
+    font-size: 26px;
   }
 }
