@@ -63,7 +63,7 @@
           <! -- Cercle d'action 1 : cancel -->
 
           <div class="action-circle-1">
-            <%= link_to destroy_prescription_path(exercise_prescription), data: {turbo_method: :delete} do %>
+            <%= link_to destroy_prescription_path(exercice_prescription), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
               <i class="fa-solid fa-xmark"></i>
             <% end %>
           </div>
