@@ -1,12 +1,32 @@
-<h1>Appointment new page welcome</h1>
-<!-- simple form for new -->
-<%= simple_form_for @appointment, html: { data: { controller: 'flatpickr' } } do |f| %>
+<div class="new-rdv">
 
-  <%= f.association :doctor, collection: Doctor.all , label: "Doctor" %>
-  <!-- html 5 true means that value nil , without html 5 data will be today -->
-  <%= f.input :date, as: :string, input_html: {class: 'd-none', data: { flatpickr_target: 'startDateInput'} } %>
-  <%= f.input :appointment_hour, collection: 8..19 %>
-  <%= f.input :appointment_min, collection: (0..45).step(15) %>
-  <%= f.input :comment %>
-  <%= f.button :submit %>
-<% end %>
+    <div class="new-rdv-title">
+      <h1>New Appointment</h1>
+    </div>
+  <!-- simple form for new -->
+  <%= simple_form_for @appointment, html: { data: { controller: 'flatpickr' } } do |f| %>
+
+
+    <div class="title-specialist">
+    <%= f.association :doctor, collection: Doctor.all , prompt: "Specialist", label:false%>
+    </div>
+    <!-- html 5 true means that value nil , without html 5 data will be today -->
+    <%= f.input :date, as: :string, input_html: {class: 'd-none', data: { flatpickr_target: 'startDateInput'} }, label:"Date test" %>
+<div class="navbar-icons">
+  <%= link_to :back do %>
+    <i class="fa-solid fa-chevron-left"></i>
+  <% end %>
+
+  <%= link_to prescriptions_path do %>
+    <i class="fa-solid fa-calendar-days"></i>
+  <% end %>
+</div>
+
+
+    <%= f.input :appointment_hour, collection: 8..19 %>
+    <%= f.input :appointment_min, collection: (0..45).step(15) %>
+    <%= f.input :comment %>
+    <%= f.button :submit %>
+  <% end %>
+
+</div>

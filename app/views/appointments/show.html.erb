@@ -1,18 +1,27 @@
-<h1>Appointments#show</h1>
+<div class="navbar-icons">
+  <%= link_to :back do %>
+    <i class="fa-solid fa-chevron-left"></i>
+  <% end %>
 
-  <p>Find me in app/views/appointments/show.html.erb</p>
-      <h1>  RDV with <%= @appointment.doctor.title  %>: <%= @appointment.doctor.name %> ,  <%= @appointment.doctor.specialty %> Specialty </h1>
+  <%= link_to prescriptions_path do %>
+    <i class="fa-solid fa-calendar-days"></i>
+  <% end %>
+</div>
 
-        <ul>
-          <li>Appointment Date:  <%= @appointment.date %> <%=@appointment.date.strftime('%A')%></li>
-          <li>Appoint time:  <%= @appointment.appointment_hour %>h  <%= @appointment.appointment_min %>mins </li>
-          <li>Address:  <strong><%= @appointment.doctor.address %></strong></li>
+<div class="container-white">
+  <div class="header-title-purple">
+    <div class="left-title">
+      <h2><i class="fa-solid fa-capsules"></i>My appointment of the day</h2>
+    </div>
+  </div>
+  <h1>  RDV with <%= @appointment.doctor.title  %>: <%= @appointment.doctor.name %> ,  <%= @appointment.doctor.specialty %> Specialty </h1>
 
-          <li>Comment:  <%= @appointment.comment %></li>
-
-
-
-        </ul>
-
-
+    <ul>
+      <li>Appointment Date:  <%= @appointment.date %> <%=@appointment.date.strftime('%A')%></li>
+      <li>Appoint time:  <%= @appointment.appointment_hour %>h  <%= @appointment.appointment_min %>mins </li>
+      <li>Address:  <strong><%= @appointment.doctor.address %></strong></li>
+      <li>Comment:  <%= @appointment.comment %></li>
+    </ul>
   <%= link_to "Back to appointments", appointments_path(@appointment) %>
+
+</div>
