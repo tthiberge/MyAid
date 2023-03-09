@@ -1,4 +1,4 @@
-.card {
+.card-pill {
   margin: 15px;
   position: relative;
   display: flex;
@@ -44,7 +44,7 @@
   width: calc(100% - 78px);
 }
 
-.card h1 {
+.card-pill h1 {
   font-size: 16px;
   color: #76157B;
   font-family: 'Inter', sans-serif;
