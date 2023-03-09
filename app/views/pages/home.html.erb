@@ -1,35 +1,168 @@
-<%= link_to "My Cares", cares_path %>
-<%= link_to "My Exercices", exercices_path %>
-
-<%= link_to pills_path do %>
-  <div class="card-reminder">
-    <div class="flex-prescription-title-icon">
-      <%= image_tag("pills-icon.svg", width: 38) %>
-      <h1> Pills </h1>
-    </div>
-
-    <div class="content-wrap-reminder">
-          <h4>My next pills</h4>
-
-          <div class="content-wrap-hour-prescription">
-          <p>10:00 AM </p>
-          <p>Keppra </p>
-          <p>1 x 200mg </p>
-          </div>
-
-          <div class="content-wrap-hour-prescription">
-          <p>10:00 AM </p>
-          <p>Keppra </p>
-          <p>1 x 200mg </p>
-          </div>
-    </div>
+<div class="homepage-container pt-4">
+  <div class="logo-my-aid-homepage">
+    <%= image_tag "my-aid-plus-logo.png" %>
   </div>
-<% end %>
+
+  <div class="homepage-calendar-card">
+
+    <div class="calendar-month">
+     <div class="day-card-flex-month-year">
+      <h2>March </h2>  <p> 2023</p>
+      </div>
+    </div>
+
+
+    <div class="calendar-body">
+      <div class="day-card-flex">
+
+
+        <div class="day-card">
+          <h3>7</h3>
+          <p>Tue</p>
+        </div>
+
+
+        <div class="day-card">
+          <h3>8</h3>
+          <p>Wed</p>
+        </div>
+
+        <div class="day-card current-day">
+          <h3 class="current-day-number">9</h3>
+          <p class="current-day-day">Fri</p>
+        </div>
+
+        <div class="day-card">
+          <h3>10</h3>
+          <p>Sat</p>
+        </div>
+
+        <div class="day-card">
+          <h3>11</h3>
+          <p>Sun</p>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div>
+  <div class="home-content">
+    <%= link_to pills_path do %>
+      <div class="card-reminder">
+        <div class="flex-prescription-title-icon mb-4">
+          <%= image_tag("pills-icon.svg", width: 30) %>
+          <h1> Pills </h1>
+        </div>
+
+        <div class="content-wrap-reminder">
+              <h6>My next pills</h6>
+
+              <div class="content-wrap-hour-prescription">
+                <p>10:00 AM </p>
+                <p>Keppra </p>
+                <p>1 x 200mg </p>
+              </div>
+
+              <div class="content-wrap-hour-prescription">
+                <p>10:00 AM </p>
+                <p>Keppra </p>
+                <p>1 x 200mg </p>
+              </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="home-content">
+    <%= link_to cares_path do %>
+      <div class="card-reminder">
+        <div class="flex-prescription-title-icon mb-4">
+          <%= image_tag("cares-icon.svg", width: 30) %>
+          <h1> Cares </h1>
+        </div>
+
+        <div class="content-wrap-reminder">
+              <h6>My next cares</h6>
+
+              <div class="content-wrap-hour-prescription">
+                <p>10:00 AM </p>
+                <p>Keppra </p>
+                <p>1 x 200mg </p>
+              </div>
+
+              <div class="content-wrap-hour-prescription">
+                <p>10:00 AM </p>
+                <p>Keppra </p>
+                <p>1 x 200mg </p>
+              </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="home-content">
+    <%= link_to appointments_path do %>
+      <div class="card-reminder">
+        <div class="flex-prescription-title-icon mb-4">
+          <%= image_tag("appointments-icon.svg", width: 30) %>
+          <h1> Appointments </h1>
+        </div>
+
+        <div class="content-wrap-reminder">
+              <h6>My next appointments</h6>
+
+              <div class="content-wrap-hour-prescription">
+                <p>10:00 AM </p>
+                <p>Keppra </p>
+                <p>1 x 200mg </p>
+              </div>
+
+              <div class="content-wrap-hour-prescription">
+                <p>10:00 AM </p>
+                <p>Keppra </p>
+                <p>1 x 200mg </p>
+              </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="home-content">
+    <%= link_to exercises_path do %>
+      <div class="card-reminder">
+        <div class="flex-prescription-title-icon mb-4">
+          <%= image_tag("exercises-icon.svg", width: 30) %>
+          <h1> Exercises </h1>
+        </div>
+
+        <div class="content-wrap-reminder">
+              <h6>My next exercises</h6>
+
+              <div class="content-wrap-hour-prescription">
+                <p>10:00 AM </p>
+                <p>Keppra </p>
+                <p>1 x 200mg </p>
+              </div>
+
+              <div class="content-wrap-hour-prescription">
+                <p>10:00 AM </p>
+                <p>Keppra </p>
+                <p>1 x 200mg </p>
+              </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
 
 <div class="homepage">
-  <div class="home-content"></div>
   <div class="features">
-    <i class="fa-solid fa-book-medical"></i>
+    <%= link_to diaries_path do %>
+      <i class="fa-solid fa-book-medical"></i>
+    <% end %>
     <i class="fa-solid fa-rocket"></i>
     <i class="fa-solid fa-handshake-angle"></i>
     <%= link_to prescriptions_path do %>
@@ -39,5 +172,4 @@
       <i class="fa-solid fa-user"></i>
     <% end %>
   </div>
-
 </div>

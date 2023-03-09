@@ -3,15 +3,22 @@
     <i class="fa-solid fa-chevron-left"></i>
   <% end %>
 
-  <%= link_to "#" do %>
+  <%= link_to prescriptions_path do %>
     <i class="fa-solid fa-calendar-days"></i>
   <% end %>
 </div>
 
 <div class="container-white">
-  <div class="header-title-purple">
-    <div class="left-title">
-      <h2><i class="fa-solid fa-capsules"></i> My Cares</h2>
+  <div class="d-flex justify-content-between align-items-center">
+    <div class="header-title-purple">
+      <div class="left-title">
+        <h2><%= image_tag("cares-icon.svg", width: 30) %> My Cares</h2>
+      </div>
+    </div>
+    <div class="circle-add-new mx-3">
+      <%= link_to new_prescription_path do %>
+      <h2><i class="fa-solid fa-plus"></i></h2>
+      <% end %>
     </div>
   </div>
 
@@ -23,7 +30,7 @@
   <div class="prescriptions-cards px-3">
         <! -- Card Pills/Treatment/Exercices -->
     <% @care_prescriptions.each do |care_prescription| %>
-      <div class="card">
+      <div class="card-pill">
         <! -- Pour le cercle de l'heure et la card du titre -->
         <div class="px-3 title-wrap w-100">
 

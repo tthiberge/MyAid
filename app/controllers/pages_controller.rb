@@ -22,10 +22,10 @@ class PagesController < ApplicationController
     end
   end
 
-  def exercices
-    @exercice_prescriptions = []
+  def exercises
+    @exercise_prescriptions = []
     current_user.prescriptions.each do |prescription|
-      @exercice_prescriptions << prescription if prescription.treatment.category == "exercices"
+      @exercise_prescriptions << prescription if prescription.treatment.category == "exercises"
     end
   end
 

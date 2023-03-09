@@ -1,10 +1,33 @@
-.homepage {
+.homepage-calendar-card {
+  h1,h2, h3 {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    color: #76157B;
+  }
 
+  p {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    color: #76157B;
+  }
 }
 
-.home-content{
-  height: 67vh;
-  position: relative;
+
+.homepage-container {
+  padding: 10px;
+  max-width: 600px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.logo-my-aid-homepage {
+  display: flex;
+  justify-content: center;
+  img{
+    width: 40%;
+    padding-bottom: 10px;
+  }
 }
 
 .features {
@@ -17,6 +40,7 @@
   position: absolute;
   bottom: 0;
   box-shadow: 6px 0px 10px rgba(0, 0, 0, 0.25);
+  position: fixed;
 
   i {
     color: purple;

@@ -1,2 +1,21 @@
-<h1>Diaries#show</h1>
-<p>Find me in app/views/diaries/show.html.erb</p>
+<div class="navbar-icons">
+  <%= link_to :back do %>
+    <i class="fa-solid fa-chevron-left"></i>
+  <% end %>
+
+  <%= link_to prescriptions_path do %>
+    <i class="fa-solid fa-calendar-days"></i>
+  <% end %>
+</div>
+
+<div class="container-white">
+  <div class="header-title-purple">
+    <div class="left-title">
+      <h2><i class="fa-solid fa-book-medical"></i> My Diary</h2>
+    </div>
+  </div>
+
+  <div class="day-of-prescription">
+    <p><strong>22 February</strong> 2023</p>
+  </div>
+</div>
