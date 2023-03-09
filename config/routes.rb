@@ -29,5 +29,9 @@ Rails.application.routes.draw do
   resources :appointments, only: [:index, :show, :new, :create, :edit, :update, :destroy]
   resources :diaries, only: [:index, :show, :new, :create]
 
+  resources :diaries, only: [ :index, :show, :new, :create]
+
   get "/uikit", to: "pages#uikit"
+  get "/uikitbis", to: "pages#uikitbis"
+  get "/uikitter", to: "pages#uikitter"
 end
