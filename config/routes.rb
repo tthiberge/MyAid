@@ -11,21 +11,21 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
   get "/profile", to: "pages#profile"
-  resources :pages, only: [ :index, :show]
+  resources :pages, only: [:index, :show]
 
   get "/pills", to: "pages#pills"
   patch "/pills/confirm/:id", to: "prescriptions#confirm", as: :pills_confirm_prescription
 
   get "/cares", to: "pages#cares"
-  patch "/cares/confirm/:id", to: "prescriptions#confirm"
+  patch "/cares/confirm/:id", to: "prescriptions#confirm", as: :cares_confirm_prescription
 
   get "/exercices", to: "pages#exercices"
-  patch "/exercices/confirm/:id", to: "prescriptions#confirm"
+  patch "/exercices/confirm/:id", to: "prescriptions#confirm", as: :exercices_confirm_prescription
 
-  resources :prescriptions, only: [ :index, :new, :create, :edit, :update]
-  resources :prescriptions, only: [ :destroy], as: :destroy_prescription
+  resources :prescriptions, only: [:index, :new, :create, :edit, :update]
+  resources :prescriptions, only: [:destroy], as: :destroy_prescription
   # get "", to: "appointments#confirm"
-  resources :appointments, only: [ :index, :show, :new, :create, :edit, :update, :destroy]
-  resources :diaries, only: [ :index, :show, :new, :create]
+  resources :appointments, only: [:index, :show, :new, :create, :edit, :update, :destroy]
+  resources :diaries, only: [:index, :show, :new, :create]
   get "/uikit", to: "pages#uikit"
 end

@@ -30,10 +30,11 @@ class PrescriptionsController < ApplicationController
   end
 
   def confirm
+    @prescription = Prescription.find(params[:id])
+    
 #  update l'instance de take_time
 # taken_date cf edit
 
-  @prescription = Prescription.find(params[:id])
   end
 
   def destroy
