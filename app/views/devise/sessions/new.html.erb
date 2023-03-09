@@ -20,8 +20,11 @@
         <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
       </div>
 
-      <div class="log-in-button">
-        <%= f.button :submit, "Log in" %>
+  <%= render "devise/shared/links" %>
+      <div class="d-flex justify-content-center">
+        <div class="log-in-button">
+          <%= f.button :submit, "Log in" %>
+        </div>
       </div>
     <% end %>
 
@@ -35,5 +38,4 @@
   <div class="logos">
 
   </div>
-  <%= render "devise/shared/links" %>
 </div>
