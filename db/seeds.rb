@@ -86,11 +86,21 @@ prescription_9 = Prescription.create!(start_date: "04/03/2023", end_date: "19/03
 
 # creating doctors
 
-doctor1 = Doctor.create!(title: "Doctor", name: "John Doe", specialty: "Cardiology", address: "26 rue pradier paris", latitude: 37.7749, longitude: -122.4194, user: theo)
-doctor2 = Doctor.create!(title: "Nurse", name: "Jane Smith", specialty: "Pediatrics", address: "3 rue jean robert Paris", latitude: 37.7749, longitude: -122.4194, user: theo)
-doctor3 = Doctor.create!(title: "Professor", name: "Bob Johnson", specialty: "Dermatology", address: "51 rue sedaine Paris", latitude: 37.7749, longitude: -122.4194, user: theo)
+doctor1 = Doctor.create!(title: "Dr.", name: "Doe", specialty: "Cardiology", address: "26 rue pradier paris", latitude: 37.7749, longitude: -122.4194, user: theo)
+doctor2 = Doctor.create!(title: "Nurse", name: "Smith", specialty: "Pediatrics", address: "3 rue jean robert Paris", latitude: 37.7749, longitude: -122.4194, user: theo)
+doctor3 = Doctor.create!(title: "Pr.", name: "Johnson", specialty: "Dermatology", address: "51 rue sedaine Paris", latitude: 37.7749, longitude: -122.4194, user: theo)
+doctor4 = Doctor.create!(title: "Pr.", name: "Malek", specialty: "Surgeon", address: "51 rue sedaine Paris", latitude: 37.7749, longitude: -122.4194, user: theo)
+doctor5 = Doctor.create!(title: "Dr.", name: "Hendricks", specialty: "Dermatology", address: "51 rue sedaine Paris", latitude: 37.7749, longitude: -122.4194, user: theo)
+doctor6 = Doctor.create!(title: "Nurse", name: "Donovan", specialty: "General", address: "51 rue sedaine Paris", latitude: 37.7749, longitude: -122.4194, user: theo)
+doctor7 = Doctor.create!(title: "Pr.", name: "Pilgert", specialty: "Cancer", address: "51 rue sedaine Paris", latitude: 37.7749, longitude: -122.4194, user: theo)
 
 appointment1 = Appointment.create(date: Date.parse('11/12/2023'), comment: "Checkup", user: theo , doctor: doctor1, appointment_hour: 10, appointment_min: 30)
-appointment2 = Appointment.create(date: Date.parse('03/05/2023'), comment: "Checkup", user: theo, doctor: doctor3, appointment_hour: 10, appointment_min: 30)
+appointment2 = Appointment.create(date: Date.today, comment: "Checkup", user: theo, doctor: doctor2, appointment_hour: 11, appointment_min: 30)
+appointment3 = Appointment.create(date: Date.today, comment: "Checkup", user: theo, doctor: doctor3, appointment_hour: 12, appointment_min: 30)
+appointment4 = Appointment.create(date: Date.today, comment: "Checkup", user: theo, doctor: doctor4, appointment_hour: 13, appointment_min: 30)
+appointment5 = Appointment.create(date: Date.today, comment: "Checkup", user: theo, doctor: doctor5, appointment_hour: 14, appointment_min: 30)
+appointment6 = Appointment.create(date: Date.today, comment: "Checkup", user: theo, doctor: doctor6, appointment_hour: 15, appointment_min: 30)
+appointment7 = Appointment.create(date: Date.today, comment: "Checkup", user: theo, doctor: doctor7, appointment_hour: 16, appointment_min: 30)
+
 
 puts "Seeded"
