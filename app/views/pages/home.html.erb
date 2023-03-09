@@ -1,6 +1,30 @@
-<%= link_to "My Pills", pills_path %>
 <%= link_to "My Cares", cares_path %>
 <%= link_to "My Exercices", exercices_path %>
+
+<%= link_to pills_path do %>
+  <div class="card-reminder">
+    <div class="flex-prescription-title-icon">
+      <%= image_tag("pills-icon.svg", width: 38) %>
+      <h1> Pills </h1>
+    </div>
+
+    <div class="content-wrap-reminder">
+          <h4>My next pills</h4>
+
+          <div class="content-wrap-hour-prescription">
+          <p>10:00 AM </p>
+          <p>Keppra </p>
+          <p>1 x 200mg </p>
+          </div>
+
+          <div class="content-wrap-hour-prescription">
+          <p>10:00 AM </p>
+          <p>Keppra </p>
+          <p>1 x 200mg </p>
+          </div>
+    </div>
+  </div>
+<% end %>
 
 <div class="homepage">
   <div class="home-content"></div>
@@ -15,4 +39,5 @@
       <i class="fa-solid fa-user"></i>
     <% end %>
   </div>
+
 </div>

@@ -9,11 +9,19 @@
 </div>
 
 <div class="container-white">
-  <div class="header-title-purple">
-    <div class="left-title">
-      <h2><i class="fa-solid fa-capsules"></i> My Pills</h2>
+  <div class="d-flex justify-content-between">
+    <div class="header-title-purple">
+      <div class="left-title">
+        <h2><i class="fa-solid fa-capsules"></i> My Pills</h2>
+      </div>
+    </div>
+    <div class="circle-add-new">
+      <%= link_to new_prescription_path do %>
+      <h2><i class="fa-solid fa-plus"></i></h2>
+      <% end %>
     </div>
   </div>
+
 
   <div class="day-of-prescription">
     <p><strong>22 February</strong> 2023</p>
