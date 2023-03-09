@@ -3,7 +3,7 @@
     <i class="fa-solid fa-chevron-left"></i>
   <% end %>
 
-  <%= link_to "#" do %>
+  <%= link_to prescriptions_path do %>
     <i class="fa-solid fa-calendar-days"></i>
   <% end %>
 </div>
@@ -20,12 +20,12 @@
   </div>
   <! -- 1 -- PRESCRIPTION CARD -->
 
-  <div class="prescriptions-cards">
+  <div class="prescriptions-cards px-3">
         <! -- Card Pills/Treatment/Exercices -->
     <% @pill_prescriptions.each do |pill_prescription| %>
       <div class="card">
         <! -- Pour le cercle de l'heure et la card du titre -->
-        <div class="title-wrap">
+        <div class="px-3 title-wrap w-100">
 
         <! -- le cercle de l'heure -->
           <div class="circle">
