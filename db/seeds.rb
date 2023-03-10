@@ -86,6 +86,7 @@ prescription_9 = Prescription.create!(start_date: "04/03/2023", end_date: "19/03
 
 # creating doctors
 
+
 doctor1 = Doctor.create!(title: "Dr.", name: "Doe", specialty: "Cardiology", address: "26 rue pradier paris", latitude: 37.7749, longitude: -122.4194, user: diane)
 doctor2 = Doctor.create!(title: "Nurse", name: "Smith", specialty: "Pediatrics", address: "3 rue jean robert Paris", latitude: 37.7749, longitude: -122.4194, user: diane)
 doctor3 = Doctor.create!(title: "Pr.", name: "Johnson", specialty: "Dermatology", address: "51 rue sedaine Paris", latitude: 37.7749, longitude: -122.4194, user: diane)
@@ -102,6 +103,7 @@ appointment4 = Appointment.create(date: Date.today, comment: "Checkup", user: di
 appointment5 = Appointment.create(date: Date.today, comment: "Checkup", user: diane, doctor: doctor5, appointment_hour: 14, appointment_min: 30 )
 appointment6 = Appointment.create(date: Date.today, comment: "Checkup", user: diane, doctor: doctor6, appointment_hour: 15, appointment_min: 30 )
 appointment7 = Appointment.create(date: Date.today, comment: "Checkup", user: diane, doctor: doctor7, appointment_hour: 16, appointment_min: 30 )
+
 
 
 puts "Seeded"
