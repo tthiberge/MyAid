@@ -1,33 +1,29 @@
 <div class="navbar-icons">
-  <%= link_to :back do %>
+  <%= link_to :home do %>
     <i class="fa-solid fa-chevron-left"></i>
   <% end %>
 
-  <%= link_to "#" do %>
+  <%= link_to prescriptions_path do %>
     <i class="fa-solid fa-calendar-days"></i>
   <% end %>
 </div>
 
+
 <div class="container-white">
-  <div class="header-title-purple">
-    <div class="left-title">
-      <i class="fa-solid fa-capsules"></i>
-      <h2> My Pills</h2>
+  <div class="d-flex justify-content-between align-items-center">
+    <div class="header-title-purple">
+      <div class="left-title">
+         <h2><i class="fa-solid fa-calendar-days"></i> My Calendar</h2>
+      </div>
+    </div>
+    <div class="mx-3">
+      <%= link_to new_prescription_path do %>
+      <h2><i class="fa-solid fa-filter"></i></h2>
+      <% end %>
     </div>
   </div>
 
-  <ul>
-    <% @user.prescriptions.each do |prescription| %>
-      <li><%= prescription.treatment.name %> : <%= prescription.comment %></li>
-    <% end %>
-  </ul>
+  <div class="day-of-prescription">
+    <p><strong>22 February</strong> 2023</p>
+  </div>
 </div>
-
-
-<%#= link_to "New prescription", new_prescription_path(@prescription)%>
-
-
-<%# <%= @treatment.category %>
-<%# <%= @treatment.name %>
-<%# <%= @prescription.time %>
-<%# <%= @prescription.comment %>

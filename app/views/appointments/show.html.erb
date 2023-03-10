@@ -1,18 +1,138 @@
-<h1>Appointments#show</h1>
+<div class="navbar-icons">
+  <%= link_to :back do %>
+    <i class="fa-solid fa-chevron-left"></i>
+  <% end %>
 
-  <p>Find me in app/views/appointments/show.html.erb</p>
-      <h1>  RDV with <%= @appointment.doctor.title  %>: <%= @appointment.doctor.name %> ,  <%= @appointment.doctor.specialty %> Specialty </h1>
+  <%= link_to prescriptions_path do %>
+    <i class="fa-solid fa-calendar-days"></i>
+  <% end %>
+</div>
 
-        <ul>
-          <li>Appointment Date:  <%= @appointment.date %> <%=@appointment.date.strftime('%A')%></li>
-          <li>Appoint time:  <%= @appointment.appointment_hour %>h  <%= @appointment.appointment_min %>mins </li>
-          <li>Address:  <strong><%= @appointment.doctor.address %></strong></li>
+<div class="container-white d-flex flex-column">
+  <div class="header-title-purple">
+    <div class="left-title">
+      <% @appointments.first(1).each do |appointment| %>
+        <h2><%= image_tag("appointments-icon.svg", width: 30) %><%=appointment.doctor.specialty.capitalize%></h2>
+      <% end %>
+    </div>
+  </div>
 
-          <li>Comment:  <%= @appointment.comment %></li>
+  <div class="day-of-prescription">
+    <p><strong><%= Date.today.strftime("%A - %B, %d %Y") %></strong></p>
+  </div>
+
+  <div class="prescriptions-cards px-3">
+    <% @appointments.first(1).each do |appointment| %>
+      <div class="card-pill">
+        <div class="px-3 title-wrap w-100">
+          <div class="circle">
+            <p class="time"><%=appointment.appointment_hour%>:<%=appointment.appointment_min == 0 ? "00" : "30" %></p>
+            <p class="time"><span class="time-small">AM</span></p>
+          </div>
+
+          <div class="card-title">
+            <h1><%=appointment.doctor.specialty.capitalize%></h1>
+          </div>
+        </div>
+
+        <div class="content-wrap">
+          <h2>Name</h2>
+          <p><%=appointment.doctor.name.capitalize%></p>
+          <h2>Address</h2>
+          <p><%=appointment.doctor.address%></p>
+        </div>
 
 
+          <! -- Pour les cercles d'action : cancel, edit, check -->
+        <div class="action-wrap">
+          <div class="action-circle-3">
+          <%= link_to edit_appointment_path(@appointments) do %>
+            <i class="fa-solid fa-pencil"></i>
+          <% end %>
+          </div>
+        </div>
 
-        </ul>
+        <! -- On ferme Card Pills/Treatment/Exercices -->
+      </div>
+    <% end %>
+  </div>
+
+  <div class="prescriptions-cards px-3">
+    <% @appointments.first(1).each do |appointment| %>
+      <div class="card-pill">
+        <div class="px-3 title-wrap w-100">
+          <div class="circle">
+           <i class="fa-solid fa-note-sticky w-30"></i>
+          </div>
+
+          <div class="card-title">
+            <h1>My notes</h1>
+          </div>
+        </div>
+
+        <div class="content-wrap">
+          <h2>To ask the doctor</h2>
+          <p>What should I do when it hurts too much ?
+          Can I dye my hair during the treatment? </p>
+        </div>
 
 
-  <%= link_to "Back to appointments", appointments_path(@appointment) %>
+          <! -- Pour les cercles d'action : cancel, edit, check -->
+        <div class="action-wrap">
+          <div class="action-circle-2">
+            <%= link_to edit_appointment_path(@appointments) do %>
+              <i class="fa-solid fa-microphone"></i>
+            <% end %>
+          </div>
+
+          <div class="action-circle-3">
+            <%= link_to edit_appointment_path(@appointments) do %>
+              <i class="fa-solid fa-pencil"></i>
+            <% end %>
+          </div>
+        </div>
+        <! -- On ferme Card Pills/Treatment/Exercices -->
+      </div>
+    <% end %>
+  </div>
+
+  <div class="px-3">
+    <% @appointments.first(1).each do |appointment| %>
+      <div class="card-pill map-location">
+        <div class="px-3 title-wrap w-100">
+          <div class="circle">
+           <i class="fa-solid fa-location-dot"></i>
+          </div>
+
+          <div class="card-title">
+            <h1>Location</h1>
+          </div>
+        </div>
+        <div class="time-to-destination">
+          <h1>Time to destination</h1>
+          <p><i class="fa-solid fa-car"></i> 30 minutes</p>
+          <p><i class="fa-solid fa-bus-simple"></i> 45 minutes</p>
+          <p><i class="fa-solid fa-person-biking"></i> 30 minutes</p>
+          <p><i class="fa-solid fa-person-walking"></i>  60 minutes</p>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <div class="prescriptions-cards px-3">
+    <% @appointments.first(1).each do |appointment| %>
+      <div class="card-pill">
+        <div class="px-3 title-wrap w-100">
+          <div class="circle">
+           <i class="fa-solid fa-cloud-sun"></i>
+          </div>
+
+          <div class="card-title">
+            <h1>Weather</h1>
+          </div>
+        </div>
+
+      </div>
+    <% end %>
+  </div>
+
+</div>

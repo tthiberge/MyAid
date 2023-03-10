@@ -12,7 +12,7 @@
   <div class="d-flex justify-content-between align-items-center">
     <div class="header-title-purple">
       <div class="left-title">
-        <h2><%= image_tag("cares-icon.svg", width: 30) %> My Cares</h2>
+        <h2><%= image_tag("exercises-icon.svg", width: 30) %> My Exercises</h2>
       </div>
     </div>
     <div class="circle-add-new mx-3">
@@ -27,21 +27,21 @@
   <! -- 1 -- PRESCRIPTION CARD -->
 
   <div class="prescriptions-cards px-3">
-        <! -- Card Pills/Treatment/Exercices -->
-    <% @care_prescriptions.each do |care_prescription| %>
+        <! -- Card Pills/Treatment/Exercises -->
+    <% @exercise_prescriptions.each do |exercise_prescription| %>
       <div class="card-pill">
         <! -- Pour le cercle de l'heure et la card du titre -->
         <div class="px-3 title-wrap w-100">
 
         <! -- le cercle de l'heure -->
           <div class="circle">
-            <p class="time"><%= care_prescription.todo_hours %>:<%= care_prescription.todo_minutes == 0 ? "00" : "30" %></p>
+            <p class="time"><%= exercise_prescription.todo_hours %>:<%= exercise_prescription.todo_minutes == 0 ? "00" : "30" %></p>
             <p class="time"><span class="time-small">AM</span></p>
           </div>
 
         <! -- la card du titre -->
           <div class="card-title">
-            <h1><%= care_prescription.treatment.name.capitalize %></h1>
+            <h1><%= exercise_prescription.treatment.name.capitalize %></h1>
           </div>
 
         </div>
@@ -52,26 +52,26 @@
 
         <div class="content-wrap">
           <h2>Comment</h2>
-          <p><%= care_prescription.comment %></p>
+          <p><%= exercise_prescription.comment %></p>
         </div>
 
 
           <! -- Pour les cercles d'action : cancel, edit, check -->
         <div class="action-wrap">
 
-          <! -- Cercle d'action 1 : cancel -->
+          <! -- Cercle d'action 1 : cancel
+          , turbo_confirm: "Are you sure?"-->
 
           <div class="action-circle-1">
-            <%= link_to destroy_prescription_path(care_prescription), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
+            <%= link_to destroy_prescription_path(exercise_prescription), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
               <i class="fa-solid fa-xmark"></i>
             <% end %>
           </div>
 
-          <! -- Cercle d'action 2 : edit
-          , turbo_confirm: "Are you sure?"-->
+          <! -- Cercle d'action 2 : edit -->
 
           <div class="action-circle-2">
-          <%= link_to edit_prescription_path(care_prescription) do %>
+          <%= link_to edit_prescription_path(exercise_prescription) do %>
             <i class="fa-solid fa-pencil"></i>
           <% end %>
           </div>
@@ -79,7 +79,7 @@
           <! -- Cercle d'action 3 : check -->
 
           <div class="action-circle-3">
-          <%= link_to cares_confirm_prescription_path(care_prescription), data: { turbo_method: :patch }  do %>
+          <%= link_to exercises_confirm_prescription_path(exercise_prescription), data: { turbo_method: :patch }  do %>
             <i class="fa-solid fa-check"></i>
           <% end %>
           </div>
