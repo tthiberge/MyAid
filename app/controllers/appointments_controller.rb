@@ -5,6 +5,10 @@ class AppointmentsController < ApplicationController
 
   def show
     @appointment = Appointment.find(params[:id])
+    @appointments = []
+    current_user.appointments.each do |appointment|
+      @appointments << appointment
+    end
   end
 
   def new

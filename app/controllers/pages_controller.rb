@@ -2,6 +2,25 @@ class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:landing]
 
   def home
+    @pill_prescriptions = []
+    current_user.prescriptions.each do |prescription|
+      @pill_prescriptions << prescription if prescription.treatment.category == "pills"
+    end
+
+    @care_prescriptions = []
+    current_user.prescriptions.each do |prescription|
+      @care_prescriptions << prescription if prescription.treatment.category == "cares"
+    end
+
+    @exercise_prescriptions = []
+    current_user.prescriptions.each do |prescription|
+      @exercise_prescriptions << prescription if prescription.treatment.category == "exercises"
+    end
+
+    @appointments = []
+    current_user.appointments.each do |appointment|
+      @appointments << appointment
+    end
   end
 
   def profile

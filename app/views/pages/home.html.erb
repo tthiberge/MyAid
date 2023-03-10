@@ -19,28 +19,28 @@
         </div>
 
         <div class="day-card">
-          <h3>7</h3>
-          <p>Tue</p>
-        </div>
-
-
-        <div class="day-card">
           <h3>8</h3>
           <p>Wed</p>
         </div>
 
+
+        <div class="day-card">
+          <h3>9</h3>
+          <p>Thur</p>
+        </div>
+
         <div class="day-card current-day">
-          <h3 class="current-day-number">9</h3>
+          <h3 class="current-day-number">10</h3>
           <p class="current-day-day">Fri</p>
         </div>
 
         <div class="day-card">
-          <h3>10</h3>
+          <h3>11</h3>
           <p>Sat</p>
         </div>
 
         <div class="day-card">
-          <h3>11</h3>
+          <h3>12</h3>
           <p>Sun</p>
         </div>
 
@@ -56,28 +56,23 @@
 <div>
   <div class="home-content">
     <%= link_to pills_path do %>
-      <div class="card-reminder">
-        <div class="flex-prescription-title-icon mb-4">
-          <%= image_tag("pills-icon.svg", width: 30) %>
-          <h1> Pills </h1>
-        </div>
+        <div class="card-reminder">
+          <div class="flex-prescription-title-icon mb-4">
+            <%= image_tag("pills-icon.svg", width: 30) %>
+            <h1> Pills </h1>
+          </div>
 
-        <div class="content-wrap-reminder">
+          <div class="content-wrap-reminder">
               <h6>My next pills</h6>
 
+            <% @pill_prescriptions.first(2).each do |pill_prescription| %>
               <div class="content-wrap-hour-prescription">
-                <p>10:00 AM </p>
-                <p>Keppra </p>
-                <p>1 x 200mg </p>
+                <p><%= pill_prescription.todo_hours %>:<%= pill_prescription.todo_minutes == 0 ? "00" : "30" %></p>
+                <p><%= pill_prescription.treatment.name.capitalize %></p>
               </div>
-
-              <div class="content-wrap-hour-prescription">
-                <p>10:00 AM </p>
-                <p>Keppra </p>
-                <p>1 x 200mg </p>
-              </div>
+            <%end%>
+          </div>
         </div>
-      </div>
     <% end %>
   </div>
 
@@ -92,17 +87,12 @@
         <div class="content-wrap-reminder">
               <h6>My next cares</h6>
 
+              <% @care_prescriptions.first(2).each do |care_prescription| %>
               <div class="content-wrap-hour-prescription">
-                <p>10:00 AM </p>
-                <p>Keppra </p>
-                <p>1 x 200mg </p>
+                <p><%= care_prescription.todo_hours %>:<%= care_prescription.todo_minutes == 0 ? "00" : "30" %></p>
+                <p><%= care_prescription.treatment.name.capitalize %></p>
               </div>
-
-              <div class="content-wrap-hour-prescription">
-                <p>10:00 AM </p>
-                <p>Keppra </p>
-                <p>1 x 200mg </p>
-              </div>
+            <%end%>
         </div>
       </div>
     <% end %>
@@ -118,18 +108,13 @@
 
         <div class="content-wrap-reminder">
               <h6>My next appointments</h6>
-
+            <% @appointments.first(2).each do |appointment| %>
               <div class="content-wrap-hour-prescription">
-                <p>10:00 AM </p>
-                <p>Keppra </p>
-                <p>1 x 200mg </p>
+                <p><%=appointment.appointment_hour%>:<%=appointment.appointment_min == 0 ? "00" : "30" %></p>
+                <p><%=appointment.doctor.specialty.capitalize%></p>
+                <p><%=appointment.doctor.name.capitalize%></p>
               </div>
-
-              <div class="content-wrap-hour-prescription">
-                <p>10:00 AM </p>
-                <p>Keppra </p>
-                <p>1 x 200mg </p>
-              </div>
+            <% end %>
         </div>
       </div>
     <% end %>
@@ -146,17 +131,12 @@
         <div class="content-wrap-reminder">
               <h6>My next exercises</h6>
 
+              <% @exercise_prescriptions.first(2).each do |exercise_prescription| %>
               <div class="content-wrap-hour-prescription">
-                <p>10:00 AM </p>
-                <p>Keppra </p>
-                <p>1 x 200mg </p>
+                <p><%= exercise_prescription.todo_hours %>:<%= exercise_prescription.todo_minutes == 0 ? "00" : "30" %></p>
+                <p><%= exercise_prescription.treatment.name.capitalize %></p>
               </div>
-
-              <div class="content-wrap-hour-prescription">
-                <p>10:00 AM </p>
-                <p>Keppra </p>
-                <p>1 x 200mg </p>
-              </div>
+            <%end%>
         </div>
       </div>
     <% end %>
