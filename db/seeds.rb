@@ -65,42 +65,45 @@ maung = User.create!(
 )
 
 # Creating the prescriptions
-prescription_1 = Prescription.create!(start_date: "10/03/2023", end_date: "20/03/2023", todo_hours: 12, todo_minutes: 30, comment: "2 x 500mg - Take the pills before the main meal of the day", user: theo, treatment: paracetamol)
+prescription_1 = Prescription.create!(start_date: "10/03/2023", end_date: "20/03/2023", todo_hours: 12, todo_minutes: 30, day_half: "PM", comment: "2 x 500mg - Take the pills before the main meal of the day", user: diane, treatment: paracetamol)
 
-prescription_2 = Prescription.create!(start_date: "07/03/2023", end_date: "17/03/2023", todo_hours: 21, todo_minutes: 00, comment: "3 x 125mg - Take the pills before going to sleep", user: theo, treatment: tylenol)
+prescription_2 = Prescription.create!(start_date: "07/03/2023", end_date: "17/03/2023", todo_hours: 9, todo_minutes: 00,  day_half: "AM", comment: "3 x 125mg - Take the pills before going to sleep", user: diane, treatment: tylenol)
 
-prescription_3 = Prescription.create!(start_date: "02/03/2023", end_date: "22/03/2023", todo_hours: 10, todo_minutes: 00, comment: "1 x 250mg - In the morning ", user: theo, treatment: apronax)
+prescription_3 = Prescription.create!(start_date: "02/03/2023", end_date: "22/03/2023", todo_hours: 10, todo_minutes: 00, day_half: "AM",  comment: "1 x 250mg - In the morning ", user: diane, treatment: apronax)
 
-prescription_4 = Prescription.create!(start_date: "03/03/2023", end_date: "18/03/2023", todo_hours: 11, todo_minutes: 30, comment: "2 tablets - Take with a fair amount of water", user: theo, treatment: relaxon)
+prescription_4 = Prescription.create!(start_date: "03/03/2023", end_date: "18/03/2023", todo_hours: 11, todo_minutes: 30, day_half: "AM",  comment: "2 tablets - Take with a fair amount of water", user: diane, treatment: relaxon)
 
-prescription_5 = Prescription.create!(start_date: "15/03/2023", end_date: "17/03/2023", todo_hours: 12, todo_minutes: 30, comment: "4 x 250mg - Take during the meal", user: theo, treatment: muscadol)
+prescription_5 = Prescription.create!(start_date: "15/03/2023", end_date: "17/03/2023", todo_hours: 12, todo_minutes: 30, day_half: "PM",  comment: "4 x 250mg - Take during the meal", user: diane, treatment: muscadol)
 
-prescription_6 = Prescription.create!(start_date: "04/03/2023", end_date: "19/03/2023", todo_hours: 16, todo_minutes: 00, comment: "1 x 500mg - Take in the afternoon", user: theo, treatment: targin)
+prescription_6 = Prescription.create!(start_date: "04/03/2023", end_date: "19/03/2023", todo_hours: 4, todo_minutes: 00, day_half: "PM",  comment: "1 x 500mg - Take in the afternoon", user: diane, treatment: targin)
 
-prescription_7 = Prescription.create!(start_date: "03/03/2023", end_date: "18/03/2023", todo_hours: 21, todo_minutes: 00, comment: "Apply a fair amount on the burnt area before going to bed", user: theo, treatment: cream)
+prescription_7 = Prescription.create!(start_date: "03/03/2023", end_date: "18/03/2023", todo_hours: 9, todo_minutes: 00, day_half: "PM",  comment: "Apply a fair amount on the burnt area before going to bed", user: diane, treatment: cream)
 
-prescription_8 = Prescription.create!(start_date: "18/03/2023", end_date: "17/03/2023", todo_hours: 19, todo_minutes: 00, comment: "During your shower, use this shampoo to ease the scalp itching for the next 48 hours", user: theo, treatment: shampoo)
+prescription_8 = Prescription.create!(start_date: "18/03/2023", end_date: "17/03/2023", todo_hours: 7, todo_minutes: 00, day_half: "PM",  comment: "During your shower, use this shampoo to ease the scalp itching for the next 48 hours", user: diane, treatment: shampoo)
 
-prescription_9 = Prescription.create!(start_date: "04/03/2023", end_date: "19/03/2023", todo_hours: 14, todo_minutes: 00, comment: "Save a 1h-time slot to practice meditation to relax and accept the present time", user: theo, treatment: meditation)
+prescription_9 = Prescription.create!(start_date: "04/03/2023", end_date: "19/03/2023", todo_hours: 2, todo_minutes: 00, day_half: "PM",  comment: "Save a 1h-time slot to practice meditation to relax and accept the present time", user: diane, treatment: meditation)
 
 
 # creating doctors
 
-doctor1 = Doctor.create!(title: "Dr.", name: "Doe", specialty: "Surgeon", address: "26 rue pradier paris", latitude: 37.7749, longitude: -122.4194, user: theo)
-doctor2 = Doctor.create!(title: "Nurse", name: "Smith", specialty: "Pediatrics", address: "3 rue jean robert Paris", latitude: 37.7749, longitude: -122.4194, user: theo)
-doctor3 = Doctor.create!(title: "Pr.", name: "Johnson", specialty: "Dermatology", address: "51 rue sedaine Paris", latitude: 37.7749, longitude: -122.4194, user: theo)
-doctor4 = Doctor.create!(title: "Pr.", name: "Malek", specialty: "Generalist", address: "51 rue sedaine Paris", latitude: 37.7749, longitude: -122.4194, user: theo)
-doctor5 = Doctor.create!(title: "Dr.", name: "Hendricks", specialty: "Dermatology", address: "51 rue sedaine Paris", latitude: 37.7749, longitude: -122.4194, user: theo)
-doctor6 = Doctor.create!(title: "Nurse", name: "Donovan", specialty: "Cardiology", address: "51 rue sedaine Paris", latitude: 37.7749, longitude: -122.4194, user: theo)
-doctor7 = Doctor.create!(title: "Pr.", name: "Pilgert", specialty: "Cancer", address: "51 rue sedaine Paris", latitude: 37.7749, longitude: -122.4194, user: theo)
 
-appointment1 = Appointment.create(date: Date.parse('11/12/2023'), comment: "Checkup", user: theo , doctor: doctor1, appointment_hour: 10, appointment_min: 30)
-appointment2 = Appointment.create(date: Date.today, comment: "Checkup", user: theo, doctor: doctor2, appointment_hour: 11, appointment_min: 30)
-appointment3 = Appointment.create(date: Date.today, comment: "Checkup", user: theo, doctor: doctor3, appointment_hour: 12, appointment_min: 30)
-appointment4 = Appointment.create(date: Date.today, comment: "Checkup", user: theo, doctor: doctor4, appointment_hour: 13, appointment_min: 30)
-appointment5 = Appointment.create(date: Date.today, comment: "Checkup", user: theo, doctor: doctor5, appointment_hour: 14, appointment_min: 30)
-appointment6 = Appointment.create(date: Date.today, comment: "Checkup", user: theo, doctor: doctor6, appointment_hour: 15, appointment_min: 30)
-appointment7 = Appointment.create(date: Date.today, comment: "Checkup", user: theo, doctor: doctor7, appointment_hour: 16, appointment_min: 30)
+doctor1 = Doctor.create!(title: "Dr.", name: "Doe", specialty: "Cardiology", address: "26 rue pradier paris", latitude: 37.7749, longitude: -122.4194, user: diane)
+doctor2 = Doctor.create!(title: "Nurse", name: "Smith", specialty: "Pediatrics", address: "3 rue jean robert Paris", latitude: 37.7749, longitude: -122.4194, user: diane)
+doctor3 = Doctor.create!(title: "Pr.", name: "Johnson", specialty: "Dermatology", address: "51 rue sedaine Paris", latitude: 37.7749, longitude: -122.4194, user: diane)
+doctor4 = Doctor.create!(title: "Pr.", name: "Malek", specialty: "Surgeon", address: "51 rue sedaine Paris", latitude: 37.7749, longitude: -122.4194, user: diane)
+doctor5 = Doctor.create!(title: "Dr.", name: "Hendricks", specialty: "Dermatology", address: "51 rue sedaine Paris", latitude: 37.7749, longitude: -122.4194, user: diane)
+doctor6 = Doctor.create!(title: "Nurse", name: "Donovan", specialty: "General", address: "51 rue sedaine Paris", latitude: 37.7749, longitude: -122.4194, user: diane)
+doctor7 = Doctor.create!(title: "Pr.", name: "Pilgert", specialty: "Cancer", address: "51 rue sedaine Paris", latitude: 37.7749, longitude: -122.4194, user: diane)
+
+# Ajouter une colonne AM / PM dans le formulaire pour gérer la logique matin/aprem
+appointment1 = Appointment.create(date: Date.parse('11/12/2023'), comment: "Checkup", user: diane , doctor: doctor1, appointment_hour: 10, appointment_min: 30)
+appointment2 = Appointment.create(date: Date.today, comment: "Checkup", user: diane, doctor: doctor2, appointment_hour: 11, appointment_min: 30 )
+appointment3 = Appointment.create(date: Date.today, comment: "Checkup", user: diane, doctor: doctor3, appointment_hour: 12, appointment_min: 30 )
+appointment4 = Appointment.create(date: Date.today, comment: "Checkup", user: diane, doctor: doctor4, appointment_hour: 13, appointment_min: 30 )
+appointment5 = Appointment.create(date: Date.today, comment: "Checkup", user: diane, doctor: doctor5, appointment_hour: 14, appointment_min: 30 )
+appointment6 = Appointment.create(date: Date.today, comment: "Checkup", user: diane, doctor: doctor6, appointment_hour: 15, appointment_min: 30 )
+appointment7 = Appointment.create(date: Date.today, comment: "Checkup", user: diane, doctor: doctor7, appointment_hour: 16, appointment_min: 30 )
+
 
 
 puts "Seeded"
