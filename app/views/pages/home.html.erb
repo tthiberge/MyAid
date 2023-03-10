@@ -14,7 +14,9 @@
 
     <div class="calendar-body">
       <div class="day-card-flex">
-
+        <div class="arrow-calendar">
+          <i class="fa-solid fa-caret-left"></i>
+        </div>
 
         <div class="day-card">
           <h3>7</h3>
@@ -42,6 +44,9 @@
           <p>Sun</p>
         </div>
 
+        <div class="arrow-calendar">
+          <i class="fa-solid fa-caret-right"></i>
+        </div>
       </div>
     </div>
 
@@ -130,9 +135,9 @@
     <% end %>
   </div>
 
-  <div class="home-content">
+  <div class="home-content mb-5">
     <%= link_to exercises_path do %>
-      <div class="card-reminder">
+      <div class="card-reminder mb-5">
         <div class="flex-prescription-title-icon mb-4">
           <%= image_tag("exercises-icon.svg", width: 30) %>
           <h1> Exercises </h1>
