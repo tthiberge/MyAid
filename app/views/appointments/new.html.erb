@@ -22,7 +22,7 @@
   <%= simple_form_for (@appointment) do |f| %>
 
     <%= f.association :doctor, collection: Doctor.all , prompt: "Specialist", label:false,input_html: {
-      class: "card-form",
+      class: "card-form w-100",
       style: "filter: drop-shadow(0px 4px 4px #EBEBF2);"
     },
     wrapper_html: {
