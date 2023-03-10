@@ -1,41 +1,29 @@
-.appointment_date label {
-  background-color: white;
-  width: 310px;
-  height: 44px;
-  border-radius: 8px;
-  box-shadow: 0px 4px 14px #ebebf2;
+.container-form{
+  background: white;
+  padding: 20px;
+  margin-inline: 20vw;
 }
 
-label {
-  display: inline-flex;
-  font-size: 16px;
-  color: #76157B;
-  font-weight: 500;
-  text-align: center;
-  align-items: center;
-  /* justify-content: center; */
-  /* margin-left: 15px; */
-  /* left: 12px; */
-  padding: 10px;
+@media (min-width: 100px) and (max-width: 575px) {
+  .container-form {
+    margin-inline: 0;
+  }
 }
 
-#appointment_doctor_id {
-  background-color: white;
-  width: 310px;
-  height: 44px;
-  border-radius: 8px;
-  box-shadow: 0px 4px 14px #ebebf2;
+.card-form{
+  filter: drop-shadow(0px 4px 4px #EBEBF2);
+  background: white;
+  color: purple;
 }
 
-.form-select {
-  display: inline-flex;
-  font-size: 16px;
-  color: #76157B;
-  font-weight: 500;
-  text-align: center;
-  align-items: center;
-  /* justify-content: center; */
-  /* margin-left: 15px; */
-  /* left: 12px; */
-  padding: 10px;
+.legend-form{
+  font-weight: bold;
+  border: solid 1px purple;
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+
+}
+
+.hours-and-minutes{
+  display: flex;
+  gap: 20px;
 }
