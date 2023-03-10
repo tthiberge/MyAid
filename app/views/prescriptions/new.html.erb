@@ -1,92 +1,32 @@
-<h1 classs="title">Add a new prescription</h1>
+<div class="navbar-icons">
+  <%= link_to :back, html: {class: "log-out-right"} do %>
+    <i class="fa-solid fa-chevron-left"></i>
+  <% end %>
 
-  <%= link_to "Back to the previous page", :back, html: {class: "log-out-right"}  %>
+  <%= link_to prescriptions_path do %>
+    <i class="fa-solid fa-calendar-days"></i>
+  <% end %>
+</div>
 
-<div class="container-form">
-  <%= simple_form_for(@prescription) do |f| %>
 
-        <%= f.input :todo_hours,
-                  label: "Type of prescriptions",
-                  placeholder: "Select between pills, cares or exercises",
-                  # hint: "Select between pills, cares or exercises",
-                  as: :radio_buttons,
-                  collection: %w[Pills Cares Exercises], selected: "Pills",
-                  input_html: {
-                    class: "card-form",
-                    style: "filter: drop-shadow(0px 4px 4px #EBEBF2);"
-                  },
-                  wrapper_html: {
-                    class: "text-primary"
-                  }
-        %>
-        <%# /!\ UTILE %>
-          <%# Below, pour créer treatment_id alors que ce n'est pas une colonne de prescription et donc que j'aurais normalement pas pu appeler %>
-          <%# dans le Model Prescription, on a créé un treatment_id comme attr_accessor. ça permet de créer/FORCER une colonne du simple_form %>
+<div class="container-white">
+  <div class="d-flex justify-content-between align-items-center">
+    <div class="header-title-purple">
+      <div class="left-title">
+         <h2><i class="fa-solid fa-calendar-days"></i> New prescription</h2>
+      </div>
+    </div>
+  </div>
 
-          <%# collection: on peut appeler Treatment car associé à Prescription %>
-          <%# value_method: :id // Pas sûr de pourquoi, mais sûrement pour pouvoir appeler traitement qui est connecté à Prescription par l'id %>
+  <div class="container-form">
+    <%= simple_form_for(@prescription) do |f| %>
 
-          <%# On initialise TOM SELECT, un plug-in JavaScript stylé et très utile qui permet de fairre un autocomplete dans un search + dropdown + plusieurs options customizables %>
-
-        <%= f.input :treatment_id,
-                    label: false,
-                    as: :select,
-                    prompt: "Select your treatment ⬇️",
-                    selected: @prescription.treatment.present? ? @prescription.treatment.id : nil,
-                    input_html: {id: 'treatment-select', data: {controller: 'init-tom-select'}},
-                    collection: Treatment.all.order(:name),
-                    value_method: :id
-        %>
-        <%= f.input :start_date,
-                  label: "Start date",
-                  # hint: "If your treatment spans over multiple days, enter a starting date",
-                  as: :date,
-                  html5:true,
-                  collection: %w[Pills Cares Exercises],
-                  wrapper_html: {
-                      class: "text-primary"
-                  }, # Change la couleur du label
-                  input_html: {
-                    class: "card-form",
-                    # Change la couleur des inputs + bk-white + filter shadow
-                  }
-        %>
-        <%= f.input :end_date,
-                  label: "End date",
-                  # hint: "If your treatment spans over multiple days, enter an end date",
-                  as: :date,
-                  html5:true,
-                  collection: %w[Pills Cares Exercises],
-                  wrapper_html: {
-                      class: "text-primary"
-                  }, # Change la couleur du label
-                  input_html: {
-                    class: "card-form",
-                    # Change la couleur des inputs + bk-white + filter shadow
-                  }
-        %>
-        <div class=" hours-and-minutes">
-          <%= f.input :time,
-                    label: "Time",
-                    required: true,
-                    hint: "Select the time",
-                    as: :select, # as: :time pour selectionner autant d'heures et minutes qu'on veut!!
-                    collection: Prescription::TIMES, selected: "00:00",
-                    wrapper_html: {
-                        class: "text-primary"
-                    }, # Change la couleur du label
-                    input_html: {
-                      class: "card-form",
-                      # Change la couleur des inputs + bk-white + filter shadow
-                    }
-          %>
-          <%= f.input :day_half,
-                    required: true,
-                    label: "Morning or afternoon?",
+          <%= f.input :todo_hours,
+                    label: "Type of prescriptions",
                     placeholder: "Select between pills, cares or exercises",
                     # hint: "Select between pills, cares or exercises",
                     as: :radio_buttons,
-                    collection: %w[AM PM],
+                    collection: %w[Pills Cares Exercises], selected: "Pills",
                     input_html: {
                       class: "card-form",
                       style: "filter: drop-shadow(0px 4px 4px #EBEBF2);"
@@ -95,40 +35,117 @@
                       class: "text-primary"
                     }
           %>
-        </div>
+          <%# /!\ UTILE %>
+            <%# Below, pour créer treatment_id alors que ce n'est pas une colonne de prescription et donc que j'aurais normalement pas pu appeler %>
+            <%# dans le Model Prescription, on a créé un treatment_id comme attr_accessor. ça permet de créer/FORCER une colonne du simple_form %>
 
-        <%= f.input :comment,
-                  label: "Comment",
-                  hint: "Describe any information that would be useful for you when engaging in the treatment (dosage, technics, motivation prompt, ...)",
-                  placeholder: "2 x 150mg before each meal or You can do it, John!",
-                  as: :text,
-                  collection: %w[Pills Cares Exercises],
-                  wrapper_html: {
-                      class: "text-primary"
-                  }, # Change la couleur du label
-                  input_html: {
-                    class: "card-form",
-                    # Change la couleur des inputs + bk-white + filter shadow
-                  }
+            <%# collection: on peut appeler Treatment car associé à Prescription %>
+            <%# value_method: :id // Pas sûr de pourquoi, mais sûrement pour pouvoir appeler traitement qui est connecté à Prescription par l'id %>
+
+            <%# On initialise TOM SELECT, un plug-in JavaScript stylé et très utile qui permet de fairre un autocomplete dans un search + dropdown + plusieurs options customizables %>
+
+          <%= f.input :treatment_id,
+                      label: false,
+                      as: :select,
+                      prompt: "Select your treatment ⬇️",
+                      selected: @prescription.treatment.present? ? @prescription.treatment.id : nil,
+                      input_html: {id: 'treatment-select', data: {controller: 'init-tom-select'}},
+                      collection: Treatment.all.order(:name),
+                      value_method: :id
+          %>
+          <%= f.input :start_date,
+                    label: "Start date",
+                    # hint: "If your treatment spans over multiple days, enter a starting date",
+                    as: :date,
+                    html5:true,
+                    collection: %w[Pills Cares Exercises],
+                    wrapper_html: {
+                        class: "text-primary"
+                    }, # Change la couleur du label
+                    input_html: {
+                      class: "card-form",
+                      # Change la couleur des inputs + bk-white + filter shadow
+                    }
+          %>
+          <%= f.input :end_date,
+                    label: "End date",
+                    # hint: "If your treatment spans over multiple days, enter an end date",
+                    as: :date,
+                    html5:true,
+                    collection: %w[Pills Cares Exercises],
+                    wrapper_html: {
+                        class: "text-primary"
+                    }, # Change la couleur du label
+                    input_html: {
+                      class: "card-form",
+                      # Change la couleur des inputs + bk-white + filter shadow
+                    }
+          %>
+          <div class=" hours-and-minutes">
+            <%= f.input :time,
+                      label: "Time",
+                      required: true,
+                      hint: "Select the time",
+                      as: :select, # as: :time pour selectionner autant d'heures et minutes qu'on veut!!
+                      collection: Prescription::TIMES, selected: "00:00",
+                      wrapper_html: {
+                          class: "text-primary"
+                      }, # Change la couleur du label
+                      input_html: {
+                        class: "card-form",
+                        # Change la couleur des inputs + bk-white + filter shadow
+                      }
+            %>
+            <%= f.input :day_half,
+                      required: true,
+                      label: "Morning or afternoon?",
+                      placeholder: "Select between pills, cares or exercises",
+                      # hint: "Select between pills, cares or exercises",
+                      as: :radio_buttons,
+                      collection: %w[AM PM],
+                      input_html: {
+                        class: "card-form",
+                        style: "filter: drop-shadow(0px 4px 4px #EBEBF2);"
+                      },
+                      wrapper_html: {
+                        class: "text-primary"
+                      }
+            %>
+          </div>
+
+          <%= f.input :comment,
+                    label: "Comment",
+                    hint: "Describe any information that would be useful for you when engaging in the treatment (dosage, technics, motivation prompt, ...)",
+                    placeholder: "2 x 150mg before each meal or You can do it, John!",
+                    as: :text,
+                    collection: %w[Pills Cares Exercises],
+                    wrapper_html: {
+                        class: "text-primary"
+                    }, # Change la couleur du label
+                    input_html: {
+                      class: "card-form",
+                      # Change la couleur des inputs + bk-white + filter shadow
+                    }
+          %>
+  <%#= f.input :todo_minutes,
+                    label: "On the hour or 30minutes later?",
+                    # placeholder: ":00 or :30",
+                    wrapper_html: {class: "m-2"},
+                    collection: ["00", "30"],
+                    as: :radio_buttons
+                    # Choisir entre 00 et 30
         %>
-<%#= f.input :todo_minutes,
-                  label: "On the hour or 30minutes later?",
-                  # placeholder: ":00 or :30",
-                  wrapper_html: {class: "m-2"},
-                  collection: ["00", "30"],
-                  as: :radio_buttons
-                  # Choisir entre 00 et 30
+      <%= f.button :submit, class: "btn-primary mt-3" %>
+      </div>
+      <%#= f.input :comment,
+                  placeholder: "Give me some details about your prescription"
       %>
-    <%= f.button :submit, class: "btn-primary mt-3" %>
-    </div>
-    <%#= f.input :comment,
-                placeholder: "Give me some details about your prescription"
-    %>
-    <%#= f.input :category,
-                as: :radio_buttons,
-                collection: PRESCRIPTION::CATEGORIES
-    %>
+      <%#= f.input :category,
+                  as: :radio_buttons,
+                  collection: PRESCRIPTION::CATEGORIES
+      %>
 
 
-  <% end %>
+    <% end %>
+  </div>
 </div>
