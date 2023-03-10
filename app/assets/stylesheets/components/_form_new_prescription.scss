@@ -8,6 +8,18 @@
   background-image: none !important;
 }
 
+.was-validated .form-check-input:valid, .form-check-input.is-valid, .was-validated .form-check-input:valid ~ .form-check-label, .form-check-input.is-valid ~ .form-check-label, .form-control.is-valid {
+  border-color: purple;
+  color: purple;
+}
+
+.was-validated .form-select:valid, .form-select.is-valid {
+  border-color: purple;
+}
+
+.was-validated .form-check-input:valid, .form-check-input.is-valid, .was-validated .form-check-input:valid ~ .form-check-label, .form-check-input.is-valid ~ .form-check-label {
+  border-color: purple;
+}
 
 @media (min-width: 100px) and (max-width: 575px) {
   .container-form {

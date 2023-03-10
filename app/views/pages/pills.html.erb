@@ -35,10 +35,12 @@
     .order(:todo_hours, :todo_minutes)
     .each do |pill_prescription| %>
 
-    <%# Partie du HAUT de la page aura en plus .where(taken_date == Date.today)  %>
-    <%# Partie du BAS de la page aura en plus .where(taken_date != Date.today)  %>
+    <%# Partie du BAS de la page aura en plus .where(taken_date == Date.today)  %>
+    <%# Partie du HAUT de la page aura en plus .where(taken_date != Date.today)  %>
 
-    <% @pill_prescriptions.each do |pill_prescription| %>
+    <%# Comme ça marche pas j'ai fait un select dans pages_controller avec Mathieu et ensuite sort_by car c'est un array pas un truc ActiveRecord%>
+
+    <% @pill_prescriptions_morning_afternoon.each do |pill_prescription| %>
       <div class="card-pill">
         <! -- Pour le cercle de l'heure et la card du titre -->
         <div class="px-3 title-wrap w-100">
@@ -46,7 +48,7 @@
         <! -- le cercle de l'heure -->
           <div class="circle">
             <p class="time"><%= pill_prescription.todo_hours %>:<%= pill_prescription.todo_minutes == 0 ? "00" : "30" %></p>
-            <p class="time"><span class="time-small">AM</span></p>
+            <p class="time"><span class="time-small"><%= pill_prescription.day_half %></span></p>
           </div>
 
         <! -- la card du titre -->

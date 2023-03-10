@@ -21,7 +21,7 @@ class PrescriptionsController < ApplicationController
     @prescription.todo_minutes = params["prescription"]["time"].split(":").last.to_i
     @prescription.taken_date = Date.new(1900, 01, 01) # Garantir que je n'interfère pas avec les prises après 2000
 
-    raise
+    # raise
     if @prescription.save
       # /!\ Attention, rediriger vers le path en fonction de la category du treatment ↓
       if @prescription.treatment.category == "pills"
@@ -38,7 +38,6 @@ class PrescriptionsController < ApplicationController
 
   def edit
     @prescription = Prescription.find(params[:id])
-    # raise
     # Pourquoi ci-dessous ça marche pas
     # @prescritpion.time = "#{@prescription.todo_hours}:#{@prescription.todo_minutes}"
   end
@@ -52,7 +51,13 @@ class PrescriptionsController < ApplicationController
 
     if @prescription.update(prescription_params)
       # ↓ Probablement à adapter comme dans create, avec des if/elsif/else selon le traitement
-      redirect_to prescription_path(@prescription)
+      if @prescription.treatment.category == "pills"
+        redirect_to pills_path
+      elsif @prescription.treatment.category == "cares"
+        redirect_to cares_path
+      else
+        redirect_to exercises_path
+      end
     else
       render :edit, status: :unprocessable_entity
     end

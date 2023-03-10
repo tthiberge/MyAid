@@ -7,6 +7,7 @@
                       placeholder: "Select between pills, cares or exercises",
                       # hint: "Select between pills, cares or exercises",
                       as: :radio_buttons,
+                      checked: prescription.treatment&.category&.capitalize, # &: applique que si c'est pas nil (simplifie ternaire)
                       collection: %w[Pills Cares Exercises],
                       input_html: {
                         class: "card-form",

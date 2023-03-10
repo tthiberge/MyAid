@@ -5,6 +5,7 @@ class PagesController < ApplicationController
     @pill_prescriptions = []
     current_user.prescriptions.each do |prescription|
       @pill_prescriptions << prescription if prescription.treatment.category == "pills"
+
     end
 
     @care_prescriptions = []
@@ -28,10 +29,19 @@ class PagesController < ApplicationController
   end
 
   def pills
-    @pill_prescriptions = []
+    pill_prescriptions_all = []
     current_user.prescriptions.each do |prescription|
-      @pill_prescriptions << prescription if prescription.treatment.category == "pills"
+      pill_prescriptions_all << prescription if prescription.treatment.category == "pills"
     end
+
+    pill_prescriptions_ongoing = pill_prescriptions_all.select {|prescription| Date.today.between?(prescription.start_date, prescription.end_date)}
+    @pill_prescriptions_morning_afternoon = pill_prescriptions_ongoing.sort_by(&:day_half)
+
+    # ⬇️ Marche pas! ça réorganise mes trucs!
+    # @pill_prescriptions_hours = pill_prescriptions_morning_afternoon.sort_by!(&:todo_hours)
+    # ⬇️ Donc là aussi ça va pas marcher!
+    # .sort_by!(&:todo_minutes)
+    # raise
   end
 
   def cares
