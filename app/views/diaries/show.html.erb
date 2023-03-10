@@ -1,0 +1,8 @@
+# afficher la dernière photo
+# simple form pour un nouveau selfie qui est attaché à un diary et un selfie
+
+<%= simple_form_for [@diary, @selfy] do |f| %>
+  <%= f.input :title %>
+  <%= f.input :photo %>
+  <%= f.submit "Submit review", class: "btn btn-primary" %>
+<% end %>
