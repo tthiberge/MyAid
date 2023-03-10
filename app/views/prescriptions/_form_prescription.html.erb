@@ -1,20 +1,23 @@
  <div class="container-form">
     <%= simple_form_for(prescription) do |f| %>
 
-          <%= f.input :todo_hours,
-                    label: "Type of prescriptions",
-                    placeholder: "Select between pills, cares or exercises",
-                    # hint: "Select between pills, cares or exercises",
-                    as: :radio_buttons,
-                    collection: %w[Pills Cares Exercises], selected: "Pills",
-                    input_html: {
-                      class: "card-form",
-                      style: "filter: drop-shadow(0px 4px 4px #EBEBF2);"
-                    },
-                    wrapper_html: {
-                      class: "text-primary"
-                    }
-          %>
+          <div data-controller="form">
+            <%= f.input :treatment_id,
+                      label: "Type of prescriptions",
+                      placeholder: "Select between pills, cares or exercises",
+                      # hint: "Select between pills, cares or exercises",
+                      as: :radio_buttons,
+                      collection: %w[Pills Cares Exercises],
+                      input_html: {
+                        class: "card-form",
+                        style: "filter: drop-shadow(0px 4px 4px #EBEBF2);"                      },
+                      wrapper_html: {
+                        class: "text-primary"
+
+                      }
+            %>
+          </div>
+
           <%# /!\ UTILE %>
             <%# Below, pour créer treatment_id alors que ce n'est pas une colonne de prescription et donc que j'aurais normalement pas pu appeler %>
             <%# dans le Model Prescription, on a créé un treatment_id comme attr_accessor. ça permet de créer/FORCER une colonne du simple_form %>
@@ -29,16 +32,16 @@
                       as: :select,
                       prompt: "Select your treatment ⬇️",
                       selected: prescription.treatment.present? ? prescription.treatment.id : nil,
-                      input_html: {id: 'treatment-select', data: {controller: 'init-tom-select'}},
+                      input_html: {id: 'treatment-select', data: {controller: 'init-tom-select', target: "dropdown"}},
                       collection: Treatment.all.order(:name),
                       value_method: :id
           %>
+
           <%= f.input :start_date,
                     label: "Start date",
                     # hint: "If your treatment spans over multiple days, enter a starting date",
                     as: :date,
                     html5:true,
-                    collection: %w[Pills Cares Exercises],
                     wrapper_html: {
                         class: "text-primary"
                     }, # Change la couleur du label
@@ -52,7 +55,6 @@
                     # hint: "If your treatment spans over multiple days, enter an end date",
                     as: :date,
                     html5:true,
-                    collection: %w[Pills Cares Exercises],
                     wrapper_html: {
                         class: "text-primary"
                     }, # Change la couleur du label
@@ -67,7 +69,7 @@
                       required: true,
                       hint: "Select the time",
                       as: :select, # as: :time pour selectionner autant d'heures et minutes qu'on veut!!
-                      collection: Prescription::TIMES, selected: "00:00",
+                      collection: Prescription::TIMES, #selected: "00:00",
                       wrapper_html: {
                           class: "text-primary"
                       }, # Change la couleur du label
@@ -107,14 +109,6 @@
                       # Change la couleur des inputs + bk-white + filter shadow
                     }
           %>
-  <%#= f.input :todo_minutes,
-                    label: "On the hour or 30minutes later?",
-                    # placeholder: ":00 or :30",
-                    wrapper_html: {class: "m-2"},
-                    collection: ["00", "30"],
-                    as: :radio_buttons
-                    # Choisir entre 00 et 30
-        %>
       <%= f.button :submit, class: "btn-primary mt-3" %>
       </div>
   <% end %>

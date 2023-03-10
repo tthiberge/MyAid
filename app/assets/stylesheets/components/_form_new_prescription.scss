@@ -4,6 +4,11 @@
   margin-inline: 20vw;
 }
 
+.was-validated .form-select:valid:not([multiple]):not([size]), .was-validated .form-select[size="1"]:valid:not([multiple]), .form-select.is-valid:not([multiple]):not([size]), .form-select.is-valid[size="1"]:not([multiple]) {
+  background-image: none !important;
+}
+
+
 @media (min-width: 100px) and (max-width: 575px) {
   .container-form {
     margin-inline: 0;
