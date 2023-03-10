@@ -72,4 +72,6 @@ Rails.application.configure do
   config.hosts << /\A[a-z\d-]+\.loca\.lt\z/
   # PWA config
 
+  config.hosts << "9d49-176-158-239-49.eu.ngrok.io"
+
 end
