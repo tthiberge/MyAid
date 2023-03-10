@@ -72,4 +72,5 @@ Rails.application.configure do
   config.hosts << /\A[a-z\d-]+\.loca\.lt\z/
   # PWA config
 
+  config.active_storage.service = :cloudinary
 end
