@@ -88,10 +88,10 @@ prescription_9 = Prescription.create!(start_date: "04/03/2023", end_date: "19/03
 # creating doctors
 
 
-doctor1 = Doctor.create!(title: "Dr.", name: "Doe", specialty: "Cardiology", address: "26 rue pradier paris", latitude: 37.7749, longitude: -122.4194, user: diane)
+doctor1 = Doctor.create!(title: "Dr.", name: "Doe", specialty: "Surgeon", address: "26 rue pradier paris", latitude: 37.7749, longitude: -122.4194, user: diane)
 doctor2 = Doctor.create!(title: "Nurse", name: "Smith", specialty: "Pediatrics", address: "3 rue jean robert Paris", latitude: 37.7749, longitude: -122.4194, user: diane)
 doctor3 = Doctor.create!(title: "Pr.", name: "Johnson", specialty: "Dermatology", address: "51 rue sedaine Paris", latitude: 37.7749, longitude: -122.4194, user: diane)
-doctor4 = Doctor.create!(title: "Pr.", name: "Malek", specialty: "Surgeon", address: "51 rue sedaine Paris", latitude: 37.7749, longitude: -122.4194, user: diane)
+doctor4 = Doctor.create!(title: "Pr.", name: "Malek", specialty: "Cardiologist", address: "51 rue sedaine Paris", latitude: 37.7749, longitude: -122.4194, user: diane)
 doctor5 = Doctor.create!(title: "Dr.", name: "Hendricks", specialty: "Dermatology", address: "51 rue sedaine Paris", latitude: 37.7749, longitude: -122.4194, user: diane)
 doctor6 = Doctor.create!(title: "Nurse", name: "Donovan", specialty: "General", address: "51 rue sedaine Paris", latitude: 37.7749, longitude: -122.4194, user: diane)
 doctor7 = Doctor.create!(title: "Pr.", name: "Pilgert", specialty: "Cancer", address: "51 rue sedaine Paris", latitude: 37.7749, longitude: -122.4194, user: diane)
