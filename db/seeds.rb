@@ -17,11 +17,13 @@ targin = Treatment.create!(name: "targin", category: "pills")
 zopiclone = Treatment.create!(name: "zopiclone", category: "pills")
 humira = Treatment.create!(name: "humira", category: "pills")
 navidoxine = Treatment.create!(name: "navidoxine", category: "pills")
+codeine = Treatment.create!(name:"codeine", category: "pills")
+amoxiciline = Treatment.create!(name:"antibio", category: "pills")
 
 bandage = Treatment.create!(name: "bandage", category: "cares")
 cream = Treatment.create!(name: "skin cream on burn", category: "cares")
 bath = Treatment.create!(name: "feet bath", category: "cares")
-shampoo = Treatment.create!(name: "scalp shampoo for eczema", category: "cares")
+betadine = Treatment.create!(name: "betadine, neutral cleanser", category: "cares")
 
 meditation = Treatment.create!(name: "meditation", category: "exercises")
 relaxation = Treatment.create!(name: "relaxation", category: "exercises")
@@ -80,7 +82,7 @@ prescription_6 = Prescription.create!(start_date: "04/03/2023", end_date: "19/03
 
 prescription_7 = Prescription.create!(start_date: "03/03/2023", end_date: "18/03/2023", todo_hours: 9, todo_minutes: 00, day_half: "PM",  comment: "Apply a fair amount on the burnt area before going to bed", user: diane, treatment: cream)
 
-prescription_8 = Prescription.create!(start_date: "18/03/2023", end_date: "17/03/2023", todo_hours: 7, todo_minutes: 00, day_half: "PM",  comment: "During your shower, use this shampoo to ease the scalp itching for the next 48 hours", user: diane, treatment: shampoo)
+prescription_8 = Prescription.create!(start_date: "18/03/2023", end_date: "17/03/2023", todo_hours: 7, todo_minutes: 00, day_half: "PM",  comment: "During your shower, instead of the current shower gel and shampoo", user: diane, treatment: betadine)
 
 prescription_9 = Prescription.create!(start_date: "04/03/2023", end_date: "19/03/2023", todo_hours: 2, todo_minutes: 00, day_half: "PM",  comment: "Save a 1h-time slot to practice meditation to relax and accept the present time", user: diane, treatment: meditation)
 
