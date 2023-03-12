@@ -66,9 +66,9 @@ maung = User.create!(
 
 # Creating the prescriptions
 
-prescription_1 = Prescription.create!(start_date: "10/03/2023", end_date: "20/03/2023", todo_hours: 12, todo_minutes: 30, day_half: "PM", comment: "2 x 500mg - Take the pills before the main meal of the day", user: diane, treatment: paracetamol)
+prescription_1 = Prescription.create!(start_date: "10/03/2023", end_date: "20/03/2023", todo_hours: 12, todo_minutes: 30, day_half: "PM", comment: "2 x 500mg - Take the pills before the main meal of the day", user: diane, treatment: paracetamol, taken_date: Date.today)
 
-prescription_2 = Prescription.create!(start_date: "07/03/2023", end_date: "17/03/2023", todo_hours: 9, todo_minutes: 00,  day_half: "AM", comment: "3 x 125mg - Take the pills before going to sleep", user: diane, treatment: tylenol)
+prescription_2 = Prescription.create!(start_date: "07/03/2023", end_date: "17/03/2023", todo_hours: 9, todo_minutes: 00,  day_half: "AM", comment: "3 x 125mg - Take the pills before going to sleep", user: diane, treatment: tylenol, taken_date: Date.today)
 
 prescription_3 = Prescription.create!(start_date: "02/03/2023", end_date: "22/03/2023", todo_hours: 10, todo_minutes: 00, day_half: "AM",  comment: "1 x 250mg - In the morning ", user: diane, treatment: apronax)
 

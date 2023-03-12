@@ -40,7 +40,8 @@
 
     <%# Comme ça marche pas j'ai fait un select dans pages_controller avec Mathieu et ensuite sort_by car c'est un array pas un truc ActiveRecord%>
 
-    <% @pill_prescriptions_morning_afternoon.each do |pill_prescription| %>
+    <! -- On itère d'abord sur les prescriptions pas encore prises -->
+    <% @pill_prescriptions_sorted_not_taken.each do |pill_prescription| %>
       <div class="card-pill">
         <! -- Pour le cercle de l'heure et la card du titre -->
         <div class="px-3 title-wrap w-100">
@@ -110,6 +111,87 @@
         <! -- On ferme Card Pills/Treatment/Exercices -->
       </div>
     <% end %>
+
+
+    <! -- On itère sur les prescriptions prises aujourd'hui -->
+    <% @pill_prescriptions_sorted_taken.each do |pill_prescription| %>
+      <div class="card-pill">
+        <! -- Pour le cercle de l'heure et la card du titre -->
+        <div class="px-3 title-wrap w-100">
+
+        <! -- le cercle de l'heure -->
+          <div class="circle">
+            <p class="time"><%= pill_prescription.todo_hours %>:<%= pill_prescription.todo_minutes == 0 ? "00" : "30" %></p>
+            <p class="time"><span class="time-small"><%= pill_prescription.day_half %></span></p>
+          </div>
+
+        <! -- la card du titre -->
+          <div class="card-title">
+            <h1><%= pill_prescription.treatment.name.capitalize %></h1>
+          </div>
+
+        </div>
+
+
+
+        <! -- Pour le comment : Deux lignes de texte pour plus joli rendu  -->
+
+        <div class="content-wrap">
+          <h2>Comment</h2>
+          <p><%= pill_prescription.comment %></p>
+        </div>
+
+
+          <! -- Pour les cercles d'action : cancel, edit, check -->
+        <div class="action-wrap">
+
+          <! -- Cercle d'action 1 : cancel -->
+
+          <div class="action-circle-1">
+            <%= link_to destroy_prescription_path(pill_prescription), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
+              <i class="fa-solid fa-xmark"></i>
+            <% end %>
+          </div>
+
+          <! -- Cercle d'action 2 : edit -->
+
+          <div class="action-circle-2">
+          <%= link_to edit_prescription_path(pill_prescription) do %>
+            <i class="fa-solid fa-pencil"></i>
+          <% end %>
+          </div>
+
+          <! -- Cercle d'action 3 : check -->
+
+          <button type=submit style="background: transparent; border: none">
+          <div class="action-circle-3">
+          <%#= link_to pills_confirm_prescription_path(pill_prescription), data: { turbo_method: :patch }  do %>
+            <%# <i class="fa-solid fa-check"></i> %>
+          <%# end %>
+              <i class="fa-solid fa-check text-success"></i>
+              <%= simple_form_for(pill_prescription) do |f| %>
+                <% f.input :taken_date,
+                           as: :hidden,
+                           value: Date.today
+                %>
+              <% end %>
+          </div>
+          </button>
+
+          <! -- On ferme es cercles d'action : cancel, edit, check -->
+          </div>
+
+        <! -- On ferme Card Pills/Treatment/Exercices -->
+      </div>
+    <% end %>
+
+
+
+
+
+
+
+
   </div>
 
 </div>
