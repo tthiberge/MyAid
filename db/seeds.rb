@@ -68,19 +68,19 @@ maung = User.create!(
 
 # Creating the prescriptions
 
-prescription_1 = Prescription.create!(start_date: "10/03/2023", end_date: "20/03/2023", todo_hours: 12, todo_minutes: 30, day_half: "PM", comment: "2 x 500mg - Take the pills before the main meal of the day", user: diane, treatment: paracetamol, taken_date: Date.today)
+prescription_1 = Prescription.create!(start_date: "10/03/2023", end_date: "20/03/2023", todo_hours: 11, todo_minutes: 30, day_half: "AM", comment: "2 x 500mg - Take the pills before the main meal of the day", user: diane, treatment: paracetamol, taken_date: Date.today)
 
-prescription_2 = Prescription.create!(start_date: "07/03/2023", end_date: "17/03/2023", todo_hours: 9, todo_minutes: 00,  day_half: "AM", comment: "3 x 125mg - Take the pills before going to sleep", user: diane, treatment: tylenol, taken_date: Date.today)
+prescription_2 = Prescription.create!(start_date: "07/03/2023", end_date: "17/03/2023", todo_hours: 9, todo_minutes: 00,  day_half: "PM", comment: "3 x 125mg - Take the pills before going to sleep", user: diane, treatment: tylenol, taken_date: Date.today)
 
 prescription_3 = Prescription.create!(start_date: "02/03/2023", end_date: "22/03/2023", todo_hours: 10, todo_minutes: 00, day_half: "AM",  comment: "1 x 250mg - In the morning ", user: diane, treatment: amoxiciline)
 
-prescription_4 = Prescription.create!(start_date: "03/03/2023", end_date: "18/03/2023", todo_hours: 11, todo_minutes: 30, day_half: "AM",  comment: "2 tablets - Take with a fair amount of water", user: diane, treatment: relaxon)
+prescription_4 = Prescription.create!(start_date: "03/03/2023", end_date: "18/03/2023", todo_hours: 11, todo_minutes: 00, day_half: "AM",  comment: "2 tablets - Take with a fair amount of water", user: diane, treatment: relaxon)
 
-prescription_5 = Prescription.create!(start_date: "15/03/2023", end_date: "17/03/2023", todo_hours: 12, todo_minutes: 30, day_half: "PM",  comment: "4 x 250mg - Take during the meal", user: theo, treatment: muscadol)
+prescription_5 = Prescription.create!(start_date: "15/03/2023", end_date: "17/03/2023", todo_hours: 1, todo_minutes: 00, day_half: "PM",  comment: "4 x 250mg - Take during the meal", user: theo, treatment: muscadol)
 
 prescription_6 = Prescription.create!(start_date: "04/03/2023", end_date: "19/03/2023", todo_hours: 4, todo_minutes: 00, day_half: "PM",  comment: "1 x 500mg - Take in the afternoon", user: theo, treatment: targin)
 
-prescription_7 = Prescription.create!(start_date: "03/03/2023", end_date: "18/03/2023", todo_hours: 9, todo_minutes: 00, day_half: "PM",  comment: "Apply a fair amount on the burnt area before going to bed", user: diane, treatment: cream)
+prescription_7 = Prescription.create!(start_date: "03/03/2023", end_date: "18/03/2023", todo_hours: 10, todo_minutes: 00, day_half: "PM",  comment: "Apply a fair amount on the burnt area before going to bed", user: diane, treatment: cream)
 
 prescription_8 = Prescription.create!(start_date: "18/03/2023", end_date: "17/03/2023", todo_hours: 7, todo_minutes: 00, day_half: "PM",  comment: "During your shower, instead of the current shower gel and shampoo", user: theo, treatment: betadine)
 
