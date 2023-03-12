@@ -183,6 +183,24 @@
   }
 }
 
+.action-circle-3-confirmed {
+  position: absolute;
+  right: 26px;
+  bottom: -20px;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background: #59ED9C;
+  filter: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 10px;
+  i {
+    font-size: 20px;
+  }
+}
+
 .icon-action-circle {
   height: 15px;
 }
