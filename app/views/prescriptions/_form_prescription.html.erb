@@ -1,23 +1,27 @@
- <div class="container-form">
+ <div class="container-form" >
     <%= simple_form_for(prescription) do |f| %>
 
-          <div data-controller="form">
+          <div data-controller="form" data-target="formulaire">
             <%= f.input :treatment_id,
                       label: "Type of prescriptions",
                       placeholder: "Select between pills, cares or exercises",
                       # hint: "Select between pills, cares or exercises",
                       as: :radio_buttons,
+                      collection_wrapper_tag: 'div',
+                      collection_wrapper_class: 'category-wrapper',
+                      item_wrapper_class: 'category-item',
                       checked: prescription.treatment&.category&.capitalize, # &: applique que si c'est pas nil (simplifie ternaire)
-                      collection: %w[Pills Cares Exercises],
+                      collection: %w[💊Pills ❤️‍🩹Cares 🚴Exercises],
                       input_html: {
-                        class: "card-form",
-                        style: "filter: drop-shadow(0px 4px 4px #EBEBF2);"                      },
+                        class: 'category-selector',
+                        style: "filter: drop-shadow(0px 4px 4px #EBEBF2);",
+                        data: {action: "click->form#Reveal"}
+                        },
                       wrapper_html: {
                         class: "text-primary"
 
                       }
             %>
-          </div>
 
           <%# /!\ UTILE %>
             <%# Below, pour créer treatment_id alors que ce n'est pas une colonne de prescription et donc que j'aurais normalement pas pu appeler %>
@@ -28,15 +32,23 @@
 
             <%# On initialise TOM SELECT, un plug-in JavaScript stylé et très utile qui permet de fairre un autocomplete dans un search + dropdown + plusieurs options customizables %>
 
-          <%= f.input :treatment_id,
-                      label: false,
-                      as: :select,
-                      prompt: "Select your treatment ⬇️",
-                      selected: prescription.treatment.present? ? prescription.treatment.id : nil,
-                      input_html: {id: 'treatment-select', data: {controller: 'init-tom-select', target: "dropdown"}},
-                      collection: Treatment.all.order(:name),
-                      value_method: :id
-          %>
+            <%= f.input :treatment_id,
+                        label: false,
+                        as: :select,
+                        prompt: "Select your treatment ⬇️",
+                        selected: prescription.treatment.present? ? prescription.treatment.id : nil,
+                        input_html: {id: 'treatment-select',
+                                    class: "",
+                                    data: {controller: 'init-tom-select'}
+                                    },
+                        wrapper_html: {
+                                    class: "",
+                                    data: {form_target: 'dropdown'}
+                        },
+                        collection: Treatment.all.order(:name),
+                        value_method: :id
+            %>
+          </div>
 
           <%= f.input :start_date,
                     label: "Start date",
