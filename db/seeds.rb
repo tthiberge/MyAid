@@ -116,10 +116,10 @@ appointment7 = Appointment.create(date: Date.today, comment: "Checkup", user: di
 #t.datetime "updated_at", null: false
 #t.index ["user_id"], name: "index_diaries_on_user_id"
 
-diarie1 = Diarie.create!(pain_scale: 8, motivation_scale: 2, daily_feeling: "I am suffering a lot today, I am trying to fight the pain but it's hard because I am so exausted", user: diane )
-diarie2 = Diarie.create!(pain_scale: 7, motivation_scale: 3, daily_feeling: "I am suffering a bit less than yesterday, it gives me hope", user: diane )
-diarie3 = Diarie.create!(pain_scale: 8, motivation_scale: 3, daily_feeling: "The real pain is back but I am seeing my children today so I already feel better", user: diane )
-diarie4 = Diarie.create!(pain_scale: 7, motivation_scale: 5, daily_feeling: "I went out for the first time today, it's a victory", user: diane )
-diarie5 = Diarie.create!(pain_scale: 6, motivation_scale: 5, daily_feeling: "I am starting physiotherapy today, I am really tired but I am happy to be able to start ", user: diane )
+diary1 = Diary.create!(pain_scale: 8, motivation_scale: 2, daily_feeling: "I am suffering a lot today, I am trying to fight the pain but it's hard because I am so exausted", user: diane )
+diary2 = Diary.create!(pain_scale: 7, motivation_scale: 3, daily_feeling: "I am suffering a bit less than yesterday, it gives me hope", user: diane )
+diary3 = Diary.create!(pain_scale: 8, motivation_scale: 3, daily_feeling: "The real pain is back but I am seeing my children today so I already feel better", user: diane )
+diary4 = Diary.create!(pain_scale: 7, motivation_scale: 5, daily_feeling: "I went out for the first time today, it's a victory", user: diane )
+diary5 = Diary.create!(pain_scale: 6, motivation_scale: 5, daily_feeling: "I am starting physiotherapy today, I am really tired but I am happy to be able to start ", user: diane )
 
 puts "Seeded"
