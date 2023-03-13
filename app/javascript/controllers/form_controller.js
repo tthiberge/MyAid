@@ -11,13 +11,11 @@ export default class extends Controller {
   }
 
   reveal(event) {
-    // ça fonctionne puisque j'ai reussi à afficher dans la console event.currentTarget
-    // ça a l'air d'être ma dropdownTarget qu'il n'arrive pas à sélectionner
-
     console.log(event.currentTarget.value.includes("Pills"))
-    // event.currentTarget.value === "🚴Exercises"
+
 
     if (event.currentTarget.value === "💊Pills") {
+      console.log("je suis dans pills")
       this.pillsTarget.classList.remove("d-none")
       this.caresTarget.classList.add("d-none")
       this.exercisesTarget.classList.add("d-none")
@@ -31,10 +29,9 @@ export default class extends Controller {
       this.exercisesTarget.classList.remove("d-none")
     }
 
-    //🚴Exercises
-    // console.log(this.pillsTarget)
-    // this.pillsTarget.classList.toggle("d-none")
     console.log("hello")
   }
+
+
 
 }
