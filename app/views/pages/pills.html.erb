@@ -90,20 +90,31 @@
 
           <! -- Cercle d'action 3 : check -->
 
-          <button type=submit style="background: transparent; border: none">
+          <%# <button type=submit style="background: transparent; border: none"> %>
+          <%# <p>OPTION DE SUNNY MAIS J'AI PAS ABOUTI</p> %>
           <div class="action-circle-3">
-          <%#= link_to pills_confirm_prescription_path(pill_prescription), data: { turbo_method: :patch }  do %>
-            <%# <i class="fa-solid fa-check"></i> %>
-          <%# end %>
+            <%= link_to pills_confirm_prescription_path(pill_prescription), data: { turbo_method: :patch }  do %>
               <i class="fa-solid fa-check"></i>
-              <%= simple_form_for(pill_prescription) do |f| %>
-                <% f.input :taken_date,
-                           as: :hidden,
-                           value: Date.today
-                %>
-              <% end %>
+            <% end %>
           </div>
-          </button>
+          <%# </button> %>
+
+
+          <div>
+            <%#= simple_form_for(pill_prescription) do |f| %>
+              <%#= f.input :taken_date,
+                      # label: false,
+                      as: :hidden,
+                      input_html: {
+                        value: Date.today
+                      }
+                      # value: Date.today
+              %>
+              <%#= f.submit class: "btn btn-success rounded-pill"%>
+
+            <%# end %>
+
+          </div>
 
           <! -- On ferme es cercles d'action : cancel, edit, check -->
           </div>
