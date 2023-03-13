@@ -129,3 +129,34 @@
   justify-content: center;
   padding-inline: 5px;
 }
+
+// .flatpickr-day.endRange
+// {
+//   background: purple;
+//   border-color: purple;
+//   }
+
+
+// .flatpickr-day.startRange{
+//   background: purple;
+//   border-color: purple;
+// }
+
+span.flatpickr-day.startRange{
+  background: purple;
+  border-color: purple;
+}
+span.flatpickr-day.endRange{
+  background: purple;
+  border-color: purple;
+}
+span.flatpickr-day.selected{
+  background: purple;
+  border-color: purple;
+}
+
+
+.flatpickr-day.inRange{
+background: #D7CDE3;
+border-color: #D7CDE3;
+}

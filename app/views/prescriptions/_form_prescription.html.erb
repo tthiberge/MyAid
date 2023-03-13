@@ -1,7 +1,7 @@
  <div class="container-form" >
     <%= simple_form_for prescription,
           html: {
-            data: {controller: "form"}
+            data: {controller: "form flatpickr-prescription"}
           } do |f| %>
 
             <%= f.input :treatment_category, # Attr_accessor pour pas que le f.input plus loin le remplace et décoche. Nom factice
@@ -117,27 +117,33 @@
             <%# On initialise TOM SELECT, un plug-in JavaScript stylé et très utile qui permet de fairre un autocomplete dans un search + dropdown + plusieurs options customizables %>
           <%= f.input :start_date,
                     label: "Start date",
-                    # hint: "If your treatment spans over multiple days, enter a starting date",
-                    as: :date,
-                    html5:true,
+                    as: :string, # pour FLATPICKR
+                    # as: :date, # sans FLATPICKR
+                    # html5:true, # sans FLATPICKR
                     wrapper_html: {
                         class: "text-primary"
                     }, # Change la couleur du label
                     input_html: {
                       class: "card-form",
+                      data: {
+                        flatpickr_prescription_target: "startDate"
+                      }
                       # Change la couleur des inputs + bk-white + filter shadow
                     }
           %>
           <%= f.input :end_date,
                     label: "End date",
-                    # hint: "If your treatment spans over multiple days, enter an end date",
-                    as: :date,
-                    html5:true,
+                    as: :string, # pour FLATPICKR
+                    # as: :date, # sans FLATPICKR
+                    # html5:true, # sans FLATPICKR
                     wrapper_html: {
                         class: "text-primary"
                     }, # Change la couleur du label
                     input_html: {
                       class: "card-form",
+                      data: {
+                        flatpickr_prescription_target: "endDate"
+                      }
                       # Change la couleur des inputs + bk-white + filter shadow
                     }
           %>
