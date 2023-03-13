@@ -61,8 +61,7 @@ class PrescriptionsController < ApplicationController
   def confirm
     @prescription = Prescription.find(params[:id])
     @prescription.taken_date = Date.today
-    # raise
-    @prescription.save
+
     if @prescription.save
       if @prescription.treatment.category == "pills"
         redirect_to pills_path
