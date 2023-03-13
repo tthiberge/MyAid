@@ -1,7 +1,7 @@
  <div class="container-form" >
     <%= simple_form_for prescription,
           html: {
-            data: {controller: "form"}
+            data: {controller: "form flatpickr-prescription"}
           } do |f| %>
 
             <%= f.input :treatment_category, # Attr_accessor pour pas que le f.input plus loin le remplace et décoche. Nom factice
@@ -13,9 +13,12 @@
                       collection_wrapper_class: 'category-wrapper',
                       item_wrapper_class: 'category-item',
                       checked: prescription.treatment&.category&.capitalize, # &: applique que si c'est pas nil (simplifie ternaire)
+
+                      # Array d'arrays, pour passer la valeur qu'on affiche, et la valeur qui est envoyée à la soumission
                       collection: [["💊<br>Pills".html_safe, "💊Pills"], ["❤️‍🩹<br>Cares".html_safe, "❤️‍🩹Cares"], ["🚴<br>Exercises".html_safe, "🚴Exercises"]],
                       value_method: :last,
                       label_method: :first,
+
                       input_html: {
                         class: 'category-selector',
                         style: "filter: drop-shadow(0px 4px 4px #EBEBF2);",
@@ -23,7 +26,7 @@
                         },
                       wrapper_html: {class: "text-primary"}%>
 
-            <%# <p>Exemple avec tom-select</p> %>
+            <%# <p>EXEMPLE AVEC TOM-SELECT, NE PAS SUPPRIMER</p> %>
             <%#= f.input :treatment_id,
                         label: false,
                         as: :select,
@@ -114,27 +117,35 @@
             <%# On initialise TOM SELECT, un plug-in JavaScript stylé et très utile qui permet de fairre un autocomplete dans un search + dropdown + plusieurs options customizables %>
           <%= f.input :start_date,
                     label: "Start date",
-                    # hint: "If your treatment spans over multiple days, enter a starting date",
-                    as: :date,
-                    html5:true,
+                    as: :string, # pour FLATPICKR
+                    # as: :date, # sans FLATPICKR
+                    # html5:true, # sans FLATPICKR
                     wrapper_html: {
-                        class: "text-primary"
+                        class: "text-primary "
                     }, # Change la couleur du label
                     input_html: {
-                      class: "card-form",
-                      # Change la couleur des inputs + bk-white + filter shadow
+                      class: "card-for d-none",
+                      data: {
+                        flatpickr_prescription_target: "startDate"
+                      }
+                    },
+                    label_html: {
+                      class: "d-none"
                     }
           %>
           <%= f.input :end_date,
                     label: "End date",
-                    # hint: "If your treatment spans over multiple days, enter an end date",
-                    as: :date,
-                    html5:true,
+                    as: :string, # pour FLATPICKR
+                    # as: :date, # sans FLATPICKR
+                    # html5:true, # sans FLATPICKR
                     wrapper_html: {
-                        class: "text-primary"
+                        class: "d-none"
                     }, # Change la couleur du label
                     input_html: {
                       class: "card-form",
+                      data: {
+                        flatpickr_prescription_target: "endDate"
+                      }
                       # Change la couleur des inputs + bk-white + filter shadow
                     }
           %>
@@ -146,7 +157,7 @@
                       as: :select, # as: :time pour selectionner autant d'heures et minutes qu'on veut!!
                       collection: Prescription::TIMES, #selected: "00:00",
                       wrapper_html: {
-                          class: "text-primary"
+                          class: ""
                       }, # Change la couleur du label
                       input_html: {
                         class: "card-form",
@@ -155,13 +166,14 @@
             %>
             <%= f.input :day_half,
                       required: true,
-                      label: "Morning or afternoon?",
-                      placeholder: "Select between pills, cares or exercises",
-                      # hint: "Select between pills, cares or exercises",
+                      label: "AM or PM?",
                       as: :radio_buttons,
                       collection: %w[AM PM],
+                      # collection_wrapper_tag: 'div',
+                      # collection_wrapper_class: 'category-wrapper-ampm',
+                      item_wrapper_class: 'category-item',
                       input_html: {
-                        class: "card-form",
+                        class: "card-form category-selector-ampm",
                         style: "filter: drop-shadow(0px 4px 4px #EBEBF2);"
                       },
                       wrapper_html: {
@@ -175,7 +187,6 @@
                     hint: "Describe any information that would be useful for you when engaging in the treatment (dosage, technics, motivation prompt, ...)",
                     placeholder: "2 x 150mg before each meal or You can do it, John!",
                     as: :text,
-                    collection: %w[Pills Cares Exercises],
                     wrapper_html: {
                         class: "text-primary"
                     }, # Change la couleur du label
@@ -185,5 +196,7 @@
                     }
           %>
       <%= f.button :submit, class: "btn-primary mt-3" %>
-      </div>
   <% end %>
+</div>
+
+<%#= ren#der partial: "time_picker", locals: {presccription: prescription} %>
