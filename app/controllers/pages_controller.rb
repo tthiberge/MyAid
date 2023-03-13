@@ -88,4 +88,7 @@ class PagesController < ApplicationController
   def landing
   end
 
+  def boost
+  end
+
 end
