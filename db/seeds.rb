@@ -107,6 +107,19 @@ appointment5 = Appointment.create(date: Date.today, comment: "Checkup", user: di
 appointment6 = Appointment.create(date: Date.today, comment: "Checkup", user: diane, doctor: doctor6, appointment_hour: 15, appointment_min: 30 )
 appointment7 = Appointment.create(date: Date.today, comment: "Checkup", user: diane, doctor: doctor7, appointment_hour: 16, appointment_min: 30 )
 
+#diaries seed
+# t.integer "pain_scale"
+#t.integer "motivation_scale"
+#t.string "daily_feeling"
+#t.bigint "user_id", null: false
+#t.datetime "created_at", null: false
+#t.datetime "updated_at", null: false
+#t.index ["user_id"], name: "index_diaries_on_user_id"
 
+diarie1 = Diarie.create!(pain_scale: 8, motivation_scale: 2, daily_feeling: "I am suffering a lot today, I am trying to fight the pain but it's hard because I am so exausted", user: diane )
+diarie2 = Diarie.create!(pain_scale: 7, motivation_scale: 3, daily_feeling: "I am suffering a bit less than yesterday, it gives me hope", user: diane )
+diarie3 = Diarie.create!(pain_scale: 8, motivation_scale: 3, daily_feeling: "The real pain is back but I am seeing my children today so I already feel better", user: diane )
+diarie4 = Diarie.create!(pain_scale: 7, motivation_scale: 5, daily_feeling: "I went out for the first time today, it's a victory", user: diane )
+diarie5 = Diarie.create!(pain_scale: 6, motivation_scale: 5, daily_feeling: "I am starting physiotherapy today, I am really tired but I am happy to be able to start ", user: diane )
 
 puts "Seeded"
