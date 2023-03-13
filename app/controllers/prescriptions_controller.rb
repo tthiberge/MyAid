@@ -45,6 +45,7 @@ class PrescriptionsController < ApplicationController
   def update
     @user = current_user
     @prescription = Prescription.find(params[:id])
+    # raise
     if @prescription.update(prescription_params)
       if @prescription.treatment.category == "pills"
         redirect_to pills_path
