@@ -1,0 +1,56 @@
+.card-pill-pictures-boost {
+  position: relative;
+  justify-content: center;
+  border: solid;
+  border-width: medium;
+  border-color: white;
+  border-radius: 20px;
+  background-color: #ffffff;
+  filter: drop-shadow(0px 4px 4px #EBEBF2);
+  height: 480px;
+  padding: 50px 6px;
+  margin-top: 60px;
+}
+
+.pictures-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 1px;
+}
+
+.picture-boost {
+  background-color: #EBEBF2;
+  border-radius: 40px;
+  width: 50%;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 5px;
+  position: relative;
+}
+
+.marked-picture {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  // right: 280px;
+  // bottom: 190px;
+  i {
+    font-size: 30px;
+    color: purple;
+  }
+}
+
+.marked-picture-right {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  // right: 280px;
+  // bottom: 190px;
+  i {
+    font-size: 30px;
+    color: purple;
+  }
+}
