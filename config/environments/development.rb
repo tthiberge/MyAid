@@ -72,11 +72,8 @@ Rails.application.configure do
   config.hosts << /\A[a-z\d-]+\.loca\.lt\z/
   # PWA config
 
-<<<<<<< HEAD
 
-
-=======
   config.active_storage.service = :cloudinary
->>>>>>> 0d0e336be3c147750110c8d02e6e0a3be2343c18
+  
   config.hosts << /.*\.eu\.ngrok\.io\z/
 end
