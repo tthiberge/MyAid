@@ -11,9 +11,7 @@
 <div class="container-white d-flex flex-column">
   <div class="header-title-purple">
     <div class="left-title">
-      <% @appointments.first(1).each do |appointment| %>
-        <h2><%= image_tag("appointments-icon.svg", width: 30) %><%=appointment.doctor.specialty.capitalize%></h2>
-      <% end %>
+      <h2><%= image_tag("appointments-icon.svg", width: 30) %><%=@appointment.doctor.specialty.capitalize%></h2>
     </div>
   </div>
 
@@ -69,8 +67,7 @@
 
       <div class="content-wrap">
         <h2>To ask the doctor</h2>
-        <p>What should I do when it hurts too much ?
-        Can I dye my hair during the treatment? </p>
+        <p> <%= @appointment.comment %> </p>
       </div>
 
 
@@ -120,7 +117,7 @@
         </div>
 
         <div class="card-title">
-          <h1>Weather</h1>
+          <h1>Weather for this apppointment</h1>
         </div>
       </div>
 
