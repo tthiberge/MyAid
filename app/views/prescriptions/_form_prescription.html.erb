@@ -1,7 +1,10 @@
  <div class="container-form" >
-    <%= simple_form_for(prescription) do |f| %>
+    <%= simple_form_for prescription,
+          html: {
+            data: {controller: "form"}
+          } do |f| %>
 
-          <div data-controller="form" data-target="formulaire">
+          <div >
             <%= f.input :treatment_id,
                       label: "Type of prescriptions",
                       placeholder: "Select between pills, cares or exercises",
@@ -15,7 +18,7 @@
                       input_html: {
                         class: 'category-selector',
                         style: "filter: drop-shadow(0px 4px 4px #EBEBF2);",
-                        data: {action: "click->form#Reveal"}
+                        data: {action: "click->form#reveal"}
                         },
                       wrapper_html: {
                         class: "text-primary"
@@ -42,7 +45,7 @@
                                     data: {controller: 'init-tom-select'}
                                     },
                         wrapper_html: {
-                                    class: "",
+                                    class: "d-none",
                                     data: {form_target: 'dropdown'}
                         },
                         collection: Treatment.all.order(:name),

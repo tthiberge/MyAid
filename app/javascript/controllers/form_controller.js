@@ -3,17 +3,19 @@ import { Controller } from "@hotwired/stimulus"
 // Connects to data-controller="form"
 export default class extends Controller {
 
-  static target = ["dropdown", "formulaire"]
+  static targets = ["dropdown", "formulaire"]
 
   connect() {
     console.log("test")
+    console.log(this.dropdownTarget)
   }
 
-  Reveal() {
+  reveal() {
     // ça fonctionne puisque j'ai reussi à afficher dans la console event.currentTarget
     // ça a l'air d'être ma dropdownTarget qu'il n'arrive pas à sélectionner
-    console.log(this.formulaireTarget)
-    this.formulaireTarget.classList.add("bk-success")
+    console.log(this.dropdownTarget)
+    this.dropdownTarget.classList.remove("d-none")
+    console.log("hello")
   }
 
 }
