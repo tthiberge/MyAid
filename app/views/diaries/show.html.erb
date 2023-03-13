@@ -1,8 +1,133 @@
-# afficher la dernière photo
-# simple form pour un nouveau selfie qui est attaché à un diary et un selfie
+<div class="navbar-icons">
+  <%= link_to :back do %>
+    <i class="fa-solid fa-chevron-left"></i>
+  <% end %>
 
-<%= simple_form_for [@diary, @selfy] do |f| %>
-  <%= f.input :title %>
-  <%= f.input :photo %>
-  <%= f.submit "Submit review", class: "btn btn-primary" %>
-<% end %>
+  <%= link_to diaries_path do %>
+    <i class="fa-solid fa-book-medical"></i>
+  <% end %>
+</div>
+
+
+
+<div class="container-white">
+  <div class="header-title-purple">
+    <div class="left-title">
+      <h2><i class="fa-solid fa-book-medical"></i> My Diary</h2>
+    </div>
+  </div>
+
+  <div class="day-of-prescription">
+    <p><strong>22 February</strong> 2023</p>
+  </div>
+
+  <div class="p-3" data-controller="upload-selfy">
+    <%= simple_form_for [@diary, @selfy] do |f| %>
+      <div class="d-none" data-upload-selfy-target="form">
+        <%= f.input :photo,
+          input_html: {data: {upload_selfy_target: "input"}} %>
+        <%= f.submit "Submit review", class: "btn btn-primary" %>
+      </div>
+
+      <div class="selfies-row">
+        <div class="selfy-button" data-upload-selfy-target="button" data-action="click->upload-selfy#upload">
+          <h1>Selfie</h1>
+          <i class="fa-solid fa-camera"></i>
+          <h2>Your are beautiful.</h2>
+        </div>
+        <div class="selfy-button">
+
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+
+  <div class="prescriptions-cards px-3">
+    <div class="card-pill-motivation">
+      <div class="px-3 title-wrap w-100">
+        <div class="circle">
+          <i class="fa-solid fa-truck-medical"></i>
+        </div>
+
+        <div class="card-title">
+          <h1>My Pain Scale</h1>
+        </div>
+      </div>
+
+      <div class="content-wrap">
+        <%= @diary.pain_scale %>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="prescriptions-cards px-3">
+    <div class="card-pill-motivation">
+      <div class="px-3 title-wrap w-100">
+        <div class="circle">
+          <i class="fa-solid fa-hand-peace"></i>
+        </div>
+
+        <div class="card-title">
+          <h1>My Motivation</h1>
+        </div>
+      </div>
+
+      <div class="d-flex justify-content-center content-wrap">
+        <%= form_with model: @diary, url: diary_path(@diary), turbo_method: :patch, local:true do |f| %>
+          <div class="field form-group">
+            <div class="rating">
+              <%= f.collection_radio_buttons(:motivation_scale, [[5],[4],[3],[2],[1]], :first, :last) do |star| %>
+                <%= star.radio_button %>
+                <%= star.label(class: "text-white") { "" } %>
+              <% end %>
+            </div>
+          </div>
+      </div>
+    </div>
+    <div class="prescriptions-cards">
+      <div class="card-pill">
+        <! -- Pour le cercle de l'heure et la card du titre -->
+        <div class="px-3 title-wrap w-100">
+
+        <! -- le cercle de l'heure -->
+          <div class="circle">
+            <%= image_tag("feeling-icon.svg", width: 30) %>
+          </div>
+
+      <! -- la card du titre -->
+          <div class="card-title">
+            <h1>My Daily feeling</h1>
+          </div>
+        </div>
+
+        <div class="content-wrap">
+          <%= f.text_field :daily_feeling %>
+        </div>
+
+        <div class="action-wrap">
+
+          <div class="action-circle-2">
+            <%= link_to "#" do %>
+              <i class="fa-solid fa-microphone"></i>
+            <% end %>
+          </div>
+
+          <div class="action-circle-3">
+            <%= link_to "#" do %>
+              <i class="fa-solid fa-pencil"></i>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <div class="purple-button">
+      <%= f.submit "Save", class: "btn btn-primary" %>
+    </div>
+  <% end %>
+</div>
+
+<!-- Created by Parth Saini-->
