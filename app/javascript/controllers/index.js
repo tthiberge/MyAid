@@ -15,3 +15,9 @@ application.register("hello", HelloController)
 
 import InitTomSelectController from "./init_tom_select_controller"
 application.register("init-tom-select", InitTomSelectController)
+
+import UploadSelfyController from "./upload_selfy_controller"
+application.register("upload-selfy", UploadSelfyController)
+
+
+var app = angular.module('app', []);

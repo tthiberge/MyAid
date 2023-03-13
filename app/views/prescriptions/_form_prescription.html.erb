@@ -1,8 +1,10 @@
  <div class="container-form" >
-    <%= simple_form_for(prescription) do |f| %>
+    <%= simple_form_for prescription,
+          html: {
+            data: {controller: "form"}
+          } do |f| %>
 
-          <div data-controller="form" data-target="formulaire">
-            <%= f.input :treatment_id,
+            <%= f.input :treatment_category, # Attr_accessor pour pas que le f.input plus loin le remplace et décoche. Nom factice
                       label: "Type of prescriptions",
                       placeholder: "Select between pills, cares or exercises",
                       # hint: "Select between pills, cares or exercises",
@@ -11,45 +13,105 @@
                       collection_wrapper_class: 'category-wrapper',
                       item_wrapper_class: 'category-item',
                       checked: prescription.treatment&.category&.capitalize, # &: applique que si c'est pas nil (simplifie ternaire)
-                      collection: %w[💊Pills ❤️‍🩹Cares 🚴Exercises],
+                      collection: [["💊<br>Pills".html_safe, "💊Pills"], ["❤️‍🩹<br>Cares".html_safe, "❤️‍🩹Cares"], ["🚴<br>Exercises".html_safe, "🚴Exercises"]],
+                      value_method: :last,
+                      label_method: :first,
                       input_html: {
                         class: 'category-selector',
                         style: "filter: drop-shadow(0px 4px 4px #EBEBF2);",
-                        data: {action: "click->form#Reveal"}
+                        data: {action: "click->form#reveal"}
                         },
-                      wrapper_html: {
-                        class: "text-primary"
+                      wrapper_html: {class: "text-primary"}%>
 
-                      }
-            %>
-
-          <%# /!\ UTILE %>
-            <%# Below, pour créer treatment_id alors que ce n'est pas une colonne de prescription et donc que j'aurais normalement pas pu appeler %>
-            <%# dans le Model Prescription, on a créé un treatment_id comme attr_accessor. ça permet de créer/FORCER une colonne du simple_form %>
-
-            <%# collection: on peut appeler Treatment car associé à Prescription %>
-            <%# value_method: :id // Pas sûr de pourquoi, mais sûrement pour pouvoir appeler traitement qui est connecté à Prescription par l'id %>
-
-            <%# On initialise TOM SELECT, un plug-in JavaScript stylé et très utile qui permet de fairre un autocomplete dans un search + dropdown + plusieurs options customizables %>
-
-            <%= f.input :treatment_id,
+            <%# <p>Exemple avec tom-select</p> %>
+            <%#= f.input :treatment_id,
                         label: false,
                         as: :select,
-                        prompt: "Select your treatment ⬇️",
+                        prompt: "Select your pill ⬇️",
                         selected: prescription.treatment.present? ? prescription.treatment.id : nil,
                         input_html: {id: 'treatment-select',
                                     class: "",
                                     data: {controller: 'init-tom-select'}
                                     },
                         wrapper_html: {
-                                    class: "",
-                                    data: {form_target: 'dropdown'}
+                                    class: "d-none",
+                                    data: {form_target: 'pills'}
                         },
-                        collection: Treatment.all.order(:name),
+                        collection: Treatment.pills.all.order(:name),
                         value_method: :id
             %>
-          </div>
+            <%= f.input :treatment_id,
+                        label: false,
+                        as: :radio_buttons, # as: :select pour tom select
+                        prompt: "Select your pill ⬇️",
+                        selected: prescription.treatment.present? ? prescription.treatment.id : nil,
+                        input_html: {
+                          # id: 'treatment-select',
+                                    class: "category-selector-treatment",
+                                    },
+                        wrapper_html: {
+                                    class: "d-none",
+                                    style: "color: purple; font-weight: 400",
+                                    data: {form_target: 'pills'}
+                        },
+                        collection: Treatment.pills.all.order(:name),
+                        collection_wrapper_tag: 'div',
+                        collection_wrapper_class: 'category-wrapper-treatment',
+                        item_wrapper_class: 'category-item-treatment',
+                        value_method: :id
+            %>
+            <%= f.input :treatment_id,
+                        label: false,
+                        as: :radio_buttons, # as: :select pour tom select
+                        prompt: "Select your care ⬇️",
+                        selected: prescription.treatment.present? ? prescription.treatment.id : nil,
+                        input_html:{
+                        # id: 'treatment-select',
+                                    class: "category-selector-treatment"
+                                    # ,data: {controller: 'init-tom-select'}
+                                    },
+                        wrapper_html: {
+                                    class: "d-none",
+                                    style: "color: purple; font-weight: 400",
+                                    data: {form_target: 'cares'}
+                        },
+                        collection: Treatment.cares.all.order(:name),
+                        collection_wrapper_tag: 'div',
+                        collection_wrapper_class: 'category-wrapper-treatment',
+                        item_wrapper_class: 'category-item-treatment',
+                        value_method: :id
+            %>
+            <%= f.input :treatment_id,
+                        label: false,
+                        as: :radio_buttons, # as: :select pour tom select
+                        prompt: "Select your exercise ⬇️",
+                        selected: prescription.treatment.present? ? prescription.treatment.id : nil,
+                        input_html: {
+                          # id: 'treatment-select',
+                                    class: "category-selector-treatment",
+                                    style: "color: purple; font-weight: 500"
+                                    # ,data: {controller: 'init-tom-select'}
+                                    },
+                        wrapper_html: {
+                                    class: "d-none",
+                                    style: "color: purple; font-weight: 400",
+                                    data: {form_target: 'exercises'}
+                        },
+                        collection: Treatment.exercises.all.order(:name),
+                        collection_wrapper_tag: 'div',
+                        collection_wrapper_class: 'category-wrapper-treatment',
+                        item_wrapper_class: 'category-item-treatment',
+                        value_method: :id
+            %>
 
+          <%# /!\ UTILE %>
+            <%# Above, pour créer treatment_id alors que ce n'est pas une colonne de prescription et donc que j'aurais normalement pas pu appeler %>
+            <%# dans le Model Prescription, on a créé un treatment_id comme attr_accessor. ça permet de créer/FORCER une colonne du simple_form %>
+
+            <%# collection: on peut appeler Treatment car associé à Prescription %>
+            <%# value_method: :id // Pas sûr de pourquoi, mais sûrement pour pouvoir appeler traitement qui est connecté à Prescription par l'id %>
+
+            <%# On initialise TOM SELECT, un plug-in JavaScript stylé et très utile qui permet de fairre un autocomplete dans un search + dropdown + plusieurs options customizables %>
           <%= f.input :start_date,
                     label: "Start date",
                     # hint: "If your treatment spans over multiple days, enter a starting date",

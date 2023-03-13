@@ -2,7 +2,7 @@ class Prescription < ApplicationRecord
   # Très UTILE pour définir des variables qui n'ont pas de réalité dans ma table de base de données
   # mais que je veux pouvoir appeler dans mon simple form
   # (normalement on ne peut appeler en face de f.input que des colonnes de la db)
-  attr_accessor :treatment_name, :time
+  attr_accessor :treatment_name, :time, :treatment_category
 
   belongs_to :user
   belongs_to :treatment

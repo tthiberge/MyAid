@@ -22,6 +22,8 @@ class PagesController < ApplicationController
     current_user.appointments.each do |appointment|
       @appointments << appointment
     end
+
+    @diary = Diary.all.last
   end
 
   def profile
