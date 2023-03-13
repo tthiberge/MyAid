@@ -13,7 +13,7 @@
 <div class="container-white">
   <div class="header-title-purple">
     <div class="left-title">
-      <h2><i class="fa-solid fa-book-medical"></i> My Diary</h2>
+      <h2><i class="fa-solid fa-book-medical"></i> My Diary of the day</h2>
     </div>
   </div>
 
@@ -55,10 +55,17 @@
         </div>
       </div>
 
-      <div class="content-wrap">
-        <%= @diary.pain_scale %>
+      <div class="d-flex justify-content-center content-wrap">
+        <%= form_with model: @diary, url: diary_path(@diary), turbo_method: :patch, local:true do |f| %>
+          <div class="field form-group">
+            <div class="rating-pain-scale">
+              <%= f.collection_radio_buttons(:pain_scale, [[10], [9], [8], [7], [6], [5],[4],[3],[2],[1]], :first, :last) do |star| %>
+                <%= star.radio_button %>
+                <%= star.label(class: "text-white") { "" } %>
+              <% end %>
+            </div>
+          </div>
       </div>
-
     </div>
   </div>
 
@@ -75,7 +82,6 @@
       </div>
 
       <div class="d-flex justify-content-center content-wrap">
-        <%= form_with model: @diary, url: diary_path(@diary), turbo_method: :patch, local:true do |f| %>
           <div class="field form-group">
             <div class="rating">
               <%= f.collection_radio_buttons(:motivation_scale, [[5],[4],[3],[2],[1]], :first, :last) do |star| %>
@@ -103,20 +109,13 @@
         </div>
 
         <div class="content-wrap">
-          <%= f.text_field :daily_feeling %>
+          <%= f.text_field :daily_feeling, class:"" %>
         </div>
 
         <div class="action-wrap">
-
-          <div class="action-circle-2">
-            <%= link_to "#" do %>
-              <i class="fa-solid fa-microphone"></i>
-            <% end %>
-          </div>
-
           <div class="action-circle-3">
             <%= link_to "#" do %>
-              <i class="fa-solid fa-pencil"></i>
+              <i class="fa-solid fa-microphone"></i>
             <% end %>
           </div>
         </div>
@@ -129,5 +128,3 @@
     </div>
   <% end %>
 </div>
-
-<!-- Created by Parth Saini-->
