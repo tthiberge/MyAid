@@ -15,7 +15,6 @@ export default class extends Controller {
 
 
     if (event.currentTarget.value === "💊Pills") {
-      console.log("je suis dans pills")
       this.pillsTarget.classList.toggle("d-none")
       this.caresTarget.classList.add("d-none")
       this.exercisesTarget.classList.add("d-none")

@@ -157,7 +157,7 @@
                       as: :select, # as: :time pour selectionner autant d'heures et minutes qu'on veut!!
                       collection: Prescription::TIMES, #selected: "00:00",
                       wrapper_html: {
-                          class: "text-primary"
+                          class: ""
                       }, # Change la couleur du label
                       input_html: {
                         class: "card-form",
@@ -166,13 +166,14 @@
             %>
             <%= f.input :day_half,
                       required: true,
-                      label: "Morning or afternoon?",
-                      placeholder: "Select between pills, cares or exercises",
-                      # hint: "Select between pills, cares or exercises",
+                      label: "AM or PM?",
                       as: :radio_buttons,
                       collection: %w[AM PM],
+                      # collection_wrapper_tag: 'div',
+                      # collection_wrapper_class: 'category-wrapper-ampm',
+                      item_wrapper_class: 'category-item',
                       input_html: {
-                        class: "card-form",
+                        class: "card-form category-selector-ampm",
                         style: "filter: drop-shadow(0px 4px 4px #EBEBF2);"
                       },
                       wrapper_html: {
@@ -186,7 +187,6 @@
                     hint: "Describe any information that would be useful for you when engaging in the treatment (dosage, technics, motivation prompt, ...)",
                     placeholder: "2 x 150mg before each meal or You can do it, John!",
                     as: :text,
-                    collection: %w[Pills Cares Exercises],
                     wrapper_html: {
                         class: "text-primary"
                     }, # Change la couleur du label

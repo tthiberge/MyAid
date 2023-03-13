@@ -2,7 +2,7 @@ class Appointment < ApplicationRecord
   belongs_to :user
   belongs_to :doctor
 
-  attr_accessor :time, :day_half
+  attr_accessor :time_morning, :time_afternoon
 
   validates :date, :appointment_hour, :appointment_min, presence: true
 
