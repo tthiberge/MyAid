@@ -33,8 +33,8 @@
 
 .marked-picture {
   position: absolute;
-  top: 10px;
-  left: 10px;
+  top: 0px;
+  left: 15px;
   // right: 280px;
   // bottom: 190px;
   i {
@@ -45,12 +45,23 @@
 
 .marked-picture-right {
   position: absolute;
-  top: 10px;
-  right: 10px;
+  top: 0px;
+  right: 15px;
   // right: 280px;
   // bottom: 190px;
   i {
     font-size: 30px;
     color: purple;
   }
+}
+
+.upload-picture {
+  position: absolute;
+  border-radius: 50%;
+  background-color: purple;
+  height: 36px;
+  width: 36px;
+  background-color: purple;
+  left: 153px;
+  top: 235px;
 }
