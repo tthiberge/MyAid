@@ -26,7 +26,7 @@
                         },
                       wrapper_html: {class: "text-primary"}%>
 
-            <%# <p>Exemple avec tom-select</p> %>
+            <%# <p>EXEMPLE AVEC TOM-SELECT, NE PAS SUPPRIMER</p> %>
             <%#= f.input :treatment_id,
                         label: false,
                         as: :select,
@@ -121,14 +121,16 @@
                     # as: :date, # sans FLATPICKR
                     # html5:true, # sans FLATPICKR
                     wrapper_html: {
-                        class: "text-primary"
+                        class: "text-primary "
                     }, # Change la couleur du label
                     input_html: {
-                      class: "card-form",
+                      class: "card-for d-none",
                       data: {
                         flatpickr_prescription_target: "startDate"
                       }
-                      # Change la couleur des inputs + bk-white + filter shadow
+                    },
+                    label_html: {
+                      class: "d-none"
                     }
           %>
           <%= f.input :end_date,
@@ -137,7 +139,7 @@
                     # as: :date, # sans FLATPICKR
                     # html5:true, # sans FLATPICKR
                     wrapper_html: {
-                        class: "text-primary"
+                        class: "d-none"
                     }, # Change la couleur du label
                     input_html: {
                       class: "card-form",
@@ -194,5 +196,7 @@
                     }
           %>
       <%= f.button :submit, class: "btn-primary mt-3" %>
-      </div>
   <% end %>
+</div>
+
+<%#= ren#der partial: "time_picker", locals: {presccription: prescription} %>

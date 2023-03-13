@@ -16,17 +16,17 @@ export default class extends Controller {
 
     if (event.currentTarget.value === "💊Pills") {
       console.log("je suis dans pills")
-      this.pillsTarget.classList.remove("d-none")
+      this.pillsTarget.classList.toggle("d-none")
       this.caresTarget.classList.add("d-none")
       this.exercisesTarget.classList.add("d-none")
     } else if (event.currentTarget.value === "❤️‍🩹Cares") {
       this.pillsTarget.classList.add("d-none")
-      this.caresTarget.classList.remove("d-none")
+      this.caresTarget.classList.toggle("d-none")
       this.exercisesTarget.classList.add("d-none")
     } else if (event.currentTarget.value === "🚴Exercises"){
       this.pillsTarget.classList.add("d-none")
       this.caresTarget.classList.add("d-none")
-      this.exercisesTarget.classList.remove("d-none")
+      this.exercisesTarget.classList.toggle("d-none")
     }
 
     console.log("hello")

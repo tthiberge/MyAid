@@ -142,21 +142,34 @@
 //   border-color: purple;
 // }
 
-span.flatpickr-day.startRange{
+// Ci-dessous: change la couleur autour des dates sélectionnées
+span.flatpickr-day.selected.startRange,
+span.flatpickr-day.selected.endRange,
+span.flatpickr-day.selected,
+.flatpickr-day.endRange{
   background: purple;
   border-color: purple;
 }
-span.flatpickr-day.endRange{
-  background: purple;
-  border-color: purple;
-}
-span.flatpickr-day.selected{
-  background: purple;
-  border-color: purple;
-}
-
 
 .flatpickr-day.inRange{
-background: #D7CDE3;
-border-color: #D7CDE3;
+  background: #D7CDE3;
+  border-color: #D7CDE3;
+}
+
+span.flatpickr-day.today.inRange{
+  background: #D7CDE3;
+  border-color: #D7CDE3;
+}
+
+// Permet de centrer le calendrier:
+.string.required.prescription_start_date.text-primary,
+.string.required.appointment_date.text-primary{
+  display: flex;
+  justify-content: center;
+}
+
+// .flatpickr-day.startRange:focus,
+.flatpickr-day.selected:hover{
+  background: purple;
+  border-color: purple;
 }

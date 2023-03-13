@@ -20,15 +20,19 @@
 
   <!-- simple form for new -->
   <div class="container-form">
-    <%= simple_form_for @appointment, html: {data: {controller: "flatpickr"}} do |f| %>
+    <%= simple_form_for @appointment, html: {data: {controller: "appointment flatpickr"}} do |f| %>
 
-      <%= f.association :doctor, collection: Doctor.all , prompt: "Specialist", label:false,input_html: {
-        class: "card-form w-100",
-        style: "filter: drop-shadow(0px 4px 4px #EBEBF2);"
-      },
-      wrapper_html: {
-      class: "text-primary"
-      } %>
+      <%= f.association :doctor,
+                        collection: Doctor.all ,
+                        prompt: "Specialist",
+                        label:false,
+                        input_html: {
+                        class: "card-form w-100",
+                        style: "filter: drop-shadow(0px 4px 4px #EBEBF2);"
+                        },
+                        wrapper_html: {
+                        class: "text-primary"
+                        } %>
 
       <%= f.input :date,
                   as: :string,
@@ -74,6 +78,51 @@
                     class: "card-form",
                   }
                   %>
+      <div class=" hours-and-minutes">
+        <%= f.input :day_half,
+                  label: "Morning / Afternoon",
+                  required: true,
+                  placeholder: "Select between pills, cares or exercises",
+                  # hint: "Select between pills, cares or exercises",
+                  as: :radio_buttons,
+                  collection: %w[AM PM],
+                  input_html: {
+                    class: "card-form",
+                    style: "filter: drop-shadow(0px 4px 4px #EBEBF2);"
+                  },
+                  wrapper_html: {
+                    class: "text-primary"
+                  }
+        %>
+        <%= f.input :time,
+                  label: "Time",
+                  required: true,
+                  hint: "Select the time",
+                  as: :select, # as: :time pour selectionner autant d'heures et minutes qu'on veut!!
+                  collection: Appointment::TIMES_MORNING,
+                  wrapper_html: {
+                      class: "text-primary"
+                  }, # Change la couleur du label
+                  input_html: {
+                    class: "card-form",
+                    # Change la couleur des inputs + bk-white + filter shadow
+                  }
+        %>
+        <%= f.input :time,
+                  label: "Time",
+                  required: true,
+                  hint: "Select the time",
+                  as: :select, # as: :time pour selectionner autant d'heures et minutes qu'on veut!!
+                  collection: Appointment::TIMES_AFTERNOON,
+                  wrapper_html: {
+                      class: "text-primary"
+                  }, # Change la couleur du label
+                  input_html: {
+                    class: "card-form",
+                    # Change la couleur des inputs + bk-white + filter shadow
+                  }
+        %>
+      </div>
       <%= f.button :submit, class: "btn-primary mt-3"%>
     <% end %>
   </div>
