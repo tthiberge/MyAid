@@ -3,6 +3,8 @@ class DiariesController < ApplicationController
   end
 
   def show
+    @diary = Diary.find(params[:id])
+    @selfy = Selfy.new
   end
 
   def new
@@ -12,5 +14,5 @@ class DiariesController < ApplicationController
   def create
 
   end
-  
+
 end

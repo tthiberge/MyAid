@@ -1,15 +1,67 @@
-<h1>Appointment Edit</h1>
+<div class="navbar-icons">
+  <%= link_to :home do %>
+    <i class="fa-solid fa-chevron-left"></i>
+  <% end %>
 
-h1>Appointment new page welcome</h1>
+  <%= link_to prescriptions_path do %>
+    <i class="fa-solid fa-calendar-days"></i>
+  <% end %>
+</div>
+
+<div class="container-white">
+  <div class="d-flex justify-content-between align-items-center">
+    <div class="header-title-purple">
+      <div class="left-title">
+        <h2><%= image_tag("appointments-icon.svg", width: 30) %></i>Edit Appointment</h2>
+      </div>
+    </div>
+  </div>
+
 <!-- simple form for new -->
-<%= simple_form_for @appointment, html: { data: { controller: 'flatpickr' } } do |f| %>
+ <div class="container-form m-3">
+    <%= simple_form_for @appointment, html: { data: { controller: 'flatpickr' } } do |f| %>
 
-  <%= f.association :doctor, collection: Doctor.all , label: "Doctor" %>
-  <!-- html 5 true means that value nil , without html 5 data will be today -->
-  <%= f.input :date, as: :string, input_html: {class: 'd-none', data: { flatpickr_target: 'startDateInput'} } %>
-  <%= f.input :appointment_hour, collection: 8..19 %>
-  <%= f.input :appointment_min, collection: (0..45).step(15) %>
-  <%= f.input :comment %>
-  <%= f.button :submit %>
-<% end %>
-
+      <%= f.association :doctor, collection: Doctor.all , label: "Doctor",
+        wrapper_html: {
+          class: "text-primary"
+        },
+        input_html: {
+          class: "card-form",
+        }
+        %>
+      <!-- html 5 true means that value nil , without html 5 data will be today -->
+      <%= f.input :date, as: :string,  wrapper_html: {
+          class: "text-primary"
+        },
+        input_html: {
+          class: "card-form", data: { flatpickr_target: 'startDateInput'}
+        }
+        %>
+      <%= f.input :appointment_hour, collection: 8..19,
+        wrapper_html: {
+          class: "text-primary"
+        },
+        input_html: {
+          class: "card-form",
+        }
+        %>
+      <%= f.input :appointment_min, collection: (0..45).step(15),
+        wrapper_html: {
+          class: "text-primary"
+        },
+        input_html: {
+          class: "card-form",
+        }
+        %>
+      <%= f.input :comment,
+        wrapper_html: {
+          class: "text-primary"
+        },
+        input_html: {
+          class: "card-form",
+        }
+        %>
+      <%= f.button :submit %>
+    <% end %>
+  </div>
+</div>

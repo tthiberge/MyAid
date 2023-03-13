@@ -26,11 +26,12 @@ Rails.application.routes.draw do
   resources :prescriptions, only: [:index, :new, :create, :edit, :update]
   resources :prescriptions, only: [:destroy], as: :destroy_prescription
   # get "", to: "appointments#confirm"
-  resources :appointments, only: [:index, :show, :new, :create, :edit, :update, :destroy]
-  resources :diaries, only: [:index, :show, :new, :create]
+  resources :appointments, only: [:index, :show, :new, :create, :edit, :update]
+  resources :appointments, only: [:destroy], as: :destroy_appointment
 
-  resources :diaries, only: [ :index, :show, :new, :create]
-
+  resources :diaries, only: [:index, :show, :new, :create] do
+    resources :selfies
+  end
   get "/uikit", to: "pages#uikit"
   get "/uikitbis", to: "pages#uikitbis"
   get "/uikitter", to: "pages#uikitter"

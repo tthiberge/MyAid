@@ -8,6 +8,7 @@ class User < ApplicationRecord
   has_many :diaries, dependent: :destroy
   has_many :prescriptions, dependent: :destroy
   has_many :treatments, through: :prescriptions
+  has_many :selfies, dependent: :destroy
 
   validates :first_name, :last_name, :birthdate, :address, presence: true
 

@@ -56,7 +56,7 @@
             <! -- Cercle d'action 1 : cancel -->
 
             <div class="action-circle-1">
-              <%= link_to appointments_path(@appointments), data: {turbo_method: :delete, turbo_confirm: 'Are you sure?'} do %>
+              <%= link_to destroy_appointment_path(appointment), data: {turbo_method: :delete, turbo_confirm: 'Are you sure?'} do %>
                 <i class="fa-solid fa-xmark"></i>
               <% end %>
             </div>
@@ -64,7 +64,7 @@
             <! -- Cercle d'action 2 : edit -->
 
             <div class="action-circle-2">
-            <%= link_to edit_appointment_path(@appointments) do %>
+            <%= link_to edit_appointment_path(appointment) do %>
               <i class="fa-solid fa-pencil"></i>
             <% end %>
             </div>

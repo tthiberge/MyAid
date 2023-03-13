@@ -4,6 +4,23 @@
   margin-inline: 20vw;
 }
 
+.was-validated .form-select:valid:not([multiple]):not([size]), .was-validated .form-select[size="1"]:valid:not([multiple]), .form-select.is-valid:not([multiple]):not([size]), .form-select.is-valid[size="1"]:not([multiple]) {
+  background-image: none !important;
+}
+
+.was-validated .form-check-input:valid, .form-check-input.is-valid, .was-validated .form-check-input:valid ~ .form-check-label, .form-check-input.is-valid ~ .form-check-label, .form-control.is-valid {
+  border-color: purple;
+  color: purple;
+}
+
+.was-validated .form-select:valid, .form-select.is-valid {
+  border-color: purple;
+}
+
+.was-validated .form-check-input:valid, .form-check-input.is-valid, .was-validated .form-check-input:valid ~ .form-check-label, .form-check-input.is-valid ~ .form-check-label {
+  border-color: purple;
+}
+
 @media (min-width: 100px) and (max-width: 575px) {
   .container-form {
     margin-inline: 0;
@@ -26,4 +43,38 @@
 .hours-and-minutes{
   display: flex;
   gap: 20px;
+}
+
+.category-wrapper {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.category-item {
+  flex: 0 0 30%;
+}
+
+.category-selector {
+  position: absolute;
+  transform: scale(0);
+}
+
+.category-selector + label {
+  display: block;
+  cursor: pointer;
+  box-sizing: border-box;
+  width: 100%;
+  font-size: 12px;
+  font-weight: 700;
+  text-align: center;
+  padding-block: 15px;
+  border: 1px solid #cfcfcf;
+  border-radius: 4px;
+  background-color: white;
+}
+
+.category-selector:checked + label {
+  color: white !important;
+  background: purple;
 }
