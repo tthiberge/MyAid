@@ -90,18 +90,11 @@
 
           <! -- Cercle d'action 3 : check -->
 
-          <button type=submit style="background: transparent; border: none">
+          <%# <button type=submit style="background: transparent; border: none"> %>
           <div class="action-circle-3">
-          <%#= link_to pills_confirm_prescription_path(pill_prescription), data: { turbo_method: :patch }  do %>
-            <%# <i class="fa-solid fa-check"></i> %>
-          <%# end %>
+            <%= link_to pills_confirm_prescription_path(pill_prescription), data: { turbo_method: :patch }  do %>
               <i class="fa-solid fa-check"></i>
-              <%= simple_form_for(pill_prescription) do |f| %>
-                <% f.input :taken_date,
-                           as: :hidden,
-                           value: Date.today
-                %>
-              <% end %>
+            <% end %>
           </div>
           </button>
 
