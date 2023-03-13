@@ -98,16 +98,15 @@
           </div>
 
           <div>
-            <%= simple_form_for(pill_prescription) do |f| %>
-              <%= f.input :taken_date,
-                      label: false,
+            <%#= simple_form_for(pill_prescription) do |f| %>
+              <%#= f.input :taken_date,
+                      # label: false,
                       as: :hidden,
                       value: Date.today
               %>
-              <%= f.button :submit, class: "btn btn-success"
-               %>
+              <%#= f.submit class: "btn btn-success rounded-pill"%>
 
-            <% end %>
+            <%# end %>
 
           </div>
 
