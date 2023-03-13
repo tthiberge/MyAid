@@ -13,9 +13,12 @@
                       collection_wrapper_class: 'category-wrapper',
                       item_wrapper_class: 'category-item',
                       checked: prescription.treatment&.category&.capitalize, # &: applique que si c'est pas nil (simplifie ternaire)
+
+                      # Array d'arrays, pour passer la valeur qu'on affiche, et la valeur qui est envoyée à la soumission
                       collection: [["💊<br>Pills".html_safe, "💊Pills"], ["❤️‍🩹<br>Cares".html_safe, "❤️‍🩹Cares"], ["🚴<br>Exercises".html_safe, "🚴Exercises"]],
                       value_method: :last,
                       label_method: :first,
+
                       input_html: {
                         class: 'category-selector',
                         style: "filter: drop-shadow(0px 4px 4px #EBEBF2);",
