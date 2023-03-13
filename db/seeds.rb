@@ -90,13 +90,13 @@ prescription_9 = Prescription.create!(start_date: "04/03/2023", end_date: "19/03
 # creating doctors
 
 
-doctor1 = Doctor.create!(title: "Dr.", name: "Doe", specialty: "Surgeon", address: "26 rue pradier paris", latitude: 37.7749, longitude: -122.4194, user: diane)
-doctor2 = Doctor.create!(title: "Nurse", name: "Smith", specialty: "Pediatrics", address: "3 rue jean robert Paris", latitude: 37.7749, longitude: -122.4194, user: diane)
-doctor3 = Doctor.create!(title: "Pr.", name: "Johnson", specialty: "Dermatology", address: "51 rue sedaine Paris", latitude: 37.7749, longitude: -122.4194, user: diane)
-doctor4 = Doctor.create!(title: "Pr.", name: "Malek", specialty: "Cardiologist", address: "51 rue sedaine Paris", latitude: 37.7749, longitude: -122.4194, user: diane)
-doctor5 = Doctor.create!(title: "Dr.", name: "Hendricks", specialty: "Dermatology", address: "51 rue sedaine Paris", latitude: 37.7749, longitude: -122.4194, user: diane)
-doctor6 = Doctor.create!(title: "Nurse", name: "Donovan", specialty: "General", address: "51 rue sedaine Paris", latitude: 37.7749, longitude: -122.4194, user: diane)
-doctor7 = Doctor.create!(title: "Pr.", name: "Pilgert", specialty: "Cancer", address: "51 rue sedaine Paris", latitude: 37.7749, longitude: -122.4194, user: diane)
+doctor1 = Doctor.create!(title: "Dr.", name: "Doe", specialty: "Surgeon", address: "1 Av. Claude Vellefaux, 75010 Paris", latitude: 37.7749, longitude: -122.4194, user: diane)
+doctor2 = Doctor.create!(title: "Nurse", name: "Smith", specialty: "Pediatrics", address: "6 Rue de Jarente, 75004 Paris", latitude: 37.7749, longitude: -122.4194, user: diane)
+doctor3 = Doctor.create!(title: "Dr.", name: "Johnson", specialty: "Ophthalmologist", address: "104 Bd Saint-Germain, 75006 Paris", latitude: 37.7749, longitude: -122.4194, user: diane)
+doctor4 = Doctor.create!(title: "Pr.", name: "Malek", specialty: "Cardiologist", address: "92 Av. de la République, 75011 Paris", latitude: 37.7749, longitude: -122.4194, user: diane)
+doctor5 = Doctor.create!(title: "Dr.", name: "Hendricks", specialty: "Dermatology", address: "61 Av. Franklin Delano Roosevelt, 75008 Paris", latitude: 37.7749, longitude: -122.4194, user: diane)
+doctor6 = Doctor.create!(title: "Nurse", name: "Donovan", specialty: "General", address: "68 Rue Pernety, 75014 Paris", latitude: 37.7749, longitude: -122.4194, user: diane)
+doctor7 = Doctor.create!(title: "Pr.", name: "Pilgert", specialty: "Cancer", address: "184 Rue du Faubourg Saint-Antoine, 75012 Paris", latitude: 37.7749, longitude: -122.4194, user: diane)
 
 # Ajouter une colonne AM / PM dans le formulaire pour gérer la logique matin/aprem
 appointment1 = Appointment.create(date: Date.parse('11/12/2023'), comment: "Checkup", user: diane, doctor: doctor1, appointment_hour: 10, appointment_min: 30)
@@ -107,6 +107,19 @@ appointment5 = Appointment.create(date: Date.today, comment: "Checkup", user: di
 appointment6 = Appointment.create(date: Date.today, comment: "Checkup", user: diane, doctor: doctor6, appointment_hour: 15, appointment_min: 30 )
 appointment7 = Appointment.create(date: Date.today, comment: "Checkup", user: diane, doctor: doctor7, appointment_hour: 16, appointment_min: 30 )
 
+#diaries seed
+# t.integer "pain_scale"
+#t.integer "motivation_scale"
+#t.string "daily_feeling"
+#t.bigint "user_id", null: false
+#t.datetime "created_at", null: false
+#t.datetime "updated_at", null: false
+#t.index ["user_id"], name: "index_diaries_on_user_id"
 
+diary1 = Diary.create!(pain_scale: 8, motivation_scale: 2, daily_feeling: "I am suffering a lot today, I am trying to fight the pain but it's hard because I am so exausted", user: diane )
+diary2 = Diary.create!(pain_scale: 7, motivation_scale: 3, daily_feeling: "I am suffering a bit less than yesterday, it gives me hope", user: diane )
+diary3 = Diary.create!(pain_scale: 8, motivation_scale: 3, daily_feeling: "The real pain is back but I am seeing my children today so I already feel better", user: diane )
+diary4 = Diary.create!(pain_scale: 7, motivation_scale: 5, daily_feeling: "I went out for the first time today, it's a victory", user: diane )
+diary5 = Diary.create!(pain_scale: 6, motivation_scale: 5, daily_feeling: "I am starting physiotherapy today, I am really tired but I am happy to be able to start ", user: diane )
 
 puts "Seeded"
