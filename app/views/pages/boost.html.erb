@@ -1,0 +1,96 @@
+<div class="navbar-icons">
+  <%= link_to :back do %>
+    <i class="fa-solid fa-chevron-left"></i>
+  <% end %>
+
+  <%= link_to prescriptions_path do %>
+    <i class="fa-solid fa-calendar-days"></i>
+  <% end %>
+</div>
+
+
+
+<div class="container-white">
+  <div class="header-title-purple">
+    <div class="left-title">
+      <h2><i class="fa-solid fa-rocket"></i> Boost of the day</h2>
+    </div>
+  </div>
+
+  <div class="day-of-prescription">
+    <p><strong><%= Date.today.strftime("%A - %B, %d %Y") %></strong></p>
+  </div>
+
+  <div class="prescriptions-cards px-3">
+    <div class="card-pill">
+      <div class="px-3 title-wrap w-100">
+        <div class="circle">
+          <i class="fa-solid fa-quote-left"></i>
+        </div>
+
+        <div class="card-title">
+          <h1>Quote</h1>
+        </div>
+      </div>
+
+      <div class="d-flex justify-content-center content-wrap">
+
+      </div>
+    </div>
+  </div>
+
+
+  <div class="prescriptions-cards px-3">
+    <div class="card-pill">
+      <div class="px-3 title-wrap w-100">
+        <div class="circle">
+          <i class="fa-solid fa-camera"></i>
+        </div>
+
+        <div class="card-title">
+          <h1>Pictures</h1>
+        </div>
+      </div>
+
+      <div class="d-flex justify-content-center content-wrap">
+
+      </div>
+    </div>
+  </div>
+
+  <div class="prescriptions-cards px-3">
+    <div class="card-pill">
+      <div class="px-3 title-wrap w-100">
+        <div class="circle">
+          <i class="fa-brands fa-spotify"></i>
+        </div>
+
+        <div class="card-title">
+          <h1>Spotify Musics</h1>
+        </div>
+      </div>
+
+      <div class="d-flex justify-content-center content-wrap">
+
+      </div>
+    </div>
+  </div>
+
+  <div class="prescriptions-cards px-3">
+    <div class="card-pill">
+      <div class="px-3 title-wrap w-100">
+        <div class="circle">
+          <i class="fa-brands fa-youtube"></i>
+        </div>
+
+        <div class="card-title">
+          <h1>Youtube Videos</h1>
+        </div>
+      </div>
+
+      <div class="d-flex justify-content-center content-wrap">
+
+      </div>
+    </div>
+  </div>
+</div>
