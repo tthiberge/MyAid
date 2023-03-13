@@ -7,12 +7,4 @@ class DiariesController < ApplicationController
     @selfy = Selfy.new
   end
 
-  def new
-
-  end
-
-  def create
-
-  end
-
 end

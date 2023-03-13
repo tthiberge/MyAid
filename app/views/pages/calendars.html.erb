@@ -1,0 +1,22 @@
+<%# <div class="calendar-carousel">
+  <% (0..2).each do |i| %>
+  <%# <div>
+    <%= month_calendar(start_date: Date.today + i.months) do |date| %>
+      <%# <%= date.day %>
+    <%# <% end %>
+  <%# </div>
+<% end %>
+<%# </div> %>
+
+<div class="calendar-container">
+  <% start_date = @start_date %>
+  <% end_date = start_date.end_of_month %>
+  <%= month_calendar(events: @events, attribute: :start_date, start_date: start_date, end_date: end_date) do |date, events| %>
+    <%= date %>
+    <% events.each do |event| %>
+      <div>
+        <%= event %>
+      </div>
+    <% end %>
+  <% end %>
+</div>
