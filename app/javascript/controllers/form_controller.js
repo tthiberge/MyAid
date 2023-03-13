@@ -5,10 +5,6 @@ export default class extends Controller {
 
   static targets = ["pills", "cares", "exercises"]
 
-  connect() {
-    console.log("test")
-    // console.log(this.dropdownTarget)
-  }
 
   reveal(event) {
     console.log(event.currentTarget.value.includes("Pills"))

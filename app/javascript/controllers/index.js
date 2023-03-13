@@ -4,6 +4,9 @@
 
 import { application } from "./application"
 
+import AlertbysweetController from "./alertbysweet_controller"
+application.register("alertbysweet", AlertbysweetController)
+
 import FlatpickrController from "./flatpickr_controller"
 application.register("flatpickr", FlatpickrController)
 
@@ -18,6 +21,3 @@ application.register("init-tom-select", InitTomSelectController)
 
 import UploadSelfyController from "./upload_selfy_controller"
 application.register("upload-selfy", UploadSelfyController)
-
-
-var app = angular.module('app', []);
