@@ -86,6 +86,8 @@ prescription_8 = Prescription.create!(start_date: "18/03/2023", end_date: "17/03
 
 prescription_9 = Prescription.create!(start_date: "04/03/2023", end_date: "19/03/2023", todo_hours: 2, todo_minutes: 00, day_half: "PM",  comment: "Save a 1h-time slot to practice meditation to relax and accept the present time", user: diane, treatment: meditation)
 
+prescription_10 = Prescription.create!(start_date: "14/03/2023", end_date: "19/03/2023", todo_hours: 2, todo_minutes: 00, day_half: "PM",  comment: "Save a 1h-time slot to practice meditation to relax and accept the present time", user: diane, treatment: meditation)
+
 
 # creating doctors
 

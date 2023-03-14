@@ -8,8 +8,6 @@ class DiariesController < ApplicationController
     @selfy = Selfy.new
   end
 
-<<<<<<< HEAD
-=======
   def new
 
   end
@@ -19,7 +17,6 @@ class DiariesController < ApplicationController
   end
 
   def update
-    raise
+
   end
->>>>>>> master
 end

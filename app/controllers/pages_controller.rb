@@ -88,15 +88,6 @@ class PagesController < ApplicationController
   def landing
   end
 
-  def calendar
-  end
-
-  def month_calendar
-  end
-
-  def week_calendar
-  end
-
   def calendars
     @appointments = current_user.appointments
     @pill_prescriptions = current_user.prescriptions.joins(:treatment).where(treatments: { category: "pills" })
@@ -107,6 +98,7 @@ class PagesController < ApplicationController
 
     @start_date = Date.current.beginning_of_month
     @end_date = Date.current.end_of_month
+  end
 
   def boost
   end
