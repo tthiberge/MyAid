@@ -8,6 +8,8 @@
   <% end %>
 </div>
 
+<% console %>
+
 <div class="container-white">
   <div class="d-flex justify-content-between align-items-center">
     <div class="header-title-purple">
@@ -65,7 +67,7 @@
           <div class="action-circle-1">
             <%= button_to destroy_prescription_path(care_prescription), method: :delete,form: {"data-controller": "alertbysweet"}, data: {  action:"click->alertbysweet#confirm"}, class: "bid" do %>
               <i class="fa-solid fa-xmark"></i>
-            <% end %>
+            <%# end %>
           </div>
 
           <! -- Cercle d'action 2 : edit -->
@@ -92,7 +94,7 @@
                     as: :hidden,
                     input_html: {value: Date.today}
             <%#= f.submit class: "btn btn-success rounded-pill"%>
-          <%# end %>
+          <% end %>
 
           <! -- On ferme es cercles d'action : cancel, edit, check -->
           </div>

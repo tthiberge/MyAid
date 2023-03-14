@@ -52,14 +52,17 @@
   row-gap: 10px;
   column-gap: 20px;
 
+  p{
+    font-size: 16px;
+  }
 }
 
 p.reminder-hours{
-  width: 8vw;
+  width: 5vw;
   text-align: end;
 }
 
 p.reminder-specialty{
-  width: 24vw;
+  width: 12vw;
   text-align: start;
 }
