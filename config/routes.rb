@@ -36,4 +36,8 @@ Rails.application.routes.draw do
   get "/uikitbis", to: "pages#uikitbis"
   get "/uikitter", to: "pages#uikitter"
   get "/calendarinfini", to: "pages#calendars"
+  get "/calendar", to: "simple_calendar#_calendar"
+  get "/monthcalendar", to: "simple_calendar#_month_calendar"
+  get "/weekcalendar", to: "simple_calendar#_week_calendar"
+
 end
