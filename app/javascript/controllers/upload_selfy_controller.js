@@ -5,6 +5,7 @@ export default class extends Controller {
    static targets = ["input", "form", "button"]
 
   connect() {
+
     console.log(this.inputTarget)
   }
 

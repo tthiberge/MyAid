@@ -7,8 +7,14 @@ import { application } from "./application"
 import AlertbysweetController from "./alertbysweet_controller"
 application.register("alertbysweet", AlertbysweetController)
 
+import AppointmentController from "./appointment_controller"
+application.register("appointment", AppointmentController)
+
 import FlatpickrController from "./flatpickr_controller"
 application.register("flatpickr", FlatpickrController)
+
+import FlatpickrPrescriptionController from "./flatpickr_prescription_controller"
+application.register("flatpickr-prescription", FlatpickrPrescriptionController)
 
 import FormController from "./form_controller"
 application.register("form", FormController)
