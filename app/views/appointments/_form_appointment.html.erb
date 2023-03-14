@@ -1,16 +1,17 @@
 <div class="container-form">
-    <%= simple_form_for appointment, html: {data: {controller: "appointment flatpickr"}} do |f| %>
+    <%= simple_form_for appointment, html: {class: "fontawesome-arrow", data: {controller: "appointment flatpickr"}} do |f| %>
 
+      <i class="fa-solid fa-angle-down"></i>
       <%= f.association :doctor,
                         collection: Doctor.all ,
-                        prompt: "👩‍⚕️🏥Unfold and select your specialist ⬇️  ",
+                        prompt: "👩‍⚕️🏥 Select your specialist"  ,
                         label: false,
                         input_html: {
                         class: "card-form w-100 dropdown-item",
-                        style: "filter: drop-shadow(0px 4px 4px #EBEBF2);"
+                        style: "filter: drop-shadow(0px 4px 4px #EBEBF2); height: 40px; border-radius: 5px; border-color: dark-grey  "
                         },
                         wrapper_html: {
-                        class: "text-primary"
+                        class: "text-primary fontawesome-arrow"
                         } %>
 
       <%= f.input :date,

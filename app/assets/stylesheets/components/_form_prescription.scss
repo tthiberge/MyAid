@@ -2,6 +2,18 @@
   background: white;
   padding: 20px;
   margin-inline: 20vw;
+
+  i{
+    position: absolute;
+    right: 8px;
+    top: 15px;
+    color: purple;
+    z-index: 100;
+  }
+}
+
+.fontawesome-arrow{
+  position: relative;
 }
 
 .was-validated .form-select:valid:not([multiple]):not([size]), .was-validated .form-select[size="1"]:valid:not([multiple]), .form-select.is-valid:not([multiple]):not([size]), .form-select.is-valid[size="1"]:not([multiple]) {
