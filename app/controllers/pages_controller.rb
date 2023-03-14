@@ -68,15 +68,15 @@ class PagesController < ApplicationController
     @photos = current_user.photos.sample(4)
   end
 
-end
 
 
 
 
 
-# Historique de ma def pills - NE PAS SUPPRIMER
 
- # pill_prescriptions_all = []
+  # Historique de ma def pills - NE PAS SUPPRIMER
+
+  # pill_prescriptions_all = []
     # current_user.prescriptions.each do |prescription|
     #   pill_prescriptions_all << prescription if prescription.treatment.category == "pills" # ça c'est un array
     # end
@@ -107,11 +107,10 @@ end
     # current_user.prescriptions.where((:start_date..:end_date).include?Date.today).order(:day_half, :todo_hours, :todo_minutes).select {|prescription| prescription.treatment.category == "pills"}.select {|prescription| prescription.taken_date!=Date.today}
     # current_user.prescriptions.where((:start_date..:end_date).include?Date.today).order(:day_half, :todo_hours, :todo_minutes).select {|prescription| prescription.treatment.category == "pills"}.select {|prescription| prescription.taken_date==Date.today}
 
-    @pill_prescriptions_sorted_not_taken = current_user.prescriptions.where((:start_date..:end_date).include?Date.today).order(:day_half, :todo_hours, :todo_minutes).select {|prescription| prescription.treatment.category == "pills"}.select {|prescription| prescription.taken_date!=Date.today}
-    @pill_prescriptions_sorted_taken = current_user.prescriptions.where((:start_date..:end_date).include?Date.today).order(:day_half, :todo_hours, :todo_minutes).select {|prescription| prescription.treatment.category == "pills"}.select {|prescription| prescription.taken_date==Date.today}
+    # @pill_prescriptions_sorted_not_taken = current_user.prescriptions.where((:start_date..:end_date).include?Date.today).order(:day_half, :todo_hours, :todo_minutes).select {|prescription| prescription.treatment.category == "pills"}.select {|prescription| prescription.taken_date!=Date.today}
+    # @pill_prescriptions_sorted_taken = current_user.prescriptions.where((:start_date..:end_date).include?Date.today).order(:day_half, :todo_hours, :todo_minutes).select {|prescription| prescription.treatment.category == "pills"}.select {|prescription| prescription.taken_date==Date.today}
 
     # raise
-  end
 
   def cares
     @care_prescriptions = []
@@ -146,6 +145,7 @@ end
   end
 
   def boost
+    @quote = Quote.all.sample
   end
 
 end
