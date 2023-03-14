@@ -1,5 +1,6 @@
 class DiariesController < ApplicationController
   def index
+
   end
 
   def show
@@ -15,4 +16,7 @@ class DiariesController < ApplicationController
 
   end
 
+  def update
+    raise
+  end
 end

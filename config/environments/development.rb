@@ -74,6 +74,11 @@ Rails.application.configure do
 
 
   config.active_storage.service = :cloudinary
+<<<<<<< HEAD
   
   config.hosts << /.*\.eu\.ngrok\.io\z/
+=======
+  config.hosts << /.*\.ngrok\.io\z/
+  # config.hosts << /.*\.eu\.ngrok\.io\z/
+>>>>>>> b7a1ad6a0f831fc7c9cdb282d2745a3962128904
 end

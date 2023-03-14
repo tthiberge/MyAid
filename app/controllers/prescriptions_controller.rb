@@ -13,6 +13,7 @@ class PrescriptionsController < ApplicationController
     @user = current_user
     @prescription.user = @user
 
+    # raise
     # ↓↓ Il faut faire des params[][] car il y a un hash dans un hash ↓↓
     @treatment = Treatment.find(params["prescription"]["treatment_id"].to_i)
     @prescription.treatment = @treatment
@@ -21,7 +22,6 @@ class PrescriptionsController < ApplicationController
     @prescription.todo_minutes = params["prescription"]["time"].split(":").last.to_i
     @prescription.taken_date = Date.new(1900, 01, 01) # Garantir que je n'interfère pas avec les prises après 2000
 
-    # raise
     if @prescription.save
       # /!\ Attention, rediriger vers le path en fonction de la category du treatment ↓
       if @prescription.treatment.category == "pills"
@@ -45,6 +45,7 @@ class PrescriptionsController < ApplicationController
   def update
     @user = current_user
     @prescription = Prescription.find(params[:id])
+    # raise
     if @prescription.update(prescription_params)
       if @prescription.treatment.category == "pills"
         redirect_to pills_path
@@ -61,7 +62,8 @@ class PrescriptionsController < ApplicationController
   def confirm
     @prescription = Prescription.find(params[:id])
     @prescription.taken_date = Date.today
-    if @prescription.update(prescription_params)
+
+    if @prescription.save
       if @prescription.treatment.category == "pills"
         redirect_to pills_path
       elsif @prescription.treatment.category == "cares"

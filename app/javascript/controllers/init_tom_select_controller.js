@@ -8,7 +8,7 @@ export default class extends Controller {
   }
 
   initTomSelect() {
-    const optionValues = this.element.parentElement.querySelector(".tom-select-options")
+    const optionValues = this.element.parentElement.querySelector(".tom-select-options") // va me chercher le id element "treatment-select"
     var options =  {
       sortField: {
       field: "text",

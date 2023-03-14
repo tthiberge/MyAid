@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_10_141439) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_13_220829) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -52,6 +52,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_10_141439) do
     t.boolean "is_done", default: false
     t.integer "appointment_hour"
     t.integer "appointment_min"
+    t.string "day_half"
     t.index ["doctor_id"], name: "index_appointments_on_doctor_id"
     t.index ["user_id"], name: "index_appointments_on_user_id"
   end
@@ -60,7 +61,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_10_141439) do
     t.integer "pain_scale"
     t.integer "motivation_scale"
     t.string "daily_feeling"
-    t.string "photo"
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

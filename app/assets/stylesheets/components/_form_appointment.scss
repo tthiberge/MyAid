@@ -1,0 +1,75 @@
+// CSS for AM / PM
+.category-wrapper-ampm {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  // flex-direction: column;
+}
+
+.category-item-ampm {
+  // flex: 0 0 40%; // Ne semble pas être pris en compte
+  width: 40% !important;
+}
+
+.category-selector-ampm {
+  position: absolute;
+  transform: scale(0);
+}
+
+.category-selector-ampm + label {
+  display: block;
+  cursor: pointer;
+  box-sizing: border-box;
+  width: 100%;
+  font-size: 12px;
+  text-align: center;
+  padding-block: 10px;
+  padding-inline: 20px;
+  margin-block: 4px;
+  border: 1px solid #cfcfcf;
+  border-radius: 4px;
+  background-color: white;
+}
+
+.category-selector-ampm:checked + label {
+  color: white !important;
+  background: purple;
+}
+
+// CSS pour les horaires disponibles de RDV
+.category-wrapper-hours {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 8px;
+  align-items: center;
+}
+
+.category-item-hours {
+  flex: 0 0 30%;
+  height: 100%;
+}
+
+.category-selector-hours {
+  position: absolute;
+  transform: scale(0);
+}
+
+.category-selector-hours + label {
+  display: block;
+  cursor: pointer;
+  box-sizing: border-box;
+  width: 100%;
+  font-size: 12px;
+  text-align: center;
+  padding-block: 10px;
+  padding-inline: 20px;
+  margin-block: 4px;
+  border: 1px solid #cfcfcf;
+  border-radius: 35px;
+  background-color: white;
+}
+
+.category-selector-hours:checked + label {
+  color: white !important;
+  background: purple;
+}
