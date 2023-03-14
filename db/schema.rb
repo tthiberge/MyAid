@@ -88,7 +88,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_14_142816) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "treatment_id", null: false
-    t.date "taken_date"
+    t.date "taken_date", default: "1900-01-01"
     t.integer "todo_hours"
     t.integer "todo_minutes"
     t.string "day_half"

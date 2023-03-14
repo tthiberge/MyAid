@@ -9,7 +9,7 @@ export default class extends Controller {
     console.log("appointment")
   }
 
-  reveal(event) {
+  revealAMPM(event) {
     console.log(event.currentTarget.value)
     if (event.currentTarget.value === "AM") {
       console.log("je suis dans AM")

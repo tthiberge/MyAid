@@ -139,8 +139,10 @@
 
 
   <div class="features">
-    <%= link_to diary_path(@diary) do %>
-      <i class="fa-solid fa-book-medical"></i>
+    <% if @diary %>
+      <%= link_to diary_path(@diary) do %>
+        <i class="fa-solid fa-book-medical"></i>
+      <% end %>
     <% end %>
     <%= link_to boost_path do %>
       <i class="fa-solid fa-rocket"></i>
