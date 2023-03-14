@@ -1,4 +1,5 @@
 puts "Cleaning the database"
+Appointment.destroy_all
 User.destroy_all
 Treatment.destroy_all
 Doctor.destroy_all
