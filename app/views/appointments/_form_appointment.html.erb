@@ -1,0 +1,120 @@
+<div class="container-form">
+    <%= simple_form_for appointment, html: {data: {controller: "appointment flatpickr"}} do |f| %>
+
+      <%= f.association :doctor,
+                        collection: Doctor.all ,
+                        prompt: "👩‍⚕️🏥Unfold and select your specialist ⬇️  ",
+                        label:false,
+                        input_html: {
+                        class: "card-form w-100 dropdown-item",
+                        style: "filter: drop-shadow(0px 4px 4px #EBEBF2);"
+                        },
+                        wrapper_html: {
+                        class: "text-primary"
+                        } %>
+
+      <%= f.input :date,
+                  as: :string,
+                  # as: :date,
+                  # html5: true,
+                  label: false,
+                  wrapper_html: {
+                    class: "text-primary"
+                  },
+                  input_html: {
+                    class: "card-form d-none",
+                    data: {
+                      flatpickr_target: "startDateInput"
+                    }
+                  }%>
+      <div class=" AMPM">
+        <%= f.input :day_half,
+                  label: "Time of the day",
+                  required: true,
+                  as: :radio_buttons,
+                  collection: %w[AM PM],
+                  collection_wrapper_tag: 'div',
+                  collection_wrapper_class: 'category-wrapper-ampm',
+                  item_wrapper_class: 'category-item',
+                  input_html: {
+                    class: "card-form category-selector-ampm",
+                    style: "filter: drop-shadow(0px 4px 4px #EBEBF2);",
+                    data: {action: "click->appointment#reveal"}
+                  },
+                  wrapper_html: {
+                    class: "text-primary"
+                  }
+        %>
+        </div>
+        <%= f.input :time_morning,
+                  label: false,
+                  required: true,
+                  # hint: "Select the time",
+                  as: :radio_buttons, # as: :time pour selectionner autant d'heures et minutes qu'on veut!!
+                  collection: Appointment::TIMES_MORNING,
+                  collection_wrapper_tag: 'div',
+                  collection_wrapper_class: 'category-wrapper-hours',
+                  item_wrapper_class: 'category-item-hours',
+                  wrapper_html: {
+                      class: "d-none",
+                      data: {appointment_target: 'morning'}
+                  }, # Change la couleur du label
+                  input_html: {
+                    class: "card-form category-selector-hours",
+                    # Change la couleur des inputs + bk-white + filter shadow
+                  }
+        %>
+        <%= f.input :time_afternoon,
+                  label: false,
+                  required: true,
+                  # hint: "Select the time",
+                  as: :radio_buttons, # as: :time pour selectionner autant d'heures et minutes qu'on veut!!
+                  collection: Appointment::TIMES_AFTERNOON,
+                  collection_wrapper_tag: 'div',
+                  collection_wrapper_class: 'category-wrapper-hours',
+                  item_wrapper_class: 'category-item-hours',
+                  wrapper_html: {
+                      class: "d-none ",
+                      data: {appointment_target: 'afternoon'}
+                  }, # Change la couleur du label
+                  input_html: {
+                    class: "card-form category-selector-hours",
+                    # Change la couleur des inputs + bk-white + filter shadow
+                  }
+        %>
+      <%= f.input :comment,
+                  as: :text,
+                  wrapper_html: {
+                    class: "text-primary"
+                  },
+                  input_html: {
+                    class: "card-form",
+                  }
+                  %>
+      <%= f.button :submit, class: "btn-primary mt-3"%>
+    <% end %>
+  </div>
+</div>
+
+
+
+      <%#= f.input :appointment_hour,
+                  collection: 8..19,
+                  prompt: "hh",
+                  label:false,
+                  wrapper_html: {
+                    class: "text-primary"
+                  },
+                  input_html: {
+                    class: "card-form",
+                  }%>
+      <%#= f.input :appointment_min,
+                  collection: (0..45).step(15),
+                  prompt: "mm",
+                  label:false,
+                  wrapper_html: {
+                    class: "text-primary"
+                  },
+                  input_html: {
+                    class: "card-form",
+                  } %>
