@@ -22,6 +22,8 @@ class PagesController < ApplicationController
     current_user.appointments.each do |appointment|
       @appointments << appointment
     end
+
+    @diary = Diary.all.last
   end
 
   def profile
@@ -93,7 +95,7 @@ class PagesController < ApplicationController
   end
 
   def week_calendar
-  end 
+  end
 
   def calendars
     @appointments = current_user.appointments
@@ -105,6 +107,8 @@ class PagesController < ApplicationController
 
     @start_date = Date.current.beginning_of_month
     @end_date = Date.current.end_of_month
+
+  def boost
   end
 
 end

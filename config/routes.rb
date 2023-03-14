@@ -29,7 +29,7 @@ Rails.application.routes.draw do
   resources :appointments, only: [:index, :show, :new, :create, :edit, :update]
   resources :appointments, only: [:destroy], as: :destroy_appointment
 
-  resources :diaries, only: [:index, :show, :new, :create] do
+  resources :diaries, only: [:index, :show, :new, :create, :update] do
     resources :selfies
   end
   get "/uikit", to: "pages#uikit"
@@ -40,4 +40,5 @@ Rails.application.routes.draw do
   get "/monthcalendar", to: "simple_calendar#_month_calendar"
   get "/weekcalendar", to: "simple_calendar#_week_calendar"
 
+  get "/boost", to: "pages#boost"
 end

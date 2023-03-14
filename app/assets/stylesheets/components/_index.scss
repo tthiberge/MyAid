@@ -1,11 +1,15 @@
 // Import your components CSS files here.
 @import "alert";
 @import "avatar";
+@import "circle_add.scss";
+@import "diary";
+@import "form_appointment";
 @import "form_legend_clear";
 @import "form_new_prescription";
+@import "home_calendar";
+@import "log_in";
 @import "navbar";
 @import "prescription_card";
 @import "reminder_next_prescriptions";
-@import "log_in";
-@import "circle_add.scss";
-@import "home_calendar";
+@import "selfie";
+@import "time_picker";

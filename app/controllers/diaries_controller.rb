@@ -1,5 +1,6 @@
 class DiariesController < ApplicationController
   def index
+
   end
 
   def show
@@ -7,4 +8,18 @@ class DiariesController < ApplicationController
     @selfy = Selfy.new
   end
 
+<<<<<<< HEAD
+=======
+  def new
+
+  end
+
+  def create
+
+  end
+
+  def update
+    raise
+  end
+>>>>>>> master
 end

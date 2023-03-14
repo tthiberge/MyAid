@@ -1,4 +1,4 @@
 class Diary < ApplicationRecord
   belongs_to :user
-  has_many :selfies, dependent: :destroy
+  has_one :selfy, dependent: :destroy
 end
