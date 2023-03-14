@@ -5,16 +5,21 @@
 
   i{
     position: absolute;
-    right: 8px;
+    right: 16px;
     top: 15px;
     color: purple;
     z-index: 100;
   }
-}
 
-.fontawesome-arrow{
+}.fontawesome-arrow{
   position: relative;
 }
+
+.string.required.prescription_start_date.text-primary{
+  margin-top: 10vh;
+
+}
+
 
 .was-validated .form-select:valid:not([multiple]):not([size]), .was-validated .form-select[size="1"]:valid:not([multiple]), .form-select.is-valid:not([multiple]):not([size]), .form-select.is-valid[size="1"]:not([multiple]) {
   background-image: none !important;
