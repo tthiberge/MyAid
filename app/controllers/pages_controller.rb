@@ -106,3 +106,46 @@ end
     # Je les ai! J'ai selectionné ceux qui ont taken_date == Date.today et ceux qui l'ont pas!!
     # current_user.prescriptions.where((:start_date..:end_date).include?Date.today).order(:day_half, :todo_hours, :todo_minutes).select {|prescription| prescription.treatment.category == "pills"}.select {|prescription| prescription.taken_date!=Date.today}
     # current_user.prescriptions.where((:start_date..:end_date).include?Date.today).order(:day_half, :todo_hours, :todo_minutes).select {|prescription| prescription.treatment.category == "pills"}.select {|prescription| prescription.taken_date==Date.today}
+
+    @pill_prescriptions_sorted_not_taken = current_user.prescriptions.where((:start_date..:end_date).include?Date.today).order(:day_half, :todo_hours, :todo_minutes).select {|prescription| prescription.treatment.category == "pills"}.select {|prescription| prescription.taken_date!=Date.today}
+    @pill_prescriptions_sorted_taken = current_user.prescriptions.where((:start_date..:end_date).include?Date.today).order(:day_half, :todo_hours, :todo_minutes).select {|prescription| prescription.treatment.category == "pills"}.select {|prescription| prescription.taken_date==Date.today}
+
+    # raise
+  end
+
+  def cares
+    @care_prescriptions = []
+    current_user.prescriptions.each do |prescription|
+      @care_prescriptions << prescription if prescription.treatment.category == "cares"
+    end
+  end
+
+  def exercises
+    @exercise_prescriptions = []
+    current_user.prescriptions.each do |prescription|
+      @exercise_prescriptions << prescription if prescription.treatment.category == "exercises"
+    end
+  end
+
+  def uikit
+  end
+
+  def landing
+  end
+
+  def calendars
+    @appointments = current_user.appointments
+    @pill_prescriptions = current_user.prescriptions.joins(:treatment).where(treatments: { category: "pills" })
+    @care_prescriptions = current_user.prescriptions.joins(:treatment).where(treatments: { category: "cares" })
+    @exercise_prescriptions = current_user.prescriptions.joins(:treatment).where(treatments: { category: "exercises" })
+
+    @events = @appointments + @pill_prescriptions + @care_prescriptions + @exercise_prescriptions
+
+    @start_date = Date.current.beginning_of_month
+    @end_date = Date.current.end_of_month
+  end
+
+  def boost
+  end
+
+end

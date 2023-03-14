@@ -87,6 +87,8 @@ prescription_8 = Prescription.create!(start_date: "18/03/2023", end_date: "27/03
 
 prescription_9 = Prescription.create!(start_date: "04/03/2023", end_date: "19/03/2023", todo_hours: 2, todo_minutes: 00, day_half: "PM",  comment: "Save a 1h-time slot to practice meditation to relax and accept the present time", user: diane, treatment: meditation)
 
+prescription_10 = Prescription.create!(start_date: "14/03/2023", end_date: "19/03/2023", todo_hours: 2, todo_minutes: 00, day_half: "PM",  comment: "Save a 1h-time slot to practice meditation to relax and accept the present time", user: diane, treatment: meditation)
+
 
 # creating doctors
 
@@ -100,6 +102,7 @@ doctor6 = Doctor.create!(title: "Nurse", name: "Donovan", specialty: "General", 
 doctor7 = Doctor.create!(title: "Pr.", name: "Pilgert", specialty: "Cancer", address: "184 Rue du Faubourg Saint-Antoine, 75012 Paris", latitude: 37.7749, longitude: -122.4194, user: diane)
 
 # Ajouter une colonne AM / PM dans le formulaire pour gérer la logique matin/aprem
+
 appointment1 = Appointment.create(date: Date.parse('11/12/2023'), comment: "Checkup", user: diane, doctor: doctor1, appointment_hour: 8, appointment_min: 30, day_half: "AM" )
 appointment2 = Appointment.create(date: Date.today, comment: "Checkup", user: diane, doctor: doctor2, appointment_hour: 10, appointment_min: 30, day_half: "AM" )
 appointment3 = Appointment.create(date: Date.today, comment: "Checkup", user: diane, doctor: doctor3, appointment_hour: 11, appointment_min: 30, day_half: "AM" )
@@ -117,11 +120,11 @@ appointment7 = Appointment.create(date: Date.today, comment: "Checkup", user: di
 #t.datetime "updated_at", null: false
 #t.index ["user_id"], name: "index_diaries_on_user_id"
 
-diary1 = Diary.create!(pain_scale: 8, motivation_scale: 2, daily_feeling: "I am suffering a lot today, I am trying to fight the pain but it's hard because I am so exausted", user: diane )
-diary2 = Diary.create!(pain_scale: 7, motivation_scale: 3, daily_feeling: "I am suffering a bit less than yesterday, it gives me hope", user: diane )
-diary3 = Diary.create!(pain_scale: 8, motivation_scale: 3, daily_feeling: "The real pain is back but I am seeing my children today so I already feel better", user: diane )
-diary4 = Diary.create!(pain_scale: 7, motivation_scale: 5, daily_feeling: "I went out for the first time today, it's a victory", user: diane )
-diary5 = Diary.create!(pain_scale: 6, motivation_scale: 5, daily_feeling: "I am starting physiotherapy today, I am really tired but I am happy to be able to start ", user: diane )
+diary1 = Diary.create!(pain_scale: 8, motivation_scale: 2, daily_feeling: "I am suffering a lot today, I am trying to fight the pain but it's hard because I am so exausted", user: diane, date: Date.today)
+diary2 = Diary.create!(pain_scale: 7, motivation_scale: 3, daily_feeling: "I am suffering a bit less than yesterday, it gives me hope", user: diane, date: Date.today )
+diary3 = Diary.create!(pain_scale: 8, motivation_scale: 3, daily_feeling: "The real pain is back but I am seeing my children today so I already feel better", user: diane, date: Date.today )
+diary4 = Diary.create!(pain_scale: 7, motivation_scale: 5, daily_feeling: "I went out for the first time today, it's a victory", user: diane, date: Date.today )
+diary5 = Diary.create!(pain_scale: 6, motivation_scale: 5, daily_feeling: "I am starting physiotherapy today, I am really tired but I am happy to be able to start ", user: diane, date: Date.today )
 
 quote1 = Quote.create!(motivational_quote: "Healing requires from us to stop struggling, but to enjoy life more and endure it less.", author: "Darina Stoyanova")
 quote2 = Quote.create!(motivational_quote: "Part of the healing process is sharing with other people who care.", author: "Jerry Cantrell")

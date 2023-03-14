@@ -1,0 +1,267 @@
+.table{
+  color:#76157B;
+}
+
+.calendar-container {
+  display: grid;
+  align-items: center;
+  padding: 20px;
+  margin: 10px;
+}
+
+simple-calendar {
+  padding: 20px;
+  width: 90%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  border: 1px solid white;
+  font-size: 12px;
+  font-family: 'Inter', sans-serif;
+  color: red;
+  background-color: #fff;
+
+
+  .day {
+    padding: 5px;
+    border: 1px solid white;
+    text-align: center;
+  }
+
+  .wday-0 {
+    color: red;
+  }
+  .wday-1 {
+    color: #333;
+  }
+  .wday-2 {
+    color: #333 ;
+  }
+  .wday-3 {
+    color: #333 ;
+  }
+  .wday-4 {
+    color: #333 ;
+  }
+  .wday-5 {
+    color: #333 ;
+  }
+  .wday-6 {
+    color: #333 ;
+  }
+
+  .past {
+    color: #ccc;
+  }
+  .future {
+    color: #333;
+  }
+
+  .start-date {
+    background-color: #EBEBF2;
+  }
+
+  .prev-month {
+    background-color: #EBDEEC;
+    color: #333;
+  }
+  .next-month {
+    background-color: #EBDEEC;
+    color: #333;
+  }
+  .current-month {
+    background-color: #EBDEEC;
+    color: #333;
+  }
+
+  .has-events {
+    background-color: #EBEBF2;
+  }
+
+  .simple-calendar table {
+    -webkit-border-horizontal-spacing: 0px;
+    -webkit-border-vertical-spacing: 0px;
+    background-color: rgba(0, 0, 0, 0);
+    border: 1px solid #dddddd;
+    border-collapse: collapse;
+    box-sizing: border-box;
+    max-width: 100%;
+    width: 100%;
+  }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    size: 16px;
+  }
+
+}
+
+.simple-calendar .today {
+  background: #EBEBF2;
+  color:#333 ;
+}
+
+.simple-calendar .prev-month {
+  background:white;
+  border-radius: 15px;
+}
+
+.simple-calendar .current-month {
+  background:white;
+  border-radius: 15px;
+}
+
+.simple-calendar .next-month {
+  background:white;
+  border-radius: 15px;
+}
+
+.calendar-wrapper-rounded {
+  width: 320px;
+  height: auto;
+  background: #FFFFFF;
+  box-shadow: 0px 4px 4px #D7CDE3;
+  border-radius: 40px;
+}
+
+.calendar-title {
+  font-size: x-large;
+  font-family: 'Inter', sans-serif;
+  color: #76157B;
+  justify-content: center;
+}
+
+.simple-calendar th {
+  padding: 0px;
+  border-bottom: 0px solid #dddddd;
+  border-collapse: collapse;
+  border-left: 0px solid #dddddd;
+  border-right: 0px solid #dddddd;
+  border-top: 0px none #333333;
+  box-sizing: border-box;
+  text-align: left;
+}
+
+.simple-calendar td {
+  padding: 0px;
+  vertical-align: top;
+  width: 14%;
+  border: 0px solid #ddd;
+    border-top-color: rgb(221, 221, 221);
+    border-top-style: solid;
+    border-top-width: 0px;
+    border-right-color: rgb(221, 221, 221);
+    border-right-style: solid;
+    border-right-width: 0px;
+    border-bottom-color: rgb(221, 221, 221);
+    border-bottom-style: solid;
+    border-bottom-width: 0px;
+    border-left-color: rgb(221, 221, 221);
+    border-left-style: solid;
+    border-left-width: 0px;
+  border-top-color: #dddddd;
+  border-top-style: solid;
+  border-top-width: 0px;
+  border-right-color: #dddddd;
+  border-right-style: solid;
+  border-right-width: 0px;
+  border-bottom-color: #dddddd;
+  border-bottom-style: solid;
+  border-bottom-width: 0px;
+  border-left-color: #dddddd;
+  border-left-style: solid;
+  border-left-width: 0px;
+}
+
+.simple-calendar td {
+  padding: 0px;
+  vertical-align: top;
+  width: 14%;
+  border: 0px solid #ddd;
+    border-top-color: rgb(221, 221, 221);
+    border-top-style: solid;
+    border-top-width: 0px;
+    border-right-color: rgb(221, 221, 221);
+    border-right-style: solid;
+    border-right-width: 0px;
+    border-bottom-color: rgb(221, 221, 221);
+    border-bottom-style: solid;
+    border-bottom-width: 0px;
+    border-left-color: rgb(221, 221, 221);
+  border-top-color: #dddddd;
+  border-top-style: solid;
+  border-top-width: 0px;
+  border-right-color: #dddddd;
+  border-right-style: solid;
+  border-right-width: 0px;
+  border-bottom-color: #dddddd;
+  border-bottom-style: solid;
+  border-bottom-width: 0px;
+  border-left-color: #dddddd;
+  border-left-style: solid;
+  border-left-width: 0px;
+  border-top-color: #dddddd;
+  border-top-style: solid;
+  border-top-width: 0px;
+  border-right-color: #dddddd;
+  border-right-style: solid;
+  border-right-width: 0px;
+  border-bottom-color: #dddddd;
+  border-bottom-style: solid;
+  border-bottom-width: 0px;
+  border-left-color: #dddddd;
+  border-left-style: solid;
+  border-left-width: 0px;
+}
+
+.today .d-day {
+  border-radius: 50%;
+  border: 3px solid #EBEBF2;
+  background-color: #EBEBF2;
+}
+
+.simple-calendar table {
+  -webkit-border-horizontal-spacing: 0px;
+  -webkit-border-vertical-spacing: 0px;
+  background-color: rgba(0, 0, 0, 0);
+  border: 0px solid #dddddd;
+  border-collapse: collapse;
+  box-sizing: border-box;
+  max-width: 100%;
+  width: 100%;
+}
+
+
+.legend-calendar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#legend-appointment-calendar {
+  font-size: 12px;
+  font-family: 'Inter', sans-serif;
+}
+
+#legend-prescription-calendar {
+  font-size: 12px;
+  font-family: 'Inter', sans-serif;
+}
+
+.fa-caret-down {
+  font-size: 30px; /* Change the size to your liking */
+  display: block;
+  margin: 0 auto;
+  display: grid;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.fa-caret-up {
+  font-size: 30px; /* Change the size to your liking */
+  display: block;
+  margin: 0 auto;
+  display: grid;
+  align-items: center;
+  justify-content: center;
+}
