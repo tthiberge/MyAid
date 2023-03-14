@@ -1,6 +1,8 @@
 class AppointmentsController < ApplicationController
   def index
-    @appointments = Appointment.all
+    @appointments_not_done = current_user.appointments.where(is_done: false).order(:day_half, :appointment_hour, :appointment_min)
+
+    @appointments_done = current_user.appointments.where(is_done: true).order(:day_half, :appointment_hour, :appointment_min)
   end
 
   def show
@@ -55,7 +57,16 @@ class AppointmentsController < ApplicationController
 
 
   def confirm
+    @appointment = Appointment.find(params[:id])
+    @appointment.is_done = true
+  
 
+    if @appointment.save
+      redirect_to appointments_path
+    else
+      render "/home", notice: "Sorry, the appointment status could not be updated"
+      # notice ou alert, selon le design qu'on préfère. Ici, c'est le même
+    end
   end
 
   def destroy
