@@ -77,4 +77,5 @@ Rails.application.configure do
 
   config.hosts << /.*\.ngrok\.io\z/
   # config.hosts << /.*\.eu\.ngrok\.io\z/
+  
 end

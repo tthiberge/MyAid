@@ -46,10 +46,6 @@
   justify-content: center;
 }
 
-.AMPM{
-
-}
-
 // CSS for Pills / Cares / Exercises
 .category-wrapper {
   display: flex;
@@ -85,7 +81,7 @@
   background: purple;
 }
 
-// CSS for the treatment names
+// CSS pour le nom du traitement (paracétamol, méditation, ...)
 .category-wrapper-treatment {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -135,17 +131,6 @@
   padding-inline: 5px;
 }
 
-// .flatpickr-day.endRange
-// {
-//   background: purple;
-//   border-color: purple;
-//   }
-
-
-// .flatpickr-day.startRange{
-//   background: purple;
-//   border-color: purple;
-// }
 
 // Ci-dessous: change la couleur autour des dates sélectionnées
 span.flatpickr-day.selected.startRange,
