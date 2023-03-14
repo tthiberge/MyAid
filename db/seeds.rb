@@ -1,4 +1,5 @@
 puts "Cleaning the database"
+Appointment.destroy_all
 User.destroy_all
 Treatment.destroy_all
 Doctor.destroy_all
@@ -72,17 +73,17 @@ prescription_1 = Prescription.create!(start_date: "10/03/2023", end_date: "20/03
 
 prescription_2 = Prescription.create!(start_date: "07/03/2023", end_date: "17/03/2023", todo_hours: 9, todo_minutes: 00,  day_half: "PM", comment: "3 x 125mg - Take the pills before going to sleep", user: diane, treatment: tylenol, taken_date: Date.today)
 
+prescription_5 = Prescription.create!(start_date: "17/03/2023", end_date: "21/03/2023", todo_hours: 1, todo_minutes: 00, day_half: "PM",  comment: "4 x 250mg - Take during the meal", user: diane, treatment: muscadol)
+
 prescription_3 = Prescription.create!(start_date: "02/03/2023", end_date: "22/03/2023", todo_hours: 10, todo_minutes: 00, day_half: "AM",  comment: "1 x 250mg - In the morning ", user: diane, treatment: amoxiciline)
-
-prescription_4 = Prescription.create!(start_date: "03/03/2023", end_date: "18/03/2023", todo_hours: 11, todo_minutes: 00, day_half: "AM",  comment: "2 tablets - Take with a fair amount of water", user: diane, treatment: relaxon)
-
-prescription_5 = Prescription.create!(start_date: "15/03/2023", end_date: "17/03/2023", todo_hours: 1, todo_minutes: 00, day_half: "PM",  comment: "4 x 250mg - Take during the meal", user: diane, treatment: muscadol)
 
 prescription_6 = Prescription.create!(start_date: "04/03/2023", end_date: "19/03/2023", todo_hours: 4, todo_minutes: 00, day_half: "PM",  comment: "1 x 500mg - Take in the afternoon", user: diane, treatment: targin)
 
+prescription_4 = Prescription.create!(start_date: "03/03/2023", end_date: "18/03/2023", todo_hours: 11, todo_minutes: 00, day_half: "AM",  comment: "2 tablets - Take with a fair amount of water", user: diane, treatment: relaxon)
+
 prescription_7 = Prescription.create!(start_date: "03/03/2023", end_date: "18/03/2023", todo_hours: 10, todo_minutes: 00, day_half: "PM",  comment: "Apply a fair amount on the burnt area before going to bed", user: diane, treatment: cream)
 
-prescription_8 = Prescription.create!(start_date: "18/03/2023", end_date: "17/03/2023", todo_hours: 7, todo_minutes: 00, day_half: "PM",  comment: "During your shower, instead of the current shower gel and shampoo", user: diane, treatment: betadine)
+prescription_8 = Prescription.create!(start_date: "18/03/2023", end_date: "27/03/2023", todo_hours: 7, todo_minutes: 00, day_half: "PM",  comment: "During your shower, instead of the current shower gel and shampoo", user: diane, treatment: betadine)
 
 prescription_9 = Prescription.create!(start_date: "04/03/2023", end_date: "19/03/2023", todo_hours: 2, todo_minutes: 00, day_half: "PM",  comment: "Save a 1h-time slot to practice meditation to relax and accept the present time", user: diane, treatment: meditation)
 
@@ -124,5 +125,17 @@ diary2 = Diary.create!(pain_scale: 7, motivation_scale: 3, daily_feeling: "I am 
 diary3 = Diary.create!(pain_scale: 8, motivation_scale: 3, daily_feeling: "The real pain is back but I am seeing my children today so I already feel better", user: diane, date: Date.today )
 diary4 = Diary.create!(pain_scale: 7, motivation_scale: 5, daily_feeling: "I went out for the first time today, it's a victory", user: diane, date: Date.today )
 diary5 = Diary.create!(pain_scale: 6, motivation_scale: 5, daily_feeling: "I am starting physiotherapy today, I am really tired but I am happy to be able to start ", user: diane, date: Date.today )
+
+quote1 = Quote.create!(motivational_quote: "Healing requires from us to stop struggling, but to enjoy life more and endure it less.", author: "Darina Stoyanova")
+quote2 = Quote.create!(motivational_quote: "Part of the healing process is sharing with other people who care.", author: "Jerry Cantrell")
+quote3 = Quote.create!(motivational_quote: "Just one small positive thought in the morning can change your whole day.", author: "Dalaï lama")
+quote4 = Quote.create!(motivational_quote: "Don’t be afraid to give up the good to go for the great.", author: "John D. Rockefeller")
+quote5 = Quote.create!(motivational_quote: "Magic is believing in yourself. If you can make that happen, you can make anything happen.", author: "Johann Wolfgang Von Goethe")
+quote6 = Quote.create!(motivational_quote: "Impossible is just an opinion.", author: "Paulo Coelho")
+quote7 = Quote.create!(motivational_quote: "One day or day one. You decide.", author: "Unknow")
+quote8 = Quote.create!(motivational_quote: "I’m alive, motivated and ready to slay the day #MONSLAY.", author: "Unknow")
+quote9 = Quote.create!(motivational_quote: "Sometimes when you’re in a dark place you think you’ve been buried but you’ve actually been planted.", author: "Christine Caine")
+quote10 = Quote.create!(motivational_quote: "Start where you are. Use what you have. Do what you can.", author: "Arthur Ashe")
+
 
 puts "Seeded"

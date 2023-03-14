@@ -16,5 +16,9 @@
       <h2><i class="fa-solid fa-book-medical"></i> My Diaries</h2>
     </div>
   </div>
-
+  <% @diaries.each do |diary| %>
+    <% if diary.selfy && diary.selfy.photo.attached? %>
+      <%= cl_image_tag diary&.selfy&.photo&.key  %>
+    <% end %>
+  <% end %>
 </div>

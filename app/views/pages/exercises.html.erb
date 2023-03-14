@@ -23,12 +23,13 @@
   </div>
 
   <div class="day-of-prescription">
-    <p><strong><%= Date.today.strftime("%A - %B, %d %Y") %></strong></p>  </div>
+    <h6><strong><%= Date.today.strftime("%A - %B %d, %Y") %></strong></h6>
+  </div>
   <! -- 1 -- PRESCRIPTION CARD -->
 
   <div class="prescriptions-cards px-3">
         <! -- Card Pills/Treatment/Exercises -->
-    <% @exercise_prescriptions.each do |exercise_prescription| %>
+       <% @exercise_prescriptions_sorted_not_taken.each do |exercise_prescription| %>
       <div class="card-pill">
         <! -- Pour le cercle de l'heure et la card du titre -->
         <div class="px-3 title-wrap w-100">
@@ -36,7 +37,7 @@
         <! -- le cercle de l'heure -->
           <div class="circle">
             <p class="time"><%= exercise_prescription.todo_hours %>:<%= exercise_prescription.todo_minutes == 0 ? "00" : "30" %></p>
-            <p class="time"><span class="time-small">AM</span></p>
+            <p class="time"><span class="time-small"><%= exercise_prescription.day_half %></span></p>
           </div>
 
         <! -- la card du titre -->
@@ -58,11 +59,10 @@
           <! -- Pour les cercles d'action : cancel, edit, check -->
         <div class="action-wrap">
 
-          <! -- Cercle d'action 1 : cancel
-          , turbo_confirm: "Are you sure?"-->
+          <! -- Cercle d'action 1 : cancel -->
 
           <div class="action-circle-1">
-            <%= link_to destroy_prescription_path(exercise_prescription), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
+            <%= button_to destroy_prescription_path(exercise_prescription), method: :delete,form: {"data-controller": "alertbysweet"}, data: {  action:"click->alertbysweet#confirm"}, class: "bid" do %>
               <i class="fa-solid fa-xmark"></i>
             <% end %>
           </div>
@@ -78,10 +78,82 @@
           <! -- Cercle d'action 3 : check -->
 
           <div class="action-circle-3">
-          <%= link_to exercises_confirm_prescription_path(exercise_prescription), data: { turbo_method: :patch }  do %>
-            <i class="fa-solid fa-check"></i>
+            <%= link_to pills_confirm_prescription_path(exercise_prescription), data: { turbo_method: :patch }  do %>
+              <i class="fa-solid fa-check"></i>
+            <% end %>
+          </div>
+
+          <%# NE PAS SUPPRIMER! Technique de Laura pour passer une valeur avec un form invisible. On design le bouton submit pour que ça convienne dans la view %>
+
+          <%#= simple_form_for(exercise_prescription) do |f| %>
+            <%#= f.input :taken_date,
+                    # label: false,
+                    as: :hidden,
+                    input_html: {value: Date.today}
+            <%#= f.submit class: "btn btn-success rounded-pill"%>
+          <%# end %>
+
+          <! -- On ferme es cercles d'action : cancel, edit, check -->
+          </div>
+
+        <! -- On ferme Card Pills/Treatment/Exercices -->
+      </div>
+    <% end %>
+
+
+    <! -- On itère sur les prescriptions prises aujourd'hui -->
+    <% @exercise_prescriptions_sorted_taken.each do |exercise_prescription| %>
+      <div class="card-pill-confirmed">
+        <! -- Pour le cercle de l'heure et la card du titre -->
+        <div class="px-3 title-wrap w-100">
+
+        <! -- le cercle de l'heure -->
+          <div class="circle">
+            <p class="time"><%= exercise_prescription.todo_hours %>:<%= exercise_prescription.todo_minutes == 0 ? "00" : "30" %></p>
+            <p class="time"><span class="time-small"><%= exercise_prescription.day_half %></span></p>
+          </div>
+
+        <! -- la card du titre -->
+          <div class="card-title">
+            <h1><%= exercise_prescription.treatment.name.capitalize %></h1>
+          </div>
+
+        </div>
+
+
+
+        <! -- Pour le comment : Deux lignes de texte pour plus joli rendu  -->
+
+        <div class="content-wrap">
+          <h2><%= exercise_prescription.comment %></h2>
+        </div>
+
+
+          <! -- Pour les cercles d'action : cancel, edit, check -->
+        <div class="action-wrap">
+
+          <! -- Cercle d'action 1 : cancel DISPLAY NONE -->
+
+          <div class="action-circle-1 d-none">
+            <%= link_to destroy_prescription_path(exercise_prescription), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
+              <i class="fa-solid fa-xmark"></i>
+            <% end %>
+          </div>
+
+          <! -- Cercle d'action 2 : edit - DISPLAY NONE -->
+
+          <div class="action-circle-2 d-none">
+          <%= link_to edit_prescription_path(exercise_prescription) do %>
+            <i class="fa-solid fa-pencil"></i>
           <% end %>
           </div>
+
+          <! -- Cercle d'action 3 : check -->
+
+          <div class="action-circle-3-confirmed">
+              <i class="fa-solid fa-check" style="color: white"></i>
+          </div>
+
 
           <! -- On ferme es cercles d'action : cancel, edit, check -->
           </div>

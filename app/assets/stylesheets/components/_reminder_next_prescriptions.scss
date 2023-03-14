@@ -11,7 +11,7 @@
   flex-direction: column;
   border-radius: 40px;
   background-color: #ffffff;
-  filter: drop-shadow(0px 4px 4px #D7CDE3);
+  filter: drop-shadow(0px 4px 4px #D2C5E1);
   height: 180px;
   padding: 20px 20px;
 }
@@ -46,6 +46,7 @@
 .content-wrap-hour-prescription {
   // margin: 15px;
   display: flex;
+  direction: row;
   gap: 10px;
   gap: 10px 20px;
   row-gap: 10px;

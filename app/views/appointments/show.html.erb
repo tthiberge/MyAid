@@ -16,7 +16,7 @@
   </div>
 
   <div class="day-of-prescription">
-    <p><strong><%= Date.today.strftime("%A - %B, %d %Y") %></strong></p>
+    <h6><strong><%= Date.today.strftime("%A - %B %d, %Y") %></strong></h6>
   </div>
 
   <div class="prescriptions-cards px-3">
@@ -109,19 +109,40 @@
       </div>
     </div>
   </div>
-  <div class="prescriptions-cards px-3">
-    <div class="card-pill">
-      <div class="px-3 title-wrap w-100">
-        <div class="circle">
-          <i class="fa-solid fa-cloud-sun"></i>
+  <% if @weather %>
+    <div class="prescriptions-cards px-3">
+      <div class="card-pill">
+        <div class="px-3 title-wrap w-100">
+          <div class="circle">
+            <i class="fa-solid fa-cloud-sun"></i>
+          </div>
+
+          <div class="card-title">
+            <h1>Weather focus on appointment </h1>
+          </div>
+
         </div>
 
-        <div class="card-title">
-          <h1>Weather for this apppointment</h1>
+        <div class= "weatherapi">
+        <div class="cityname-weather">
+          <h1 id="weather-name-api"><%= @weather.name%></h1>
         </div>
+            <div class="degreeicon">
+              <div class="degree">
+                  <h1><strong><%= @weather.main.temp_max_c.to_i %>&deg</strong></h1>
+              </div>
+                  <div class="weathericon">
+                        <%= image_tag(@weather.weather.first["icon_uri"].to_s) %>
+                  </div>
+                   <div class="weatherdescription">
+                <p>Previsions for your appointment <strong><%= @weather.weather.first.description%> </strong> </p>
+            </div>
+            </div>
+
+          </div>
+
       </div>
-
     </div>
-  </div>
+  <% end %>
 
 </div>

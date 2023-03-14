@@ -1,48 +1,18 @@
-<div class="navbar-icons">
-  <%= link_to :home do %>
-    <i class="fa-solid fa-chevron-left"></i>
-  <% end %>
-
-  <%= link_to prescriptions_path do %>
-    <i class="fa-solid fa-calendar-days"></i>
-  <% end %>
-</div>
-
-<div class="container-white">
-  <div class="d-flex justify-content-between align-items-center">
-    <div class="header-title-purple">
-      <div class="left-title">
-        <h2><%= image_tag("cares-icon.svg", width: 30) %> My Cares</h2>
-      </div>
-    </div>
-    <div class="circle-add-new mx-3">
-      <%= link_to new_prescription_path do %>
-      <h2><i class="fa-solid fa-plus"></i></h2>
-      <% end %>
-    </div>
-  </div>
-
-  <div class="day-of-prescription">
-    <h6><strong><%= Date.today.strftime("%A - %B %d, %Y") %></strong></h6>
-  </div>
-  <! -- 1 -- PRESCRIPTION CARD -->
-
-  <div class="prescriptions-cards px-3">
-        <! -- Card Pills/Treatment/Exercices -->
-       <% @care_prescriptions_sorted_not_taken.each do |care_prescription| %>
+<! -- On itère d'abord sur les prescriptions pas encore prises -->
+    <% @appointments_not_done.each do |appointment| %>
       <div class="card-pill">
         <! -- Pour le cercle de l'heure et la card du titre -->
         <div class="px-3 title-wrap w-100">
 
         <! -- le cercle de l'heure -->
           <div class="circle">
-            <p class="time"><%= care_prescription.todo_hours %>:<%= care_prescription.todo_minutes == 0 ? "00" : "30" %></p>
-            <p class="time"><span class="time-small"><%= care_prescription.day_half %></span></p>
+            <p class="time"><%= appointment.todo_hours %>:<%= appointment.todo_minutes == 0 ? "00" : "30" %></p>
+            <p class="time"><span class="time-small"><%= appointment.day_half %></span></p>
           </div>
 
         <! -- la card du titre -->
           <div class="card-title">
-            <h1><%= care_prescription.treatment.name.capitalize %></h1>
+            <h1><%= appointment.treatment.name.capitalize %></h1>
           </div>
 
         </div>
@@ -52,7 +22,7 @@
         <! -- Pour le comment : Deux lignes de texte pour plus joli rendu  -->
 
         <div class="content-wrap">
-          <h2><%= care_prescription.comment %></h2>
+          <h2><%= appointment.comment %></h2>
         </div>
 
 
@@ -62,7 +32,7 @@
           <! -- Cercle d'action 1 : cancel -->
 
           <div class="action-circle-1">
-            <%= button_to destroy_prescription_path(care_prescription), method: :delete,form: {"data-controller": "alertbysweet"}, data: {  action:"click->alertbysweet#confirm"}, class: "bid" do %>
+            <%= link_to destroy_prescription_path(appointment), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
               <i class="fa-solid fa-xmark"></i>
             <% end %>
           </div>
@@ -70,7 +40,7 @@
           <! -- Cercle d'action 2 : edit -->
 
           <div class="action-circle-2">
-          <%= link_to edit_prescription_path(care_prescription) do %>
+          <%= link_to edit_prescription_path(appointment) do %>
             <i class="fa-solid fa-pencil"></i>
           <% end %>
           </div>
@@ -78,14 +48,14 @@
           <! -- Cercle d'action 3 : check -->
 
           <div class="action-circle-3">
-            <%= link_to pills_confirm_prescription_path(care_prescription), data: { turbo_method: :patch }  do %>
+            <%= link_to pills_confirm_prescription_path(appointment), data: { turbo_method: :patch }  do %>
               <i class="fa-solid fa-check"></i>
             <% end %>
           </div>
 
           <%# NE PAS SUPPRIMER! Technique de Laura pour passer une valeur avec un form invisible. On design le bouton submit pour que ça convienne dans la view %>
 
-          <%#= simple_form_for(care_prescription) do |f| %>
+          <%#= simple_form_for(appointment) do |f| %>
             <%#= f.input :taken_date,
                     # label: false,
                     as: :hidden,
@@ -102,20 +72,20 @@
 
 
     <! -- On itère sur les prescriptions prises aujourd'hui -->
-    <% @care_prescriptions_sorted_taken.each do |care_prescription| %>
+    <% @appointments_done.each do |appointment| %>
       <div class="card-pill-confirmed">
         <! -- Pour le cercle de l'heure et la card du titre -->
         <div class="px-3 title-wrap w-100">
 
         <! -- le cercle de l'heure -->
           <div class="circle">
-            <p class="time"><%= care_prescription.todo_hours %>:<%= care_prescription.todo_minutes == 0 ? "00" : "30" %></p>
-            <p class="time"><span class="time-small"><%= care_prescription.day_half %></span></p>
+            <p class="time"><%= appointment.todo_hours %>:<%= appointment.todo_minutes == 0 ? "00" : "30" %></p>
+            <p class="time"><span class="time-small"><%= appointment.day_half %></span></p>
           </div>
 
         <! -- la card du titre -->
           <div class="card-title">
-            <h1><%= care_prescription.treatment.name.capitalize %></h1>
+            <h1><%= appointment.treatment.name.capitalize %></h1>
           </div>
 
         </div>
@@ -125,7 +95,7 @@
         <! -- Pour le comment : Deux lignes de texte pour plus joli rendu  -->
 
         <div class="content-wrap">
-          <h2><%= care_prescription.comment %></h2>
+          <h2><%= appointment.comment %></h2>
         </div>
 
 
@@ -135,7 +105,7 @@
           <! -- Cercle d'action 1 : cancel DISPLAY NONE -->
 
           <div class="action-circle-1 d-none">
-            <%= link_to destroy_prescription_path(care_prescription), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
+            <%= link_to destroy_prescription_path(appointment), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
               <i class="fa-solid fa-xmark"></i>
             <% end %>
           </div>
@@ -143,7 +113,7 @@
           <! -- Cercle d'action 2 : edit - DISPLAY NONE -->
 
           <div class="action-circle-2 d-none">
-          <%= link_to edit_prescription_path(care_prescription) do %>
+          <%= link_to edit_prescription_path(appointment) do %>
             <i class="fa-solid fa-pencil"></i>
           <% end %>
           </div>
@@ -161,9 +131,3 @@
         <! -- On ferme Card Pills/Treatment/Exercices -->
       </div>
     <% end %>
-  </div>
-
-</div>
- <! -- 1 -- PRESCRIPTION CARD -->
-
- <! -- 2 -- REMINDER NEXT 2 PRESCRIPTIONS CARD -->

@@ -4,7 +4,7 @@
       <%= f.association :doctor,
                         collection: Doctor.all ,
                         prompt: "👩‍⚕️🏥Unfold and select your specialist ⬇️  ",
-                        label:false,
+                        label: false,
                         input_html: {
                         class: "card-form w-100 dropdown-item",
                         style: "filter: drop-shadow(0px 4px 4px #EBEBF2);"
@@ -27,25 +27,23 @@
                       flatpickr_target: "startDateInput"
                     }
                   }%>
-      <div class=" AMPM">
         <%= f.input :day_half,
-                  label: "Time of the day",
-                  required: true,
+                  label: "",
+                  # required: true,
                   as: :radio_buttons,
                   collection: %w[AM PM],
                   collection_wrapper_tag: 'div',
                   collection_wrapper_class: 'category-wrapper-ampm',
-                  item_wrapper_class: 'category-item',
+                  item_wrapper_class: 'category-item-ampm',
                   input_html: {
                     class: "card-form category-selector-ampm",
                     style: "filter: drop-shadow(0px 4px 4px #EBEBF2);",
-                    data: {action: "click->appointment#reveal"}
+                    data: {action: "click->appointment#revealAMPM"}
                   },
                   wrapper_html: {
                     class: "text-primary"
                   }
         %>
-        </div>
         <%= f.input :time_morning,
                   label: false,
                   required: true,
@@ -58,10 +56,10 @@
                   wrapper_html: {
                       class: "d-none",
                       data: {appointment_target: 'morning'}
-                  }, # Change la couleur du label
+                  },
                   input_html: {
                     class: "card-form category-selector-hours",
-                    # Change la couleur des inputs + bk-white + filter shadow
+
                   }
         %>
         <%= f.input :time_afternoon,
@@ -76,10 +74,10 @@
                   wrapper_html: {
                       class: "d-none ",
                       data: {appointment_target: 'afternoon'}
-                  }, # Change la couleur du label
+                  },
                   input_html: {
                     class: "card-form category-selector-hours",
-                    # Change la couleur des inputs + bk-white + filter shadow
+
                   }
         %>
       <%= f.input :comment,
@@ -91,7 +89,7 @@
                     class: "card-form",
                   }
                   %>
-      <%= f.button :submit, class: "btn-primary mt-3"%>
+      <%= f.submit "Save", class: "purple-button"%>
     <% end %>
   </div>
 </div>
