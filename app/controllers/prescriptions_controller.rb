@@ -55,6 +55,18 @@ class PrescriptionsController < ApplicationController
 
   def edit
     @prescription = Prescription.find(params[:id])
+
+    # Pour qu'il se souvienne et pré-selectionne le traitement de la prescription
+    # ⚠️⚠️⚠️⚠️⚠️ Je bug ici sur les edit...
+    if Treatment.find(@prescription.treatment_id).category=="pills"
+      @prescription.treatment_pill_id =  Treatment.find(@prescription.treatment_id)
+    elsif Treatment.find(@prescription.treatment_id).category=="cares"
+      @prescription.treatment_care_id =  Treatment.find(@prescription.treatment_id)
+    else Treatment.find(@prescription.treatment_id).category=="exercises"
+      @prescription.treatment_exercise_id =  Treatment.find(@prescription.treatment_id)
+    end
+
+
     # Pourquoi ci-dessous ça marche pas
     # @prescritpion.time = "#{@prescription.todo_hours}:#{@prescription.todo_minutes}"
   end
@@ -62,8 +74,13 @@ class PrescriptionsController < ApplicationController
   def update
     @user = current_user
     @prescription = Prescription.find(params[:id])
+
+
+    @prescription.treatment_pill_id =  Treatment.find(@prescription.treatment_id)
     # raise
-    if @prescription.update(prescription_params)
+
+    if @prescription.save
+    # if @prescription.update(prescription_params)
       if @prescription.treatment.category == "pills"
         redirect_to pills_path
       elsif @prescription.treatment.category == "cares"

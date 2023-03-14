@@ -31,8 +31,8 @@ class PagesController < ApplicationController
   end
 
   def pills
-    @pill_prescriptions_sorted_not_taken = current_user.prescriptions.where((:start_date..:end_date).include?Date.today).order(:day_half, :todo_hours, :todo_minutes).select {|prescription| prescription.treatment.category == "pills"}.select {|prescription| prescription.taken_date!=Date.today}
-    # @pill_prescriptions_sorted_not_taken = current_user.prescriptions.where((:start_date..:end_date).include?Date.today).order(:day_half, :todo_hours, :todo_minutes).joins(:treatment).where(treatments: {category: "pills"})
+    # @pill_prescriptions_sorted_not_taken = current_user.prescriptions.where((:start_date..:end_date).include?Date.today).order(:day_half, :todo_hours, :todo_minutes).select {|prescription| prescription.treatment.category == "pills"}.select {|prescription| prescription.taken_date!=Date.today}
+    @pill_prescriptions_sorted_not_taken = current_user.prescriptions.where(start_date: ..Date.today, end_date: Date.today..).where("taken_date != ?", Date.today).joins(:treatment).where(treatments: {category: "pills"}).order(:day_half, :todo_hours, :todo_minutes)
 
     # @pill_prescriptions_sorted_taken = []
     @pill_prescriptions_sorted_taken = current_user.prescriptions.where((:start_date..:end_date).include?Date.today).order(:day_half, :todo_hours, :todo_minutes).select {|prescription| prescription.treatment.category == "pills"}.select {|prescription| prescription.taken_date==Date.today}
