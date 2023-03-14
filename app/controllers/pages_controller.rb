@@ -35,7 +35,7 @@ class PagesController < ApplicationController
 
    @pill_prescriptions_sorted_taken = current_user.prescriptions.where(start_date: ..Date.today, end_date: Date.today..).where(taken_date: Date.today).joins(:treatment).where(treatments: {category: "pills"}).order(:day_half, :todo_hours, :todo_minutes)
 
-    # SEMBLAIT aussi avec un mélange d'active records et SELECT (moins performant / moins élégant)
+    # SEMBLAIT marcher aussi avec un mélange d'active records et SELECT (moins performant / moins élégant)
     # MAIS que la prescription contienne Date.today était sûrement une mauvaise syntaxe et ne marchait pas!
 
     # @pill_prescriptions_sorted_not_taken = current_user.prescriptions.where((:start_date..:end_date).include?Date.today).order(:day_half, :todo_hours, :todo_minutes).select {|prescription| prescription.treatment.category == "pills"}.select {|prescription| prescription.taken_date!=Date.today}
