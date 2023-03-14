@@ -11,8 +11,8 @@ export default class extends Controller {
     event.preventDefault()
     console.log('test 12 ')
     Swal.fire({
-      title: 'Error!',
-      text: 'Do you want to continue',
+      title: 'Delete?',
+      text: 'Do you want to delete?',
       icon: 'error',
       showConfirmButton: true,
       showDenyButton: true

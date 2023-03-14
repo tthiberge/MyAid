@@ -59,7 +59,7 @@
 
 
             <div class="action-circle-1">
-              <%= button_to destroy_appointment_path(appointment), method: :delete,form: {"data-controller": "alertbysweet"}, data: {  action:"click->alertbysweet#confirm"} do %>
+              <%= button_to destroy_appointment_path(appointment), method: :delete,form: {"data-controller": "alertbysweet"}, data: {  action:"click->alertbysweet#confirm"}, class: "bid" do %>
                 <i class="fa-solid fa-xmark"></i>
               <% end %>
             </div>
