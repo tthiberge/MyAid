@@ -29,6 +29,8 @@
 
   <div class="prescriptions-cards px-3">
         <! -- Card Pills/Treatment/Exercises -->
+    <% if !@exercise_prescriptions_sorted_not_taken.nil?  %>
+
        <% @exercise_prescriptions_sorted_not_taken.each do |exercise_prescription| %>
       <div class="card-pill">
         <! -- Pour le cercle de l'heure et la card du titre -->
@@ -100,8 +102,14 @@
       </div>
     <% end %>
 
+    <% end %>
+
+
+
+
 
     <! -- On itère sur les prescriptions prises aujourd'hui -->
+     <% if !@exercise_prescriptions_sorted_taken.nil?  %>
     <% @exercise_prescriptions_sorted_taken.each do |exercise_prescription| %>
       <div class="card-pill-confirmed">
         <! -- Pour le cercle de l'heure et la card du titre -->
@@ -161,6 +169,9 @@
         <! -- On ferme Card Pills/Treatment/Exercices -->
       </div>
     <% end %>
+
+    <% end %>
+
   </div>
 
 </div>

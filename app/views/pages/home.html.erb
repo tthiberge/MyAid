@@ -66,7 +66,7 @@
 
           <% @pill_prescriptions.first(2).each do |pill_prescription| %>
             <div class="content-wrap-hour-prescription">
-              <p><%= pill_prescription.todo_hours %>:<%= pill_prescription.todo_minutes == 0 ? "00" : "30" %></p>
+              <p class="reminder-hours"><%= pill_prescription.todo_hours %>:<%= pill_prescription.todo_minutes == 0 ? "00" : "30" %></p>
               <p><%= pill_prescription.treatment.name.capitalize %></p>
             </div>
           <%end%>
@@ -86,7 +86,7 @@
 
             <% @care_prescriptions.first(2).each do |care_prescription| %>
             <div class="content-wrap-hour-prescription">
-              <p><%= care_prescription.todo_hours %>:<%= care_prescription.todo_minutes == 0 ? "00" : "30" %></p>
+              <p class="reminder-hours"><%= care_prescription.todo_hours %>:<%= care_prescription.todo_minutes == 0 ? "00" : "30" %></p>
               <p><%= care_prescription.treatment.name.capitalize %></p>
             </div>
           <%end%>
@@ -105,9 +105,9 @@
             <h6>My next appointments</h6>
           <% @appointments.first(2).each do |appointment| %>
             <div class="content-wrap-hour-prescription">
-              <p><%=appointment.appointment_hour%>:<%=appointment.appointment_min == 0 ? "00" : "30" %></p>
-              <p><%=appointment.doctor.specialty.capitalize%></p>
-              <p><%=appointment.doctor.name.capitalize%></p>
+              <p class="reminder-hours"><%=appointment.appointment_hour%>:<%=appointment.appointment_min == 0 ? "00" : "30" %></p>
+              <p class="reminder-specialty"><%=appointment.doctor.specialty.capitalize%></p>
+              <p>👩‍⚕️ <%=appointment.doctor.title.capitalize%> <%=appointment.doctor.name.capitalize%></p>
             </div>
           <% end %>
       </div>
@@ -128,7 +128,7 @@
 
             <% @exercise_prescriptions.first(2).each do |exercise_prescription| %>
             <div class="content-wrap-hour-prescription">
-              <p><%= exercise_prescription.todo_hours %>:<%= exercise_prescription.todo_minutes == 0 ? "00" : "30" %></p>
+              <p class="reminder-hours"><%= exercise_prescription.todo_hours %>:<%= exercise_prescription.todo_minutes == 0 ? "00" : "30" %></p>
               <p><%= exercise_prescription.treatment.name.capitalize %></p>
             </div>
           <%end%>
