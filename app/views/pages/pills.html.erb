@@ -89,31 +89,21 @@
 
           <! -- Cercle d'action 3 : check -->
 
-          <%# <button type=submit style="background: transparent; border: none"> %>
-          <%# <p>OPTION DE SUNNY MAIS J'AI PAS ABOUTI</p> %>
           <div class="action-circle-3">
             <%= link_to pills_confirm_prescription_path(pill_prescription), data: { turbo_method: :patch }  do %>
               <i class="fa-solid fa-check"></i>
             <% end %>
           </div>
-          <%# </button> %>
 
+          <%# NE PAS SUPPRIMER! Technique de Laura pour passer une valeur avec un form invisible. On design le bouton submit pour que ça convienne dans la view %>
 
-          <div>
-            <%#= simple_form_for(pill_prescription) do |f| %>
-              <%#= f.input :taken_date,
-                      # label: false,
-                      as: :hidden,
-                      input_html: {
-                        value: Date.today
-                      }
-                      # value: Date.today
-              %>
-              <%#= f.submit class: "btn btn-success rounded-pill"%>
-
-            <%# end %>
-
-          </div>
+          <%#= simple_form_for(pill_prescription) do |f| %>
+            <%#= f.input :taken_date,
+                    # label: false,
+                    as: :hidden,
+                    input_html: {value: Date.today}
+            <%#= f.submit class: "btn btn-success rounded-pill"%>
+          <%# end %>
 
           <! -- On ferme es cercles d'action : cancel, edit, check -->
           </div>
@@ -172,14 +162,10 @@
 
           <! -- Cercle d'action 3 : check -->
 
-          <button type=submit style="background: transparent; border: none">
           <div class="action-circle-3-confirmed">
-          <%#= link_to pills_confirm_prescription_path(pill_prescription), data: { turbo_method: :patch }  do %>
-            <%# <i class="fa-solid fa-check"></i> %>
-          <%# end %>
               <i class="fa-solid fa-check" style="color: white"></i>
           </div>
-          </button>
+
 
           <! -- On ferme es cercles d'action : cancel, edit, check -->
           </div>
@@ -187,13 +173,6 @@
         <! -- On ferme Card Pills/Treatment/Exercices -->
       </div>
     <% end %>
-
-
-
-
-
-
-
 
   </div>
 
