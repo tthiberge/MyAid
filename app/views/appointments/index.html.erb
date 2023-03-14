@@ -23,7 +23,7 @@
   </div>
 
   <div class="day-of-prescription">
-    <p><strong><%= Date.today.strftime("%A - %B, %d %Y") %></strong></p>
+    <h6><strong><%= Date.today.strftime("%A - %B %d, %Y") %></strong><h6>
   </div>
   <! -- 1 -- PRESCRIPTION CARD -->
 
@@ -43,10 +43,10 @@
           </div>
 
           <div class="content-wrap">
-            <h2>Name</h2>
-            <p><%=appointment.doctor.name.capitalize%></p>
-            <h2>Address</h2>
-            <p><%=appointment.doctor.address%></p>
+            <p>Name</p>
+            <h2><%=appointment.doctor.title.capitalize%> <%=appointment.doctor.name.capitalize%></h2>
+            <p>Address</p>
+            <h2><%=appointment.doctor.address%></h2>
           </div>
 
 

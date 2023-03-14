@@ -19,7 +19,6 @@
 }
 
 .picture-boost {
-  background-color: #EBEBF2;
   border-radius: 40px;
   width: 50%;
   height: 200px;
@@ -29,6 +28,14 @@
   align-items: center;
   margin-left: 5px;
   position: relative;
+  margin: 4px;
+  img {
+    object-fit: cover;
+    height: auto;
+    width: 100%;
+    border-radius: 40px;
+    overflow: cover;
+  }
 }
 
 .marked-picture {
@@ -61,7 +68,73 @@
   background-color: purple;
   height: 36px;
   width: 36px;
-  background-color: purple;
-  left: 153px;
+  left: 136px;
   top: 235px;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  i {
+    color: white;
+  }
+}
+
+.circle {
+  i {
+    color: purple;
+    font-size: 30px;
+  }
+}
+
+.motivational-quote {
+
+  .quote-sentence {
+    p {
+      font-weight: 300;
+      font-size: 16px;
+    }
+  }
+
+  .quote-author {
+    bottom: 0px;
+    p {
+      font-weight: 600;
+      font-size: 16px;
+      float: right;
+    }
+  }
+}
+
+.motivational-button {
+  background-color: #EBEBF2;
+  border-radius: 40px;
+  width: 50%;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 5px;
+  img {
+    object-fit: cover;
+    width: 100%;
+    border-radius: 40px;
+    overflow: hidden;
+  }
+
+  i {
+    font-size: 40px;
+  }
+
+  h1 {
+    text-align: center;
+    font-size: 26px;
+    color: purple;
+  }
+
+  h2 {
+    text-align: center;
+    font-size: 16px;
+    color: purple;
+    padding-top: 5px;
+  }
 }

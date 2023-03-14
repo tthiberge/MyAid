@@ -22,5 +22,8 @@ application.register("hello", HelloController)
 import InitTomSelectController from "./init_tom_select_controller"
 application.register("init-tom-select", InitTomSelectController)
 
+import LoadImageController from "./load_image_controller"
+application.register("load-image", LoadImageController)
+
 import UploadSelfyController from "./upload_selfy_controller"
 application.register("upload-selfy", UploadSelfyController)

@@ -61,10 +61,14 @@ gem "font-awesome-sass", "~> 6.1"
 gem "simple_form", github: "heartcombo/simple_form"
 gem "dotenv-rails", groups: [:development, :test]
 gem "cloudinary", "~> 1.16.0"
+
+# spotify
+gem "rack-cors"
+gem "rspotify"
+
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
-  gem "dotenv-rails"
 
 end
 

@@ -1,5 +1,5 @@
 <div class="navbar-icons">
-  <%= link_to :back do %>
+  <%= link_to home_path do %>
     <i class="fa-solid fa-chevron-left"></i>
   <% end %>
 
@@ -18,7 +18,7 @@
   </div>
 
   <div class="day-of-prescription">
-    <p><strong><%= Date.today.strftime("%A - %B, %d %Y") %></strong></p>
+    <h6><strong><%= Date.today.strftime("%A - %B %d, %Y") %></strong></h6>
   </div>
 
   <div class="prescriptions-cards px-3">
@@ -33,8 +33,21 @@
         </div>
       </div>
 
-      <div class="d-flex justify-content-center content-wrap">
+      <div class="motivational-quote">
+        <div class="quote-sentence">
+          <p> <%= @quote.motivational_quote %></p>
+        </div>
+        <div class="quote-author">
+          <p><%= @quote.author %></p>
+        </div>
+      </div>
 
+      <div class="action-wrap">
+        <div class="action-circle-3">
+          <%= link_to boost_path do %>
+          <i class="fa-solid fa-arrows-rotate"></i>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>
@@ -54,32 +67,38 @@
 
       <div class="pictures-row">
         <div class="picture-boost">
+          <%= cl_image_tag @photos[0].key %>
           <div class="marked-picture">
-            <i class="fa-regular fa-bookmark"></i>
+            <i class="fa-solid fa-bookmark"></i>
           </div>
         </div>
 
         <div class="picture-boost">
+          <%= cl_image_tag @photos[1].key %>
           <div class="marked-picture-right">
-            <i class="fa-regular fa-bookmark"></i>
+            <i class="fa-solid fa-bookmark"></i>
           </div>
         </div>
       </div>
 
       <div class="upload-picture">
-
+        <%= link_to boost_path do %>
+          <i class="fa-solid fa-arrows-rotate"></i>
+        <% end %>
       </div>
 
       <div class="pictures-row">
         <div class="picture-boost">
+          <%= cl_image_tag @photos[2].key %>
           <div class="marked-picture">
-            <i class="fa-regular fa-bookmark"></i>
+            <i class="fa-solid fa-bookmark"></i>
           </div>
         </div>
 
         <div class="picture-boost">
+          <%= cl_image_tag @photos[3].key %>
           <div class="marked-picture-right">
-            <i class="fa-regular fa-bookmark"></i>
+            <i class="fa-solid fa-bookmark"></i>
           </div>
         </div>
       </div>
@@ -117,7 +136,6 @@
       </div>
 
       <div class="d-flex justify-content-center content-wrap">
-
       </div>
     </div>
   </div>
