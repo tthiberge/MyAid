@@ -99,13 +99,13 @@ doctor6 = Doctor.create!(title: "Nurse", name: "Donovan", specialty: "General", 
 doctor7 = Doctor.create!(title: "Pr.", name: "Pilgert", specialty: "Cancer", address: "184 Rue du Faubourg Saint-Antoine, 75012 Paris", latitude: 37.7749, longitude: -122.4194, user: diane)
 
 # Ajouter une colonne AM / PM dans le formulaire pour gérer la logique matin/aprem
-appointment1 = Appointment.create(date: Date.parse('11/12/2023'), comment: "Checkup", user: diane, doctor: doctor1, appointment_hour: 10, appointment_min: 30)
-appointment2 = Appointment.create(date: Date.today, comment: "Checkup", user: diane, doctor: doctor2, appointment_hour: 11, appointment_min: 30 )
-appointment3 = Appointment.create(date: Date.today, comment: "Checkup", user: diane, doctor: doctor3, appointment_hour: 12, appointment_min: 30 )
-appointment4 = Appointment.create(date: Date.today, comment: "Checkup", user: diane, doctor: doctor4, appointment_hour: 13, appointment_min: 30 )
-appointment5 = Appointment.create(date: Date.today, comment: "Checkup", user: diane, doctor: doctor5, appointment_hour: 14, appointment_min: 30 )
-appointment6 = Appointment.create(date: Date.today, comment: "Checkup", user: diane, doctor: doctor6, appointment_hour: 15, appointment_min: 30 )
-appointment7 = Appointment.create(date: Date.today, comment: "Checkup", user: diane, doctor: doctor7, appointment_hour: 16, appointment_min: 30 )
+appointment1 = Appointment.create(date: Date.parse('11/12/2023'), comment: "Checkup", user: diane, doctor: doctor1, appointment_hour: 8, appointment_min: 30, day_half: "AM" )
+appointment2 = Appointment.create(date: Date.today, comment: "Checkup", user: diane, doctor: doctor2, appointment_hour: 10, appointment_min: 30, day_half: "AM" )
+appointment3 = Appointment.create(date: Date.today, comment: "Checkup", user: diane, doctor: doctor3, appointment_hour: 11, appointment_min: 30, day_half: "AM" )
+appointment4 = Appointment.create(date: Date.today, comment: "Checkup", user: diane, doctor: doctor4, appointment_hour: 1, appointment_min: 30, day_half: "PM" )
+appointment5 = Appointment.create(date: Date.today, comment: "Checkup", user: diane, doctor: doctor5, appointment_hour: 3, appointment_min: 0, day_half: "PM" )
+appointment6 = Appointment.create(date: Date.today, comment: "Checkup", user: diane, doctor: doctor6, appointment_hour: 4, appointment_min: 30, day_half: "PM" )
+appointment7 = Appointment.create(date: Date.today, comment: "Checkup", user: diane, doctor: doctor7, appointment_hour: 7, appointment_min: 30, day_half: "PM" )
 
 #diaries seed
 # t.integer "pain_scale"
