@@ -132,8 +132,8 @@ quote3 = Quote.create!(motivational_quote: "Just one small positive thought in t
 quote4 = Quote.create!(motivational_quote: "Don’t be afraid to give up the good to go for the great.", author: "John D. Rockefeller")
 quote5 = Quote.create!(motivational_quote: "Magic is believing in yourself. If you can make that happen, you can make anything happen.", author: "Johann Wolfgang Von Goethe")
 quote6 = Quote.create!(motivational_quote: "Impossible is just an opinion.", author: "Paulo Coelho")
-quote7 = Quote.create!(motivational_quote: "One day or day one. You decide.", author: "Unknow")
-quote8 = Quote.create!(motivational_quote: "I’m alive, motivated and ready to slay the day #MONSLAY.", author: "Unknow")
+quote7 = Quote.create!(motivational_quote: "One day or day one. You decide.", author: "Unknown")
+quote8 = Quote.create!(motivational_quote: "I’m alive, motivated and ready to slay the day #MONSLAY.", author: "Unknown")
 quote9 = Quote.create!(motivational_quote: "Sometimes when you’re in a dark place you think you’ve been buried but you’ve actually been planted.", author: "Christine Caine")
 quote10 = Quote.create!(motivational_quote: "Start where you are. Use what you have. Do what you can.", author: "Arthur Ashe")
 
