@@ -17,50 +17,7 @@
       </div>
     </div>
   </div>
+
   <!-- simple form for new -->
-<div class="container-form">
-  <%= simple_form_for (@appointment) do |f| %>
 
-    <%= f.association :doctor, collection: Doctor.all , prompt: "Specialist", label:false,input_html: {
-      class: "card-form w-100",
-      style: "filter: drop-shadow(0px 4px 4px #EBEBF2);"
-    },
-    wrapper_html: {
-    class: "text-primary"
-    } %>
-
-    <%= f.input :date, as: :date, html5:true, label:false,
-    wrapper_html: {
-      class: "text-primary"
-    },
-    input_html: {
-      class: "card-form",
-    }%>
-
-    <%= f.input :appointment_hour, collection: 8..19,prompt: "hh", label:false,
-    wrapper_html: {
-      class: "text-primary"
-    },
-    input_html: {
-      class: "card-form",
-    }%>
-    <%= f.input :appointment_min, collection: (0..45).step(15),prompt: "mm", label:false,
-    wrapper_html: {
-      class: "text-primary"
-    },
-    input_html: {
-      class: "card-form",
-    } %>
-    <%= f.input :comment,
-    wrapper_html: {
-      class: "text-primary"
-    },
-    input_html: {
-      class: "card-form",
-    }
-     %>
-    <%= f.button :submit, class: "btn-primary mt-3"%>
-</div>
-  <% end %>
-
-</div>
+    <%= render partial: "form_appointment", locals: {appointment: @appointment} %>

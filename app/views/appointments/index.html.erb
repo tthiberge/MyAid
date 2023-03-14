@@ -34,7 +34,7 @@
           <div class="px-3 title-wrap w-100">
             <div class="circle">
               <p class="time"><%=appointment.appointment_hour%>:<%=appointment.appointment_min == 0 ? "00" : "30" %></p>
-              <p class="time"><span class="time-small">AM</span></p>
+              <p class="time"><span class="time-small"><%= appointment.day_half %></span></p>
             </div>
 
             <div class="card-title">
