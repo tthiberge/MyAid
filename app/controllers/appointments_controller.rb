@@ -9,6 +9,11 @@ class AppointmentsController < ApplicationController
     # current_user.appointments.each do |appointment|
     #   @appointments << appointment
     # end
+    begin
+      @weather=OPENWEATHER_CLIENT.current_weather(lat: @appointment.doctor.latitude, lon: @appointment.doctor.longitude)
+      @icon=OPENWEATHER_CLIENT.current_weather(weather.first.icon)
+    rescue StandardError
+    end
   end
 
   def new
