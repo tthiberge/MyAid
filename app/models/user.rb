@@ -9,6 +9,7 @@ class User < ApplicationRecord
   has_many :prescriptions, dependent: :destroy
   has_many :treatments, through: :prescriptions
   has_many :selfies, dependent: :destroy
+  has_many_attached :photos, dependent: :destroy
 
   validates :first_name, :last_name, :birthdate, :address, presence: true
 
@@ -28,6 +29,10 @@ class User < ApplicationRecord
 
   def exercises
     treatments.exercises
+  end
+
+  def user_params
+    params.require(:user).permit(:photo)
   end
 end
 

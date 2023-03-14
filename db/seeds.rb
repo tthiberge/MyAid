@@ -123,4 +123,16 @@ diary3 = Diary.create!(pain_scale: 8, motivation_scale: 3, daily_feeling: "The r
 diary4 = Diary.create!(pain_scale: 7, motivation_scale: 5, daily_feeling: "I went out for the first time today, it's a victory", user: diane )
 diary5 = Diary.create!(pain_scale: 6, motivation_scale: 5, daily_feeling: "I am starting physiotherapy today, I am really tired but I am happy to be able to start ", user: diane )
 
+quote1 = Quote.create!(motivational_quote: "Healing requires from us to stop struggling, but to enjoy life more and endure it less.", author: "Darina Stoyanova")
+quote2 = Quote.create!(motivational_quote: "Part of the healing process is sharing with other people who care.", author: "Jerry Cantrell")
+quote3 = Quote.create!(motivational_quote: "Just one small positive thought in the morning can change your whole day.", author: "Dalaï lama")
+quote4 = Quote.create!(motivational_quote: "Don’t be afraid to give up the good to go for the great.", author: "John D. Rockefeller")
+quote5 = Quote.create!(motivational_quote: "Magic is believing in yourself. If you can make that happen, you can make anything happen.", author: "Johann Wolfgang Von Goethe")
+quote6 = Quote.create!(motivational_quote: "Impossible is just an opinion.", author: "Paulo Coelho")
+quote7 = Quote.create!(motivational_quote: "One day or day one. You decide.", author: "Unknow")
+quote8 = Quote.create!(motivational_quote: "I’m alive, motivated and ready to slay the day #MONSLAY.", author: "Unknow")
+quote9 = Quote.create!(motivational_quote: "Sometimes when you’re in a dark place you think you’ve been buried but you’ve actually been planted.", author: "Christine Caine")
+quote10 = Quote.create!(motivational_quote: "Start where you are. Use what you have. Do what you can.", author: "Arthur Ashe")
+
+
 puts "Seeded"

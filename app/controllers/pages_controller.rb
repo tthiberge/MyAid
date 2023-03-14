@@ -23,7 +23,7 @@ class PagesController < ApplicationController
       @appointments << appointment
     end
 
-    @diary = Diary.all.last
+    @diary = current_user.diaries.last
   end
 
   def profile
@@ -62,6 +62,10 @@ class PagesController < ApplicationController
   end
 
   def boost
+    @quote = Quote.all.sample
+    @user = current_user
+
+    @photos = current_user.photos.sample(4)
   end
 
 end
