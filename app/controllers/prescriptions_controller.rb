@@ -66,7 +66,7 @@ class PrescriptionsController < ApplicationController
 
   def edit
     @prescription = Prescription.find(params[:id])
-
+    # raise
     # Pour qu'il se souvienne et pré-selectionne le traitement de la prescription
     # ⚠️⚠️⚠️⚠️⚠️ Je bug ici sur les edit...
     if Treatment.find(@prescription.treatment_id).category=="pills"
