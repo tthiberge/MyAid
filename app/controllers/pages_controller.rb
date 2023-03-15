@@ -2,43 +2,26 @@ class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:landing]
 
   def home
-    @pill_prescriptions = []
-    current_user.prescriptions.each do |prescription|
-      @pill_prescriptions << prescription if prescription.treatment.category == "pills"
+    @appointments = current_user.appointments.where(start_date: ..Date.today, end_date: Date.today..).order(:day_half, :appointment_hour, :appointment_min)
 
-    end
+    @pill_prescriptions = current_user.prescriptions.where(start_date: ..Date.today, end_date: Date.today..).joins(:treatment).where(treatments: {category: "pills"}).order(:day_half, :todo_hours, :todo_minutes)
 
-    @care_prescriptions = []
-    current_user.prescriptions.each do |prescription|
-      @care_prescriptions << prescription if prescription.treatment.category == "cares"
-    end
 
-    @exercise_prescriptions = []
-    current_user.prescriptions.each do |prescription|
-      @exercise_prescriptions << prescription if prescription.treatment.category == "exercises"
-    end
+    @care_prescriptions = current_user.prescriptions.where(start_date: ..Date.today, end_date: Date.today..).joins(:treatment).where(treatments: {category: "cares"}).order(:day_half, :todo_hours, :todo_minutes)
 
-    @appointments = []
-    current_user.appointments.each do |appointment|
-      @appointments << appointment
-    end
+    @exercise_prescriptions = current_user.prescriptions.where(start_date: ..Date.today, end_date: Date.today..).joins(:treatment).where(treatments: {category: "exercises"}).order(:day_half, :todo_hours, :todo_minutes)
+    # current_user.prescriptions.joins(:treatment).where(treatments: { category: "exercises" })
 
     @diary = current_user.diaries.last
-
 
     # definition week
     @prescriptions = Prescription.all
     @user = current_user
 
-      @appointments = current_user.appointments
-      @pill_prescriptions = current_user.prescriptions.joins(:treatment).where(treatments: { category: "pills" })
-      @care_prescriptions = current_user.prescriptions.joins(:treatment).where(treatments: { category: "cares" })
-      @exercise_prescriptions = current_user.prescriptions.joins(:treatment).where(treatments: { category: "exercises" })
+    @events = @appointments + @pill_prescriptions + @care_prescriptions + @exercise_prescriptions
 
-      @events = @appointments + @pill_prescriptions + @care_prescriptions + @exercise_prescriptions
-
-      @start_date = Date.current.beginning_of_month
-      @end_date = Date.current.end_of_month
+    @start_date = Date.current.beginning_of_month
+    @end_date = Date.current.end_of_month
   end
 
   def profile

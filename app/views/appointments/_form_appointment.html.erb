@@ -1,5 +1,5 @@
 <div class="container-form">
-    <%= simple_form_for appointment, html: {class: "fontawesome-arrow", data: {controller: "appointment flatpickr"}} do |f| %>
+    <%= simple_form_for appointment, html: {class: "fontawesome-arrow", data: {controller: "appointment flatpickr", appointment_target: "form"}} do |f| %>
 
       <i class="fa-solid fa-angle-down"></i>
       <%= f.association :doctor,
@@ -106,6 +106,9 @@
                   },
                   input_html: {
                     class: "card-form",
+                    data: {
+                      action: "click->appointment#typeComment"
+                    }
                   }
       %>
       <%= f.submit "Save", class: "purple-button"%>
