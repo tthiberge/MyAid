@@ -10,6 +10,10 @@
   p {
     font-size: 12px;
   }
+  .diary-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
 }
 
 /*Small devices (landscape phones, 576px and up)*/
@@ -21,6 +25,10 @@
   p {
     font-size: 16px;
   }
+  .diary-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
 }
 
 /*Medium devices (tablets, 768px and up)*/
@@ -31,5 +39,9 @@
   }
   p {
     font-size: 26px;
+  }
+  .diary-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
   }
 }
