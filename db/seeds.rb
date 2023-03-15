@@ -73,19 +73,21 @@ prescription_1 = Prescription.create!(start_date: "10/03/2023", end_date: "20/03
 
 prescription_2 = Prescription.create!(start_date: "07/03/2023", end_date: "17/03/2023", todo_hours: 9, todo_minutes: 00,  day_half: "PM", comment: "3 x 125mg - Take the pills before going to sleep", user: diane, treatment: tylenol, taken_date: Date.today)
 
+prescription_5 = Prescription.create!(start_date: "17/03/2023", end_date: "21/03/2023", todo_hours: 1, todo_minutes: 00, day_half: "PM",  comment: "4 x 250mg - Take during the meal", user: diane, treatment: muscadol)
+
 prescription_3 = Prescription.create!(start_date: "02/03/2023", end_date: "22/03/2023", todo_hours: 10, todo_minutes: 00, day_half: "AM",  comment: "1 x 250mg - In the morning ", user: diane, treatment: amoxiciline)
-
-prescription_4 = Prescription.create!(start_date: "03/03/2023", end_date: "18/03/2023", todo_hours: 11, todo_minutes: 00, day_half: "AM",  comment: "2 tablets - Take with a fair amount of water", user: diane, treatment: relaxon)
-
-prescription_5 = Prescription.create!(start_date: "15/03/2023", end_date: "17/03/2023", todo_hours: 1, todo_minutes: 00, day_half: "PM",  comment: "4 x 250mg - Take during the meal", user: diane, treatment: muscadol)
 
 prescription_6 = Prescription.create!(start_date: "04/03/2023", end_date: "19/03/2023", todo_hours: 4, todo_minutes: 00, day_half: "PM",  comment: "1 x 500mg - Take in the afternoon", user: diane, treatment: targin)
 
+prescription_4 = Prescription.create!(start_date: "03/03/2023", end_date: "18/03/2023", todo_hours: 11, todo_minutes: 00, day_half: "AM",  comment: "2 tablets - Take with a fair amount of water", user: diane, treatment: relaxon)
+
 prescription_7 = Prescription.create!(start_date: "03/03/2023", end_date: "18/03/2023", todo_hours: 10, todo_minutes: 00, day_half: "PM",  comment: "Apply a fair amount on the burnt area before going to bed", user: diane, treatment: cream)
 
-prescription_8 = Prescription.create!(start_date: "18/03/2023", end_date: "17/03/2023", todo_hours: 7, todo_minutes: 00, day_half: "PM",  comment: "During your shower, instead of the current shower gel and shampoo", user: diane, treatment: betadine)
+prescription_8 = Prescription.create!(start_date: "15/03/2023", end_date: "27/03/2023", todo_hours: 7, todo_minutes: 00, day_half: "PM",  comment: "During your shower, instead of the current shower gel and shampoo", user: diane, treatment: betadine)
 
 prescription_9 = Prescription.create!(start_date: "04/03/2023", end_date: "19/03/2023", todo_hours: 2, todo_minutes: 00, day_half: "PM",  comment: "Save a 1h-time slot to practice meditation to relax and accept the present time", user: diane, treatment: meditation)
+
+prescription_10 = Prescription.create!(start_date: "14/03/2023", end_date: "19/03/2023", todo_hours: 2, todo_minutes: 00, day_half: "PM",  comment: "Save a 1h-time slot to practice meditation to relax and accept the present time", user: diane, treatment: meditation)
 
 
 # creating doctors
@@ -99,14 +101,14 @@ doctor5 = Doctor.create!(title: "Dr.", name: "Hendricks", specialty: "Dermatolog
 doctor6 = Doctor.create!(title: "Nurse", name: "Donovan", specialty: "General", address: "68 Rue Pernety, 75014 Paris", latitude: 37.7749, longitude: -122.4194, user: diane)
 doctor7 = Doctor.create!(title: "Pr.", name: "Pilgert", specialty: "Cancer", address: "184 Rue du Faubourg Saint-Antoine, 75012 Paris", latitude: 37.7749, longitude: -122.4194, user: diane)
 
-# Ajouter une colonne AM / PM dans le formulaire pour gérer la logique matin/aprem
-appointment1 = Appointment.create(date: Date.parse('11/12/2023'), comment: "Checkup", user: diane, doctor: doctor1, appointment_hour: 8, appointment_min: 30, day_half: "AM" )
-appointment2 = Appointment.create(date: Date.today, comment: "Checkup", user: diane, doctor: doctor2, appointment_hour: 10, appointment_min: 30, day_half: "AM" )
-appointment3 = Appointment.create(date: Date.today, comment: "Checkup", user: diane, doctor: doctor3, appointment_hour: 11, appointment_min: 30, day_half: "AM" )
-appointment4 = Appointment.create(date: Date.today, comment: "Checkup", user: diane, doctor: doctor4, appointment_hour: 1, appointment_min: 30, day_half: "PM" )
-appointment5 = Appointment.create(date: Date.today, comment: "Checkup", user: diane, doctor: doctor5, appointment_hour: 3, appointment_min: 0, day_half: "PM" )
-appointment6 = Appointment.create(date: Date.today, comment: "Checkup", user: diane, doctor: doctor6, appointment_hour: 4, appointment_min: 30, day_half: "PM" )
-appointment7 = Appointment.create(date: Date.today, comment: "Checkup", user: diane, doctor: doctor7, appointment_hour: 7, appointment_min: 30, day_half: "PM" )
+# Appointments
+appointment1 = Appointment.create(date: Date.parse('11/12/2023'), comment: "Meeting with the surgeon to prepare the operation of next month. Should last around 45min", user: diane, doctor: doctor1, appointment_hour: 8, appointment_min: 30, day_half: "AM" )
+appointment2 = Appointment.create(date: Date.today, comment: "The nurse will show me how to do the injections after the operation", user: diane, doctor: doctor2, appointment_hour: 10, appointment_min: 30, day_half: "AM" )
+appointment3 = Appointment.create(date: Date.today, comment: "Yearly meeting with the ophtalmologist in order to see how my sight has evolved. Ask for the new glasses prescription!", user: diane, doctor: doctor3, appointment_hour: 11, appointment_min: 30, day_half: "AM" )
+appointment4 = Appointment.create(date: Date.today, comment: "General checkup. He is replacing Dr Linda for the next months because she is pregnant.", user: diane, doctor: doctor4, appointment_hour: 1, appointment_min: 30, day_half: "PM" )
+appointment5 = Appointment.create(date: Date.today, comment: "Yearly check-up. I should ask her regarding the different suncreams I've seen online that seem to be more ecological. Can they be trusted?", user: diane, doctor: doctor5, appointment_hour: 3, appointment_min: 0, day_half: "PM" )
+appointment6 = Appointment.create(date: Date.today, comment: "Show her your latest blood test results. It seems that you're a bit low in iron", user: diane, doctor: doctor6, appointment_hour: 4, appointment_min: 30, day_half: "PM" )
+appointment7 = Appointment.create(date: Date.today, comment: "Global check-up to make sure I don't have any hereditary risks.", user: diane, doctor: doctor7, appointment_hour: 7, appointment_min: 30, day_half: "PM" )
 
 #diaries seed
 # t.integer "pain_scale"
@@ -117,10 +119,24 @@ appointment7 = Appointment.create(date: Date.today, comment: "Checkup", user: di
 #t.datetime "updated_at", null: false
 #t.index ["user_id"], name: "index_diaries_on_user_id"
 
-diary1 = Diary.create!(pain_scale: 8, motivation_scale: 2, daily_feeling: "I am suffering a lot today, I am trying to fight the pain but it's hard because I am so exausted", user: diane )
-diary2 = Diary.create!(pain_scale: 7, motivation_scale: 3, daily_feeling: "I am suffering a bit less than yesterday, it gives me hope", user: diane )
-diary3 = Diary.create!(pain_scale: 8, motivation_scale: 3, daily_feeling: "The real pain is back but I am seeing my children today so I already feel better", user: diane )
-diary4 = Diary.create!(pain_scale: 7, motivation_scale: 5, daily_feeling: "I went out for the first time today, it's a victory", user: diane )
-diary5 = Diary.create!(pain_scale: 6, motivation_scale: 5, daily_feeling: "I am starting physiotherapy today, I am really tired but I am happy to be able to start ", user: diane )
+# Diary
+diary1 = Diary.create!(pain_scale: 8, motivation_scale: 2, daily_feeling: "I am suffering a lot today, I am trying to fight the pain but it's hard because I am so exausted", user: diane, date: Date.today)
+diary2 = Diary.create!(pain_scale: 7, motivation_scale: 3, daily_feeling: "I am suffering a bit less than yesterday, it gives me hope", user: diane, date: Date.today )
+diary3 = Diary.create!(pain_scale: 8, motivation_scale: 3, daily_feeling: "The real pain is back but I am seeing my children today so I already feel better", user: diane, date: Date.today )
+diary4 = Diary.create!(pain_scale: 7, motivation_scale: 5, daily_feeling: "I went out for the first time today, it's a victory", user: diane, date: Date.today )
+diary5 = Diary.create!(pain_scale: 6, motivation_scale: 5, daily_feeling: "I am starting physiotherapy today, I am really tired but I am happy to be able to start ", user: diane, date: Date.today )
+
+# Motivational quotes
+quote1 = Quote.create!(motivational_quote: "Healing requires from us to stop struggling, but to enjoy life more and endure it less.", author: "Darina Stoyanova")
+quote2 = Quote.create!(motivational_quote: "Part of the healing process is sharing with other people who care.", author: "Jerry Cantrell")
+quote3 = Quote.create!(motivational_quote: "Just one small positive thought in the morning can change your whole day.", author: "Dalaï lama")
+quote4 = Quote.create!(motivational_quote: "Don’t be afraid to give up the good to go for the great.", author: "John D. Rockefeller")
+quote5 = Quote.create!(motivational_quote: "Magic is believing in yourself. If you can make that happen, you can make anything happen.", author: "Johann Wolfgang Von Goethe")
+quote6 = Quote.create!(motivational_quote: "Impossible is just an opinion.", author: "Paulo Coelho")
+quote7 = Quote.create!(motivational_quote: "One day or day one. You decide.", author: "Unknown")
+quote8 = Quote.create!(motivational_quote: "I’m alive, motivated and ready to slay the day #MONSLAY.", author: "Unknown")
+quote9 = Quote.create!(motivational_quote: "Sometimes when you’re in a dark place you think you’ve been buried but you’ve actually been planted.", author: "Christine Caine")
+quote10 = Quote.create!(motivational_quote: "Start where you are. Use what you have. Do what you can.", author: "Arthur Ashe")
+
 
 puts "Seeded"

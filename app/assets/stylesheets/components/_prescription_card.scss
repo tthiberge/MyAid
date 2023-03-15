@@ -3,13 +3,15 @@
   justify-content: center;
   border: solid;
   border-width: medium;
-  border-color: #D7CDE3;
+  border-color: #D2C5E1;
   border-radius: 40px;
   background-color: #ffffff;
   filter: drop-shadow(0px 4px 4px #EBEBF2);
   height: 210px;
   padding: 64px 30px;
   margin-top: 60px;
+  margin-left: 5px;
+  margin-right: 5px;
 }
 
 .card-pill-motivation {
@@ -24,6 +26,8 @@
   height: 210px;
   padding: 64px 30px;
   margin-top: 60px;
+  margin-left: 5px;
+  margin-right: 5px;
 }
 
 .card-pill-confirmed {
@@ -36,13 +40,15 @@
   // width: 357px;
   border: solid;
   border-width: medium;
-  border-color: #D7CDE3;
+  border-color: #D2C5E1;
   border-radius: 40px;
   background-color: #ffffff;
   filter: drop-shadow(0px 4px 4px #59ED9C);
   height: 210px;
   padding: 64px 30px;
   margin-top: 60px;
+  margin-left: 5px;
+  margin-right: 5px;
 }
 
 .title-wrap {
@@ -62,7 +68,7 @@
   height: 48px;
   border: solid;
   border-width: medium;
-  border-color: #D7CDE3;
+  border-color: #D2C5E1;
   border-radius: 40px;
   background-color: #ffffff;
   filter: drop-shadow(0px 4px 4px #EBEBF2);
@@ -94,9 +100,9 @@
 .content-wrap h2 {
   font-size: 18px;
   margin-top: 0;
-  color: grey;
+  color: purple;
   font-family: 'Inter', sans-serif;
-  font-weight: 600;
+  font-weight: 400;
 }
 
 .content-wrap p {
@@ -114,9 +120,9 @@
   height: 63px;
   border: solid;
   border-width: medium;
-  border-color: #D7CDE3;
+  border-color: #D2C5E1;
   border-radius: 50%;
-  background-color: #D7CDE3;
+  background-color: #D2C5E1;
   filter: drop-shadow(0px 4px 4px #EBEBF2);
   display: flex;
   align-items: center;
@@ -162,7 +168,7 @@
   width: 45px;
   height: 45px;
   border-radius: 50%;
-  background-color: #D7CDE3 ;
+  background-color: #D2C5E1;
   filter: drop-shadow(0px 4px 4px #EBEBF2);
   display: flex;
   align-items: center;
@@ -180,7 +186,7 @@
   width: 45px;
   height: 45px;
   border-radius: 50%;
-  background-color: #D7CDE3 ;
+  background-color:#D2C5E1;
   filter: drop-shadow(0px 4px 4px #EBEBF2);
   display: flex;
   align-items: center;
@@ -198,7 +204,7 @@
   width: 45px;
   height: 45px;
   border-radius: 50%;
-  background-color: #D7CDE3 ;
+  background-color: #D2C5E1;
   filter: drop-shadow(0px 4px 4px #EBEBF2);
   display: flex;
   align-items: center;
@@ -251,7 +257,7 @@ h1 {
   justify-content: center;
   border: solid;
   border-width: medium;
-  border-color: #D7CDE3;
+  border-color: #D2C5E1;
   border-radius: 40px;
   background-color: #ffffff;
   filter: drop-shadow(0px 4px 4px #EBEBF2);

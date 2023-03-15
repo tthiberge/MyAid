@@ -8,6 +8,7 @@
 @import "font-awesome";
 @import "flatpickr/dist/flatpickr";
 @import "flatpickr/dist/themes/airbnb";
+@import "simple_calendar";
 
 // Your CSS partials
 @import "components/index";
@@ -15,6 +16,11 @@
 
 a {
   text-decoration: none;
+}
+
+
+body {
+background-color: #D2C5E1;
 }
 
 /*

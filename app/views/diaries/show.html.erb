@@ -1,5 +1,5 @@
 <div class="navbar-icons">
-  <%= link_to :back do %>
+  <%= link_to home_path do %>
     <i class="fa-solid fa-chevron-left"></i>
   <% end %>
 
@@ -18,15 +18,14 @@
   </div>
 
   <div class="day-of-prescription">
-    <p><strong><%= Date.today.strftime("%A - %B, %d %Y") %></strong></p>
+    <h6><strong><%= Date.today.strftime("%A - %B %d, %Y") %></strong><h6>
   </div>
 
+  <%= form_with model: @diary, url: diary_path(@diary), turbo_method: :patch, local:true, data: {controller: "load-image"} do |f|%>
   <div class="p-3" data-controller="upload-selfy">
-    <%= simple_form_for [@diary, @selfy] do |f| %>
+    <%# <%= simple_form_for @diary, data: { turbo_method: :patch } do |f| %>
       <div class="d-none" data-upload-selfy-target="form">
-        <%= f.input :photo,
-          input_html: {data: {upload_selfy_target: "input"}} %>
-        <%= f.submit "Submit review", class: "btn btn-primary" %>
+        <%= f.file_field :photo, data: { upload_selfy_target: "input", action: "change->load-image#displayImage" } %>
       </div>
 
       <div class="selfies-row">
@@ -36,16 +35,19 @@
           <h2>Your are beautiful.</h2>
         </div>
         <div class="selfy-button">
-
+          <% if @diary.selfy && @diary.selfy.photo.attached? %>
+            <%= cl_image_tag @diary.selfy.photo.key, data: {load_image_target: "image"} %>
+          <% else %>
+            <%= image_tag "", data: {load_image_target: "image"}%>
+          <% end %>
         </div>
       </div>
-    <% end %>
   </div>
 
 
   <div class="prescriptions-cards px-3">
     <div class="card-pill-motivation">
-      <div class="px-3 title-wrap w-100">
+      <div class="px-3 title-wrap w-100 color-icon">
         <div class="circle">
           <i class="fa-solid fa-truck-medical"></i>
         </div>
@@ -56,7 +58,6 @@
       </div>
 
       <div class="d-flex justify-content-center content-wrap">
-        <%= form_with model: @diary, url: diary_path(@diary), turbo_method: :patch, local:true do |f| %>
           <div class="field form-group">
             <div class="rating-pain-scale">
               <%= f.collection_radio_buttons(:pain_scale, [[10], [9], [8], [7], [6], [5],[4],[3],[2],[1]], :first, :last) do |star| %>
@@ -109,7 +110,7 @@
         </div>
 
         <div class="content-wrap">
-          <%= f.text_field :daily_feeling, class:"" %>
+          <%= f.text_field :daily_feeling, class:"daily-feeling-comment" %>
         </div>
 
         <div class="action-wrap">

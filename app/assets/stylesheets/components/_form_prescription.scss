@@ -2,7 +2,26 @@
   background: white;
   padding: 20px;
   margin-inline: 20vw;
+
+  i{
+    position: absolute;
+
+    right: 16px;
+    top: 15px;
+    color: purple;
+    z-index: 100;
+  }
 }
+
+.fontawesome-arrow{
+  position: relative;
+}
+
+.string.required.prescription_start_date.text-primary{
+  margin-top: 10vh;
+
+}
+
 
 .was-validated .form-select:valid:not([multiple]):not([size]), .was-validated .form-select[size="1"]:valid:not([multiple]), .form-select.is-valid:not([multiple]):not([size]), .form-select.is-valid[size="1"]:not([multiple]) {
   background-image: none !important;
@@ -46,10 +65,6 @@
   justify-content: center;
 }
 
-.AMPM{
-
-}
-
 // CSS for Pills / Cares / Exercises
 .category-wrapper {
   display: flex;
@@ -65,6 +80,13 @@
   position: absolute;
   transform: scale(0);
 }
+
+#prescription_comment,
+#appointment_comment{
+  font-size: 0.8rem;
+
+}
+
 
 .category-selector + label {
   display: block;
@@ -85,7 +107,7 @@
   background: purple;
 }
 
-// CSS for the treatment names
+// CSS pour le nom du traitement (paracétamol, méditation, ...)
 .category-wrapper-treatment {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -135,17 +157,6 @@
   padding-inline: 5px;
 }
 
-// .flatpickr-day.endRange
-// {
-//   background: purple;
-//   border-color: purple;
-//   }
-
-
-// .flatpickr-day.startRange{
-//   background: purple;
-//   border-color: purple;
-// }
 
 // Ci-dessous: change la couleur autour des dates sélectionnées
 span.flatpickr-day.selected.startRange,
@@ -157,13 +168,13 @@ span.flatpickr-day.selected,
 }
 
 .flatpickr-day.inRange{
-  background: #D7CDE3;
-  border-color: #D7CDE3;
+  background: #D2C5E1;
+  border-color: #D2C5E1;
 }
 
 span.flatpickr-day.today.inRange{
-  background: #D7CDE3;
-  border-color: #D7CDE3;
+  background: #D2C5E1;
+  border-color: #D2C5E1;
 }
 
 // Permet de centrer le calendrier:

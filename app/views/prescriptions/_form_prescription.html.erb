@@ -5,7 +5,7 @@
           } do |f| %>
 
             <%= f.input :treatment_category, # Attr_accessor pour pas que le f.input plus loin le remplace et décoche. Nom factice
-                      label: "Type of prescriptions",
+                      label: "",
                       placeholder: "Select between pills, cares or exercises",
                       # hint: "Select between pills, cares or exercises",
                       as: :radio_buttons,
@@ -43,8 +43,8 @@
                         collection: Treatment.pills.all.order(:name),
                         value_method: :id
             %>
-            <%= f.input :treatment_id,
-                        label: false,
+            <%= f.input :treatment_pill_id,
+                        label: "",
                         as: :radio_buttons, # as: :select pour tom select
                         prompt: "Select your pill ⬇️",
                         selected: prescription.treatment.present? ? prescription.treatment.id : nil,
@@ -63,8 +63,8 @@
                         item_wrapper_class: 'category-item-treatment',
                         value_method: :id
             %>
-            <%= f.input :treatment_id,
-                        label: false,
+            <%= f.input :treatment_care_id,
+                        label: "",
                         as: :radio_buttons, # as: :select pour tom select
                         prompt: "Select your care ⬇️",
                         selected: prescription.treatment.present? ? prescription.treatment.id : nil,
@@ -84,8 +84,8 @@
                         item_wrapper_class: 'category-item-treatment',
                         value_method: :id
             %>
-            <%= f.input :treatment_id,
-                        label: false,
+            <%= f.input :treatment_exercise_id,
+                        label: "",
                         as: :radio_buttons, # as: :select pour tom select
                         prompt: "Select your exercise ⬇️",
                         selected: prescription.treatment.present? ? prescription.treatment.id : nil,
@@ -149,44 +149,59 @@
                       # Change la couleur des inputs + bk-white + filter shadow
                     }
           %>
-          <div class=" hours-and-minutes">
-            <%= f.input :time,
-                      label: "Time",
-                      required: true,
-                      hint: "Select the time",
-                      as: :select, # as: :time pour selectionner autant d'heures et minutes qu'on veut!!
-                      collection: Prescription::TIMES, #selected: "00:00",
-                      wrapper_html: {
-                          class: ""
-                      }, # Change la couleur du label
-                      input_html: {
-                        class: "card-form",
-                        # Change la couleur des inputs + bk-white + filter shadow
-                      }
-            %>
-            <%= f.input :day_half,
-                      required: true,
-                      label: "AM or PM?",
-                      as: :radio_buttons,
-                      collection: %w[AM PM],
-                      # collection_wrapper_tag: 'div',
-                      # collection_wrapper_class: 'category-wrapper-ampm',
-                      item_wrapper_class: 'category-item',
-                      input_html: {
-                        class: "card-form category-selector-ampm",
-                        style: "filter: drop-shadow(0px 4px 4px #EBEBF2);"
-                      },
-                      wrapper_html: {
-                        class: "text-primary"
-                      }
-            %>
-          </div>
+        <%= f.input :day_half,
+                  label: "",
+                  # required: true,
+                  as: :radio_buttons,
+                  collection: %w[AM PM],
+                  collection_wrapper_tag: 'div',
+                  collection_wrapper_class: 'category-wrapper-ampm',
+                  item_wrapper_class: 'category-item-ampm',
+                  input_html: {
+                    class: "card-form category-selector-ampm",
+                    style: "filter: drop-shadow(0px 4px 4px #EBEBF2);",
+                    data: {action: "click->form#revealAMPM"}
+                  },
+                  wrapper_html: {
+                    class: "text-primary mt-4"
+                  }
+        %>
+        <%= f.input :time_morning,
+                  label: "",
+                  as: :radio_buttons, # as: :time pour selectionner autant d'heures et minutes qu'on veut!!
+                  collection: Prescription::TIMES,
+                  collection_wrapper_tag: 'div',
+                  collection_wrapper_class: 'category-wrapper-hours',
+                  item_wrapper_class: 'category-item-hours',
+                  wrapper_html: {
+                      class: "d-none",
+                      data: {form_target: 'morning'}
+                  },
+                  input_html: {
+                    class: "card-form category-selector-hours",
+                  }
+        %>
+        <%= f.input :time_afternoon,
+                  label: "",
+                  as: :radio_buttons, # as: :time pour selectionner autant d'heures et minutes qu'on veut!!
+                  collection: Prescription::TIMES,
+                  collection_wrapper_tag: 'div',
+                  collection_wrapper_class: 'category-wrapper-hours',
+                  item_wrapper_class: 'category-item-hours',
+                  wrapper_html: {
+                      class: "d-none ",
+                      data: {form_target: 'afternoon'}
+                  },
+                  input_html: {
+                    class: "card-form category-selector-hours",
+                  }
+        %>
 
           <%= f.input :comment,
-                    label: "Comment",
-                    hint: "Describe any information that would be useful for you when engaging in the treatment (dosage, technics, motivation prompt, ...)",
-                    placeholder: "2 x 150mg before each meal or You can do it, John!",
+                    label: false,
                     as: :text,
+                    placeholder: "Describe your prescription here 📝",
+                    # hint_html: { style: "font-size: 0.72em;" },
                     wrapper_html: {
                         class: "text-primary"
                     }, # Change la couleur du label
@@ -195,7 +210,7 @@
                       # Change la couleur des inputs + bk-white + filter shadow
                     }
           %>
-      <%= f.button :submit, class: "btn-primary mt-3" %>
+      <%= f.submit "Save", class: "purple-button" %>
   <% end %>
 </div>
 

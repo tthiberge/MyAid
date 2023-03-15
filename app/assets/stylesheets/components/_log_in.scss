@@ -29,7 +29,7 @@
   .log-in-button {
     font-family: 'Inter', sans-serif;
     font-size: 22px;
-    background: #D7CDE3;
+    background: #D2C5E1;
     border-radius: 15px;
     margin-inline: 5px;
     width: 100%;
@@ -50,5 +50,30 @@
       }
     }
 
+  }
+}
+
+
+.purple-button-log-in {
+  width: 50%;
+  max-width: 200px;
+  height: 60px;
+  border-radius: 15px;
+  border: none;
+  margin-inline: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  background: purple;
+  color: white;
+  color: white;
+  border: none;
+  &:hover{
+    opacity: 0.7;
+  }
+
+  h4 {
+    color: white;
   }
 }

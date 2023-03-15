@@ -25,7 +25,8 @@ Rails.application.routes.draw do
 
   resources :prescriptions, only: [:index, :new, :create, :edit, :update]
   resources :prescriptions, only: [:destroy], as: :destroy_prescription
-  # get "", to: "appointments#confirm"
+
+  patch "/appointments/:id/confirm", to: "appointments#confirm", as: :appointments_confirm
   resources :appointments, only: [:index, :show, :new, :create, :edit, :update]
   resources :appointments, only: [:destroy], as: :destroy_appointment
 
@@ -35,5 +36,6 @@ Rails.application.routes.draw do
   get "/uikit", to: "pages#uikit"
   get "/uikitbis", to: "pages#uikitbis"
   get "/uikitter", to: "pages#uikitter"
+  
   get "/boost", to: "pages#boost"
 end

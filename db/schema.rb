@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_13_220829) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_14_142816) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -53,6 +53,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_13_220829) do
     t.integer "appointment_hour"
     t.integer "appointment_min"
     t.string "day_half"
+    t.datetime "start_date"
+    t.datetime "end_date"
     t.index ["doctor_id"], name: "index_appointments_on_doctor_id"
     t.index ["user_id"], name: "index_appointments_on_user_id"
   end
@@ -64,6 +66,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_13_220829) do
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.date "date"
     t.index ["user_id"], name: "index_diaries_on_user_id"
   end
 
@@ -88,12 +91,19 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_13_220829) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "treatment_id", null: false
-    t.date "taken_date"
+    t.date "taken_date", default: "1900-01-01"
     t.integer "todo_hours"
     t.integer "todo_minutes"
     t.string "day_half"
     t.index ["treatment_id"], name: "index_prescriptions_on_treatment_id"
     t.index ["user_id"], name: "index_prescriptions_on_user_id"
+  end
+
+  create_table "quotes", force: :cascade do |t|
+    t.string "author"
+    t.string "motivational_quote"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "selfies", force: :cascade do |t|

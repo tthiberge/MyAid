@@ -23,7 +23,7 @@ class PagesController < ApplicationController
       @appointments << appointment
     end
 
-    @diary = Diary.all.last
+    @diary = current_user.diaries.last
   end
 
   def profile
@@ -31,13 +31,55 @@ class PagesController < ApplicationController
   end
 
   def pills
-    pill_prescriptions_all = []
-    current_user.prescriptions.each do |prescription|
-      pill_prescriptions_all << prescription if prescription.treatment.category == "pills" # ça c'est un array
-    end
+    @pill_prescriptions_sorted_not_taken = current_user.prescriptions.where(start_date: ..Date.today, end_date: Date.today..).where.not(taken_date: Date.today).joins(:treatment).where(treatments: {category: "pills"}).order(:day_half, :todo_hours, :todo_minutes)
 
-    pill_prescriptions_ongoing = pill_prescriptions_all.select {|prescription| Date.today.between?(prescription.start_date, prescription.end_date)}
-    @pill_prescriptions_morning_afternoon = pill_prescriptions_ongoing.sort_by(&:day_half)
+   @pill_prescriptions_sorted_taken = current_user.prescriptions.where(start_date: ..Date.today, end_date: Date.today..).where(taken_date: Date.today).joins(:treatment).where(treatments: {category: "pills"}).order(:day_half, :todo_hours, :todo_minutes)
+
+    # SEMBLAIT marcher aussi avec un mélange d'active records et SELECT (moins performant / moins élégant)
+    # MAIS que la prescription contienne Date.today était sûrement une mauvaise syntaxe et ne marchait pas!
+
+    # @pill_prescriptions_sorted_not_taken = current_user.prescriptions.where((:start_date..:end_date).include?Date.today).order(:day_half, :todo_hours, :todo_minutes).select {|prescription| prescription.treatment.category == "pills"}.select {|prescription| prescription.taken_date!=Date.today}
+
+    #  @pill_prescriptions_sorted_taken = current_user.prescriptions.where((:start_date..:end_date).include?Date.today).order(:day_half, :todo_hours, :todo_minutes).select {|prescription| prescription.treatment.category == "pills"}.select {|prescription| prescription.taken_date==Date.today}
+  end
+
+  def cares
+    @care_prescriptions_sorted_not_taken = current_user.prescriptions.where(start_date: ..Date.today, end_date: Date.today..).where.not(taken_date: Date.today).joins(:treatment).where(treatments: {category: "cares"}).order(:day_half, :todo_hours, :todo_minutes)
+
+   @care_prescriptions_sorted_taken = current_user.prescriptions.where(start_date: ..Date.today, end_date: Date.today..).where(taken_date: Date.today).joins(:treatment).where(treatments: {category: "cares"}).order(:day_half, :todo_hours, :todo_minutes)
+  end
+
+  def exercises
+    @exercise_prescriptions_sorted_not_taken = current_user.prescriptions.where(start_date: ..Date.today, end_date: Date.today..).where.not(taken_date: Date.today).joins(:treatment).where(treatments: {category: "exercises"}).order(:day_half, :todo_hours, :todo_minutes)
+
+   @exercise_prescriptions_sorted_taken = current_user.prescriptions.where(start_date: ..Date.today, end_date: Date.today..).where(taken_date: Date.today).joins(:treatment).where(treatments: {category: "exercises"}).order(:day_half, :todo_hours, :todo_minutes)
+  end
+
+  def uikit
+  end
+
+  def landing
+  end
+
+  def boost
+    @quote = Quote.all.sample
+    @user = current_user
+
+    @photos = @user.photos
+
+  end
+
+
+
+  # Historique de ma def pills - NE PAS SUPPRIMER
+
+  # pill_prescriptions_all = []
+    # current_user.prescriptions.each do |prescription|
+    #   pill_prescriptions_all << prescription if prescription.treatment.category == "pills" # ça c'est un array
+    # end
+
+    # pill_prescriptions_ongoing = pill_prescriptions_all.select {|prescription| Date.today.between?(prescription.start_date, prescription.end_date)}
+    # @pill_prescriptions_morning_afternoon = pill_prescriptions_ongoing.sort_by(&:day_half)
 
     # raise
     # ⬇️ Marche pas! ça réorganise mes trucs!
@@ -62,33 +104,27 @@ class PagesController < ApplicationController
     # current_user.prescriptions.where((:start_date..:end_date).include?Date.today).order(:day_half, :todo_hours, :todo_minutes).select {|prescription| prescription.treatment.category == "pills"}.select {|prescription| prescription.taken_date!=Date.today}
     # current_user.prescriptions.where((:start_date..:end_date).include?Date.today).order(:day_half, :todo_hours, :todo_minutes).select {|prescription| prescription.treatment.category == "pills"}.select {|prescription| prescription.taken_date==Date.today}
 
-    @pill_prescriptions_sorted_not_taken = current_user.prescriptions.where((:start_date..:end_date).include?Date.today).order(:day_half, :todo_hours, :todo_minutes).select {|prescription| prescription.treatment.category == "pills"}.select {|prescription| prescription.taken_date!=Date.today}
-    @pill_prescriptions_sorted_taken = current_user.prescriptions.where((:start_date..:end_date).include?Date.today).order(:day_half, :todo_hours, :todo_minutes).select {|prescription| prescription.treatment.category == "pills"}.select {|prescription| prescription.taken_date==Date.today}
+    # @pill_prescriptions_sorted_not_taken = current_user.prescriptions.where((:start_date..:end_date).include?Date.today).order(:day_half, :todo_hours, :todo_minutes).select {|prescription| prescription.treatment.category == "pills"}.select {|prescription| prescription.taken_date!=Date.today}
+    # @pill_prescriptions_sorted_taken = current_user.prescriptions.where((:start_date..:end_date).include?Date.today).order(:day_half, :todo_hours, :todo_minutes).select {|prescription| prescription.treatment.category == "pills"}.select {|prescription| prescription.taken_date==Date.today}
 
     # raise
-  end
 
-  def cares
-    @care_prescriptions = []
-    current_user.prescriptions.each do |prescription|
-      @care_prescriptions << prescription if prescription.treatment.category == "cares"
-    end
-  end
+  # def cares
+  #   @care_prescriptions = []
+  #   current_user.prescriptions.each do |prescription|
+  #     @care_prescriptions << prescription if prescription.treatment.category == "cares"
+  #   end
+  # end
 
-  def exercises
-    @exercise_prescriptions = []
-    current_user.prescriptions.each do |prescription|
-      @exercise_prescriptions << prescription if prescription.treatment.category == "exercises"
-    end
-  end
-
-  def uikit
-  end
-
-  def landing
-  end
+  # def exercises
+  #   @exercise_prescriptions = []
+  #   current_user.prescriptions.each do |prescription|
+  #     @exercise_prescriptions << prescription if prescription.treatment.category == "exercises"
+  #   end
+  # end
 
   def boost
+    @quote = Quote.all.sample
   end
-
+  
 end
