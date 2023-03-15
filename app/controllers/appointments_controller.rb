@@ -1,8 +1,8 @@
 class AppointmentsController < ApplicationController
   def index
-    @appointments_not_done = current_user.appointments.where(is_done: false).order(:day_half, :appointment_hour, :appointment_min)
+    @appointments_not_done = current_user.appointments.where(start_date: ..Date.today, end_date: Date.today..).where(is_done: false).order(:day_half, :appointment_hour, :appointment_min)
 
-    @appointments_done = current_user.appointments.where(is_done: true).order(:day_half, :appointment_hour, :appointment_min)
+    @appointments_done = current_user.appointments.where(start_date: ..Date.today, end_date: Date.today..).where(is_done: true).order(:day_half, :appointment_hour, :appointment_min)
   end
 
   def show

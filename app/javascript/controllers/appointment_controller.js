@@ -3,10 +3,10 @@ import { Controller } from "@hotwired/stimulus"
 // Connects to data-controller="appointment"
 export default class extends Controller {
 
-  static targets = ["morning", "afternoon"]
+  static targets = ["morning", "afternoon", "form"]
 
   connect() {
-    console.log("appointment")
+    console.log("Je suis dans appointment controller")
   }
 
   revealAMPM(event) {
@@ -21,4 +21,16 @@ export default class extends Controller {
       this.afternoonTarget.classList.remove("d-none")
     }
   }
+
+  typeComment() {
+    console.log("je suis dans linput") // Vérifier ma data-action
+
+    // console.log(this.formTarget) // Vérifier que je récupère ma data-target
+
+    this.formTarget.scrollTo(0, this.formTarget.scrollHeight)
+
+    console.log("bas de page") // Vérifier si on a réussi à atteindre cette ligne donc que la ligne de scroll s'est bien exécutée
+  }
+
+
 }
