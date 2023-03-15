@@ -2,23 +2,63 @@
   color:#76157B;
 }
 
-.calendar-container {
+.simple-calendar-container {
   display: grid;
   align-items: center;
   padding: 20px;
   margin: 10px;
 }
 
-simple-calendar {
-  padding: 20px;
+.my-calendar {
+  padding: 10px;
   width: 90%;
-  border-collapse: collapse;
-  border-spacing: 0;
-  border: 1px solid white;
+  /* border-collapse: collapse; */
+  /* border-spacing: 0; */
+  /* border: 1px solid white; */
   font-size: 12px;
   font-family: 'Inter', sans-serif;
   color: red;
-  background-color: #fff;
+  background-color: transparent;
+
+  .today .d-day {
+    flex-basis: calc(100% / 7 - 20px) !important;
+    text-align: center !important;
+    border-radius: 15px !important;
+    background-color: #76157B !important;
+    color: white !important;
+    height: 10vh !important;
+    width: 10vw !important;
+    min-width: 10vw !important;
+    font-size: 14px !important;
+    line-height: 1.2 !important;
+    filter: drop-shadow(0px 4px 4px #76157B) !important;
+    border: #76157B;
+    border-width: 2px !important;
+  }
+
+}
+
+.simple-calendar-day {
+  flex-basis: calc(100% / 7 - 20px);
+  text-align: center;
+  border-radius: 15px;
+  background-color: white;
+  height: 10vh;
+  width: 10vw;
+  min-width: 10vw;
+  font-size: 14px;
+  line-height: 1.2;
+  filter: drop-shadow(0px 4px 4px #EBEBF2);
+}
+
+.day-number {
+  font-size: 24px; /* adjust the font size to your liking */
+}
+
+.day-name {
+  font-size: 12px; /* adjust the font size to your liking */
+}
+
 
 
   .day {
@@ -50,7 +90,7 @@ simple-calendar {
   }
 
   .past {
-    color: #ccc;
+    color: transparent;
   }
   .future {
     color: #333;
@@ -61,7 +101,7 @@ simple-calendar {
   }
 
   .prev-month {
-    background-color: #EBDEEC;
+    background-color: transparent;
     color: #333;
   }
   .next-month {
@@ -77,7 +117,7 @@ simple-calendar {
     background-color: #EBEBF2;
   }
 
-  .simple-calendar table {
+  .my-calendar table {
     -webkit-border-horizontal-spacing: 0px;
     -webkit-border-vertical-spacing: 0px;
     background-color: rgba(0, 0, 0, 0);
@@ -93,29 +133,28 @@ simple-calendar {
     size: 16px;
   }
 
-}
 
-.simple-calendar .today {
-  background: #EBEBF2;
+.my-calendar .today {
+  background: transparent;
   color:#333 ;
 }
 
-.simple-calendar .prev-month {
+.my-calendar .prev-month {
   background:white;
   border-radius: 15px;
 }
 
-.simple-calendar .current-month {
+.my-calendar .current-month {
   background:white;
   border-radius: 15px;
 }
 
-.simple-calendar .next-month {
+.my-calendar .next-month {
   background:white;
   border-radius: 15px;
 }
 
-.calendar-wrapper-rounded {
+.simple-calendar-wrapper {
   margin: 0 auto;
   width: 320px;
   height: auto;
@@ -127,14 +166,14 @@ simple-calendar {
   border-color: #606060;
 }
 
-.calendar-title {
+.my-calendar-title {
   font-size: x-large;
   font-family: 'Inter', sans-serif;
   color: #76157B;
   justify-content: center;
 }
 
-.simple-calendar th {
+.my-calendar th {
   padding: 0px;
   border-bottom: 0px solid #dddddd;
   border-collapse: collapse;
@@ -145,7 +184,7 @@ simple-calendar {
   text-align: left;
 }
 
-.simple-calendar td {
+.my-calendar td {
   padding: 0px;
   vertical-align: top;
   width: 14%;
@@ -176,7 +215,7 @@ simple-calendar {
   border-left-width: 0px;
 }
 
-.simple-calendar td {
+.my-calendar td {
   padding: 0px;
   vertical-align: top;
   width: 14%;
@@ -215,13 +254,21 @@ simple-calendar {
   border-left-color: #dddddd;
   border-left-style: solid;
   border-left-width: 0px;
+
+  .d-day {
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+    background-color: white;
+    color: #76157B;
+    border-radius: 15px;
+    padding: 8px;
+    margin: 3px;
+  }
+
 }
 
-.today .d-day {
-  border-radius: 50%;
-  border: 3px solid #EBEBF2;
-  background-color: #EBEBF2;
-}
 
 .simple-calendar table {
   -webkit-border-horizontal-spacing: 0px;
@@ -270,8 +317,82 @@ simple-calendar {
   justify-content: center;
 }
 
-.d-day {
-  font-family: 'Inter', sans-serif;
-  size: 16px;
+.my-calendar-table {
+  font-size: 12px; /* Change the size to your liking */
+}
+
+
+.my-calendar th {
   color: #76157B;
+  padding: 0px;
+  border-bottom: 0px solid #dddddd;
+  border-collapse: collapse;
+  border-left: 0px solid #dddddd;
+  border-right: 0px solid #dddddd;
+  border-top: 0px none #76157B;
+  box-sizing: border-box;
+  text-align: left;
+}
+
+.my-calendar {
+  display: grid;
+}
+
+
+.my-calendar .current-month {
+    background: white;
+    border-radius: 15px;
+}
+.my-calendar .today {
+    background: transparent;
+    color: #333;
+}
+.my-calendar .has-events {
+    background-color: #EBEBF2;
+}
+.my-calendar .current-month {
+    background-color: #EBDEEC;
+    color: #333;
+}
+.my-calendar .wday-3 {
+    color: #333;
+}
+.my-calendar .day {
+    padding: 5px;
+    border: 1px solid transparent;
+    text-align: center;
+}
+
+.my-calendar table {
+  -webkit-border-horizontal-spacing: 0px;
+  -webkit-border-vertical-spacing: 0px;
+  background-color: rgba(0, 0, 0, 0);
+  /* border: 1px solid #dddddd; */
+  border-collapse: collapse;
+  box-sizing: border-box;
+  max-width: 100%;
+  width: 100%;
+}
+
+.my-calendar .has-events {
+   background-color: transparent;
+}
+
+.my-calendar .current-month {
+  background-color: transparent;
+  color: #333;
+}
+
+.my-calendar .prev-month {
+  background: transparent;
+  border-radius: 15px;
+}
+
+.my-calendar .next-month {
+  background: transparent;
+  border-radius: 15px;
+}
+
+.my-calendar-heading {
+  font-size: 26px;
 }
