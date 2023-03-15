@@ -40,25 +40,25 @@
 
 .marked-picture {
   position: absolute;
-  top: 0px;
+  top: -3px;
   left: 15px;
   // right: 280px;
   // bottom: 190px;
   i {
     font-size: 30px;
-    color: purple;
+    color: #FF848F;
   }
 }
 
 .marked-picture-right {
   position: absolute;
-  top: 0px;
+  top: -3px;
   right: 15px;
   // right: 280px;
   // bottom: 190px;
   i {
     font-size: 30px;
-    color: purple;
+    color: #FF848F;
   }
 }
 
@@ -68,8 +68,8 @@
   background-color: purple;
   height: 36px;
   width: 36px;
-  left: 136px;
-  top: 235px;
+  left: 150px;
+  top: 240px;
   align-items: center;
   display: flex;
   justify-content: center;
@@ -136,5 +136,23 @@
     font-size: 16px;
     color: purple;
     padding-top: 5px;
+  }
+}
+
+.action-go-to-my-boost {
+  position: absolute;
+  right: 26px;
+  bottom: -20px;
+  width: 150px;
+  height: 45px;
+  border-radius: 40px;
+  background-color: #D2C5E1;
+  filter: drop-shadow(0px 4px 4px #EBEBF2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 10px;
+  i {
+    font-size: 15px;
   }
 }
