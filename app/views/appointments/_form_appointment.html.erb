@@ -3,7 +3,9 @@
 
       <i class="fa-solid fa-angle-down"></i>
       <%= f.association :doctor,
-                        collection: Doctor.all ,
+                        collection: Appointment::DOCTORS, # Doctor.all ,
+                        label_method: :first,
+                        value_method: :last,
                         prompt: "👩‍⚕️🏥 Select your specialist"  ,
                         label: false,
                         input_html: {
