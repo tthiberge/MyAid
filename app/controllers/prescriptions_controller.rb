@@ -110,6 +110,8 @@ class PrescriptionsController < ApplicationController
     @prescription.taken_date = Date.today
 
     if @prescription.save
+      flash[:notify]= "Bravo you got appointment with doctor well"
+
       if @prescription.treatment.category == "pills"
         redirect_to pills_path
       elsif @prescription.treatment.category == "cares"

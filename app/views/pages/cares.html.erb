@@ -1,3 +1,8 @@
+<%if flash[:notify] %>
+    <div data-controller="alert-confirm-care">
+    </div>
+<%end%>
+
 <div class="navbar-icons">
   <%= link_to :home do %>
     <i class="fa-solid fa-chevron-left"></i>
@@ -22,8 +27,10 @@
     </div>
   </div>
 
-  <div class="day-of-prescription">
-    <h6><strong><%= Date.today.strftime("%A - %B %d, %Y") %></strong></h6>
+  <div class="d-flex justify-content-center">
+    <div class="day-of-prescription">
+      <h6><strong><%= Date.today.strftime("%A - %B %d, %Y") %></strong></h6>
+    </div>
   </div>
   <! -- 1 -- PRESCRIPTION CARD -->
 

@@ -18,8 +18,10 @@
     </div>
   </div>
 
-  <div class="day-of-prescription">
-    <h6><strong><%= Date.today.strftime("%A - %B %d, %Y") %></strong><h6>
+  <div class="d-flex justify-content-center">
+    <div class="day-of-prescription">
+      <h6><strong><%= Date.today.strftime("%A - %B %d, %Y") %></strong></h6>
+    </div>
   </div>
 
   <%= form_with model: @diary, url: diary_path(@diary), turbo_method: :patch, local:true, data: {controller: "load-image"} do |f|%>

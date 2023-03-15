@@ -4,8 +4,14 @@
 
 import { application } from "./application"
 
+import AlertConfirmCareController from "./alert_confirm_care_controller"
+application.register("alert-confirm-care", AlertConfirmCareController)
+
 import AlertConfirmController from "./alert_confirm_controller"
 application.register("alert-confirm", AlertConfirmController)
+
+import AlertExerciseController from "./alert_exercise_controller"
+application.register("alert-exercise", AlertExerciseController)
 
 import AlertbysweetController from "./alertbysweet_controller"
 application.register("alertbysweet", AlertbysweetController)
@@ -18,6 +24,10 @@ application.register("check-click", CheckClickController)
 
 import CheckPrescriptionController from "./check_prescription_controller"
 application.register("check-prescription", CheckPrescriptionController)
+
+import ConfirmPillController from "./confirm_pill_controller"
+application.register("confirm-pill", ConfirmPillController)
+
 
 import FlatpickrController from "./flatpickr_controller"
 application.register("flatpickr", FlatpickrController)

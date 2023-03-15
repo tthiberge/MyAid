@@ -37,13 +37,22 @@
 }
 
 .day-of-prescription {
-  background-color: #EBEBF2;
-  color: purple;
-  font-size: 24px;
-  width: 100%;
-  align-items: center;
   display: flex;
   justify-content: center;
-  height: 58px;
+  align-items: center;
+
+  color: purple;
+  font-size: 24px;
+  border-radius: 40px;
+  width: 75vw;
+  height: 8vh;
   font-family: 'Inter', sans-serif;
+  padding-top: 6px;
+
+  border: solid;
+  border-width: medium;
+  border-color: #D2C5E1;
+  border-radius: 40px;
+  background-color: #D2C5E1;
+  filter: drop-shadow(0px 4px 4px #EBEBF2);
 }
