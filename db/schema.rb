@@ -52,9 +52,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_14_142816) do
     t.boolean "is_done", default: false
     t.integer "appointment_hour"
     t.integer "appointment_min"
-    t.string "day_half"
     t.datetime "start_date"
     t.datetime "end_date"
+    t.string "day_half"
     t.index ["doctor_id"], name: "index_appointments_on_doctor_id"
     t.index ["user_id"], name: "index_appointments_on_user_id"
   end

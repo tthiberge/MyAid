@@ -4,54 +4,16 @@
   </div>
 
   <div class="homepage-calendar-card">
-
-    <div class="calendar-month">
-     <div class="day-card-flex-month-year">
-      <h2>March </h2>  <p> 2023</p>
+  <%= week_calendar(events: @events, attribute: :start_date, end_attribute: :end_date) do |date, events| %>
+    <div class="simple-calendar-day">
+      <div class="d-day">
+        <span class="day-number"><%= date.day %></span>
+        <span class="day-name"><%= t('date.abbr_day_names')[date.wday][0..1] %></span>
       </div>
     </div>
-
-
-    <div class="calendar-body">
-      <div class="day-card-flex">
-        <div class="arrow-calendar">
-          <i class="fa-solid fa-caret-left"></i>
-        </div>
-
-        <div class="day-card">
-          <h3>15</h3>
-          <p>Wed</p>
-        </div>
-
-
-        <div class="day-card">
-          <h3>16</h3>
-          <p>Thur</p>
-        </div>
-
-        <div class="day-card current-day">
-          <h3 class="current-day-number">17</h3>
-          <p class="current-day-day">Fri</p>
-        </div>
-
-        <div class="day-card">
-          <h3>18</h3>
-          <p>Sat</p>
-        </div>
-
-        <div class="day-card me-0">
-          <h3>19</h3>
-          <p>Sun</p>
-        </div>
-
-        <div class="arrow-calendar">
-          <i class="fa-solid fa-caret-right"></i>
-        </div>
-      </div>
-    </div>
-
-  </div>
+  <% end %>
 </div>
+
 
 <div class="pb-5">
   <%= link_to pills_path do %>
