@@ -2,6 +2,17 @@ class PrescriptionsController < ApplicationController
   def index
     @prescriptions = Prescription.all
     @user = current_user
+
+      @appointments = current_user.appointments
+      @pill_prescriptions = current_user.prescriptions.joins(:treatment).where(treatments: { category: "pills" })
+      @care_prescriptions = current_user.prescriptions.joins(:treatment).where(treatments: { category: "cares" })
+      @exercise_prescriptions = current_user.prescriptions.joins(:treatment).where(treatments: { category: "exercises" })
+
+      @events = @appointments + @pill_prescriptions + @care_prescriptions + @exercise_prescriptions
+
+      @start_date = Date.current.beginning_of_month
+      @end_date = Date.current.end_of_month
+
   end
 
   def new
@@ -124,6 +135,9 @@ class PrescriptionsController < ApplicationController
       render "/home", alert: "Sorry, the prescription status could not be deleted" # notice?
     end
   end
+
+
+
 
   private
 

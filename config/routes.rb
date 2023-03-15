@@ -36,7 +36,6 @@ Rails.application.routes.draw do
   get "/uikit", to: "pages#uikit"
   get "/uikitbis", to: "pages#uikitbis"
   get "/uikitter", to: "pages#uikitter"
-  get "/calendarinfini", to: "pages#calendars"
-
+  
   get "/boost", to: "pages#boost"
 end

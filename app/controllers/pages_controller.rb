@@ -122,6 +122,10 @@ class PagesController < ApplicationController
   #   end
   # end
 
+  def boost
+    @quote = Quote.all.sample
+  end
+
   def calendars
     @appointments = current_user.appointments
     @pill_prescriptions = current_user.prescriptions.joins(:treatment).where(treatments: { category: "pills" })
