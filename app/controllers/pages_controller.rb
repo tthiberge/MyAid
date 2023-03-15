@@ -65,7 +65,8 @@ class PagesController < ApplicationController
     @quote = Quote.all.sample
     @user = current_user
 
-    @photos = current_user.photos.sample(4)
+    @photos = @user.photos
+
   end
 
 

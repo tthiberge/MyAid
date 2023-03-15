@@ -66,19 +66,23 @@
       </div>
 
       <div class="pictures-row">
-        <div class="picture-boost">
-          <%= cl_image_tag @photos[0].key %>
-          <div class="marked-picture">
-            <i class="fa-solid fa-bookmark"></i>
+        <% if current_user.photos[0] %>
+          <div class="picture-boost">
+            <%= cl_image_tag current_user.photos[0].key %>
+            <div class="marked-picture">
+              <i class="fa-solid fa-bookmark"></i>
+            </div>
           </div>
-        </div>
+        <% end %>
 
-        <div class="picture-boost">
-          <%= cl_image_tag @photos[1].key %>
-          <div class="marked-picture-right">
-            <i class="fa-solid fa-bookmark"></i>
+        <% if current_user.photos[1] %>
+          <div class="picture-boost">
+            <%= cl_image_tag current_user.photos[1].key %>
+            <div class="marked-picture-right">
+              <i class="fa-solid fa-bookmark"></i>
+            </div>
           </div>
-        </div>
+        <% end %>
       </div>
 
       <div class="upload-picture">
@@ -87,20 +91,25 @@
         <% end %>
       </div>
 
-      <div class="pictures-row">
-        <div class="picture-boost">
-          <%= cl_image_tag @photos[2].key %>
-          <div class="marked-picture">
-            <i class="fa-solid fa-bookmark"></i>
-          </div>
-        </div>
 
-        <div class="picture-boost">
-          <%= cl_image_tag @photos[3].key %>
-          <div class="marked-picture-right">
-            <i class="fa-solid fa-bookmark"></i>
+      <div class="pictures-row">
+        <% if current_user.photos[2] %>
+          <div class="picture-boost">
+            <%= cl_image_tag current_user.photos[2].key %>
+            <div class="marked-picture">
+              <i class="fa-solid fa-bookmark"></i>
+            </div>
           </div>
-        </div>
+        <% end %>
+
+        <% if current_user.photos[3] %>
+          <div class="picture-boost">
+            <%= cl_image_tag current_user.photos[3].key %>
+            <div class="marked-picture-right">
+              <i class="fa-solid fa-bookmark"></i>
+            </div>
+          </div>
+        <% end %>
       </div>
     </div>
   </div>
