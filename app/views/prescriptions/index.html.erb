@@ -13,48 +13,76 @@
     </div>
   </div>
 
-<div class="calendar-wrapper-rounded">
-  <div class="calendar-container">
-    <% display_appointment_image = true %>
-    <% display_prescription_image = true %>
-    <%= month_calendar(events: @events, attribute: :start_date, end_attribute: :end_date) do |date, events| %>
-      <span class="d-day"><%= date.day %></span>
-      <% has_appointment = false %>
-      <% has_prescription = false %>
-      <% events.each do |event| %>
-        <% if event.class == Appointment && !has_appointment %>
-          <br> <%= image_tag("rond-bluey.png", width: 10, style: "opacity: 0.5;") %>
-          <% has_appointment = true %>
-          <% display_appointment_image = false if display_appointment_image %>
-        <% elsif event.class == Prescription && !has_prescription %>
-          <br><%= image_tag("rond-greeny.png", width: 10, style: "opacity: 0.5;") %>
-          <% has_prescription = true %>
-          <% display_prescription_image = false if display_prescription_image %>
+  <div class="calendar-wrapper-rounded">
+    <div class="calendar-container">
+      <% display_appointment_image = true %>
+      <% display_prescription_image = true %>
+      <%= month_calendar(events: @events, attribute: :start_date, end_attribute: :end_date) do |date, events| %>
+        <span class="d-day"><%= date.day %></span>
+        <% has_appointment = false %>
+        <% has_prescription = false %>
+        <% events.each do |event| %>
+          <% if event.class == Appointment && !has_appointment %>
+            <br> <%= image_tag("rond-bluey.png", width: 10, style: "opacity: 0.5;") %>
+            <% has_appointment = true %>
+            <% display_appointment_image = false if display_appointment_image %>
+          <% elsif event.class == Prescription && !has_prescription %>
+            <br><%= image_tag("rond-greeny.png", width: 10, style: "opacity: 0.5;") %>
+            <% has_prescription = true %>
+            <% display_prescription_image = false if display_prescription_image %>
+          <% end %>
+        <% end %>
+        <% if !has_appointment && !has_prescription %>
+          <% display_appointment_image = true %>
+          <% display_prescription_image = true %>
         <% end %>
       <% end %>
-      <% if !has_appointment && !has_prescription %>
-        <% display_appointment_image = true %>
-        <% display_prescription_image = true %>
-      <% end %>
-    <% end %>
-    <% display_appointment_image = true %>
-    <% display_prescription_image = true %>
+      <% display_appointment_image = true %>
+      <% display_prescription_image = true %>
 
-    <div class="legend-calendar">
-    <div class="legend-bluey">
-    <br> <h6 id="legend-appointment-calendar"> <%= image_tag("rond-bluey.png", width: 10, style: "opacity: 0.5;") %>  Appointment </h6>
-    </div>
+      <div class="legend-calendar">
+      <div class="legend-bluey">
+      <br> <h6 id="legend-appointment-calendar"> <%= image_tag("rond-bluey.png", width: 10, style: "opacity: 0.5;") %>  Appointment </h6>
+      </div>
 
-    <div class="legend-greeny">
-    <br> <h6 id="legend-prescription-calendar">  <%= image_tag("rond-greeny.png", width: 10, style: "opacity: 0.5;") %> Prescription </h6>
-    </div>
-
-</div>
+      <div class="legend-greeny">
+      <br> <h6 id="legend-prescription-calendar">  <%= image_tag("rond-greeny.png", width: 10, style: "opacity: 0.5;") %> Prescription </h6>
+      </div>
 
   </div>
+
+    </div>
+  </div>
+
+<h3 class="my-daily-title">
+Find my daily
+</h3>
+<div class="button-container">
+
+<%= link_to pills_path do %>
+  <div class="button pill-button">
+    <span class="button-label">💊Pills</span>
+  </div>
+<% end %>
+
+<%= link_to cares_path do %>
+  <div class="button care-button">
+    <span class="button-label">❤️‍🩹Cares</span>
+  </div>
+<% end %>
+
+<%= link_to exercises_path do %>
+  <div class="button exercise-button">
+    <span class="button-label">🚴Exercises</span>
+  </div>
+<% end %>
+
+<%= link_to appointments_path do %>
+  <div class="button appointment-button">
+    <span class="button-label">🏥Appointments</span>
+  </div>
+<% end %>
+
 </div>
-
-
-
 
 </div>

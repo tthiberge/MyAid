@@ -125,6 +125,8 @@ simple-calendar {
   border: solid;
   border-width: 3px;
   border-color: #606060;
+  margin-bottom: 20px;
+
 }
 
 .calendar-title {
@@ -274,4 +276,74 @@ simple-calendar {
   font-family: 'Inter', sans-serif;
   size: 16px;
   color: #76157B;
+}
+
+.button-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 20px;
+  max-width: 400px;
+  padding: 20px;
+  margin-left: 19px;
+  margin-right: 19px;
+  width: 355px;
+
+}
+
+
+
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 15px;
+  background-color: purple;
+  color: white;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.button:hover {
+  opacity: 0.7;
+}
+
+.pill-button {
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+  background-color: purple;
+  opacity: 0.77;}
+
+.care-button {
+  grid-column: 2 / 3;
+  grid-row: 1 / 2;
+  background-color: purple;
+  opacity: 0.77;}
+
+.exercise-button {
+  grid-column: 1 / 2;
+  grid-row: 2 / 3;
+  background-color: purple;
+  opacity: 0.77;}
+
+.appointment-button {
+  grid-column: 2 / 3;
+  grid-row: 2 / 3;
+  background-color: purple;
+  opacity: 0.77;}
+
+.button-label {
+  font-size: 1rem;
+  font-weight: bold;
+  color: white;
+  margin: 5px;
+}
+
+.my-daily-title {
+font-size: 18px;
+font-family: 'Inter', sans-serif;
+display: flex;
+align-items: center;
+justify-content: center;
 }
