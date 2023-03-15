@@ -1,3 +1,7 @@
+<%if flash[:notify] %>
+    <div data-controller="alert-confirm">
+    </div>
+<%end%>
 <div class="navbar-icons">
   <%= link_to :home do %>
     <i class="fa-solid fa-chevron-left"></i>
@@ -25,9 +29,9 @@
   <div class="day-of-prescription">
     <h6><strong><%= Date.today.strftime("%A - %B %d, %Y") %></strong><h6>
   </div>
-  <! -- 1 -- PRESCRIPTION CARD -->
+  <!-- 1 -- PRESCRIPTION CARD -->
 
-  <! -- On itère d'abord sur les RDV pas encore faits -->
+  <!-- On itère d'abord sur les RDV pas encore faits -->
   <div class="prescriptions-cards px-3">
     <% @appointments_not_done.each do |appointment| %>
       <%= link_to appointment_path(appointment) do %>
@@ -54,7 +58,7 @@
 
           <div class="action-wrap">
 
-            <! -- Cercle d'action 1 : cancel -->
+            <!-- Cercle d'action 1 : cancel -->
 
             <div class="action-circle-1">
               <%= link_to destroy_prescription_path(appointment), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
@@ -62,7 +66,7 @@
               <% end %>
             </div>
 
-            <! -- Cercle d'action 2 : edit -->
+            <!-- Cercle d'action 2 : edit -->
 
             <div class="action-circle-2">
             <%= link_to edit_prescription_path(appointment) do %>
@@ -70,7 +74,7 @@
             <% end %>
             </div>
 
-            <! -- Cercle d'action 3 : check -->
+            <!-- Cercle d'action 3 : check -->
 
             <div class="action-circle-3">
               <%= link_to appointments_confirm_path(appointment), data: { turbo_method: :patch }  do %>
