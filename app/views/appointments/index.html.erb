@@ -12,7 +12,7 @@
   <div class="d-flex justify-content-between align-items-center">
     <div class="header-title-purple">
       <div class="left-title">
-        <h2><%= image_tag("appointments-icon.svg", width: 30) %></i>My Appointments</h2>
+        <h2><%= image_tag("appointments-icon.svg", width: 30) %></i> My Appointments</h2>
       </div>
     </div>
     <div class="circle-add-new mx-3">
@@ -31,7 +31,7 @@
   <div class="prescriptions-cards px-3">
     <% @appointments_not_done.each do |appointment| %>
       <%= link_to appointment_path(appointment) do %>
-        <div class="card-pill">
+        <div class="card-pill-appointment">
           <div class="px-3 title-wrap w-100">
 
             <div class="circle">
@@ -46,9 +46,7 @@
           </div>
 
           <div class="content-wrap">
-            <p>Name</p>
-            <h2><%=appointment.doctor.title.capitalize%> <%=appointment.doctor.name.capitalize%></h2>
-            <p>Address</p>
+            <h2><strong><%=appointment.doctor.title.capitalize%> <%=appointment.doctor.name.capitalize%></strong></h2>
             <h2><%=appointment.doctor.address%></h2>
           </div>
 
@@ -99,7 +97,7 @@
   <div class="prescriptions-cards px-3">
     <% @appointments_done.each do |appointment| %>
       <%= link_to appointment_path(appointment) do %>
-        <div class="card-pill-confirmed">
+        <div class="card-pill-appointment-confirmed">
           <div class="px-3 title-wrap w-100">
             <div class="circle">
               <p class="time"><%=appointment.appointment_hour%>:<%=appointment.appointment_min == 0 ? "00" : "30" %></p>
@@ -112,9 +110,7 @@
           </div>
 
           <div class="content-wrap">
-            <p>Name</p>
-            <h2><%=appointment.doctor.title.capitalize%> <%=appointment.doctor.name.capitalize%></h2>
-            <p>Address</p>
+            <h2><strong><%=appointment.doctor.title.capitalize%> <%=appointment.doctor.name.capitalize%></strong></h2>
             <h2><%=appointment.doctor.address%></h2>
           </div>
 
