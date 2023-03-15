@@ -52,3 +52,28 @@
 
   }
 }
+
+
+.purple-button-log-in {
+  width: 50%;
+  max-width: 200px;
+  height: 60px;
+  border-radius: 15px;
+  border: none;
+  margin-inline: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  background: purple;
+  color: white;
+  color: white;
+  border: none;
+  &:hover{
+    opacity: 0.7;
+  }
+
+  h4 {
+    color: white;
+  }
+}
