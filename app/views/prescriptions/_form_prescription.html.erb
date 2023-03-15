@@ -23,8 +23,8 @@
                         class: 'category-selector',
                         style: "filter: drop-shadow(0px 4px 4px #EBEBF2);",
                         data: {action: "click->form#reveal",
-                              controller: "check-prescription",
-                              check_prescription_category_value: prescription.treatment.category
+                              controller: "check-click",
+                              check_click_category_value: prescription.treatment.category
                               # ATTENTION, une value doit avoir le mot category, pour ce qu'on met dans le hash de static calues ensuite
                                                             }
                         },
@@ -57,8 +57,8 @@
                           # id: 'treatment-select',
                                     class: "category-selector-treatment",
                                     data: {
-                                      controller: "check-prescription",
-                                      check_prescription_category_value: prescription.treatment.id
+                                      controller: "check-click",
+                                      check_click_category_value: prescription.treatment.id
                                       }
                                     },
                         wrapper_html: {
@@ -82,8 +82,8 @@
                                     class: "category-selector-treatment",
                                     # ,data: {controller: 'init-tom-select'}
                                     data: {
-                                      controller: "check-prescription",
-                                      check_prescription_category_value: prescription.treatment.id
+                                      controller: "check-click",
+                                      check_click_category_value: prescription.treatment.id
                                       }
                                     },
                         wrapper_html: {
@@ -107,8 +107,8 @@
                                     class: "category-selector-treatment",
                                     style: "color: purple; font-weight: 500",
                                     data: {
-                                      controller: "check-prescription",
-                                      check_prescription_category_value: prescription.treatment.id
+                                      controller: "check-click",
+                                      check_click_category_value: prescription.treatment.id
                                       }
                                     # ,data: {controller: 'init-tom-select'}
                                     },
@@ -177,7 +177,9 @@
                   input_html: {
                     class: "card-form category-selector-ampm",
                     style: "filter: drop-shadow(0px 4px 4px #EBEBF2);",
-                    data: {action: "click->form#revealAMPM"}
+                    data: {action: "click->form#revealAMPM",
+                          controller: "check-click",
+                          check_click_category_value: prescription.day_half}
                   },
                   wrapper_html: {
                     class: "text-primary mt-4"
@@ -196,6 +198,8 @@
                   },
                   input_html: {
                     class: "card-form category-selector-hours",
+                    data: {controller: "check-click",
+                          check_click_category_value: "#{prescription.todo_hours}:#{prescription.todo_minutes}"}
                   }
         %>
         <%= f.input :time_afternoon,
@@ -211,6 +215,8 @@
                   },
                   input_html: {
                     class: "card-form category-selector-hours",
+                    data: {controller: "check-click",
+                          check_click_category_value: "#{prescription.todo_hours}:#{prescription.todo_minutes}"}
                   }
         %>
 
