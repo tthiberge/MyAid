@@ -39,7 +39,10 @@
                   input_html: {
                     class: "card-form category-selector-ampm",
                     style: "filter: drop-shadow(0px 4px 4px #EBEBF2);",
-                    data: {action: "click->appointment#revealAMPM"}
+                    data: {action: "click->appointment#revealAMPM",
+                          controller: "check-click",
+                          check_click_category_value: appointment&.day_half,
+                          check_click_is_persisted_value: appointment.persisted?}
                   },
                   wrapper_html: {
                     class: "text-primary"
@@ -60,6 +63,10 @@
                   },
                   input_html: {
                     class: "card-form category-selector-hours",
+                    data: {controller: "check-click",
+                          check_click_category_value: "#{appointment&.appointment_hour}:#{appointment&.appointment_min}",
+                          check_click_is_persisted_value: appointment.persisted?
+                    }
                   },
                   label_input: {
                     style: "font-size: 0.85em;"
@@ -76,7 +83,12 @@
                   item_wrapper_class: 'category-item-hours',
                   wrapper_html: {
                       class: "d-none ",
-                      data: {appointment_target: 'afternoon'}
+                      data: {
+                      appointment_target: 'afternoon',
+                      controller: "check-click",
+                      check_click_category_value: "#{appointment&.appointment_hour}:#{appointment&.appointment_min}",
+                          check_click_is_persisted_value: appointment.persisted?
+                    }
                   },
                   input_html: {
                     class: "card-form category-selector-hours",

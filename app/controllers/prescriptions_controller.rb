@@ -17,6 +17,7 @@ class PrescriptionsController < ApplicationController
 
   def new
     @prescription = Prescription.new
+    # raise
   end
 
   def create

@@ -6,4 +6,14 @@ class Doctor < ApplicationRecord
 
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
+
+  DOCTORS = Doctor.all.map do |doctor|
+    ["#{doctor.title.capitalize} #{doctor.name.capitalize}", "#{}"]
+
+  end
+
+
+
+
+
 end
