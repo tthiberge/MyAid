@@ -11,7 +11,6 @@
 
 .my-calendar {
   padding: 10px;
-  width: 90%;
   /* border-collapse: collapse; */
   /* border-spacing: 0; */
   /* border: 1px solid white; */
@@ -370,8 +369,9 @@
   /* border: 1px solid #dddddd; */
   border-collapse: collapse;
   box-sizing: border-box;
-  max-width: 100%;
-  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  width: 40%;
 }
 
 .my-calendar .has-events {
@@ -395,4 +395,10 @@
 
 .my-calendar-heading {
   font-size: 26px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  i {
+    margin-inline: 15px;
+  }
 }
