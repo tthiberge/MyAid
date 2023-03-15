@@ -81,6 +81,13 @@
   transform: scale(0);
 }
 
+#prescription_comment,
+#appointment_comment{
+  font-size: 0.8rem;
+
+}
+
+
 .category-selector + label {
   display: block;
   cursor: pointer;
