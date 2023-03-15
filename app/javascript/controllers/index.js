@@ -4,6 +4,9 @@
 
 import { application } from "./application"
 
+import AlertConfirmController from "./alert_confirm_controller"
+application.register("alert-confirm", AlertConfirmController)
+
 import AlertbysweetController from "./alertbysweet_controller"
 application.register("alertbysweet", AlertbysweetController)
 
