@@ -5,7 +5,7 @@
           } do |f| %>
 
             <%= f.input :treatment_category, # Attr_accessor pour pas que le f.input plus loin le remplace et décoche. Nom factice
-                      label: "Type of prescriptions",
+                      label: "",
                       placeholder: "Select between pills, cares or exercises",
                       # hint: "Select between pills, cares or exercises",
                       as: :radio_buttons,
@@ -44,7 +44,7 @@
                         value_method: :id
             %>
             <%= f.input :treatment_pill_id,
-                        label: false,
+                        label: "",
                         as: :radio_buttons, # as: :select pour tom select
                         prompt: "Select your pill ⬇️",
                         selected: prescription.treatment.present? ? prescription.treatment.id : nil,
@@ -64,7 +64,7 @@
                         value_method: :id
             %>
             <%= f.input :treatment_care_id,
-                        label: false,
+                        label: "",
                         as: :radio_buttons, # as: :select pour tom select
                         prompt: "Select your care ⬇️",
                         selected: prescription.treatment.present? ? prescription.treatment.id : nil,
@@ -85,7 +85,7 @@
                         value_method: :id
             %>
             <%= f.input :treatment_exercise_id,
-                        label: false,
+                        label: "",
                         as: :radio_buttons, # as: :select pour tom select
                         prompt: "Select your exercise ⬇️",
                         selected: prescription.treatment.present? ? prescription.treatment.id : nil,
@@ -198,10 +198,10 @@
         %>
 
           <%= f.input :comment,
-                    label: "Comment",
-                    hint: "Describe any information that would be useful for you when engaging in the treatment (dosage, technics, motivation prompt, ...)",
-                    placeholder: "2 x 150mg before each meal or You can do it, John!",
+                    label: false,
                     as: :text,
+                    placeholder: "Describe your prescription here 📝",
+                    # hint_html: { style: "font-size: 0.72em;" },
                     wrapper_html: {
                         class: "text-primary"
                     }, # Change la couleur du label

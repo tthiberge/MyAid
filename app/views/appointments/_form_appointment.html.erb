@@ -46,8 +46,8 @@
                   }
         %>
         <%= f.input :time_morning,
-                  label: false,
-                  required: true,
+                  label: "Time slots in the morning",
+                  # required: true,
                   # hint: "Select the time",
                   as: :radio_buttons, # as: :time pour selectionner autant d'heures et minutes qu'on veut!!
                   collection: Appointment::TIMES_MORNING,
@@ -64,8 +64,8 @@
                   }
         %>
         <%= f.input :time_afternoon,
-                  label: false,
-                  required: true,
+                  label: "Time slots in the afternoon",
+                  # required: true,
                   # hint: "Select the time",
                   as: :radio_buttons, # as: :time pour selectionner autant d'heures et minutes qu'on veut!!
                   collection: Appointment::TIMES_AFTERNOON,
@@ -82,7 +82,9 @@
                   }
         %>
       <%= f.input :comment,
+                  label: false,
                   as: :text,
+                  placeholder: "Describe here what you want to prepare for the appointment 📝",
                   wrapper_html: {
                     class: "text-primary"
                   },
