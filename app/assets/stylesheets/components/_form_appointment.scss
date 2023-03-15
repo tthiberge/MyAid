@@ -11,5 +11,13 @@
   margin-top: 8vh;
 }
 
-
+// Le wrapper autour du commentaire du formulaire appointment
+.mb-3.text.optional.appointment_comment.text-primary,
+.mb-3.text.optional.prescription_comment.text-primary{
+  margin-top: 10vh;
+}
 // La petite flèche est dans _form-prescription.scss
+
+legend.col-form-label.pt-0{
+  font-size: 0.85em;
+}
