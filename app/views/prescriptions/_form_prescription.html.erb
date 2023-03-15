@@ -1,7 +1,8 @@
  <div class="container-form" >
+    <h1></h1>
     <%= simple_form_for prescription,
           html: {
-            data: {controller: "form flatpickr-prescription"}
+            data: {controller: "form flatpickr-prescription" }
           } do |f| %>
 
             <%= f.input :treatment_category, # Attr_accessor pour pas que le f.input plus loin le remplace et décoche. Nom factice
@@ -16,15 +17,21 @@
 
                       # Array d'arrays, pour passer la valeur qu'on affiche, et la valeur qui est envoyée à la soumission
                       collection: [["💊<br>Pills".html_safe, "💊Pills"], ["❤️‍🩹<br>Cares".html_safe, "❤️‍🩹Cares"], ["🚴<br>Exercises".html_safe, "🚴Exercises"]],
-                      value_method: :last,
                       label_method: :first,
+                      value_method: :last,
 
                       input_html: {
                         class: 'category-selector',
                         style: "filter: drop-shadow(0px 4px 4px #EBEBF2);",
-                        data: {action: "click->form#reveal"}
+                        data: {action: "click->form#reveal",
+                              controller: "check-click",
+                              check_click_category_value: prescription&.treatment&.category,
+                              check_click_is_persisted_value: prescription.persisted?
+                              # ATTENTION, une value doit avoir le mot category, pour ce qu'on met dans le hash de static calues ensuite
+                                                            }
                         },
-                      wrapper_html: {class: "text-primary"}%>
+                      wrapper_html: {class: "text-primary"
+                                    }%>
 
             <%# <p>EXEMPLE AVEC TOM-SELECT, NE PAS SUPPRIMER</p> %>
             <%#= f.input :treatment_id,
@@ -51,6 +58,11 @@
                         input_html: {
                           # id: 'treatment-select',
                                     class: "category-selector-treatment",
+                                    data: {
+                                      controller: "check-click",
+                                      check_click_category_value: prescription&.treatment&.id,
+                                      check_click_is_persisted_value: prescription.persisted?
+                                      }
                                     },
                         wrapper_html: {
                                     class: "d-none",
@@ -70,8 +82,13 @@
                         selected: prescription.treatment.present? ? prescription.treatment.id : nil,
                         input_html:{
                         # id: 'treatment-select',
-                                    class: "category-selector-treatment"
+                                    class: "category-selector-treatment",
                                     # ,data: {controller: 'init-tom-select'}
+                                    data: {
+                                      controller: "check-click",
+                                      check_click_category_value: prescription&.treatment&.id,
+                                      check_click_is_persisted_value: prescription.persisted?
+                                      }
                                     },
                         wrapper_html: {
                                     class: "d-none",
@@ -92,7 +109,12 @@
                         input_html: {
                           # id: 'treatment-select',
                                     class: "category-selector-treatment",
-                                    style: "color: purple; font-weight: 500"
+                                    style: "color: purple; font-weight: 500",
+                                    data: {
+                                      controller: "check-click",
+                                      check_click_category_value: prescription&.treatment&.id,
+                                      check_click_is_persisted_value: prescription.persisted?
+                                      }
                                     # ,data: {controller: 'init-tom-select'}
                                     },
                         wrapper_html: {
@@ -160,7 +182,10 @@
                   input_html: {
                     class: "card-form category-selector-ampm",
                     style: "filter: drop-shadow(0px 4px 4px #EBEBF2);",
-                    data: {action: "click->form#revealAMPM"}
+                    data: {action: "click->form#revealAMPM",
+                          controller: "check-click",
+                          check_click_category_value: prescription&.day_half,
+                          check_click_is_persisted_value: prescription.persisted?}
                   },
                   wrapper_html: {
                     class: "text-primary mt-4"
@@ -179,6 +204,9 @@
                   },
                   input_html: {
                     class: "card-form category-selector-hours",
+                    data: {controller: "check-click",
+                          check_click_category_value: "#{prescription&.todo_hours}:#{prescription&.todo_minutes}",
+                          check_click_is_persisted_value: prescription.persisted?}
                   }
         %>
         <%= f.input :time_afternoon,
@@ -194,6 +222,9 @@
                   },
                   input_html: {
                     class: "card-form category-selector-hours",
+                    data: {controller: "check-click",
+                          check_click_category_value: "#{prescription&.todo_hours}:#{prescription&.todo_minutes}",
+                          check_click_is_persisted_value: prescription.persisted?}
                   }
         %>
 
