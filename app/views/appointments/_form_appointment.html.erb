@@ -46,7 +46,7 @@
                   }
         %>
         <%= f.input :time_morning,
-                  label: "Time slots in the morning",
+                  label: "Time slots in the morning:",
                   # required: true,
                   # hint: "Select the time",
                   as: :radio_buttons, # as: :time pour selectionner autant d'heures et minutes qu'on veut!!
@@ -60,11 +60,13 @@
                   },
                   input_html: {
                     class: "card-form category-selector-hours",
-
+                  },
+                  label_input: {
+                    style: "font-size: 0.85em;"
                   }
         %>
         <%= f.input :time_afternoon,
-                  label: "Time slots in the afternoon",
+                  label: "Time slots in the afternoon:",
                   # required: true,
                   # hint: "Select the time",
                   as: :radio_buttons, # as: :time pour selectionner autant d'heures et minutes qu'on veut!!
