@@ -64,9 +64,10 @@ class AppointmentsController < ApplicationController
   def confirm
     @appointment = Appointment.find(params[:id])
     @appointment.is_done = true
-  
+
 
     if @appointment.save
+      flash[:notify]= "Bravo you got appointment with doctor well"
       redirect_to appointments_path
     else
       render "/home", notice: "Sorry, the appointment status could not be updated"
