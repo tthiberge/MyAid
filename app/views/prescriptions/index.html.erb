@@ -23,15 +23,16 @@
       <% has_appointment = false %>
       <% has_prescription = false %>
       <% events.each do |event| %>
-        <% if event.class == Appointment && !has_appointment %>
-          <br> <%= image_tag("rond-bluey.png", width: 10, style: "opacity: 0.5;") %>
-          <% has_appointment = true %>
-          <% display_appointment_image = false if display_appointment_image %>
-        <% elsif event.class == Prescription && !has_prescription %>
-          <br><%= image_tag("rond-greeny.png", width: 10, style: "opacity: 0.5;") %>
-          <% has_prescription = true %>
-          <% display_prescription_image = false if display_prescription_image %>
-        <% end %>
+        <% @diary = current_user.diaries.find_by_date(date) %>
+          <% if event.class == Appointment && !has_appointment %>
+            <br> <%= image_tag("rond-bluey.png", width: 10, style: "opacity: 0.5;") %>
+            <% has_appointment = true %>
+            <% display_appointment_image = false if display_appointment_image %>
+          <% elsif event.class == Prescription && !has_prescription %>
+            <br><%= image_tag("rond-greeny.png", width: 10, style: "opacity: 0.5;") %>
+            <% has_prescription = true %>
+            <% display_prescription_image = false if display_prescription_image %>
+          <% end %>
       <% end %>
       <% if !has_appointment && !has_prescription %>
         <% display_appointment_image = true %>
@@ -54,4 +55,8 @@
 
   </div>
 </div>
+
+
+
+
 </div>

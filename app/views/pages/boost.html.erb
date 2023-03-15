@@ -16,13 +16,14 @@
       <h2><i class="fa-solid fa-rocket"></i> Boost of the day</h2>
     </div>
   </div>
-
-  <div class="day-of-prescription">
-    <h6><strong><%= Date.today.strftime("%A - %B %d, %Y") %></strong></h6>
+  <div class="d-flex justify-content-center">
+    <div class="day-of-prescription">
+      <h6><strong><%= Date.today.strftime("%A - %B %d, %Y") %></strong></h6>
+    </div>
   </div>
 
   <div class="prescriptions-cards px-3">
-    <div class="card-pill">
+    <div class="card-pill-quote">
       <div class="px-3 title-wrap w-100">
         <div class="circle">
           <i class="fa-solid fa-quote-left"></i>
@@ -65,49 +66,28 @@
         </div>
       </div>
 
-      <div class="pictures-row">
+      <div class="diary-grid">
         <% if current_user.photos[0] %>
           <div class="picture-boost">
             <%= cl_image_tag current_user.photos[0].key %>
-            <div class="marked-picture">
-              <i class="fa-solid fa-bookmark"></i>
-            </div>
           </div>
         <% end %>
 
         <% if current_user.photos[1] %>
           <div class="picture-boost">
             <%= cl_image_tag current_user.photos[1].key %>
-            <div class="marked-picture-right">
-              <i class="fa-solid fa-bookmark"></i>
-            </div>
           </div>
         <% end %>
-      </div>
 
-      <div class="upload-picture">
-        <%= link_to boost_path do %>
-          <i class="fa-solid fa-arrows-rotate"></i>
-        <% end %>
-      </div>
-
-
-      <div class="pictures-row">
         <% if current_user.photos[2] %>
           <div class="picture-boost">
             <%= cl_image_tag current_user.photos[2].key %>
-            <div class="marked-picture">
-              <i class="fa-solid fa-bookmark"></i>
-            </div>
           </div>
         <% end %>
 
         <% if current_user.photos[3] %>
           <div class="picture-boost">
             <%= cl_image_tag current_user.photos[3].key %>
-            <div class="marked-picture-right">
-              <i class="fa-solid fa-bookmark"></i>
-            </div>
           </div>
         <% end %>
       </div>

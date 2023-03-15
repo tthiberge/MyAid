@@ -21,14 +21,16 @@
       </div>
     </div>
     <div class="circle-add-new mx-3">
-      <%= link_to new_prescription_path do %>
+    <%= link_to new_prescription_path do %>
       <h2><i class="fa-solid fa-plus"></i></h2>
       <% end %>
     </div>
   </div>
 
-  <div class="day-of-prescription">
-    <h6><strong><%= Date.today.strftime("%A - %B %d, %Y") %></strong></h6>
+  <div class="d-flex justify-content-center">
+    <div class="day-of-prescription">
+      <h6><strong><%= Date.today.strftime("%A - %B %d, %Y") %></strong></h6>
+    </div>
   </div>
   <! -- 1 -- PRESCRIPTION CARD -->
 

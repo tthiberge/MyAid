@@ -10,17 +10,14 @@
 
 <div class="container-white d-flex flex-column">
   <div class="header-title-purple">
-    <div class="left-title">
-      <h2><%= image_tag("appointments-icon.svg", width: 30) %><%=@appointment.doctor.specialty.capitalize%></h2>
+    <div class="d-flex justify-content-center">
+      <h6><strong><%= Date.today.strftime("%A - %B %d, %Y") %></strong></h6>
     </div>
   </div>
 
-  <div class="day-of-prescription">
-    <h6><strong><%= Date.today.strftime("%A - %B %d, %Y") %></strong></h6>
-  </div>
 
   <div class="prescriptions-cards px-3">
-    <div class="card-pill">
+    <div class="card-pill-appointment-show">
       <div class="px-3 title-wrap w-100">
         <div class="circle">
           <p class="time"><%=@appointment.appointment_hour%>:<%=@appointment.appointment_min == 0 ? "00" : "30" %></p>
@@ -33,10 +30,8 @@
       </div>
 
       <div class="content-wrap">
-        <h2>Name</h2>
-        <p><%=@appointment.doctor.name.capitalize%></p>
-        <h2>Address</h2>
-        <p><%=@appointment.doctor.address%></p>
+        <h2><strong><%=@appointment.doctor.title.capitalize%> <%=@appointment.doctor.name.capitalize%></strong></h2>
+        <h2><%=@appointment.doctor.address%></h2>
       </div>
 
 
@@ -66,7 +61,6 @@
       </div>
 
       <div class="content-wrap">
-        <h2>To ask the doctor</h2>
         <p> <%= @appointment.comment %> </p>
       </div>
 

@@ -16,9 +16,68 @@
       <h2><i class="fa-solid fa-book-medical"></i> My Diaries</h2>
     </div>
   </div>
-  <% @diaries.each do |diary| %>
-    <% if diary.selfy && diary.selfy.photo.attached? %>
-      <%= cl_image_tag diary&.selfy&.photo&.key  %>
-    <% end %>
-  <% end %>
+  <div class="diary-grid">
+    <div class="diary-picture">
+      <% @diaries.each do |diary| %>
+        <%  if diary.selfy %>
+          <%= cl_image_tag diary&.selfy&.photo&.key  %>
+        <% end %>
+      <% end %>
+      <div class="diary-date-picture">
+        <p>March 17, 2023</p>
+      </div>
+    </div>
+
+    <div class="diary-picture">
+      <%= image_tag("diane1.jpeg") %>
+      <div class="diary-date-picture">
+        <p>March 16, 2023</p>
+      </div>
+    </div>
+
+    <div class="diary-picture">
+      <%= image_tag("diane2.jpeg") %>
+      <div class="diary-date-picture">
+        <p>March 15, 2023</p>
+      </div>
+    </div>
+
+    <div class="diary-picture">
+      <%= image_tag("diane3.jpeg") %>
+      <div class="diary-date-picture">
+        <p>March 14, 2023</p>
+      </div>
+    </div>
+
+    <div class="diary-picture">
+      <%= image_tag("diane4.jpeg") %>
+      <div class="diary-date-picture">
+        <p>March 13, 2023</p>
+      </div>
+    </div>
+
+    <div class="diary-picture">
+      <%= image_tag("diane5.jpeg") %>
+      <div class="diary-date-picture">
+        <p>March 12, 2023</p>
+      </div>
+    </div>
+
+    <div class="diary-picture">
+      <%= image_tag("diane6.jpeg") %>
+      <div class="diary-date-picture">
+        <p>March 11, 2023</p>
+      </div>
+    </div>
+
+    <div class="diary-picture">
+      <%= image_tag("diane7.jpeg") %>
+      <div class="diary-date-picture">
+        <p>March 10, 2023</p>
+      </div>
+    </div>
+  </div>
+  <div class="diary-arrow-down">
+    <i class="fa-solid fa-caret-down"></i>
+  </div>
 </div>

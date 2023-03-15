@@ -9,21 +9,24 @@
 </div>
 
 
-
 <div class="container-white">
-  <div class="header-title-purple">
-    <div class="left-title">
-      <h2><i class="fa-solid fa-book-medical"></i> My Diary of the day</h2>
+  <div class="d-flex justify-content-between align-items-center">
+    <div class="header-title-purple">
+      <div class="left-title">
+        <h2><i class="fa-solid fa-book-medical"></i> My Diary of the day</h2>
+      </div>
     </div>
   </div>
 
-  <div class="day-of-prescription">
-    <h6><strong><%= Date.today.strftime("%A - %B %d, %Y") %></strong><h6>
+  <div class="d-flex justify-content-center">
+    <div class="day-of-prescription">
+      <h6><strong><%= Date.today.strftime("%A - %B %d, %Y") %></strong></h6>
+    </div>
   </div>
 
   <%= form_with model: @diary, url: diary_path(@diary), turbo_method: :patch, local:true, data: {controller: "load-image"} do |f|%>
-  <div class="p-3" data-controller="upload-selfy">
-    <%# <%= simple_form_for @diary, data: { turbo_method: :patch } do |f| %>
+    <div class="p-3" data-controller="upload-selfy">
+      <%# <%= simple_form_for @diary, data: { turbo_method: :patch } do |f| %>
       <div class="d-none" data-upload-selfy-target="form">
         <%= f.file_field :photo, data: { upload_selfy_target: "input", action: "change->load-image#displayImage" } %>
       </div>
@@ -42,20 +45,20 @@
           <% end %>
         </div>
       </div>
-  </div>
+    </div>
 
 
-  <div class="prescriptions-cards px-3">
-    <div class="card-pill-motivation">
-      <div class="px-3 title-wrap w-100 color-icon">
-        <div class="circle">
-          <i class="fa-solid fa-truck-medical"></i>
+    <div class="prescriptions-cards px-3">
+      <div class="card-pill-motivation">
+        <div class="px-3 title-wrap w-100 color-icon">
+          <div class="circle">
+            <i class="fa-solid fa-truck-medical"></i>
+          </div>
+
+          <div class="card-title">
+            <h1>My Pain Scale</h1>
+          </div>
         </div>
-
-        <div class="card-title">
-          <h1>My Pain Scale</h1>
-        </div>
-      </div>
 
       <div class="d-flex justify-content-center content-wrap">
           <div class="field form-group">
@@ -66,6 +69,13 @@
               <% end %>
             </div>
           </div>
+      </div>
+      <div class="action-wrap">
+        <div class="action-go-to-my-boost">
+          <%= link_to boost_path do %>
+            <p>Get a <strong>Boost</strong> ! <i class="fa-solid fa-rocket"></i></p>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>

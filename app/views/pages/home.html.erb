@@ -4,59 +4,21 @@
   </div>
 
   <div class="homepage-calendar-card">
-
-    <div class="calendar-month">
-     <div class="day-card-flex-month-year">
-      <h2>March </h2>  <p> 2023</p>
+  <%= week_calendar(events: @events, attribute: :start_date, end_attribute: :end_date) do |date, events| %>
+    <div class="simple-calendar-day">
+      <div class="d-day">
+        <span class="day-number"><%= date.day %></span>
+        <span class="day-name"><%= t('date.abbr_day_names')[date.wday][0..1] %></span>
       </div>
     </div>
-
-
-    <div class="calendar-body">
-      <div class="day-card-flex">
-        <div class="arrow-calendar">
-          <i class="fa-solid fa-caret-left"></i>
-        </div>
-
-        <div class="day-card">
-          <h3>15</h3>
-          <p>Wed</p>
-        </div>
-
-
-        <div class="day-card">
-          <h3>16</h3>
-          <p>Thur</p>
-        </div>
-
-        <div class="day-card current-day">
-          <h3 class="current-day-number">17</h3>
-          <p class="current-day-day">Fri</p>
-        </div>
-
-        <div class="day-card">
-          <h3>18</h3>
-          <p>Sat</p>
-        </div>
-
-        <div class="day-card me-0">
-          <h3>19</h3>
-          <p>Sun</p>
-        </div>
-
-        <div class="arrow-calendar">
-          <i class="fa-solid fa-caret-right"></i>
-        </div>
-      </div>
-    </div>
-
-  </div>
+  <% end %>
 </div>
+
 
 <div class="pb-5">
   <%= link_to pills_path do %>
       <div class="card-reminder">
-        <div class="flex-prescription-title-icon mb-4">
+        <div class="flex-prescription-title-icon mb-2">
           <%= image_tag("pills-icon.svg", width: 30) %>
           <h1> Pills </h1>
         </div>
@@ -76,8 +38,8 @@
 
   <%= link_to cares_path do %>
     <div class="card-reminder">
-      <div class="flex-prescription-title-icon mb-4">
-        <%= image_tag("cares-icon.svg", width: 30) %>
+      <div class="flex-prescription-title-icon mb-2">
+        <%= image_tag("cares-icon.svg", width: 25) %>
         <h1> Cares </h1>
       </div>
 
@@ -96,8 +58,8 @@
 
   <%= link_to appointments_path do %>
     <div class="card-reminder">
-      <div class="flex-prescription-title-icon mb-4">
-        <%= image_tag("appointments-icon.svg", width: 30) %>
+      <div class="flex-prescription-title-icon mb-2">
+        <%= image_tag("appointments-icon.svg", width: 25) %>
         <h1> Appointments </h1>
       </div>
 
@@ -118,8 +80,8 @@
 
   <%= link_to exercises_path do %>
     <div class="card-reminder mb-5">
-      <div class="flex-prescription-title-icon mb-4">
-        <%= image_tag("exercises-icon.svg", width: 30) %>
+      <div class="flex-prescription-title-icon mb-2">
+        <%= image_tag("exercises-icon.svg", width: 25) %>
         <h1> Exercises </h1>
       </div>
 
