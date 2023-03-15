@@ -70,10 +70,6 @@ class PagesController < ApplicationController
 
 
 
-
-
-
-
   # Historique de ma def pills - NE PAS SUPPRIMER
 
   # pill_prescriptions_all = []
@@ -112,25 +108,19 @@ class PagesController < ApplicationController
 
     # raise
 
-  def cares
-    @care_prescriptions = []
-    current_user.prescriptions.each do |prescription|
-      @care_prescriptions << prescription if prescription.treatment.category == "cares"
-    end
-  end
+  # def cares
+  #   @care_prescriptions = []
+  #   current_user.prescriptions.each do |prescription|
+  #     @care_prescriptions << prescription if prescription.treatment.category == "cares"
+  #   end
+  # end
 
-  def exercises
-    @exercise_prescriptions = []
-    current_user.prescriptions.each do |prescription|
-      @exercise_prescriptions << prescription if prescription.treatment.category == "exercises"
-    end
-  end
-
-  def uikit
-  end
-
-  def landing
-  end
+  # def exercises
+  #   @exercise_prescriptions = []
+  #   current_user.prescriptions.each do |prescription|
+  #     @exercise_prescriptions << prescription if prescription.treatment.category == "exercises"
+  #   end
+  # end
 
   def calendars
     @appointments = current_user.appointments
@@ -143,9 +133,4 @@ class PagesController < ApplicationController
     @start_date = Date.current.beginning_of_month
     @end_date = Date.current.end_of_month
   end
-
-  def boost
-    @quote = Quote.all.sample
-  end
-
 end
