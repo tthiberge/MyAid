@@ -6,13 +6,13 @@ export default class extends Controller {
   static values = {
     category: String,
     isPersisted: String
-    // Il récupère ma data-value du formulaire en en une catgéorie de type string
+    // Il récupère ma data-value du formulaire en un type string
     // aucun rapport avec la category du treatment
     }
 
   connect() {
-    console.log("check-click")
-    console.log(this.isPersistedValue) // Vérifier qu'on passe la value isPersisted
+    // console.log("check-click")
+    // console.log(this.isPersistedValue) // Vérifier qu'on passe la value isPersisted du formulaire au controller
 
 
     if (this.isPersistedValue !== "false") {

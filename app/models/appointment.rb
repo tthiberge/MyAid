@@ -21,7 +21,7 @@ class Appointment < ApplicationRecord
   # Je le mets ici si je veux pouvoir l'appeller comme collection dans le formulaire des APPOINTMENTS
   # Je crée un array d'arrays. La première valeur sera la partie vue par l'utilisateurice,
   # la deuxième la valeur envoyée au système lors du submit
-  DOCTORS = Doctor.all.map do |doctor|
-    ["#{doctor.title.capitalize} #{doctor.name.capitalize}", "#{doctor.id}"]
+  DOCTORS = Doctor.all.sort_by { |doctor| doctor.name }.map do |doctor| # J'ai trié par ordre alphabétique!
+    ["#{doctor.title.capitalize}  #{doctor.name.capitalize}", "#{doctor.id}"]
   end
 end

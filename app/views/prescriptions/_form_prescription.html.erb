@@ -3,8 +3,7 @@
     <%= simple_form_for prescription,
           html: {
             data: {controller: "form flatpickr-prescription" }
-          }
-          do |f|
+          } do |f|
     %>
     <%= f.input :treatment_category, # Attr_accessor pour pas que le f.input plus loin le remplace et décoche. Nom factice
               label: "",
