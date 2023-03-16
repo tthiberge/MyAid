@@ -2,6 +2,14 @@
 
 require 'open-uri'
 require 'net/https'
+require 'openssl'
+OpenSSL::SSL::VERIFY_PEER = OpenSSL::SSL::VERIFY_NONE if Rails.env.development?
+
+OpenWeather.configure do |config|
+  config.api_key = ENV['OPENWEATHER_API_KEY']
+  config.adapter = Faraday.default_adapter
+  config.http_adapter.ssl.verify = true
+end
 
 module Net
   class HTTP
@@ -15,7 +23,7 @@ module Net
   end
 end
 
-# https://stackoverflow.com/a/16983443 
+# https://stackoverflow.com/a/16983443
 
 
 OPENWEATHER_CLIENT = OpenWeather::Client.new(
