@@ -8,7 +8,7 @@ export default class extends Controller {
     Swal.fire({
       position: 'top-end',
       icon: 'success',
-      title: 'Great! you took the pills',
+      title: 'Great! You took your pills!',
       showConfirmButton: false,
       timer: 2500
     })

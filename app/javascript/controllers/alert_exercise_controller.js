@@ -9,7 +9,7 @@ export default class extends Controller {
       position: 'top-end',
       confirmButtonColor: "#04E25D",
       icon: 'success',
-      title: 'Wow you finished exercise. Congrats',
+      title: "Wow You've exercise! Congrats!",
       showConfirmButton: false,
       timer: 2500
     })
