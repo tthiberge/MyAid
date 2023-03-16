@@ -10,7 +10,7 @@ export default class extends Controller {
       icon: 'success',
       title: 'I met my Doctor',
       showConfirmButton: false,
-      timer: 2500
+      timer: 2100
     })
   }
 }

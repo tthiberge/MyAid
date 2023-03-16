@@ -10,7 +10,7 @@ export default class extends Controller {
       icon: 'success',
       title: "Great! You've done your cares!",
       showConfirmButton: false,
-      timer: 2500
+      timer: 2100
     })
   }
 }
