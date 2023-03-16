@@ -46,6 +46,9 @@ application.register("init-tom-select", InitTomSelectController)
 import LoadImageController from "./load_image_controller"
 application.register("load-image", LoadImageController)
 
+import MapController from "./map_controller"
+application.register("map", MapController)
+
 import NavbarController from "./navbar_controller"
 application.register("navbar", NavbarController)
 

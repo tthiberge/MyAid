@@ -14,8 +14,18 @@ class AppointmentsController < ApplicationController
     begin
       @weather=OPENWEATHER_CLIENT.current_weather(lat: @appointment.doctor.latitude, lon: @appointment.doctor.longitude)
       @icon=OPENWEATHER_CLIENT.current_weather(weather.first.icon)
-    rescue StandardError
+      rescue StandardError
     end
+
+    @doctor = @appointment.doctor
+
+    @markers = [ {
+      lat: @doctor.latitude,
+      lng: @doctor.longitude
+    }
+    ]
+
+
   end
 
   def new
@@ -59,11 +69,9 @@ class AppointmentsController < ApplicationController
     end
   end
 
-
   def confirm
     @appointment = Appointment.find(params[:id])
     @appointment.is_done = true
-
 
     if @appointment.save
       flash[:notify] = "Bravo you got appointment with doctor well"
