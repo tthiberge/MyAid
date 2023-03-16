@@ -18,7 +18,7 @@
 
   <div class="prescriptions-cards px-3">
     <div class="card-pill-appointment-show">
-      <div class="px-3 title-wrap w-100">
+      <div class="px-3 title-wrap">
         <div class="circle">
           <p class="time"><%=@appointment.appointment_hour%>:<%=@appointment.appointment_min == 0 ? "00" : "30" %></p>
           <p class="time"><span class="time-small">AM</span></p>
@@ -50,7 +50,7 @@
 
   <div class="prescriptions-cards px-3">
     <div class="card-pill">
-      <div class="px-3 title-wrap w-100">
+      <div class="px-3 title-wrap">
         <div class="circle">
           <i class="fa-solid fa-note-sticky w-30"></i>
         </div>
@@ -83,9 +83,8 @@
     </div>
   </div>
 
-  <div class="px-3">
-    <div class="card-pill map-location">
-      <div class="px-3 title-wrap w-100">
+  <div class="px-3 prescriptions-cards-map mt-4">
+      <div class="px-3 title-wrap">
         <div class="circle">
           <i class="fa-solid fa-location-dot"></i>
         </div>
@@ -94,6 +93,11 @@
           <h1>Location</h1>
         </div>
       </div>
+    <div class="card-pill map-location" style="width: 100%;"
+      data-controller="map"
+      data-map-markers-value="<%= @markers.to_json %>"
+      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+    </div>
       <div class="time-to-destination">
         <h1>Time to destination</h1>
         <p><i class="fa-solid fa-car"></i> 30 minutes</p>
@@ -101,12 +105,11 @@
         <p><i class="fa-solid fa-person-biking"></i> 30 minutes</p>
         <p><i class="fa-solid fa-person-walking"></i>  60 minutes</p>
       </div>
-    </div>
   </div>
   <% if @weather %>
     <div class="prescriptions-cards px-3">
-      <div class="card-pill">
-        <div class="px-3 title-wrap w-100">
+      <div class="card-pill-weather">
+        <div class="px-3 title-wrap">
           <div class="circle">
             <i class="fa-solid fa-cloud-sun"></i>
           </div>
@@ -114,40 +117,39 @@
           <div class="card-title">
             <h1>Weather</h1>
           </div>
-
         </div>
 
-        <div class= "weatherapi">
-        <div class="cityname-weather">
-          <h1 id="weather-name-api"><%= @weather.name%></h1>
-        </div>
-            <div class="degreeicon">
-              <div class="degree">
-                  <h1><strong><%= @weather.main.temp_max_c.to_i %>&deg</strong></h1>
+        <div class="d-flex justify-content-center">
+          <div class= "weather-widget">
+            <div>
+              <h1><%= @weather.name%></h1>
+            </div>
+            <div class="weather-icons-temperature">
+              <div>
+                <%= image_tag(@weather.weather.first["icon_uri"].to_s) %>
               </div>
-                  <div class="weathericon">
-                        <%= image_tag(@weather.weather.first["icon_uri"].to_s) %>
-                  </div>
-                   <div class="weatherdescription">
-                <p>Previsions for your appointment <strong><%= @weather.weather.first.description%> </strong> </p>
-                
+              <div class="mr-4">
+                <h1><strong><%= @weather.main.temp_max_c.to_i %>&deg</strong></h1>
+              </div>
             </div>
+            <div>
+              <h3><strong><%= @weather.weather.first.description.capitalize%> </strong> </h3>
             </div>
 
-          </div>
 
-          <div class="weather-advice">
-            <% if @weather.main.temp_max_c < 10 %>
-              <p>The weather would be cold. Please wear warm clothing!</p>
-            <% elsif @weather.weather.first.main == "Rain" %>
-              <p>It gonna be raining outside. Please take an umbrella with you!</p>
-            <% elsif @weather.weather.first.main == "Clear" %>
-              <p>The weather would be sunny. Enjoy the sunshine!</p>
-            <% else %>
-              <p>The weather is <%= @weather.weather.first.main %>. Please prepare accordingly.</p>
-            <% end %>
+            <div class="weather-decription">
+              <% if @weather.main.temp_max_c < 10 %>
+                <p>The weather would be cold. Please wear warm clothing!</p>
+              <% elsif @weather.weather.first.main == "Rain" %>
+                <p>It gonna be raining outside. Please take an umbrella with you!</p>
+              <% elsif @weather.weather.first.main == "Clear" %>
+                <p>The weather would be sunny. Enjoy the sunshine!</p>
+              <% else %>
+                <p>The weather is <%= @weather.weather.first.main %>. Please prepare accordingly.</p>
+              <% end %>
+            </div>
           </div>
-
+        </div>
       </div>
     </div>
   <% end %>

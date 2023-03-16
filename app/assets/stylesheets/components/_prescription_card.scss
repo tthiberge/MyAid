@@ -127,7 +127,10 @@
   position: absolute;
   top: -30px;
   // width: 100%;
-  left: 0;
+  left: 13px;
+  z-index: 100;
+
+  width: 90%;
 }
 
 .card-title {
@@ -316,14 +319,16 @@ h1 {
 }
 
 .map-location {
-  background-image: url("map.jpeg");
-  background-size: cover;
-  background-repeat: no-repeat;
+  // background-image: url("map.jpeg");
+  // background-size: cover;
+  // background-repeat: no-repeat;
   height: 400px;
 }
 
 .time-to-destination {
-  justify-content: center;
+  position: absolute;
+  top: 312px;
+  left: 40px;
   border: solid;
   border-width: medium;
   border-color: #D2C5E1;
@@ -331,5 +336,22 @@ h1 {
   background-color: #ffffff;
   filter: drop-shadow(0px 4px 4px #EBEBF2);
   padding: 12px 28px;
-  margin-top: 70%;
+  // margin-top: 70%;
+  z-index: 100;
+
+  h1 {
+    font-size: 16px;
+    color: purple;
+    font-weight: 600;
+    margin-bottom: 5px;
+  }
+}
+
+.prescriptions-cards-map{
+  position: relative;
+  .title-wrap{
+    top: 33px !important;
+    width: 80%;
+    left: 40px;
+  }
 }

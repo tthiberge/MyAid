@@ -38,7 +38,7 @@
     <% @appointments_not_done.each do |appointment| %>
       <%= link_to appointment_path(appointment) do %>
         <div class="card-pill-appointment">
-          <div class="px-3 title-wrap w-100">
+          <div class="px-3 title-wrap">
 
             <div class="circle">
               <p class="time"><%= appointment.appointment_hour %>:<%= appointment.appointment_min == 0 ? "00" : appointment.appointment_min %></p>
@@ -108,7 +108,7 @@
     <% @appointments_done.each do |appointment| %>
       <%= link_to appointment_path(appointment) do %>
         <div class="card-pill-appointment-confirmed">
-          <div class="px-3 title-wrap w-100">
+          <div class="px-3 title-wrap">
             <div class="circle">
               <p class="time"><%=appointment.appointment_hour%>:<%=appointment.appointment_min == 0 ? "00" : "30" %></p>
               <p class="time"><span class="time-small"><%= appointment.day_half %></span></p>
