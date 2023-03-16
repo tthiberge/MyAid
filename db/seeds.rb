@@ -127,7 +127,7 @@ appointment7 = Appointment.create(date: Date.today, comment: "Global check-up to
 
 #appointments for demo day
 appointment8 = Appointment.create(date: Date.today, comment: "Post Op checking, ask when I can do sport again ", user: diane, doctor: doctor8, appointment_hour: 6, appointment_min: 30, day_half: "PM" )
-appointment9 = Appointment.create(date: Date.parse('18/03/2023'), comment: "The nurse will show me how to change the bandage", user: diane, doctor: doctor9, appointment_hour: 10, appointment_min: 30, day_half: "AM" )
+appointment9 = Appointment.create(date: Date.tomorrow, comment: "The nurse will show me how to change the bandage", user: diane, doctor: doctor9, appointment_hour: 10, appointment_min: 30, day_half: "AM" )
 
 
 #diaries seed
