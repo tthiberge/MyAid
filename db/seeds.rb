@@ -24,7 +24,7 @@ amoxiciline = Treatment.create!(name:"amoxicillin (antibiotic)", category: "pill
 bandage = Treatment.create!(name: "bandage", category: "cares")
 cream = Treatment.create!(name: "skin cream on burn", category: "cares")
 bath = Treatment.create!(name: "feet bath", category: "cares")
-betadine = Treatment.create!(name: "betadine, neutral cleanser", category: "cares")
+betadine = Treatment.create!(name: "betadine", category: "cares")
 
 meditation = Treatment.create!(name: "meditation", category: "exercises")
 relaxation = Treatment.create!(name: "relaxation", category: "exercises")
@@ -69,46 +69,66 @@ maung = User.create!(
 
 # Creating the prescriptions
 
-prescription_1 = Prescription.create!(start_date: "10/03/2023", end_date: "20/03/2023", todo_hours: 11, todo_minutes: 30, day_half: "AM", comment: "2 x 500mg - Take the pills before the main meal of the day", user: diane, treatment: paracetamol, taken_date: Date.today)
+prescription_1 = Prescription.create!(start_date: "10/03/2023", end_date: "20/03/2023", todo_hours: 11, todo_minutes: 30, day_half: "AM", comment: "2 x 500mg - Take the pills before the main meal of the day", user: theo, treatment: paracetamol, taken_date: Date.today)
 
-prescription_2 = Prescription.create!(start_date: "07/03/2023", end_date: "17/03/2023", todo_hours: 9, todo_minutes: 00,  day_half: "PM", comment: "3 x 125mg - Take the pills before going to sleep", user: diane, treatment: tylenol, taken_date: Date.today)
+prescription_2 = Prescription.create!(start_date: "07/03/2023", end_date: "17/03/2023", todo_hours: 9, todo_minutes: 00,  day_half: "PM", comment: "3 x 125mg - Take the pills before going to sleep", user: theo, treatment: tylenol, taken_date: Date.today)
 
-prescription_5 = Prescription.create!(start_date: "17/03/2023", end_date: "21/03/2023", todo_hours: 1, todo_minutes: 00, day_half: "PM",  comment: "4 x 250mg - Take during the meal", user: diane, treatment: muscadol)
+prescription_5 = Prescription.create!(start_date: "17/03/2023", end_date: "21/03/2023", todo_hours: 1, todo_minutes: 00, day_half: "PM",  comment: "4 x 250mg - Take during the meal", user: theo, treatment: muscadol)
 
-prescription_3 = Prescription.create!(start_date: "02/03/2023", end_date: "22/03/2023", todo_hours: 10, todo_minutes: 00, day_half: "AM",  comment: "1 x 250mg - In the morning ", user: diane, treatment: amoxiciline)
+prescription_3 = Prescription.create!(start_date: "02/03/2023", end_date: "22/03/2023", todo_hours: 10, todo_minutes: 00, day_half: "AM",  comment: "1 x 250mg - In the morning ", user: theo, treatment: amoxiciline)
 
-prescription_6 = Prescription.create!(start_date: "04/03/2023", end_date: "19/03/2023", todo_hours: 4, todo_minutes: 00, day_half: "PM",  comment: "1 x 500mg - Take in the afternoon", user: diane, treatment: targin)
+prescription_6 = Prescription.create!(start_date: "04/03/2023", end_date: "19/03/2023", todo_hours: 4, todo_minutes: 00, day_half: "PM",  comment: "1 x 500mg - Take in the afternoon", user: theo, treatment: targin)
 
-prescription_4 = Prescription.create!(start_date: "03/03/2023", end_date: "18/03/2023", todo_hours: 11, todo_minutes: 00, day_half: "AM",  comment: "2 tablets - Take with a fair amount of water", user: diane, treatment: relaxon)
+prescription_4 = Prescription.create!(start_date: "03/03/2023", end_date: "18/03/2023", todo_hours: 11, todo_minutes: 00, day_half: "AM",  comment: "2 tablets - Take with a fair amount of water", user: theo, treatment: relaxon)
 
-prescription_7 = Prescription.create!(start_date: "03/03/2023", end_date: "18/03/2023", todo_hours: 10, todo_minutes: 00, day_half: "PM",  comment: "Apply a fair amount on the burnt area before going to bed", user: diane, treatment: cream)
+prescription_7 = Prescription.create!(start_date: "03/03/2023", end_date: "18/03/2023", todo_hours: 10, todo_minutes: 00, day_half: "PM",  comment: "Apply a fair amount on the burnt area before going to bed", user: theo, treatment: cream)
 
-prescription_8 = Prescription.create!(start_date: "15/03/2023", end_date: "27/03/2023", todo_hours: 7, todo_minutes: 00, day_half: "PM",  comment: "During your shower, instead of the current shower gel and shampoo", user: diane, treatment: betadine)
+prescription_8 = Prescription.create!(start_date: "15/03/2023", end_date: "27/03/2023", todo_hours: 7, todo_minutes: 00, day_half: "PM",  comment: "During your shower, instead of the current shower gel and shampoo", user: theo, treatment: betadine)
 
-prescription_9 = Prescription.create!(start_date: "04/03/2023", end_date: "19/03/2023", todo_hours: 2, todo_minutes: 00, day_half: "PM",  comment: "Spend around 30 min outdoors to exercise", user: diane, treatment: dynamic_walk)
+prescription_9 = Prescription.create!(start_date: "04/03/2023", end_date: "19/03/2023", todo_hours: 2, todo_minutes: 00, day_half: "PM",  comment: "Spend around 30 min outdoors to exercise", user: theo, treatment: dynamic_walk)
 
-prescription_10 = Prescription.create!(start_date: "14/03/2023", end_date: "19/03/2023", todo_hours: 9, todo_minutes: 00, day_half: "AM",  comment: "Save a 1h-time slot to practice meditation to relax and accept the present time", user: diane, treatment: meditation)
+prescription_10 = Prescription.create!(start_date: "14/03/2023", end_date: "19/03/2023", todo_hours: 9, todo_minutes: 00, day_half: "AM",  comment: "Save a 1h-time slot to practice meditation to relax and accept the present time", user: theo, treatment: meditation)
 
+
+#prescriptions for demo day
+prescription_12 = Prescription.create!(start_date: "16/03/2023", end_date: "30/03/2023", todo_hours: 2, todo_minutes: 30, day_half: "PM", comment: "2 x 500mg - Take the pills with a huge glass of water", user: diane, treatment: paracetamol, taken_date: Date.today)
+prescription_13 = Prescription.create!(start_date: "16/03/2023", end_date: "30/03/2023", todo_hours: 6, todo_minutes: 30, day_half: "PM", comment: "2 x 500mg - Take the pills with a huge glass of water", user: diane, treatment: paracetamol)
+prescription_14 = Prescription.create!(start_date: "16/03/2023", end_date: "30/03/2023", todo_hours: 10, todo_minutes: 30, day_half: "PM", comment: "2 x 500mg - Take the pills with a huge glass of water", user: diane, treatment: paracetamol)
+prescription_15 = Prescription.create!(start_date: "16/03/2023", end_date: "23/03/2023", todo_hours: 4, todo_minutes: 30, day_half: "PM", comment: "1 x 1000mg - Don't mix this pill with alcool", user: diane, treatment: amoxiciline)
+prescription_16 = Prescription.create!(start_date: "14/03/2023", end_date: "15/03/2023", todo_hours: 9, todo_minutes: 00, day_half: "AM", comment: "2 x 500 mg - Don't mix this pill with alcool", user: diane, treatment: codeine)
+prescription_17 = Prescription.create!(start_date: "16/03/2023", end_date: "23/03/2023", todo_hours: 9, todo_minutes: 00, day_half: "PM", comment: "Use it instead of your current shower gel", user: diane, treatment: betadine)
+prescription_18 = Prescription.create!(start_date: "16/03/2023", end_date: "30/03/2023", todo_hours: 10, todo_minutes: 30, day_half: "AM", comment: "Disinfect the wound and make sure it's dry before to change the bandage", user: diane, treatment: bandage, taken_date: Date.today)
+prescription_19 = Prescription.create!(start_date: "16/03/2023", end_date: "30/03/2023", todo_hours: 5, todo_minutes: 00, day_half: "PM", comment: "around 15 minutes to prevent phlebitis", user: diane, treatment: gentle_walk)
+prescription_20 = Prescription.create!(start_date: "16/03/2023", end_date: "30/03/2023", todo_hours: 10, todo_minutes: 00, day_half: "PM", comment: "meditate to accept and fight the pain", user: diane, treatment: meditation)
 
 # creating doctors
+doctor1 = Doctor.create!(title: "Dr.", name: "Doe", specialty: "Surgeon", address: "1 Av. Claude Vellefaux, 75010 Paris", latitude: 37.7749, longitude: -122.4194, user: theo)
+doctor2 = Doctor.create!(title: "Nrs.", name: "Smith", specialty: "Pediatrics", address: "6 Rue de Jarente, 75004 Paris", latitude: 37.7749, longitude: -122.4194, user: theo)
+doctor3 = Doctor.create!(title: "Dr.", name: "Johnson", specialty: "Ophthalmologist", address: "104 Bd Saint-Germain, 75006 Paris", latitude: 37.7749, longitude: -122.4194, user: theo)
+doctor4 = Doctor.create!(title: "Pr.", name: "Malek", specialty: "Cardiologist", address: "92 Av. de la République, 75011 Paris", latitude: 37.7749, longitude: -122.4194, user: theo)
+doctor5 = Doctor.create!(title: "Dr.", name: "Hendricks", specialty: "Dermatology", address: "61 Av. Franklin Delano Roosevelt, 75008 Paris", latitude: 37.7749, longitude: -122.4194, user: theo)
+doctor6 = Doctor.create!(title: "Pr.", name: "Donovan", specialty: "General", address: "68 Rue Pernety, 75014 Paris", latitude: 37.7749, longitude: -122.4194, user: theo)
+doctor7 = Doctor.create!(title: "Pr.", name: "Pilgert", specialty: "Cancer", address: "184 Rue du Faubourg Saint-Antoine, 75012 Paris", latitude: 37.7749, longitude: -122.4194, user: theo)
 
+#doctors for demo day
+doctor8 = Doctor.create!(title: "Dr.", name: "Estegassy", specialty: "Post Op", address: "1 Av. Claude Vellefaux, 75010 Paris", latitude: 37.7749, longitude: -122.4194, user: diane)
+doctor9 = Doctor.create!(title: "Nrs.", name: "Hawks", specialty: "Post Op Care", address: "102 Rue Saint-Maur, 75011 Paris", latitude: 37.7749, longitude: -122.4194, user: diane)
 
-doctor1 = Doctor.create!(title: "Dr.", name: "Doe", specialty: "Surgeon", address: "1 Av. Claude Vellefaux, 75010 Paris", latitude: 37.7749, longitude: -122.4194, user: diane)
-doctor2 = Doctor.create!(title: "Nrs.", name: "Smith", specialty: "Pediatrics", address: "6 Rue de Jarente, 75004 Paris", latitude: 37.7749, longitude: -122.4194, user: diane)
-doctor3 = Doctor.create!(title: "Dr.", name: "Johnson", specialty: "Ophthalmologist", address: "104 Bd Saint-Germain, 75006 Paris", latitude: 37.7749, longitude: -122.4194, user: diane)
-doctor4 = Doctor.create!(title: "Pr.", name: "Malek", specialty: "Cardiologist", address: "92 Av. de la République, 75011 Paris", latitude: 37.7749, longitude: -122.4194, user: diane)
-doctor5 = Doctor.create!(title: "Dr.", name: "Hendricks", specialty: "Dermatology", address: "61 Av. Franklin Delano Roosevelt, 75008 Paris", latitude: 37.7749, longitude: -122.4194, user: diane)
-doctor6 = Doctor.create!(title: "Pr.", name: "Donovan", specialty: "General", address: "68 Rue Pernety, 75014 Paris", latitude: 37.7749, longitude: -122.4194, user: diane)
-doctor7 = Doctor.create!(title: "Pr.", name: "Pilgert", specialty: "Cancer", address: "184 Rue du Faubourg Saint-Antoine, 75012 Paris", latitude: 37.7749, longitude: -122.4194, user: diane)
 
 # Appointments
-appointment1 = Appointment.create(date: Date.parse('11/12/2023'), comment: "Meeting with the surgeon to prepare the operation of next month. Should last around 45min", user: diane, doctor: doctor1, appointment_hour: 8, appointment_min: 30, day_half: "AM" )
-appointment2 = Appointment.create(date: Date.today, comment: "The nurse will show me how to do the injections after the operation", user: diane, doctor: doctor2, appointment_hour: 10, appointment_min: 30, day_half: "AM" )
-appointment3 = Appointment.create(date: Date.today, comment: "Yearly meeting with the ophtalmologist in order to see how my sight has evolved. Ask for the new glasses prescription!", user: diane, doctor: doctor3, appointment_hour: 4, appointment_min: 30, day_half: "PM" )
-appointment4 = Appointment.create(date: Date.today, comment: "General checkup. He is replacing Dr Linda for the next months because she is pregnant.", user: diane, doctor: doctor4, appointment_hour: 1, appointment_min: 30, day_half: "PM" )
-appointment5 = Appointment.create(date: Date.today, comment: "Yearly check-up. I should ask her regarding the different suncreams I've seen online that seem to be more ecological. Can they be trusted?", user: diane, doctor: doctor5, appointment_hour: 3, appointment_min: 0, day_half: "PM" )
-appointment6 = Appointment.create(date: Date.today, comment: "Show her your latest blood test results. It seems that you're a bit low in iron", user: diane, doctor: doctor6, appointment_hour: 11, appointment_min: 30, day_half: "AM" )
-appointment7 = Appointment.create(date: Date.today, comment: "Global check-up to make sure I don't have any hereditary risks.", user: diane, doctor: doctor7, appointment_hour: 7, appointment_min: 30, day_half: "PM" )
+appointment1 = Appointment.create(date: Date.parse('11/12/2023'), comment: "Meeting with the surgeon to prepare the operation of next month. Should last around 45min", user: theo, doctor: doctor1, appointment_hour: 8, appointment_min: 30, day_half: "AM" )
+appointment2 = Appointment.create(date: Date.today, comment: "The nurse will show me how to do the injections after the operation", user: theo, doctor: doctor2, appointment_hour: 10, appointment_min: 30, day_half: "AM" )
+appointment3 = Appointment.create(date: Date.today, comment: "Yearly meeting with the ophtalmologist in order to see how my sight has evolved. Ask for the new glasses prescription!", user: theo, doctor: doctor3, appointment_hour: 4, appointment_min: 30, day_half: "PM" )
+appointment4 = Appointment.create(date: Date.today, comment: "General checkup. He is replacing Dr Linda for the next months because she is pregnant.", user: theo, doctor: doctor4, appointment_hour: 1, appointment_min: 30, day_half: "PM" )
+appointment5 = Appointment.create(date: Date.today, comment: "Yearly check-up. I should ask her regarding the different suncreams I've seen online that seem to be more ecological. Can they be trusted?", user: theo, doctor: doctor5, appointment_hour: 3, appointment_min: 0, day_half: "PM" )
+appointment6 = Appointment.create(date: Date.today, comment: "Show her your latest blood test results. It seems that you're a bit low in iron", user: theo, doctor: doctor6, appointment_hour: 11, appointment_min: 30, day_half: "AM" )
+appointment7 = Appointment.create(date: Date.today, comment: "Global check-up to make sure I don't have any hereditary risks.", user: theo, doctor: doctor7, appointment_hour: 7, appointment_min: 30, day_half: "PM" )
+
+
+#appointments for demo day
+appointment8 = Appointment.create(date: Date.parse('17/03/2023'), comment: "Post Op checking, ask when I can do sport again ", user: diane, doctor: doctor8, appointment_hour: 6, appointment_min: 30, day_half: "PM" )
+appointment9 = Appointment.create(date: Date.parse('18/03/2023'), comment: "The nurse will show me how to change the bandage", user: diane, doctor: doctor9, appointment_hour: 10, appointment_min: 30, day_half: "AM" )
+
 
 #diaries seed
 # t.integer "pain_scale"
@@ -122,9 +142,9 @@ appointment7 = Appointment.create(date: Date.today, comment: "Global check-up to
 # Diary
 diary1 = Diary.create!(pain_scale: 8, motivation_scale: 2, daily_feeling: "I am suffering a lot today, I am trying to fight the pain but it's hard because I am so exausted", user: diane, date: Date.today)
 diary2 = Diary.create!(pain_scale: 7, motivation_scale: 3, daily_feeling: "I am suffering a bit less than yesterday, it gives me hope", user: diane, date: Date.today )
-diary3 = Diary.create!(pain_scale: 8, motivation_scale: 3, daily_feeling: "The real pain is back but I am seeing my children today so I already feel better", user: diane, date: Date.today )
-diary4 = Diary.create!(pain_scale: 7, motivation_scale: 5, daily_feeling: "I went out for the first time today, it's a victory", user: diane, date: Date.today )
-diary5 = Diary.create!(pain_scale: 6, motivation_scale: 5, daily_feeling: "I am starting physiotherapy today, I am really tired but I am happy to be able to start ", user: diane, date: Date.today )
+diary3 = Diary.create!(pain_scale: 8, motivation_scale: 3, daily_feeling: "The real pain is back but I am seeing my friends today so I already feel better", user: diane, date: Date.today )
+diary4 = Diary.create!(pain_scale: 7, motivation_scale: 5, daily_feeling: "I went out for the first time today, it's so cool to be able to go outside again", user: diane, date: Date.today )
+diary5 = Diary.create!(pain_scale: 6, motivation_scale: 5, daily_feeling: "I feel tired but I am happy the scarf looks great ", user: diane, date: Date.today )
 
 # Motivational quotes
 quote1 = Quote.create!(motivational_quote: "Healing requires from us to stop struggling, but to enjoy life more and endure it less.", author: "Darina Stoyanova")
