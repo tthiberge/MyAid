@@ -18,23 +18,6 @@
   font-family: 'Inter', sans-serif;
   color: red;
   background-color: transparent;
-
-  .today .d-day {
-    flex-basis: calc(100% / 7 - 20px) !important;
-    text-align: center !important;
-    border-radius: 15px !important;
-    background-color: #76157B !important;
-    color: white !important;
-    height: 10vh !important;
-    width: 10vw !important;
-    min-width: 10vw !important;
-    font-size: 14px !important;
-    line-height: 1.2 !important;
-    filter: drop-shadow(0px 4px 4px #76157B) !important;
-    border: #76157B;
-    border-width: 2px !important;
-  }
-
 }
 
 .simple-calendar-day {
@@ -42,7 +25,7 @@
   text-align: center;
   border-radius: 15px;
   background-color: white;
-  height: 10vh;
+  height: 8vh;
   width: 10vw;
   min-width: 10vw;
   font-size: 14px;
@@ -51,7 +34,7 @@
 }
 
 .day-number {
-  font-size: 24px; /* adjust the font size to your liking */
+  font-size: 20px; /* adjust the font size to your liking */
 }
 
 .day-name {
@@ -120,11 +103,13 @@
     -webkit-border-horizontal-spacing: 0px;
     -webkit-border-vertical-spacing: 0px;
     background-color: rgba(0, 0, 0, 0);
-    border: 1px solid #dddddd;
     border-collapse: collapse;
     box-sizing: border-box;
-    max-width: 100%;
-    width: 100%;
+    max-width: 90%;
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
   }
 
   body {
@@ -132,11 +117,6 @@
     size: 16px;
   }
 
-
-.my-calendar .today {
-  background: transparent;
-  color:#333 ;
-}
 
 .my-calendar .prev-month {
   background:white;
@@ -163,13 +143,6 @@
   border: solid;
   border-width: 3px;
   border-color: #606060;
-}
-
-.my-calendar-title {
-  font-size: x-large;
-  font-family: 'Inter', sans-serif;
-  color: #76157B;
-  justify-content: center;
 }
 
 .my-calendar th {
@@ -316,10 +289,6 @@
   justify-content: center;
 }
 
-.my-calendar-table {
-  font-size: 12px; /* Change the size to your liking */
-}
-
 
 .my-calendar th {
   color: #76157B;
@@ -342,10 +311,7 @@
     background: white;
     border-radius: 15px;
 }
-.my-calendar .today {
-    background: transparent;
-    color: #333;
-}
+
 .my-calendar .has-events {
     background-color: #EBEBF2;
 }
@@ -357,21 +323,9 @@
     color: #333;
 }
 .my-calendar .day {
-    padding: 5px;
+    padding: 2px;
     border: 1px solid transparent;
     text-align: center;
-}
-
-.my-calendar table {
-  -webkit-border-horizontal-spacing: 0px;
-  -webkit-border-vertical-spacing: 0px;
-  background-color: rgba(0, 0, 0, 0);
-  /* border: 1px solid #dddddd; */
-  border-collapse: collapse;
-  box-sizing: border-box;
-  max-width: 600px;
-  margin: 0 auto;
-  width: 40%;
 }
 
 .my-calendar .has-events {
@@ -393,12 +347,81 @@
   border-radius: 15px;
 }
 
+.today .d-day {
+  border: 0px solid #EBEBF2 !important;
+
+  .d-day {
+    background-color:#76157B !important;
+
+    .day-name {
+    color: white;
+    }
+
+    .day-number {
+      color: white;
+      }
+  }
+}
+
+.my-calendar td .d-day {
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  justify-items: center;
+  background-color: white;
+  color: #76157B;
+  border-radius: 15px;
+  padding: 8px;
+  margin: 3px;
+  height: 8vh;
+}
+
+.fa-caret-left {
+  font-size: 20px;
+  padding-right: 5px
+}
+
+.fa-caret-right {
+  font-size: 20px;
+  padding-left: 5px
+}
+
+.today .simple-calendar-day {
+  background-color: #76157B !important;
+}
+
+.today .day-number {
+  color: white !important;
+}
+
+.today .day-name {
+  color: white !important;
+}
+
+.today .d-day {
+  background-color: #76157B !important;
+}
+
+
 .my-calendar-heading {
   font-size: 26px;
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-inline: 3px
   i {
     margin-inline: 15px;
   }
+}
+
+.my-calendar-title {
+  font-size: x-large;
+  font-family: 'Inter', sans-serif;
+  color: #76157B;
+  display: flex;
+  justify-content: center;
+}
+
+.my-calendar-table {
+  font-size: 12px; /* Change the size to your liking */
 }

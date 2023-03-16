@@ -1,7 +1,11 @@
-# https://stackoverflow.com/a/33669869/13347249
 
-require 'openssl'
-OpenSSL::SSL::VERIFY_PEER = OpenSSL::SSL::VERIFY_NONE
+
+if ENV["IS_HEROKU"]
+  OpenWeather.configure do |config|
+    config.ca_file = "/usr/lib/ssl/certs/ca-certificates.crt"
+  end
+end
+
 
 
 OPENWEATHER_CLIENT = OpenWeather::Client.new(
