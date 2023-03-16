@@ -39,7 +39,7 @@ class PrescriptionsController < ApplicationController
       @prescription.todo_minutes = params[:prescription][:time_afternoon].split(":").last.to_i
     end
 
-    # POUR ATTRIBUER UN TRAITMENT_ID
+    # POUR ATTRIBUER UN TREATMENT_ID
     if !params[:prescription][:treatment_pill_id].empty? && params[:prescription][:treatment_care_id].empty? && params[:prescription][:treatment_exercise_id].empty?
       @treatment = Treatment.find(params[:prescription][:treatment_pill_id].to_i)
     elsif
@@ -68,19 +68,6 @@ class PrescriptionsController < ApplicationController
   def edit
     @prescription = Prescription.find(params[:id])
     # raise
-    # Pour qu'il se souvienne et pré-selectionne le traitement de la prescription
-    # ⚠️⚠️⚠️⚠️⚠️ Je bug ici sur les edit...
-    if Treatment.find(@prescription.treatment_id).category=="pills"
-      @prescription.treatment_pill_id =  Treatment.find(@prescription.treatment_id)
-    elsif Treatment.find(@prescription.treatment_id).category=="cares"
-      @prescription.treatment_care_id =  Treatment.find(@prescription.treatment_id)
-    else Treatment.find(@prescription.treatment_id).category=="exercises"
-      @prescription.treatment_exercise_id =  Treatment.find(@prescription.treatment_id)
-    end
-
-
-    # Pourquoi ci-dessous ça marche pas
-    # @prescritpion.time = "#{@prescription.todo_hours}:#{@prescription.todo_minutes}"
   end
 
   def update
@@ -88,9 +75,30 @@ class PrescriptionsController < ApplicationController
     @prescription = Prescription.find(params[:id])
 
 
-    @prescription.treatment_pill_id =  Treatment.find(@prescription.treatment_id)
-    # raise
+    # POUR ATTRIBUER UN TREATMENT_ID
+    if !params[:prescription][:treatment_pill_id].empty? && params[:prescription][:treatment_care_id].empty? && params[:prescription][:treatment_exercise_id].empty?
+      @treatment = Treatment.find(params[:prescription][:treatment_pill_id].to_i)
+    elsif
+      params[:prescription][:treatment_pill_id].empty? && !params[:prescription][:treatment_care_id].empty? && params[:prescription][:treatment_exercise_id].empty?
+      @treatment = Treatment.find(params[:prescription][:treatment_care_id].to_i)
+    else
+      params[:prescription][:treatment_pill_id].empty? && params[:prescription][:treatment_care_id].empty? && !params[:prescription][:treatment_exercise_id].empty?
+      @treatment = Treatment.find(params[:prescription][:treatment_exercise_id].to_i)
+    end
+    @prescription.treatment = @treatment
 
+    # Pour attribuer les heures et minutes
+    if params[:prescription][:time_afternoon].empty?
+      @prescription.todo_hours = params[:prescription][:time_morning].split(":").first.to_i
+      @prescription.todo_minutes = params[:prescription][:time_morning].split(":").last.to_i
+    else
+      @prescription.todo_hours = params[:prescription][:time_afternoon].split(":").first.to_i
+      @prescription.todo_minutes = params[:prescription][:time_afternoon].split(":").last.to_i
+    end
+
+    @prescription.comment = params[:prescription][:comment]
+
+    # Pour rediriger vers la bonne page
     if @prescription.save
     # if @prescription.update(prescription_params)
       if @prescription.treatment.category == "pills"
