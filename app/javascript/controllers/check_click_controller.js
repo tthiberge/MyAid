@@ -5,7 +5,9 @@ export default class extends Controller {
 
   static values = {
     category: String,
-    isPersisted: String
+    isPersisted: String,
+    hour: String,
+    dayHalf: String
     // Il récupère ma data-value du formulaire en un type string
     // aucun rapport avec la category du treatment
     }
@@ -21,10 +23,27 @@ export default class extends Controller {
       // console.log(this.element.value) // la valeur value dans le DOM de l'élément qui porte le controller
 
       if (this.element.value.toUpperCase().includes(this.categoryValue.toUpperCase())) {
-        // this.element.checked = true // ça, ça ne faisait que selectionner en violet, mais moi j'avais mis de toggle d-none au CLICK
+        this.element.checked = true // ça, ça ne faisait que selectionner en violet, mais moi j'avais mis de toggle d-none au CLICK
         // Paul dit qu'on peut SIMULER LE CLICK!
         this.element.click()
       }
+
+      // Que pour les heures ce ne soit pas un include mais un egal
+      // if (this.element.value === this.hourValue) {
+      //   if (this.dayHalfValue === "AM") {
+      //     console.log(this.element.value)
+      //     console.log ("heures égales morning")
+      //     console.log(this.hourValue)
+      //     this.element.click()
+      //   } else {
+      //     console.log(this.element.value)
+      //     console.log ("heures égales afternoon")
+      //     console.log(this.hourValue)
+      //     this.element.click()
+      //   }
+      // }
+
+
 
     }
 

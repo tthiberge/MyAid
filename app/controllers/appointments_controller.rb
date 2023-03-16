@@ -47,12 +47,25 @@ class AppointmentsController < ApplicationController
 
   def edit
     @appointment = Appointment.find(params[:id])
+    # Bah ici tout est bon en termes de params
   end
 
   def update
     @appointment = Appointment.find(params[:id])
 
-    if @appointment.update(appointment_params)
+    # Pour assigner l'heure et les minutes
+    if params[:appointment][:time_afternoon].empty?
+      @appointment.appointment_hour = params[:appointment][:time_morning].split(":").first.to_i
+      @appointment.appointment_min = params[:appointment][:time_morning].split(":").last.to_i
+    else
+      @appointment.appointment_hour = params[:appointment][:time_afternoon].split(":").first.to_i
+      @appointment.appointment_min = params[:appointment][:time_afternoon].split(":").last.to_i
+    end
+
+    # Pour assigner le commentaire
+    @appointment.comment = params[:appointment][:comment]
+
+    if @appointment.save
       redirect_to appointments_path, notice: 'Appointment was successfully edited.'
     else
       render :edit, status: :unprocessable_entity
