@@ -22,6 +22,9 @@ application.register("appointment", AppointmentController)
 import CheckClickController from "./check_click_controller"
 application.register("check-click", CheckClickController)
 
+import CheckClickTimeController from "./check_click_time_controller"
+application.register("check-click-time", CheckClickTimeController)
+
 import CheckPrescriptionController from "./check_prescription_controller"
 application.register("check-prescription", CheckPrescriptionController)
 

@@ -125,16 +125,27 @@
           </div>
           <div class="degreeicon">
             <div class="degree">
-                <h1><strong><%= @weather.main.temp_max_c.to_i %>&deg</strong></h1>
+              <h1><strong><%= @weather.main.temp_max_c.to_i %>&deg</strong></h1>
             </div>
             <div class="weathericon">
-                  <%= image_tag(@weather.weather.first["icon_uri"].to_s) %>
+              <%= image_tag(@weather.weather.first["icon_uri"].to_s) %>
             </div>
             <div class="weatherdescription">
-              <p>Previsions for your appointment:</p>
-              <p><strong><%= @weather.weather.first.description%> </strong> </p>
+              <p>Previsions for your appointment <strong><%= @weather.weather.first.description%> </strong> </p>
             </div>
           </div>
+        </div>
+
+        <div class="weather-advice">
+          <% if @weather.main.temp_max_c < 10 %>
+            <p>The weather would be cold. Please wear warm clothing!</p>
+          <% elsif @weather.weather.first.main == "Rain" %>
+            <p>It gonna be raining outside. Please take an umbrella with you!</p>
+          <% elsif @weather.weather.first.main == "Clear" %>
+            <p>The weather would be sunny. Enjoy the sunshine!</p>
+          <% else %>
+            <p>The weather is <%= @weather.weather.first.main %>. Please prepare accordingly.</p>
+          <% end %>
         </div>
       </div>
     </div>

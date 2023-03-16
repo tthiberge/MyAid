@@ -144,6 +144,10 @@
                 # Change la couleur des inputs + bk-white + filter shadow
               }
     %>
+  <div data-controller="check-click-time"
+  data-check-click-time-is-persisted-value="<%=prescription.persisted?%>"
+  data-check-click-time-dayhalf-value="<%=prescription&.day_half%>"
+  data-check-click-time-hour-prescription-value="<%= prescription.todo_minutes == 0 ?  "#{prescription&.todo_hours}:#{prescription&.todo_minutes}#{prescription&.todo_minutes}" :  "#{prescription&.todo_hours}:#{prescription&.todo_minutes}"%>">
   <%= f.input :day_half,
             label: "",
             # required: true,
@@ -156,10 +160,12 @@
               class: "card-form category-selector-ampm",
               style: "filter: drop-shadow(0px 4px 4px #EBEBF2);",
               data: {
-                action: "click->form#revealAMPM",
-                controller: "check-click",
-                check_click_category_value: prescription&.day_half,
-                check_click_is_persisted_value: prescription.persisted?
+                check_click_time_target: "dayHalf",
+                # controller: "check-click",
+                # check_click_is_persisted_value: prescription.persisted?,
+                # check_click_time_category_value: prescription&.day_half,
+                # check_click_time_is_persisted_value: prescription.persisted?,
+                action: "click->form#revealAMPM"
               }
             },
             wrapper_html: {
@@ -179,9 +185,12 @@
             },
             input_html: {
               class: "card-form category-selector-hours",
-              data: {controller: "check-click",
-                    check_click_category_value: "#{prescription&.todo_hours}:#{prescription&.todo_minutes}",
-                    check_click_is_persisted_value: prescription.persisted?}
+              data: {
+                    check_click_time_target: "morningHour"
+                    # check_click_hour_value: prescription.todo_minutes == 0 ?  "#{prescription&.todo_hours}:#{prescription&.todo_minutes}#{prescription&.todo_minutes}" :  "#{prescription&.todo_hours}:#{prescription&.todo_minutes}",
+                    # "#{prescription&.todo_hours}:#{prescription&.todo_minutes}",
+                    # check_click_time_day_half_value: "AM"
+                    }
             }
   %>
   <%= f.input :time_afternoon,
@@ -197,11 +206,11 @@
             },
             input_html: {
               class: "card-form category-selector-hours",
-              data: {controller: "check-click",
-                    check_click_category_value: "#{prescription&.todo_hours}:#{prescription&.todo_minutes}",
-                    check_click_is_persisted_value: prescription.persisted?}
+              data: {
+                    check_click_time_target: "afternoonHour"}
             }
   %>
+  </div>
   <%= f.input :comment,
             label: false,
             as: :text,
