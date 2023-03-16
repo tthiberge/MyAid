@@ -7,7 +7,7 @@ export default class extends Controller {
 
 
   reveal(event) {
-    console.log(event.currentTarget.value.includes("Pills"))
+    // console.log(event.currentTarget.value.includes("Pills"))
 
 
     if (event.currentTarget.value === "💊Pills") {
@@ -24,17 +24,17 @@ export default class extends Controller {
       this.exercisesTarget.classList.toggle("d-none")
     }
 
-    console.log("hello")
+    // console.log("hello")
   }
 
   revealAMPM(event) {
-    console.log(event.currentTarget.value)
+    // console.log(event.currentTarget.value)
     if (event.currentTarget.value === "AM") {
-      console.log("je suis dans form AM")
+      // console.log("je suis dans form AM")
       this.morningTarget.classList.remove("d-none")
       this.afternoonTarget.classList.add("d-none")
     } else if (event.currentTarget.value === "PM") {
-      console.log("Je suis dans form PM")
+      // console.log("Je suis dans form PM")
       this.morningTarget.classList.add("d-none")
       this.afternoonTarget.classList.remove("d-none")
     }

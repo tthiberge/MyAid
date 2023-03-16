@@ -6,17 +6,17 @@ export default class extends Controller {
   static targets = ["morning", "afternoon", "form"]
 
   connect() {
-    console.log("Je suis dans appointment controller")
+    // console.log("Je suis dans appointment controller")
   }
 
   revealAMPM(event) {
-    console.log(event.currentTarget.value)
+    // console.log(event.currentTarget.value)
     if (event.currentTarget.value === "AM") {
-      console.log("je suis dans AM")
+      // console.log("je suis dans AM")
       this.morningTarget.classList.remove("d-none")
       this.afternoonTarget.classList.add("d-none")
     } else if (event.currentTarget.value === "PM") {
-      console.log("Je suis dans PM")
+      // console.log("Je suis dans PM")
       this.morningTarget.classList.add("d-none")
       this.afternoonTarget.classList.remove("d-none")
     }
