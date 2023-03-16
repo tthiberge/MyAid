@@ -30,7 +30,7 @@
   }
 }
 
-.features {
+.navbar-features {
   display: flex;
   background-color: white;
   justify-content: space-evenly;
@@ -40,12 +40,16 @@
   bottom: 0;
   box-shadow: 6px 0px 10px rgba(0, 0, 0, 0.25);
   position: fixed;
+  transition: 20s display ease-in-out;
   i {
     color: purple;
     padding: 2px;
     font-size: 28px;
   }
+}
 
+.navbar-features-disapear {
+  display: none;
 }
 
 body {

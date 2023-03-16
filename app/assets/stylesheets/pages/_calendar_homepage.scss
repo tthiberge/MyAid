@@ -34,7 +34,7 @@
 }
 
 .day-number {
-  font-size: 24px; /* adjust the font size to your liking */
+  font-size: 20px; /* adjust the font size to your liking */
 }
 
 .day-name {
@@ -103,11 +103,13 @@
     -webkit-border-horizontal-spacing: 0px;
     -webkit-border-vertical-spacing: 0px;
     background-color: rgba(0, 0, 0, 0);
-    border: 1px solid #dddddd;
     border-collapse: collapse;
     box-sizing: border-box;
-    max-width: 100%;
-    width: 100%;
+    max-width: 90%;
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
   }
 
   body {
@@ -141,14 +143,6 @@
   border: solid;
   border-width: 3px;
   border-color: #606060;
-}
-
-.my-calendar-title {
-  font-size: x-large;
-  font-family: 'Inter', sans-serif;
-  color: #76157B;
-  justify-content: center;
-  position: absolute;
 }
 
 .my-calendar th {
@@ -295,10 +289,6 @@
   justify-content: center;
 }
 
-.my-calendar-table {
-  font-size: 12px; /* Change the size to your liking */
-}
-
 
 .my-calendar th {
   color: #76157B;
@@ -333,21 +323,9 @@
     color: #333;
 }
 .my-calendar .day {
-    padding: 5px;
+    padding: 2px;
     border: 1px solid transparent;
     text-align: center;
-}
-
-.my-calendar table {
-  -webkit-border-horizontal-spacing: 0px;
-  -webkit-border-vertical-spacing: 0px;
-  background-color: rgba(0, 0, 0, 0);
-  /* border: 1px solid #dddddd; */
-  border-collapse: collapse;
-  box-sizing: border-box;
-  max-width: 600px;
-  margin: 0 auto;
-  width: 40%;
 }
 
 .my-calendar .has-events {
@@ -367,16 +345,6 @@
 .my-calendar .next-month {
   background: transparent;
   border-radius: 15px;
-}
-
-.my-calendar-heading {
-  font-size: 26px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  i {
-    margin-inline: 15px;
-  }
 }
 
 .today .d-day {
@@ -409,15 +377,13 @@
 }
 
 .fa-caret-left {
-position: relative;
-top: 54px;
-right: 158px;
+  font-size: 20px;
+  padding-right: 5px
 }
 
 .fa-caret-right {
-  position: relative;
-  top: 54px;
-  left: 158px;
+  font-size: 20px;
+  padding-left: 5px
 }
 
 .today .simple-calendar-day {
@@ -434,4 +400,28 @@ right: 158px;
 
 .today .d-day {
   background-color: #76157B !important;
+}
+
+
+.my-calendar-heading {
+  font-size: 26px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-inline: 3px
+  i {
+    margin-inline: 15px;
+  }
+}
+
+.my-calendar-title {
+  font-size: x-large;
+  font-family: 'Inter', sans-serif;
+  color: #76157B;
+  display: flex;
+  justify-content: center;
+}
+
+.my-calendar-table {
+  font-size: 12px; /* Change the size to your liking */
 }
