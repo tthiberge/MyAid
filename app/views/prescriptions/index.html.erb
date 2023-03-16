@@ -59,32 +59,34 @@
 <h3 class="my-daily-title">
 Find my daily
 </h3>
-<div class="button-container">
 
-<%= link_to pills_path do %>
-  <div class="button pill-button">
-    <span class="button-label">💊Pills</span>
+<div class="d-flex justify-content-center">
+  <div class="button-container">
+
+    <%= link_to pills_path do %>
+      <div class="button pill-button">
+        <span class="button-label">💊Pills</span>
+      </div>
+    <% end %>
+
+    <%= link_to cares_path do %>
+      <div class="button care-button">
+        <span class="button-label">❤️‍🩹Cares</span>
+      </div>
+    <% end %>
+
+    <%= link_to exercises_path do %>
+      <div class="button exercise-button">
+        <span class="button-label">🚴Exercises</span>
+      </div>
+    <% end %>
+
+    <%= link_to appointments_path do %>
+      <div class="button appointment-button">
+        <span class="button-label">🏥Appointments</span>
+      </div>
+    <% end %>
+
   </div>
-<% end %>
-
-<%= link_to cares_path do %>
-  <div class="button care-button">
-    <span class="button-label">❤️‍🩹Cares</span>
-  </div>
-<% end %>
-
-<%= link_to exercises_path do %>
-  <div class="button exercise-button">
-    <span class="button-label">🚴Exercises</span>
-  </div>
-<% end %>
-
-<%= link_to appointments_path do %>
-  <div class="button appointment-button">
-    <span class="button-label">🏥Appointments</span>
-  </div>
-<% end %>
-
 </div>
-
 </div>
