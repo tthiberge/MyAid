@@ -17,6 +17,7 @@ class PrescriptionsController < ApplicationController
 
   def new
     @prescription = Prescription.new
+    # raise
   end
 
   def create
@@ -66,7 +67,7 @@ class PrescriptionsController < ApplicationController
 
   def edit
     @prescription = Prescription.find(params[:id])
-
+    # raise
     # Pour qu'il se souvienne et pré-selectionne le traitement de la prescription
     # ⚠️⚠️⚠️⚠️⚠️ Je bug ici sur les edit...
     if Treatment.find(@prescription.treatment_id).category=="pills"
@@ -109,6 +110,8 @@ class PrescriptionsController < ApplicationController
     @prescription.taken_date = Date.today
 
     if @prescription.save
+      flash[:notify]= "Bravo you got appointment with doctor well"
+
       if @prescription.treatment.category == "pills"
         redirect_to pills_path
       elsif @prescription.treatment.category == "cares"

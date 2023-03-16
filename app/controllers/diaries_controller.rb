@@ -17,7 +17,6 @@ class DiariesController < ApplicationController
   end
 
   def update
-    
     @diary = Diary.find(params[:id])
     @diary.update(pain_scale: params[:diary][:pain_scale], motivation_scale: params[:diary][:motivation_scale], daily_feeling: params[:diary][:daily_feeling])
     if params[:diary][:photo] && @diary.selfy.nil?

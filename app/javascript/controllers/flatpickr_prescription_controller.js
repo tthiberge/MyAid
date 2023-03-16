@@ -8,8 +8,8 @@ export default class extends Controller {
   static targets = ["startDate", "endDate"]
 
   connect() {
-    console.log('hello')
-    
+    // console.log('hello')
+
     flatpickr(this.startDateTarget, {
       mode: "range",
       inline: true,

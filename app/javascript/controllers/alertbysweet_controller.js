@@ -4,18 +4,19 @@ import Swal from 'sweetalert2'
 // Connects to data-controller="alertbysweet"
 export default class extends Controller {
   connect() {
-    console.log('connected')
+    console.log('delete button')
   }
 
   confirm(event) {
     event.preventDefault()
-    console.log('test 12 ')
     Swal.fire({
-      title: 'Delete?',
-      text: 'Do you want to delete?',
+      title: 'Are you sure?',
+      text: 'You do not want to see the doctor?',
       icon: 'error',
+      cancelButtonColor: "#0066CC",
+      confirmButtonColor: "#04E25D",
       showConfirmButton: true,
-      showDenyButton: true
+      showDenyButton: true,
 
     }) .then((confirm)=>{
       if (confirm.isConfirmed ==true){

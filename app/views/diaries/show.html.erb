@@ -18,8 +18,10 @@
     </div>
   </div>
 
-  <div class="day-of-prescription">
-    <h6><strong><%= Date.today.strftime("%A - %B %d, %Y") %></strong><h6>
+  <div class="d-flex justify-content-center pb-3">
+    <div class="day-of-prescription">
+      <h6><strong><%= Date.today.strftime("%A - %B %d, %Y") %></strong></h6>
+    </div>
   </div>
 
   <%= form_with model: @diary, url: diary_path(@diary), turbo_method: :patch, local:true, data: {controller: "load-image"} do |f|%>
@@ -68,6 +70,12 @@
             </div>
           </div>
       </div>
+
+      <div class="diary-smileys d-flex justify-content-between content-wrap">
+        <i class="fa-regular fa-face-frown-open"></i>
+        <i class="fa-regular fa-face-laugh-beam"></i>
+      </div>
+
       <div class="action-wrap">
         <div class="action-go-to-my-boost">
           <%= link_to boost_path do %>

@@ -1,9 +1,11 @@
 <div class="container-form">
-    <%= simple_form_for appointment, html: {class: "fontawesome-arrow", data: {controller: "appointment flatpickr"}} do |f| %>
+    <%= simple_form_for appointment, html: {class: "fontawesome-arrow", data: {controller: "appointment flatpickr", appointment_target: "form"}} do |f| %>
 
       <i class="fa-solid fa-angle-down"></i>
       <%= f.association :doctor,
-                        collection: Doctor.all ,
+                        collection: Appointment::DOCTORS,
+                        label_method: :first,
+                        value_method: :last,
                         prompt: "👩‍⚕️🏥 Select your specialist"  ,
                         label: false,
                         input_html: {
@@ -16,8 +18,8 @@
 
       <%= f.input :date,
                   as: :string,
-                  # as: :date,
-                  # html5: true,
+                  # as: :date, Une des possibilités de f.input
+                  # html5: true, Permet sur un :date d'avoir un calendrier déjà pas mal
                   label: false,
                   wrapper_html: {
                     class: "text-primary"
@@ -27,10 +29,11 @@
                     data: {
                       flatpickr_target: "startDateInput"
                     }
-                  }%>
-        <%= f.input :day_half,
+                  }
+      %>
+      <%= f.input :day_half,
                   label: "",
-                  # required: true,
+                  # required: true, Enlevé pour ne pas avoir l'étoile et faire un label invisible vu qu'il ne prend pas label: falsse...
                   as: :radio_buttons,
                   collection: %w[AM PM],
                   collection_wrapper_tag: 'div',
@@ -39,50 +42,61 @@
                   input_html: {
                     class: "card-form category-selector-ampm",
                     style: "filter: drop-shadow(0px 4px 4px #EBEBF2);",
-                    data: {action: "click->appointment#revealAMPM"}
+                    data: {action: "click->appointment#revealAMPM",
+                          controller: "check-click",
+                          check_click_category_value: appointment&.day_half,
+                          check_click_is_persisted_value: appointment.persisted?}
                   },
                   wrapper_html: {
                     class: "text-primary"
                   }
-        %>
-        <%= f.input :time_morning,
-                  label: "Time slots in the morning:",
-                  # required: true,
-                  # hint: "Select the time",
-                  as: :radio_buttons, # as: :time pour selectionner autant d'heures et minutes qu'on veut!!
-                  collection: Appointment::TIMES_MORNING,
-                  collection_wrapper_tag: 'div',
-                  collection_wrapper_class: 'category-wrapper-hours',
-                  item_wrapper_class: 'category-item-hours',
-                  wrapper_html: {
-                      class: "d-none",
-                      data: {appointment_target: 'morning'}
-                  },
-                  input_html: {
-                    class: "card-form category-selector-hours",
-                  },
-                  label_input: {
-                    style: "font-size: 0.85em;"
+      %>
+      <%= f.input :time_morning,
+                label: "Time slots in the morning:",
+                # required: true,
+                # hint: "Select the time",
+                as: :radio_buttons, # as: :time pour selectionner autant d'heures et minutes qu'on veut!!
+                collection: Appointment::TIMES_MORNING,
+                collection_wrapper_tag: 'div',
+                collection_wrapper_class: 'category-wrapper-hours',
+                item_wrapper_class: 'category-item-hours',
+                wrapper_html: {
+                    class: "d-none",
+                    data: {appointment_target: 'morning'}
+                },
+                input_html: {
+                  class: "card-form category-selector-hours",
+                  data: {controller: "check-click",
+                        check_click_category_value: "#{appointment&.appointment_hour}:#{appointment&.appointment_min}",
+                        check_click_is_persisted_value: appointment.persisted?
                   }
-        %>
-        <%= f.input :time_afternoon,
-                  label: "Time slots in the afternoon:",
-                  # required: true,
-                  # hint: "Select the time",
-                  as: :radio_buttons, # as: :time pour selectionner autant d'heures et minutes qu'on veut!!
-                  collection: Appointment::TIMES_AFTERNOON,
-                  collection_wrapper_tag: 'div',
-                  collection_wrapper_class: 'category-wrapper-hours',
-                  item_wrapper_class: 'category-item-hours',
-                  wrapper_html: {
-                      class: "d-none ",
-                      data: {appointment_target: 'afternoon'}
-                  },
-                  input_html: {
-                    class: "card-form category-selector-hours",
-
+                },
+                label_input: {
+                  style: "font-size: 0.85em;"
+                }
+      %>
+      <%= f.input :time_afternoon,
+                label: "Time slots in the afternoon:",
+                # required: true,
+                # hint: "Select the time",
+                as: :radio_buttons, # as: :time pour selectionner autant d'heures et minutes qu'on veut!!
+                collection: Appointment::TIMES_AFTERNOON,
+                collection_wrapper_tag: 'div',
+                collection_wrapper_class: 'category-wrapper-hours',
+                item_wrapper_class: 'category-item-hours',
+                wrapper_html: {
+                    class: "d-none ",
+                    data: {
+                    appointment_target: 'afternoon',
+                    controller: "check-click",
+                    check_click_category_value: "#{appointment&.appointment_hour}:#{appointment&.appointment_min}",
+                    check_click_is_persisted_value: appointment.persisted?
                   }
-        %>
+                },
+                input_html: {
+                  class: "card-form category-selector-hours",
+                }
+      %>
       <%= f.input :comment,
                   label: false,
                   as: :text,
@@ -92,32 +106,12 @@
                   },
                   input_html: {
                     class: "card-form",
+                    data: {
+                      action: "click->appointment#typeComment"
+                    }
                   }
-                  %>
+      %>
       <%= f.submit "Save", class: "purple-button"%>
     <% end %>
   </div>
 </div>
-
-
-
-      <%#= f.input :appointment_hour,
-                  collection: 8..19,
-                  prompt: "hh",
-                  label:false,
-                  wrapper_html: {
-                    class: "text-primary"
-                  },
-                  input_html: {
-                    class: "card-form",
-                  }%>
-      <%#= f.input :appointment_min,
-                  collection: (0..45).step(15),
-                  prompt: "mm",
-                  label:false,
-                  wrapper_html: {
-                    class: "text-primary"
-                  },
-                  input_html: {
-                    class: "card-form",
-                  } %>

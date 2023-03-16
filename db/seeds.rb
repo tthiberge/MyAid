@@ -85,29 +85,29 @@ prescription_7 = Prescription.create!(start_date: "03/03/2023", end_date: "18/03
 
 prescription_8 = Prescription.create!(start_date: "15/03/2023", end_date: "27/03/2023", todo_hours: 7, todo_minutes: 00, day_half: "PM",  comment: "During your shower, instead of the current shower gel and shampoo", user: diane, treatment: betadine)
 
-prescription_9 = Prescription.create!(start_date: "04/03/2023", end_date: "19/03/2023", todo_hours: 2, todo_minutes: 00, day_half: "PM",  comment: "Save a 1h-time slot to practice meditation to relax and accept the present time", user: diane, treatment: meditation)
+prescription_9 = Prescription.create!(start_date: "04/03/2023", end_date: "19/03/2023", todo_hours: 2, todo_minutes: 00, day_half: "PM",  comment: "Spend around 30 min outdoors to exercise", user: diane, treatment: dynamic_walk)
 
-prescription_10 = Prescription.create!(start_date: "14/03/2023", end_date: "19/03/2023", todo_hours: 2, todo_minutes: 00, day_half: "PM",  comment: "Save a 1h-time slot to practice meditation to relax and accept the present time", user: diane, treatment: meditation)
+prescription_10 = Prescription.create!(start_date: "14/03/2023", end_date: "19/03/2023", todo_hours: 9, todo_minutes: 00, day_half: "AM",  comment: "Save a 1h-time slot to practice meditation to relax and accept the present time", user: diane, treatment: meditation)
 
 
 # creating doctors
 
 
 doctor1 = Doctor.create!(title: "Dr.", name: "Doe", specialty: "Surgeon", address: "1 Av. Claude Vellefaux, 75010 Paris", latitude: 37.7749, longitude: -122.4194, user: diane)
-doctor2 = Doctor.create!(title: "Nurse", name: "Smith", specialty: "Pediatrics", address: "6 Rue de Jarente, 75004 Paris", latitude: 37.7749, longitude: -122.4194, user: diane)
+doctor2 = Doctor.create!(title: "Nrs.", name: "Smith", specialty: "Pediatrics", address: "6 Rue de Jarente, 75004 Paris", latitude: 37.7749, longitude: -122.4194, user: diane)
 doctor3 = Doctor.create!(title: "Dr.", name: "Johnson", specialty: "Ophthalmologist", address: "104 Bd Saint-Germain, 75006 Paris", latitude: 37.7749, longitude: -122.4194, user: diane)
 doctor4 = Doctor.create!(title: "Pr.", name: "Malek", specialty: "Cardiologist", address: "92 Av. de la République, 75011 Paris", latitude: 37.7749, longitude: -122.4194, user: diane)
 doctor5 = Doctor.create!(title: "Dr.", name: "Hendricks", specialty: "Dermatology", address: "61 Av. Franklin Delano Roosevelt, 75008 Paris", latitude: 37.7749, longitude: -122.4194, user: diane)
-doctor6 = Doctor.create!(title: "Nurse", name: "Donovan", specialty: "General", address: "68 Rue Pernety, 75014 Paris", latitude: 37.7749, longitude: -122.4194, user: diane)
+doctor6 = Doctor.create!(title: "Pr.", name: "Donovan", specialty: "General", address: "68 Rue Pernety, 75014 Paris", latitude: 37.7749, longitude: -122.4194, user: diane)
 doctor7 = Doctor.create!(title: "Pr.", name: "Pilgert", specialty: "Cancer", address: "184 Rue du Faubourg Saint-Antoine, 75012 Paris", latitude: 37.7749, longitude: -122.4194, user: diane)
 
 # Appointments
 appointment1 = Appointment.create(date: Date.parse('11/12/2023'), comment: "Meeting with the surgeon to prepare the operation of next month. Should last around 45min", user: diane, doctor: doctor1, appointment_hour: 8, appointment_min: 30, day_half: "AM" )
 appointment2 = Appointment.create(date: Date.today, comment: "The nurse will show me how to do the injections after the operation", user: diane, doctor: doctor2, appointment_hour: 10, appointment_min: 30, day_half: "AM" )
-appointment3 = Appointment.create(date: Date.today, comment: "Yearly meeting with the ophtalmologist in order to see how my sight has evolved. Ask for the new glasses prescription!", user: diane, doctor: doctor3, appointment_hour: 11, appointment_min: 30, day_half: "AM" )
+appointment3 = Appointment.create(date: Date.today, comment: "Yearly meeting with the ophtalmologist in order to see how my sight has evolved. Ask for the new glasses prescription!", user: diane, doctor: doctor3, appointment_hour: 4, appointment_min: 30, day_half: "PM" )
 appointment4 = Appointment.create(date: Date.today, comment: "General checkup. He is replacing Dr Linda for the next months because she is pregnant.", user: diane, doctor: doctor4, appointment_hour: 1, appointment_min: 30, day_half: "PM" )
 appointment5 = Appointment.create(date: Date.today, comment: "Yearly check-up. I should ask her regarding the different suncreams I've seen online that seem to be more ecological. Can they be trusted?", user: diane, doctor: doctor5, appointment_hour: 3, appointment_min: 0, day_half: "PM" )
-appointment6 = Appointment.create(date: Date.today, comment: "Show her your latest blood test results. It seems that you're a bit low in iron", user: diane, doctor: doctor6, appointment_hour: 4, appointment_min: 30, day_half: "PM" )
+appointment6 = Appointment.create(date: Date.today, comment: "Show her your latest blood test results. It seems that you're a bit low in iron", user: diane, doctor: doctor6, appointment_hour: 11, appointment_min: 30, day_half: "AM" )
 appointment7 = Appointment.create(date: Date.today, comment: "Global check-up to make sure I don't have any hereditary risks.", user: diane, doctor: doctor7, appointment_hour: 7, appointment_min: 30, day_half: "PM" )
 
 #diaries seed

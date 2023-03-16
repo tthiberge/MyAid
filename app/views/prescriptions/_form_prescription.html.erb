@@ -1,217 +1,251 @@
  <div class="container-form" >
+    <h1></h1>
     <%= simple_form_for prescription,
           html: {
-            data: {controller: "form flatpickr-prescription"}
-          } do |f| %>
+            data: {controller: "form flatpickr-prescription" }
+          } do |f|
+    %>
+    <%= f.input :treatment_category, # Attr_accessor pour pas que le f.input plus loin le remplace et décoche. Nom factice
+              label: "",
+              placeholder: "Select between pills, cares or exercises",
+              # hint: "Select between pills, cares or exercises",
+              as: :radio_buttons,
+              collection_wrapper_tag: 'div',
+              collection_wrapper_class: 'category-wrapper',
+              item_wrapper_class: 'category-item',
+              checked: prescription.treatment&.category&.capitalize, # &: applique que si c'est pas nil (simplifie ternaire)
 
-            <%= f.input :treatment_category, # Attr_accessor pour pas que le f.input plus loin le remplace et décoche. Nom factice
-                      label: "",
-                      placeholder: "Select between pills, cares or exercises",
-                      # hint: "Select between pills, cares or exercises",
-                      as: :radio_buttons,
-                      collection_wrapper_tag: 'div',
-                      collection_wrapper_class: 'category-wrapper',
-                      item_wrapper_class: 'category-item',
-                      checked: prescription.treatment&.category&.capitalize, # &: applique que si c'est pas nil (simplifie ternaire)
+              # Array d'arrays, pour passer la valeur qu'on affiche, et la valeur qui est envoyée à la soumission
+              collection: [["💊<br>Pills".html_safe, "💊Pills"], ["❤️‍🩹<br>Cares".html_safe, "❤️‍🩹Cares"], ["🚴<br>Exercises".html_safe, "🚴Exercises"]],
+              label_method: :first,
+              value_method: :last,
 
-                      # Array d'arrays, pour passer la valeur qu'on affiche, et la valeur qui est envoyée à la soumission
-                      collection: [["💊<br>Pills".html_safe, "💊Pills"], ["❤️‍🩹<br>Cares".html_safe, "❤️‍🩹Cares"], ["🚴<br>Exercises".html_safe, "🚴Exercises"]],
-                      value_method: :last,
-                      label_method: :first,
+              input_html: {
+                class: 'category-selector',
+                style: "filter: drop-shadow(0px 4px 4px #EBEBF2);",
+                data: {action: "click->form#reveal",
+                      controller: "check-click",
+                      check_click_category_value: prescription&.treatment&.category,
+                      check_click_is_persisted_value: prescription.persisted?
+                      # ATTENTION, une value doit avoir un nom de value (category, isPersisted), pour ce qu'on met dans le hash de static values ensuite côté controller
+                }
+              },
+              wrapper_html: {class: "text-primary"
+                            }%>
 
-                      input_html: {
-                        class: 'category-selector',
-                        style: "filter: drop-shadow(0px 4px 4px #EBEBF2);",
-                        data: {action: "click->form#reveal"}
-                        },
-                      wrapper_html: {class: "text-primary"}%>
-
-            <%# <p>EXEMPLE AVEC TOM-SELECT, NE PAS SUPPRIMER</p> %>
-            <%#= f.input :treatment_id,
-                        label: false,
-                        as: :select,
-                        prompt: "Select your pill ⬇️",
-                        selected: prescription.treatment.present? ? prescription.treatment.id : nil,
-                        input_html: {id: 'treatment-select',
-                                    class: "",
-                                    data: {controller: 'init-tom-select'}
-                                    },
-                        wrapper_html: {
-                                    class: "d-none",
-                                    data: {form_target: 'pills'}
-                        },
-                        collection: Treatment.pills.all.order(:name),
-                        value_method: :id
-            %>
-            <%= f.input :treatment_pill_id,
-                        label: "",
-                        as: :radio_buttons, # as: :select pour tom select
-                        prompt: "Select your pill ⬇️",
-                        selected: prescription.treatment.present? ? prescription.treatment.id : nil,
-                        input_html: {
-                          # id: 'treatment-select',
-                                    class: "category-selector-treatment",
-                                    },
-                        wrapper_html: {
-                                    class: "d-none",
-                                    style: "color: purple; font-weight: 400",
-                                    data: {form_target: 'pills'}
-                        },
-                        collection: Treatment.pills.all.order(:name),
-                        collection_wrapper_tag: 'div',
-                        collection_wrapper_class: 'category-wrapper-treatment',
-                        item_wrapper_class: 'category-item-treatment',
-                        value_method: :id
-            %>
-            <%= f.input :treatment_care_id,
-                        label: "",
-                        as: :radio_buttons, # as: :select pour tom select
-                        prompt: "Select your care ⬇️",
-                        selected: prescription.treatment.present? ? prescription.treatment.id : nil,
-                        input_html:{
-                        # id: 'treatment-select',
-                                    class: "category-selector-treatment"
-                                    # ,data: {controller: 'init-tom-select'}
-                                    },
-                        wrapper_html: {
-                                    class: "d-none",
-                                    style: "color: purple; font-weight: 400",
-                                    data: {form_target: 'cares'}
-                        },
-                        collection: Treatment.cares.all.order(:name),
-                        collection_wrapper_tag: 'div',
-                        collection_wrapper_class: 'category-wrapper-treatment',
-                        item_wrapper_class: 'category-item-treatment',
-                        value_method: :id
-            %>
-            <%= f.input :treatment_exercise_id,
-                        label: "",
-                        as: :radio_buttons, # as: :select pour tom select
-                        prompt: "Select your exercise ⬇️",
-                        selected: prescription.treatment.present? ? prescription.treatment.id : nil,
-                        input_html: {
-                          # id: 'treatment-select',
-                                    class: "category-selector-treatment",
-                                    style: "color: purple; font-weight: 500"
-                                    # ,data: {controller: 'init-tom-select'}
-                                    },
-                        wrapper_html: {
-                                    class: "d-none",
-                                    style: "color: purple; font-weight: 400",
-                                    data: {form_target: 'exercises'}
-                        },
-                        collection: Treatment.exercises.all.order(:name),
-                        collection_wrapper_tag: 'div',
-                        collection_wrapper_class: 'category-wrapper-treatment',
-                        item_wrapper_class: 'category-item-treatment',
-                        value_method: :id
-            %>
-
-          <%# /!\ UTILE %>
-            <%# Above, pour créer treatment_id alors que ce n'est pas une colonne de prescription et donc que j'aurais normalement pas pu appeler %>
-            <%# dans le Model Prescription, on a créé un treatment_id comme attr_accessor. ça permet de créer/FORCER une colonne du simple_form %>
-
-            <%# collection: on peut appeler Treatment car associé à Prescription %>
-            <%# value_method: :id // Pas sûr de pourquoi, mais sûrement pour pouvoir appeler traitement qui est connecté à Prescription par l'id %>
-
-            <%# On initialise TOM SELECT, un plug-in JavaScript stylé et très utile qui permet de fairre un autocomplete dans un search + dropdown + plusieurs options customizables %>
-          <%= f.input :start_date,
-                    label: "Start date",
-                    as: :string, # pour FLATPICKR
-                    # as: :date, # sans FLATPICKR
-                    # html5:true, # sans FLATPICKR
-                    wrapper_html: {
-                        class: "text-primary "
-                    }, # Change la couleur du label
-                    input_html: {
-                      class: "card-for d-none",
-                      data: {
-                        flatpickr_prescription_target: "startDate"
-                      }
-                    },
-                    label_html: {
-                      class: "d-none"
+    <%= f.input :treatment_pill_id, # Attr_accessor pour pas que le f.input plus loin le remplace et décoche. Nom factice
+                label: "",
+                as: :radio_buttons, # as: :select pour tom select
+                prompt: "Select your pill ⬇️",
+                selected: prescription.treatment.present? ? prescription.treatment.id : nil,
+                input_html: {
+                  # id: 'treatment-select', # Ne pas supprimer! Besoin pour TomSelect (voir bas de page)
+                  class: "category-selector-treatment",
+                  data: {
+                    controller: "check-click",
+                    check_click_category_value: prescription&.treatment&.id,
+                    check_click_is_persisted_value: prescription.persisted?
                     }
-          %>
-          <%= f.input :end_date,
-                    label: "End date",
-                    as: :string, # pour FLATPICKR
-                    # as: :date, # sans FLATPICKR
-                    # html5:true, # sans FLATPICKR
-                    wrapper_html: {
-                        class: "d-none"
-                    }, # Change la couleur du label
-                    input_html: {
-                      class: "card-form",
-                      data: {
-                        flatpickr_prescription_target: "endDate"
-                      }
-                      # Change la couleur des inputs + bk-white + filter shadow
+                  },
+                wrapper_html: {
+                  class: "d-none",
+                  style: "color: purple; font-weight: 400",
+                  data: {form_target: 'pills'}
+                },
+                collection: Treatment.pills.all.order(:name),
+                collection_wrapper_tag: 'div',
+                collection_wrapper_class: 'category-wrapper-treatment',
+                item_wrapper_class: 'category-item-treatment',
+                value_method: :id
+    %>
+    <%= f.input :treatment_care_id, # Attr_accessor pour pas que le f.input plus loin le remplace et décoche. Nom factice
+                label: "",
+                as: :radio_buttons, # as: :select pour tom select
+                prompt: "Select your care ⬇️",
+                selected: prescription.treatment.present? ? prescription.treatment.id : nil,
+                input_html:{
+                  # id: 'treatment-select', # Ne pas supprimer! Besoin pour TomSelect (voir bas de page)
+                  class: "category-selector-treatment",
+                  # ,data: {controller: 'init-tom-select'} # Ne pas supprimer! Besoin pour TomSelect (voir bas de page)
+                  data: {
+                    controller: "check-click",
+                    check_click_category_value: prescription&.treatment&.id,
+                    check_click_is_persisted_value: prescription.persisted?
                     }
-          %>
-        <%= f.input :day_half,
-                  label: "",
-                  # required: true,
-                  as: :radio_buttons,
-                  collection: %w[AM PM],
-                  collection_wrapper_tag: 'div',
-                  collection_wrapper_class: 'category-wrapper-ampm',
-                  item_wrapper_class: 'category-item-ampm',
-                  input_html: {
-                    class: "card-form category-selector-ampm",
-                    style: "filter: drop-shadow(0px 4px 4px #EBEBF2);",
-                    data: {action: "click->form#revealAMPM"}
-                  },
-                  wrapper_html: {
-                    class: "text-primary mt-4"
-                  }
-        %>
-        <%= f.input :time_morning,
-                  label: "",
-                  as: :radio_buttons, # as: :time pour selectionner autant d'heures et minutes qu'on veut!!
-                  collection: Prescription::TIMES,
-                  collection_wrapper_tag: 'div',
-                  collection_wrapper_class: 'category-wrapper-hours',
-                  item_wrapper_class: 'category-item-hours',
-                  wrapper_html: {
-                      class: "d-none",
-                      data: {form_target: 'morning'}
-                  },
-                  input_html: {
-                    class: "card-form category-selector-hours",
-                  }
-        %>
-        <%= f.input :time_afternoon,
-                  label: "",
-                  as: :radio_buttons, # as: :time pour selectionner autant d'heures et minutes qu'on veut!!
-                  collection: Prescription::TIMES,
-                  collection_wrapper_tag: 'div',
-                  collection_wrapper_class: 'category-wrapper-hours',
-                  item_wrapper_class: 'category-item-hours',
-                  wrapper_html: {
-                      class: "d-none ",
-                      data: {form_target: 'afternoon'}
-                  },
-                  input_html: {
-                    class: "card-form category-selector-hours",
-                  }
-        %>
-
-          <%= f.input :comment,
-                    label: false,
-                    as: :text,
-                    placeholder: "Describe your prescription here 📝",
-                    # hint_html: { style: "font-size: 0.72em;" },
-                    wrapper_html: {
-                        class: "text-primary"
-                    }, # Change la couleur du label
-                    input_html: {
-                      class: "card-form",
-                      # Change la couleur des inputs + bk-white + filter shadow
+                },
+                wrapper_html: {
+                  class: "d-none",
+                  style: "color: purple; font-weight: 400",
+                  data: {form_target: 'cares'}
+                },
+                collection: Treatment.cares.all.order(:name),
+                collection_wrapper_tag: 'div',
+                collection_wrapper_class: 'category-wrapper-treatment',
+                item_wrapper_class: 'category-item-treatment',
+                value_method: :id
+    %>
+    <%= f.input :treatment_exercise_id, # Attr_accessor pour pas que le f.input plus loin le remplace et décoche. Nom factice
+                label: "",
+                as: :radio_buttons, # as: :select pour tom select
+                prompt: "Select your exercise ⬇️",
+                selected: prescription.treatment.present? ? prescription.treatment.id : nil,
+                input_html: {
+                  class: "category-selector-treatment",
+                  style: "color: purple; font-weight: 500",
+                  data: {
+                    controller: "check-click",
+                    check_click_category_value: prescription&.treatment&.id,
+                    check_click_is_persisted_value: prescription.persisted?
                     }
-          %>
+                  # ,data: {controller: 'init-tom-select'}
+                  },
+                wrapper_html: {
+                  class: "d-none",
+                  style: "color: purple; font-weight: 400",
+                  data: {form_target: 'exercises'}
+                },
+                collection: Treatment.exercises.all.order(:name),
+                collection_wrapper_tag: 'div',
+                collection_wrapper_class: 'category-wrapper-treatment',
+                item_wrapper_class: 'category-item-treatment',
+                value_method: :id
+    %>
+    <%= f.input :start_date,
+              label: "Start date",
+              as: :string, # pour FLATPICKR
+              # as: :date, # sans FLATPICKR
+              # html5:true, # sans FLATPICKR
+              wrapper_html: {
+                  class: "text-primary "
+              }, # Change la couleur du label
+              input_html: {
+                class: "card-for d-none",
+                data: {
+                  flatpickr_prescription_target: "startDate"
+                }
+              },
+              label_html: {
+                class: "d-none"
+              }
+    %>
+    <%= f.input :end_date,
+              label: "End date",
+              as: :string, # pour FLATPICKR
+              # as: :date, # sans FLATPICKR
+              # html5:true, # sans FLATPICKR
+              wrapper_html: {
+                  class: "d-none"
+              }, # Change la couleur du label
+              input_html: {
+                class: "card-form",
+                data: {
+                  flatpickr_prescription_target: "endDate"
+                }
+                # Change la couleur des inputs + bk-white + filter shadow
+              }
+    %>
+  <%= f.input :day_half,
+            label: "",
+            # required: true,
+            as: :radio_buttons,
+            collection: %w[AM PM],
+            collection_wrapper_tag: 'div',
+            collection_wrapper_class: 'category-wrapper-ampm',
+            item_wrapper_class: 'category-item-ampm',
+            input_html: {
+              class: "card-form category-selector-ampm",
+              style: "filter: drop-shadow(0px 4px 4px #EBEBF2);",
+              data: {
+                action: "click->form#revealAMPM",
+                controller: "check-click",
+                check_click_category_value: prescription&.day_half,
+                check_click_is_persisted_value: prescription.persisted?
+              }
+            },
+            wrapper_html: {
+              class: "text-primary mt-4"
+            }
+  %>
+  <%= f.input :time_morning,
+            label: "",
+            as: :radio_buttons, # as: :time pour selectionner autant d'heures et minutes qu'on veut!!
+            collection: Prescription::TIMES,
+            collection_wrapper_tag: 'div',
+            collection_wrapper_class: 'category-wrapper-hours',
+            item_wrapper_class: 'category-item-hours',
+            wrapper_html: {
+                class: "d-none",
+                data: {form_target: 'morning'}
+            },
+            input_html: {
+              class: "card-form category-selector-hours",
+              data: {controller: "check-click",
+                    check_click_category_value: "#{prescription&.todo_hours}:#{prescription&.todo_minutes}",
+                    check_click_is_persisted_value: prescription.persisted?}
+            }
+  %>
+  <%= f.input :time_afternoon,
+            label: "",
+            as: :radio_buttons, # as: :time pour selectionner autant d'heures et minutes qu'on veut!!
+            collection: Prescription::TIMES,
+            collection_wrapper_tag: 'div',
+            collection_wrapper_class: 'category-wrapper-hours',
+            item_wrapper_class: 'category-item-hours',
+            wrapper_html: {
+                class: "d-none ",
+                data: {form_target: 'afternoon'}
+            },
+            input_html: {
+              class: "card-form category-selector-hours",
+              data: {controller: "check-click",
+                    check_click_category_value: "#{prescription&.todo_hours}:#{prescription&.todo_minutes}",
+                    check_click_is_persisted_value: prescription.persisted?}
+            }
+  %>
+  <%= f.input :comment,
+            label: false,
+            as: :text,
+            placeholder: "Describe your prescription here 📝",
+            # hint_html: { style: "font-size: 0.72em;" },
+            wrapper_html: {
+                class: "text-primary"
+            }, # Change la couleur du label
+            input_html: {
+              class: "card-form",
+              # Change la couleur des inputs + bk-white + filter shadow
+            }
+  %>
       <%= f.submit "Save", class: "purple-button" %>
   <% end %>
 </div>
 
-<%#= ren#der partial: "time_picker", locals: {presccription: prescription} %>
+<%# <p> NE PAS SUPPRIMER </p> %>
+
+
+<%# <p>EXEMPLE AVEC TOM-SELECT, NE PAS SUPPRIMER</p> %>
+<%#= f.input :treatment_id,
+            label: false,
+            as: :select,
+            prompt: "Select your pill ⬇️",
+            selected: prescription.treatment.present? ? prescription.treatment.id : nil,
+            input_html: {id: 'treatment-select',
+                        class: "",
+                        data: {controller: 'init-tom-select'}
+                        },
+            wrapper_html: {
+                        class: "d-none",
+                        data: {form_target: 'pills'}
+            },
+            collection: Treatment.pills.all.order(:name),
+            value_method: :id
+%>
+
+
+<%# /!\ UTILE %>
+  <%# Above, pour créer treatment_id alors que ce n'est pas une colonne de prescription et donc que j'aurais normalement pas pu appeler %>
+  <%# dans le Model Prescription, on a créé un treatment_id comme attr_accessor. ça permet de créer/FORCER une colonne du simple_form %>
+
+  <%# collection: on peut appeler Treatment car associé à Prescription %>
+  <%# value_method: :id // Pas sûr de pourquoi, mais sûrement pour pouvoir appeler traitement qui est connecté à Prescription par l'id %>
+
+  <%# On initialise TOM SELECT, un plug-in JavaScript stylé et très utile qui permet de fairre un autocomplete dans un search + dropdown + plusieurs options customizables %>

@@ -4,17 +4,17 @@
   </div>
 
   <div class="homepage-calendar-card">
-  <%= week_calendar(events: @events, attribute: :start_date, end_attribute: :end_date) do |date, events| %>
-    <div class="simple-calendar-day">
-      <div class="d-day">
-        <span class="day-number"><%= date.day %></span>
-        <span class="day-name"><%= t('date.abbr_day_names')[date.wday][0..1] %></span>
+    <%= week_calendar(events: @events, attribute: :start_date, end_attribute: :end_date) do |date, events| %>
+      <div class="simple-calendar-day">
+        <div class="d-day">
+          <span class="day-number"><%= date.day %></span>
+          <span class="day-name"><%= t('date.abbr_day_names')[date.wday][0..1] %></span>
+        </div>
       </div>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
+
 </div>
-
-
 <div class="pb-5">
   <%= link_to pills_path do %>
       <div class="card-reminder">
@@ -28,7 +28,7 @@
 
           <% @pill_prescriptions.first(2).each do |pill_prescription| %>
             <div class="content-wrap-hour-prescription">
-              <p class="reminder-hours"><%= pill_prescription.todo_hours %>:<%= pill_prescription.todo_minutes == 0 ? "00" : "30" %></p>
+              <p class="reminder-hours"><%= pill_prescription.todo_hours %>:<%= pill_prescription.todo_minutes == 0 ? "00" : "30" %> <%=pill_prescription.day_half%></p>
               <p><%= pill_prescription.treatment.name.capitalize %></p>
             </div>
           <%end%>
@@ -48,7 +48,7 @@
 
             <% @care_prescriptions.first(2).each do |care_prescription| %>
             <div class="content-wrap-hour-prescription">
-              <p class="reminder-hours"><%= care_prescription.todo_hours %>:<%= care_prescription.todo_minutes == 0 ? "00" : "30" %></p>
+              <p class="reminder-hours"><%= care_prescription.todo_hours %>:<%= care_prescription.todo_minutes == 0 ? "00" : "30" %> <%=care_prescription.day_half%></p>
               <p><%= care_prescription.treatment.name.capitalize %></p>
             </div>
           <%end%>
@@ -56,64 +56,63 @@
     </div>
   <% end %>
 
-  <%= link_to appointments_path do %>
-    <div class="card-reminder">
-      <div class="flex-prescription-title-icon mb-2">
-        <%= image_tag("appointments-icon.svg", width: 25) %>
-        <h1> Appointments </h1>
+    <%= link_to appointments_path do %>
+      <div class="card-reminder">
+        <div class="flex-prescription-title-icon mb-2">
+          <%= image_tag("appointments-icon.svg", width: 25) %>
+          <h1> Appointments </h1>
+        </div>
+
+        <div class="content-wrap-reminder">
+              <h6>My next appointments</h6>
+            <% @appointments.first(2).each do |appointment| %>
+              <div class="content-wrap-hour-prescription">
+                <p class="reminder-hours"><%=appointment.appointment_hour%>:<%=appointment.appointment_min == 0 ? "00" : "30" %> <%=appointment.day_half%></p>
+                <p class="reminder-specialty"><%=appointment.doctor.specialty.capitalize%></p>
+                <p>👩‍⚕️ <%=appointment.doctor.title.capitalize%> <%=appointment.doctor.name.capitalize%></p>
+              </div>
+            <% end %>
+        </div>
       </div>
+    <% end %>
 
-      <div class="content-wrap-reminder">
-            <h6>My next appointments</h6>
-          <% @appointments.first(2).each do |appointment| %>
-            <div class="content-wrap-hour-prescription">
-              <p class="reminder-hours"><%=appointment.appointment_hour%>:<%=appointment.appointment_min == 0 ? "00" : "30" %></p>
-              <p class="reminder-specialty"><%=appointment.doctor.specialty.capitalize%></p>
-              <p>👩‍⚕️ <%=appointment.doctor.title.capitalize%> <%=appointment.doctor.name.capitalize%></p>
-            </div>
-          <% end %>
+    <%= link_to exercises_path do %>
+      <div class="card-reminder mb-5">
+        <div class="flex-prescription-title-icon mb-2">
+          <%= image_tag("exercises-icon.svg", width: 25) %>
+          <h1> Exercises </h1>
+        </div>
+
+        <div class="content-wrap-reminder">
+              <h6>My next exercises</h6>
+
+              <% @exercise_prescriptions.first(2).each do |exercise_prescription| %>
+              <div class="content-wrap-hour-prescription">
+                <p class="reminder-hours"><%= exercise_prescription.todo_hours %>:<%= exercise_prescription.todo_minutes == 0 ? "00" : "30" %> <%=exercise_prescription.day_half%></p>
+                <p><%= exercise_prescription.treatment.name.capitalize %></p>
+              </div>
+            <%end%>
+        </div>
       </div>
-    </div>
-  <% end %>
+    <% end %>
 
 
 
-  <%= link_to exercises_path do %>
-    <div class="card-reminder mb-5">
-      <div class="flex-prescription-title-icon mb-2">
-        <%= image_tag("exercises-icon.svg", width: 25) %>
-        <h1> Exercises </h1>
-      </div>
-
-      <div class="content-wrap-reminder">
-            <h6>My next exercises</h6>
-
-            <% @exercise_prescriptions.first(2).each do |exercise_prescription| %>
-            <div class="content-wrap-hour-prescription">
-              <p class="reminder-hours"><%= exercise_prescription.todo_hours %>:<%= exercise_prescription.todo_minutes == 0 ? "00" : "30" %></p>
-              <p><%= exercise_prescription.treatment.name.capitalize %></p>
-            </div>
-          <%end%>
-      </div>
-    </div>
-  <% end %>
-
-
-
-  <div class="features">
-    <% if @diary %>
-      <%= link_to diary_path(@diary) do %>
-        <i class="fa-solid fa-book-medical"></i>
+    <div class="features">
+      <% if @diary %>
+        <%= link_to diary_path(@diary) do %>
+          <i class="fa-solid fa-book-medical"></i>
+        <% end %>
       <% end %>
-    <% end %>
-    <%= link_to boost_path do %>
-      <i class="fa-solid fa-rocket"></i>
-    <% end %>
-    <%= link_to prescriptions_path do %>
-      <i class="fa-solid fa-calendar-days"></i>
-    <% end %>
-    <%= link_to edit_user_registration_path do %>
-      <i class="fa-solid fa-user"></i>
-    <% end %>
+      <%= link_to boost_path do %>
+        <i class="fa-solid fa-rocket"></i>
+      <% end %>
+      <%= link_to prescriptions_path do %>
+        <i class="fa-solid fa-calendar-days"></i>
+      <% end %>
+      <%= link_to edit_user_registration_path do %>
+        <i class="fa-solid fa-user"></i>
+      <% end %>
+    </div>
   </div>
 </div>

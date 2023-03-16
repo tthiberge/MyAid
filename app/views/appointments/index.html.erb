@@ -16,7 +16,7 @@
   <div class="d-flex justify-content-between align-items-center">
     <div class="header-title-purple">
       <div class="left-title">
-        <h2><%= image_tag("appointments-icon.svg", width: 30) %></i> My Appointments</h2>
+        <h2><%= image_tag("appointments-icon.svg", width: 30) %> My Appointments</h2>
       </div>
     </div>
     <div class="circle-add-new mx-3">
@@ -26,8 +26,10 @@
     </div>
   </div>
 
-  <div class="day-of-prescription">
-    <h6><strong><%= Date.today.strftime("%A - %B %d, %Y") %></strong><h6>
+  <div class="d-flex justify-content-center">
+    <div class="day-of-prescription">
+      <h6><strong><%= Date.today.strftime("%A - %B %d, %Y") %></strong></h6>
+    </div>
   </div>
   <!-- 1 -- PRESCRIPTION CARD -->
 
@@ -59,7 +61,11 @@
             <!-- Cercle d'action 1 : cancel -->
 
             <div class="action-circle-1">
-              <%= link_to destroy_prescription_path(appointment), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
+
+              <%#= link_to destroy_appointment_path(appointment), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
+
+              <%= button_to destroy_appointment_path(appointment), method: :delete,form: {"data-controller": "alertbysweet"}, data: {  action:"click->alertbysweet#confirm"}, class: "bid" do %>
+
                 <i class="fa-solid fa-xmark"></i>
               <% end %>
             </div>
@@ -67,7 +73,7 @@
             <!-- Cercle d'action 2 : edit -->
 
             <div class="action-circle-2">
-            <%= link_to edit_prescription_path(appointment) do %>
+            <%= link_to edit_appointment_path(appointment) do %>
               <i class="fa-solid fa-pencil"></i>
             <% end %>
             </div>

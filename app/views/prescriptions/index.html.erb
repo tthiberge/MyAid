@@ -22,6 +22,8 @@
         <% has_appointment = false %>
         <% has_prescription = false %>
         <% events.each do |event| %>
+
+
           <% if event.class == Appointment && !has_appointment %>
             <br> <%= image_tag("rond-bluey.png", width: 10, style: "opacity: 0.5;") %>
             <% has_appointment = true %>

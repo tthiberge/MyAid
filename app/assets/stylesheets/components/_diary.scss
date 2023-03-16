@@ -169,3 +169,83 @@
 input {
   border: 2px solid #eee
 }
+
+.diary-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 5px;
+  row-gap: 5px;
+  margin-inline: 8px;
+}
+
+.diaries-pictures {
+  background-color: #D2C5E1;
+  border-radius: 40px;
+  width: 100%;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.diary-arrow-down {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  i {
+    font-size: 40px;
+    margin-top: 20px;
+  }
+}
+
+.diary-picture {
+  border-radius: 40px;
+  width: 100%;
+  height: 30vh;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  margin-bottom: 20px;
+
+  img {
+    object-fit: cover;
+    width: 100%;
+    height: 30vh;
+    border-radius: 40px;
+    overflow: cover;
+    position: relative;
+    opacity: 50%;
+  }
+
+  .diary-date-picture {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: purple;
+    position: absolute;
+    bottom: 10px;
+    width: 80%;
+    height: 20px;
+    background-color:#D2C5E1;
+    border-radius: 30px;
+
+
+    p {
+      font-weight: 800px;
+      font-size: 16px;
+    }
+  }
+}
+
+.diary-smileys {
+  padding-top: 5px;
+  width: 80%;
+  i {
+    color: purple;
+    font-size: 30px;
+  }
+}
