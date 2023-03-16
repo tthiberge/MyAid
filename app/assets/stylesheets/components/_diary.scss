@@ -119,8 +119,8 @@
 
 .rating-pain-scale {
   display: flex;
-  width: 100%;
-  justify-content: left;
+  width: 70vw;
+  justify-content: center;
   overflow: hidden;
   flex-direction: row-reverse;
   // height: 150px;
@@ -243,7 +243,7 @@ input {
 
 .diary-smileys {
   padding-top: 5px;
-  width: 80%;
+  width: 90vw;
   i {
     color: purple;
     font-size: 30px;
