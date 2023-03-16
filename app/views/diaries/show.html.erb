@@ -61,20 +61,21 @@
         </div>
 
       <div class="d-flex justify-content-center content-wrap">
-          <div class="field form-group">
-            <div class="rating-pain-scale">
-              <%= f.collection_radio_buttons(:pain_scale, [[10], [9], [8], [7], [6], [5],[4],[3],[2],[1]], :first, :last) do |star| %>
-                <%= star.radio_button %>
-                <%= star.label(class: "text-white") { "" } %>
-              <% end %>
-            </div>
+        <div class="field form-group">
+          <div class="rating-pain-scale">
+            <%= f.collection_radio_buttons(:pain_scale, [[10], [9], [8], [7], [6], [5],[4],[3],[2],[1]], :first, :last) do |star| %>
+              <%= star.radio_button %>
+              <%= star.label(class: "text-white") { "" } %>
+            <% end %>
           </div>
+        </div>
       </div>
-
       <div class="diary-smileys d-flex justify-content-between content-wrap">
-        <i class="fa-regular fa-face-frown-open"></i>
+          <i class="fa-regular fa-face-frown-open"></i>
         <i class="fa-regular fa-face-laugh-beam"></i>
       </div>
+
+
 
       <div class="action-wrap">
         <div class="action-go-to-my-boost">
