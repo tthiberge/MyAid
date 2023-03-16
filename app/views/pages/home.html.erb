@@ -101,24 +101,22 @@
         </div>
       </div>
     <% end %>
+  </div>
 
-
-
-    <div class="features">
-      <% if @diary %>
-        <%= link_to diary_path(@diary) do %>
-          <i class="fa-solid fa-book-medical"></i>
-        <% end %>
+  <div class="navbar-features" data-controller="navbar" data-action="scroll@window->navbar#updateNavbar">
+    <% if @diary %>
+      <%= link_to diary_path(@diary) do %>
+        <i class="fa-solid fa-book-medical"></i>
       <% end %>
-      <%= link_to boost_path do %>
-        <i class="fa-solid fa-rocket"></i>
-      <% end %>
-      <%= link_to prescriptions_path do %>
-        <i class="fa-solid fa-calendar-days"></i>
-      <% end %>
-      <%= link_to edit_user_registration_path do %>
-        <i class="fa-solid fa-user"></i>
-      <% end %>
-    </div>
+    <% end %>
+    <%= link_to boost_path do %>
+      <i class="fa-solid fa-rocket"></i>
+    <% end %>
+    <%= link_to prescriptions_path do %>
+      <i class="fa-solid fa-calendar-days"></i>
+    <% end %>
+    <%= link_to edit_user_registration_path do %>
+      <i class="fa-solid fa-user"></i>
+    <% end %>
   </div>
 </div>

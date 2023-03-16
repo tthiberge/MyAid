@@ -1,17 +1,14 @@
 <div class="my-calendar">
 
   <div class="my-calendar-heading">
+    <span class="my-calendar-title"><%= calendar.date_range.first.strftime("%B %Y") %></span>
+  </div>
+
+  <div class="d-flex align-items-center mx-auto">
     <%= link_to calendar.url_for_previous_view, class: "my-calendar-prev-link" do %>
       <i class="fas fa-caret-left"></i>
     <% end %>
-    <span class="my-calendar-title"><%= calendar.date_range.first.strftime("%B %Y") %></span>
-    <%= link_to calendar.url_for_next_view, class: "my-calendar-next-link" do %>
-        <i class="fas fa-caret-right"></i>
-    <% end %>
-  </div>
-
-  <table class="my-calendar-table">
-    <tbody>
+    <table class="my-calendar-table">
       <% date_range.each_slice(7) do |week| %>
         <tr>
           <% week.each do |day| %>
@@ -25,7 +22,10 @@
           <% end %>
         </tr>
       <% end %>
-    </tbody>
-  </table>
+    </table>
+    <%= link_to calendar.url_for_next_view, class: "my-calendar-next-link" do %>
+      <i class="fas fa-caret-right"></i>
+    <% end %>
+  </div>
 
 </div>
