@@ -11,7 +11,7 @@ export default class extends Controller {
     event.preventDefault()
     Swal.fire({
       title: 'Are you sure?',
-      text: 'You do not want to see the doctor?',
+      text: "Don't you want to see the doctor?",
       icon: 'error',
       cancelButtonColor: "#0066CC",
       confirmButtonColor: "#04E25D",
