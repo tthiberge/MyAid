@@ -119,33 +119,36 @@
           </div>
         </div>
 
-        <div class= "weatherapi">
-          <div class="cityname-weather">
-            <h1 id="weather-name-api"><%= @weather.name%></h1>
-          </div>
-          <div class="degreeicon">
-            <div class="degree">
-              <h1><strong><%= @weather.main.temp_max_c.to_i %>&deg</strong></h1>
+        <div class="d-flex justify-content-center">
+          <div class= "weather-widget">
+            <div>
+              <h1><%= @weather.name%></h1>
             </div>
-            <div class="weathericon">
-              <%= image_tag(@weather.weather.first["icon_uri"].to_s) %>
+            <div class="weather-icons-temperature">
+              <div>
+                <%= image_tag(@weather.weather.first["icon_uri"].to_s) %>
+              </div>
+              <div class="mr-4">
+                <h1><strong><%= @weather.main.temp_max_c.to_i %>&deg</strong></h1>
+              </div>
             </div>
-            <div class="weatherdescription">
-              <p>Previsions for your appointment <strong><%= @weather.weather.first.description%> </strong> </p>
+            <div>
+              <h3><strong><%= @weather.weather.first.description.capitalize%> </strong> </h3>
             </div>
-          </div>
-        </div>
 
-        <div class="weather-advice">
-          <% if @weather.main.temp_max_c < 10 %>
-            <p>The weather would be cold. Please wear warm clothing!</p>
-          <% elsif @weather.weather.first.main == "Rain" %>
-            <p>It gonna be raining outside. Please take an umbrella with you!</p>
-          <% elsif @weather.weather.first.main == "Clear" %>
-            <p>The weather would be sunny. Enjoy the sunshine!</p>
-          <% else %>
-            <p>The weather is <%= @weather.weather.first.main %>. Please prepare accordingly.</p>
-          <% end %>
+
+            <div class="weather-decription">
+              <% if @weather.main.temp_max_c < 10 %>
+                <p>The weather would be cold. Please wear warm clothing!</p>
+              <% elsif @weather.weather.first.main == "Rain" %>
+                <p>It gonna be raining outside. Please take an umbrella with you!</p>
+              <% elsif @weather.weather.first.main == "Clear" %>
+                <p>The weather would be sunny. Enjoy the sunshine!</p>
+              <% else %>
+                <p>The weather is <%= @weather.weather.first.main %>. Please prepare accordingly.</p>
+              <% end %>
+            </div>
+          </div>
         </div>
       </div>
     </div>
