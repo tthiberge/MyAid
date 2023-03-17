@@ -111,7 +111,7 @@ doctor6 = Doctor.create!(title: "Pr.", name: "Donovan", specialty: "General", ad
 doctor7 = Doctor.create!(title: "Pr.", name: "Pilgert", specialty: "Cancer", address: "184 Rue du Faubourg Saint-Antoine, 75012 Paris", latitude: 37.7749, longitude: -122.4194, user: theo)
 
 #doctors for demo day
-doctor8 = Doctor.create!(title: "Dr.", name: "Estegassy", specialty: "Post Op", address: "1 Av. Claude Vellefaux, 75010 Paris", latitude: 37.7749, longitude: -122.4194, user: diane)
+doctor8 = Doctor.create!(title: "Dr.", name: "Gassy", specialty: "Post Op", address: "1 Av. Claude Vellefaux, 75010 Paris", latitude: 37.7749, longitude: -122.4194, user: diane)
 doctor9 = Doctor.create!(title: "Nrs.", name: "Hawks", specialty: "Post Op Care", address: "102 Rue Saint-Maur, 75011 Paris", latitude: 37.7749, longitude: -122.4194, user: diane)
 
 
