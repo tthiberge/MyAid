@@ -12,7 +12,7 @@ We designed this app specifically for people that may not be in their best condi
 Therefore, we decided to create an app that is user-friendly, that gets rid of all unnecessary information and that is easy to use.
 We spent a long time on the forms to make sure that these sometimes boring inputs became easy to use and lovable.
 
-** _Basically, we designed something that is strictly useful. _ **
+**_Basically, we designed something that is strictly useful._**
 
 In order to support people during their treatment, we also designed the possibility to track the evolution of their condition, through selfies, texts, pain and motivation scales.
 The idea is to be able to follow up on one's personal medical diary.
